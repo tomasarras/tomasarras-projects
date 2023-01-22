@@ -6,7 +6,7 @@ import styles from "./sha.module.css";
 export default function SHA() {
   const [textUppercase, setTextUppercase] = useState(false);
   const [text, setText] = useState("");
-  const [prefixEnabled, setPrefixEnabled] = useState(false);
+  const [prefixEnabled, setPrefixEnabled] = useState(true);
   const [prefixUppercase, setPrefixUppercase] = useState(true);
   const [prefixLength, setPrefixLength] = useState(9);
   const [prefix, setPrefix] = useState("");
