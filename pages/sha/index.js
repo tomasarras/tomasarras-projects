@@ -109,7 +109,7 @@ export default function SHA() {
         </Row>
         <Form.Label htmlFor="prefix">Prefix</Form.Label>
         <InputGroup className="mb-3">
-          <InputGroup.Checkbox onChange={() => setPrefixEnabled(!prefixEnabled)} value={prefixEnabled} />
+          <InputGroup.Checkbox onChange={() => setPrefixEnabled(!prefixEnabled)} checked={prefixEnabled} />
           <Form.Control id="prefix" placeholder="Prefix" onChange={(e) => setPrefix(e.target.value)} value={prefix} />
         </InputGroup>
       </Col>
