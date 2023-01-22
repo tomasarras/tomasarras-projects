@@ -7,3 +7,11 @@
   justify-content: center;
   align-items: center;
 }
+
+.darkMode {
+  background-color: black;
+}
+
+.lightMode {
+  background-color: white;
+}
