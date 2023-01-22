@@ -12,6 +12,7 @@ export default function SHA() {
   const [prefix, setPrefix] = useState("");
   const [hashResult, setHashResult] = useState("");
   const [prefixHash, setPrefixHash] = useState("");
+  const [prefixHashed, setPrefixHashed] = useState(false);
   const [textHash, setTextHash] = useState("");
   const [textLength, setTextLength] = useState(9);
   const [copied, setCopied] = useState(false);
@@ -43,8 +44,12 @@ export default function SHA() {
     if (prefix === "" || !prefixEnabled) {
       setPrefixHash("");
     } else {
-      const hash = await sha256(prefix);
-      setPrefixHash(chainFilter(hash, { uppercase: prefixUppercase, length: prefixLength }));
+      if (prefixHashed) {
+        const hash = await sha256(prefix);
+        setPrefixHash(chainFilter(hash, { uppercase: prefixUppercase, length: prefixLength }));
+      } else {
+        setPrefixHash(prefix);
+      }
     }
   };
 
@@ -67,7 +72,7 @@ export default function SHA() {
   useEffect(() => {
     hashPrefix();
     calculateHashResult();
-  }, [prefix, prefixEnabled, prefixUppercase, prefixLength]);
+  }, [prefix, prefixEnabled, prefixUppercase, prefixLength, prefixHashed]);
 
   const onCopyToClipboard = () => {
     navigator.clipboard.writeText(hashResult);
@@ -82,29 +87,24 @@ export default function SHA() {
   <Container className={`mt-4`}>
     <Row>
       <Col sm={12}>
-        <Form.Label htmlFor="prefix-uppercase">Uppercase</Form.Label>
-        <div className="d-flex">
-          <Form.Check
-            type="radio"
-            label="Yes"
-            id="prefix-uppercase"
-            checked={prefixUppercase}
-            onChange={() => setPrefixUppercase(!prefixUppercase)}
-          />
-          <Form.Check 
-            className="ms-4"
-            type="radio"
-            label="No"
-            checked={!prefixUppercase}
-            onChange={() => setPrefixUppercase(!prefixUppercase)}
-          />
-        </div>
+        <Form.Check
+          type="checkbox"
+          label="Uppercase"
+          checked={prefixUppercase}
+          onChange={() => setPrefixUppercase(!prefixUppercase)}
+        />
+        <Form.Check
+          type="checkbox"
+          label="Hash"
+          checked={prefixHashed}
+          onChange={() => setPrefixHashed(!prefixHashed)}
+        />
         <Form.Label htmlFor="prefix-length">Length</Form.Label>
         <Row>
           <Col sm={3}>
-          <InputGroup className="mb-3">
-            <Form.Control type="number" id="prefix-length" placeholder="Length" onChange={(e) => setPrefixLength(e.target.value)} value={prefixLength} />
-          </InputGroup>
+            <InputGroup className="mb-3">
+              <Form.Control type="number" id="prefix-length" placeholder="Length" onChange={(e) => setPrefixLength(e.target.value)} value={prefixLength} />
+            </InputGroup>
           </Col>
         </Row>
         <Form.Label htmlFor="prefix">Prefix</Form.Label>
@@ -114,23 +114,12 @@ export default function SHA() {
         </InputGroup>
       </Col>
       <Col sm={12}>
-        <Form.Label htmlFor="text-uppercase">Uppercase</Form.Label>
-        <div className="d-flex">
-          <Form.Check
-            type="radio"
-            label="Yes"
-            id="text-uppercase"
-            checked={textUppercase}
-            onChange={() => setTextUppercase(!textUppercase)}
-          />
-          <Form.Check 
-            className="ms-4"
-            type="radio"
-            label="No"
-            checked={!textUppercase}
-            onChange={() => setTextUppercase(!textUppercase)}
-          />
-        </div>
+        <Form.Check
+          type="checkbox"
+          label="Uppercase"
+          checked={textUppercase}
+          onChange={() => setTextUppercase(!textUppercase)}
+        />
         <Form.Label htmlFor="text-length">Length</Form.Label>
         <Row>
           <Col sm={3}>
