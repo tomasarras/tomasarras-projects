@@ -3,6 +3,13 @@ import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import styles from '../styles/Home.module.css';
 export default function Home() {
+  const [url, setUrl] = useState("");
+
+  const test = async () => {
+    const response = await fetch(url);
+    const json = await response.json()
+    console.log(json);
+  }
   
   return (
     <div className={styles.container}>
@@ -13,6 +20,8 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
+        <input value={url} onChange={(e) => setUrl(e.target.value)}></input>
+        <button onClick={test}>Click</button>
       </main>
     </div>
   )
