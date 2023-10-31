@@ -71,13 +71,18 @@ export default function BTTFCircuits({ destination, present, lastTime }) {
     const day = date.getDate()
       .toString()
       .padStart(2, '0');
-    const hour = date.getHours()
+    let hour = date.getHours();
+    let isAm = hour < 13;
+    let isPm = hour >= 13;
+    if (isPm)
+      hour = hour -12;
+    hour = hour
       .toString()
       .padStart(2, '0');
     const min = date.getMinutes()
       .toString()
       .padStart(2, '0');
-    return { ...empty, month, day, year: date.getFullYear(), hour, min }
+    return { ...empty, month, day, year: date.getFullYear(), hour, min, isAm, isPm }
   }
   
 
