@@ -217,7 +217,10 @@
     position: absolute;
     right: 3px;
     bottom: 20px; }
-  
+  .destination .indicator-light.light-red {
+    background-color: #F7582F;
+    box-shadow: rgba(0, 0, 0, 0.1) 0 -1px 7px 1px, inset #4d1406 0 -1px 4.5px, #d34826 0 2px 12px;
+  }
   .destination .indicator-light.am.light-on,
   .destination .indicator-light.pm.light-on,
   .destination .console-colon-lights .top,
