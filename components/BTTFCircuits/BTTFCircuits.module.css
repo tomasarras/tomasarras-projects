@@ -1,0 +1,417 @@
+.row-of-labels, .row-of-numbers-display-area  {
+
+}
+.over {
+  z-index: 101;
+  position: absolute;
+  top: 0px;
+  height: 100%;
+  width: 100%;
+  background-color: transparent;
+  pointer-events: none;
+  -webkit-animation-name: lightUp;
+  animation-name: lightUp;
+  -webkit-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+  -webkit-animation-timing-function: ease-in;
+  animation-timing-function: ease-in;
+  -webkit-animation-duration: 1.5s;
+  animation-duration: 1.5s; }
+
+.overall-container {
+  display: table-cell;
+  vertical-align: middle; }
+
+  @font-face {
+    font-family: 'lcdmono2bold';
+    src: url("/font/lcdm2b__-webfont.eot");
+    src: url("/font/lcdm2b__-webfont.eot?#iefix") format("embedded-opentype"), url("/font/lcdm2b__-webfont.woff2") format("woff2"), url("/font/lcdm2b__-webfont.woff") format("woff"), url("/font/lcdm2b__-webfont.ttf") format("truetype"), url("/font/lcdm2b__-webfont.svg#lcdmono2bold") format("svg");
+    font-weight: normal;
+    font-style: normal; }
+  
+  @font-face {
+    font-family: 'microgramma_d_otMdEx';
+    src: url("/font/microgramma-d-ot-medium-extended_30404-webfont.eot");
+    src: url("/font/microgramma-d-ot-medium-extended_30404-webfont.eot?#iefix") format("embedded-opentype"), url("/font/microgramma-d-ot-medium-extended_30404-webfont.woff") format("woff"), url("/font/microgramma-d-ot-medium-extended_30404-webfont.ttf") format("truetype"), url("/font/microgramma-d-ot-medium-extended_30404-webfont.svg#microgramma_d_otMdEx") format("svg");
+    font-weight: normal;
+    font-style: normal; }
+  
+  @font-face {
+    font-family: 'digital-7_monoitalic';
+    src: url("/font/digital-7_mono_italic-webfont.eot");
+    src: url("/font/digital-7_mono_italic-webfont.eot?#iefix") format("embedded-opentype"), url("/font/digital-7_mono_italic-webfont.woff2") format("woff2"), url("/font/digital-7_mono_italic-webfont.woff") format("woff"), url("/font/digital-7_mono_italic-webfont.ttf") format("truetype"), url("/font/digital-7_mono_italic-webfont.svg#digital-7_monoitalic") format("svg");
+    font-weight: normal;
+    font-style: normal; }
+  
+  @font-face {
+    font-family: 'fontello';
+    src: url("/font/fontello.eot?94494243");
+    src: url("/font/fontello.eot?94494243#iefix") format("embedded-opentype"), url("/font/fontello.woff?94494243") format("woff"), url("/font/fontello.ttf?94494243") format("truetype"), url("/font/fontello.svg?94494243#fontello") format("svg");
+    font-weight: normal;
+    font-style: normal; }
+
+  .icon-light-up:before {
+    content: '\e800'; }
+    
+  .overall-container {
+    display: table-cell;
+    vertical-align: middle; }
+  
+  .individual-time-circuit-wrapper-area {
+    margin-left: auto;
+    margin-right: auto;
+    height: 195px;
+    width: 960px;
+    position: relative;
+    box-sizing: content-box;
+    border-top-style: solid;
+    border-top-width: 3px;
+    border-top-color: #CCC;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    border-bottom-style: groove;
+    border-bottom-width: 2px;
+    border-bottom-color: #323232;
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px; }
+  
+  .individual-time-circuit-wrapper-area:after {
+    content: "";
+    display: block;
+    padding-top: 21%; }
+  
+  .destination {
+    background-image: url("/mottled_metal_1.jpg"); }
+  
+  .present {
+    background-image: url("/mottled_metal_2.jpg"); }
+  
+  .last-time-departed {
+    background-image: url("/mottled_metal_3.jpg"); }
+  
+  .individual-time-circuit-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0; }
+  
+  .console-display {
+    display: inline-block; }
+  
+  .sticker-label, .footer-label, .am-label, .pm-label {
+    font-family: 'microgramma_d_otMdEx';
+    font-weight: 600;
+    letter-spacing: 2px; }
+  
+  .footer-label {
+    letter-spacing: 3px; }
+  
+  .sticker-label {
+    display: inline-block;
+    background-color: #8e1a0a;
+    color: white;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-size: 1.3em;
+    margin-top: 17px; }
+  
+  .footer-label {
+    background-color: black;
+    color: white;
+    margin-top: 10px;
+    text-align: center;
+    font-size: 1.5em; }
+  
+  .destination .month, .present .month, .last-time-departed .month {
+    margin-left: 50px; }
+  
+  .destination .day, .present .day, .last-time-departed .day {
+    margin-left: 65px; }
+  
+  .destination .year, .present .year, .last-time-departed .year {
+    margin-left: 125px; }
+  
+  .destination .hour, .present .hour, .last-time-departed .hour {
+    margin-left: 145px; }
+  
+  .destination .min, .present .min, .last-time-departed .min {
+    margin-left: 65px; }
+  
+  .destination .footer-label {
+    margin-left: 300px;
+    width: 350px; }
+  
+  .present .footer-label {
+    margin-left: 300px;
+    width: 290px; }
+  
+  .last-time-departed .footer-label {
+    margin-left: 250px;
+    width: 400px; }
+  
+  .console-month {
+    margin-left: 23px;
+    text-align: center;
+    width: 186px; }
+  
+  .console-month .faded-eights {
+    width: 170px;
+    text-align: center; }
+  
+  .console-day, .console-hour, .console-min {
+    width: 115px; }
+  
+  .console-day {
+    margin-left: 14px; }
+  
+  .console-year {
+    margin-left: 25px; }
+  
+  /***** AM PM stuff *****/
+  .console-am-pm {
+    position: relative;
+    width: 49px;
+    margin-right: -5px; }
+  
+  .am-label, .pm-label {
+    position: absolute;
+    left: -8px;
+    background-color: #8e1a0a;
+    color: white;
+    font-size: 1.5em;
+    line-height: 24px; }
+  
+  .am-label {
+    bottom: 75px; }
+  
+  .pm-label {
+    bottom: 24px; }
+  
+  .indicator-light {
+    height: 17px;
+    width: 17px;
+    border-radius: 50%;
+    margin-right: 3px; }
+  
+  .indicator-light.am {
+    position: absolute;
+    bottom: 55px;
+    left: 5px; }
+  
+  .indicator-light.pm {
+    position: absolute;
+    bottom: 5px;
+    left: 5px; }
+  
+  .console-colon-lights {
+    position: relative;
+    width: 19px; }
+  
+  .console-colon-lights .top {
+    position: absolute;
+    bottom: 45px;
+    right: 3px; }
+  
+  .console-colon-lights .bottom {
+    position: absolute;
+    right: 3px;
+    bottom: 20px; }
+  
+  .destination .indicator-light.am.light-on,
+  .destination .indicator-light.pm.light-on,
+  .destination .console-colon-lights .top,
+  .destination .console-colon-lights .bottom {
+    background-color: #EFF288;
+    box-shadow: rgba(0, 0, 0, 0.1) 0 -1px 7px 1px, inset #304701 0 -1px 4.5px, #EFF288 0 2px 12px; }
+  
+  .destination .indicator-light.am.light-off,
+  .destination .indicator-light.pm.light-off {
+    background-color: #3E2917;
+    box-shadow: inset -1px 2px 3px #ababab; }
+  
+  .destination .console-colon-lights .top,
+  .destination .console-colon-lights .bottom {
+    -webkit-animation: blink-destination-lights 1s step-start infinite;
+    animation: blink-destination-lights 1s step-start infinite; }
+  
+  @-webkit-keyframes blink-destination-lights {
+    0% {
+      background-color: #3E2917;
+      box-shadow: inset -1px 2px 3px #ababab; }
+    50% {
+      background-color: #EFF288;
+      box-shadow: rgba(0, 0, 0, 0.1) 0 -1px 7px 1px, inset #304701 0 -1px 4.5px, #EFF288 0 2px 12px; }
+    100% {
+      background-color: #3E2917;
+      box-shadow: inset -1px 2px 3px #ababab; } }
+  
+  @keyframes blink-destination-lights {
+    0% {
+      background-color: #3E2917;
+      box-shadow: inset -1px 2px 3px #ababab; }
+    50% {
+      background-color: #EFF288;
+      box-shadow: rgba(0, 0, 0, 0.1) 0 -1px 7px 1px, inset #304701 0 -1px 4.5px, #EFF288 0 2px 12px; }
+    100% {
+      background-color: #3E2917;
+      box-shadow: inset -1px 2px 3px #ababab; } }
+  
+  .present .indicator-light.am.light-on,
+  .present .indicator-light.pm.light-on,
+  .present .console-colon-lights .top,
+  .present .console-colon-lights .bottom {
+    background-color: #8AF250;
+    box-shadow: rgba(0, 0, 0, 0.1) 0 -1px 7px 1px, inset #304701 0 -1px 4.5px, #8AF250 0 2px 12px; }
+  
+  .present .indicator-light.am.light-off,
+  .present .indicator-light.pm.light-off {
+    background-color: #0E1510;
+    background-color: #330;
+    box-shadow: inset -1px 2px 3px #ababab; }
+  
+  .present .console-colon-lights .top,
+  .present .console-colon-lights .bottom {
+    -webkit-animation: blink-present-lights 1s step-start infinite;
+    animation: blink-present-lights 1s step-start infinite; }
+  
+  @-webkit-keyframes blink-present-lights {
+    0% {
+      background-color: #0E1510;
+      box-shadow: inset -1px 2px 3px #ababab; }
+    50% {
+      background-color: #8AF250;
+      box-shadow: rgba(0, 0, 0, 0.1) 0 -1px 7px 1px, inset #304701 0 -1px 4.5px, #8AF250 0 2px 12px; }
+    100% {
+      background-color: #0E1510;
+      box-shadow: inset -1px 2px 3px #ababab; } }
+  
+  @keyframes blink-present-lights {
+    0% {
+      background-color: #0E1510;
+      box-shadow: inset -1px 2px 3px #ababab; }
+    50% {
+      background-color: #8AF250;
+      box-shadow: rgba(0, 0, 0, 0.1) 0 -1px 7px 1px, inset #304701 0 -1px 4.5px, #8AF250 0 2px 12px; }
+    100% {
+      background-color: #0E1510;
+      box-shadow: inset -1px 2px 3px #ababab; } }
+  
+  .last-time-departed .indicator-light.am.light-on,
+  .last-time-departed .indicator-light.pm.light-on,
+  .last-time-departed .console-colon-lights .top,
+  .last-time-departed .console-colon-lights .bottom {
+    background-color: #F4DF5C;
+    box-shadow: rgba(0, 0, 0, 0.1) 0 -1px 7px 1px, inset #304701 0 -1px 4.5px, #F4DF5C 0 2px 12px; }
+  
+  .last-time-departed .indicator-light.am.light-off,
+  .last-time-departed .indicator-light.pm.light-off {
+    background-color: #330;
+    box-shadow: inset -1px 2px 3px #ababab; }
+  
+  .last-time-departed .console-colon-lights .top,
+  .last-time-departed .console-colon-lights .bottom {
+    -webkit-animation: blink-last-lights 1s step-start infinite;
+    animation: blink-last-lights 1s step-start infinite; }
+  
+  @-webkit-keyframes blink-last-lights {
+    0% {
+      background-color: #330;
+      box-shadow: inset -1px 2px 3px #ababab; }
+    50% {
+      background-color: #F4DF5C;
+      box-shadow: rgba(0, 0, 0, 0.1) 0 -1px 7px 1px, inset #304701 0 -1px 4.5px, #F4DF5C 0 2px 12px; }
+    100% {
+      background-color: #330;
+      box-shadow: inset -1px 2px 3px #ababab; } }
+  
+  @keyframes blink-last-lights {
+    0% {
+      background-color: #330;
+      box-shadow: inset -1px 2px 3px #ababab; }
+    50% {
+      background-color: #F4DF5C;
+      box-shadow: rgba(0, 0, 0, 0.1) 0 -1px 7px 1px, inset #304701 0 -1px 4.5px, #F4DF5C 0 2px 12px; }
+    100% {
+      background-color: #330;
+      box-shadow: inset -1px 2px 3px #ababab; } }
+  
+  .lcd {
+    background-color: black;
+    border-radius: 4px;
+    color: red;
+    font-family: 'digital-7_monoitalic';
+    font-size: 6.7em;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-right: 5px;
+    padding-left: 5px;
+    margin-top: 11px;
+    margin-right: 10px;
+    line-height: 73px; }
+  
+  .destination .lcd {
+    color: #FF6410; }
+  
+  .present .lcd {
+    color: #67FC42; }
+  
+  .last-time-departed .lcd {
+    color: #F4CE26; }
+    
+  @keyframes lightUp {
+    0% {
+      background: #000000; }
+    30% {
+      background: #000000; }
+    60% {
+      background: #000000; }
+    100% {
+      background: transparent; } }
+  
+  @-webkit-keyframes lightUp {
+    0% {
+      background: #000000; }
+    30% {
+      background: #000000; }
+    60% {
+      background: #000000; }
+    100% {
+      background: transparent; } }
+  
+  .faded-eights {
+    position: absolute;
+    opacity: .15; }
+  
+  .destination .console-day .faded-eights {
+    opacity: .25; }
+  
+  .destination .console-year .faded-eights {
+    opacity: .3; }
+  
+  .destination .console-hour .faded-eights {
+    opacity: .25; }
+  
+  .present .console-year .faded-eights {
+    opacity: .2; }
+  
+  .last-time-departed .console-year .faded-eights {
+    opacity: .2; }
+  
+  .last-time-departed .console-hour .faded-eights {
+    opacity: .2; }
+  
+  .last-time-departed .console-min .faded-eights {
+    opacity: .25; }
+  
+  .last-time-departed .footer-label {
+    display: inline-block; }
+  
+  .brightness {
+    display: inline-block;
+    float: right;
+    margin-top: 15px;
+    margin-right: 50px;
+    background-color: #aaa;
+    color: white; }
+  
