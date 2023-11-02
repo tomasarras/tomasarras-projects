@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import s from "./BTTFCircuits.module.css";
 
-export default function BTTFCircuits({ destination, present, lastTime }) {
+export default function BTTFCircuits({ tempDestination, destination, present, lastTime }) {
   const empty = {
     month: "---",
     day: "--",
@@ -14,6 +14,7 @@ export default function BTTFCircuits({ destination, present, lastTime }) {
   const [panel, setPanel] = useState({ destination: empty, present: empty, lastTime: empty });
   const [remainingMode, setRemainingMode] = useState(false);
   const switchRemainingMode = () => setRemainingMode(!remainingMode);
+  
 
   const calcRemainingTime = date => {
     const diff = date - new Date();
@@ -46,8 +47,13 @@ export default function BTTFCircuits({ destination, present, lastTime }) {
   };
 
   const updatePanel = () => {
+    let dest;
+    if (tempDestination == null) 
+      dest = remainingMode ? calcRemainingTime(destination) : dateDetails(destination);
+    else
+      dest = tempDestination;
     setPanel({
-      destination: remainingMode ? calcRemainingTime(destination) : dateDetails(destination),
+      destination: dest,
       present: dateDetails(present == undefined ? new Date() : present),
       lastTime: dateDetails(lastTime),
     });
@@ -55,12 +61,15 @@ export default function BTTFCircuits({ destination, present, lastTime }) {
 
   useEffect(() => {
     updatePanel();
+    if (global.bttfCircuitsInterval != undefined) {
+      clearInterval(global.bttfCircuitsInterval);
+    }
     const interval = setInterval(updatePanel, 1000);
-
+    global.bttfCircuitsInterval = interval;
     return () => {
       clearInterval(interval);
     };
-  }, [remainingMode]);
+  }, [remainingMode, tempDestination]);
 
   const dateDetails = date => {
     if (date === undefined)

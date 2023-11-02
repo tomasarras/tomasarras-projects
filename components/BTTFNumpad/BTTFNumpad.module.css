@@ -1,9 +1,8 @@
-.cuboid {
-	height: calc(var(--height) * 1vmin);
-	width: calc(var(--width) * 1vmin);
+.container {
+	background: hsl(75, 5%, 50%);
 }
 
-.cuboid .side {
+.side {
 	position: absolute;
 	top: 50%;
 	left: 50%;
@@ -14,34 +13,39 @@
 	box-shadow: 0 0 2vmin -0.5vmin #0008 inset;
 }
 
-.cuboid .side:nth-of-type(1) {
+ .side:nth-of-type(1) {
 	transform: translate3d(-50%, -50%, calc(var(--depth) * 0.5vmin));
 	background: hsl(var(--hue), var(--sat), 50%);
 }
-.cuboid .side:nth-of-type(2) {
+ .side:nth-of-type(2) {
 	transform: translate3d(-50%, -50%, calc(var(--depth) * -0.5vmin))
 		rotateY(180deg);
 	background: hsl(var(--hue), var(--sat), 35%);
 }
-.cuboid .side:nth-of-type(3) {
+ .side:nth-of-type(3) {
 	width: calc(var(--depth) * 1vmin);
 	transform: translate(-50%, -50%) rotateY(90deg)
 		translate3d(0, 0, calc(var(--width) * 0.5vmin));
 	background: hsl(var(--hue), var(--sat), 75%);
 }
-.cuboid .side:nth-of-type(4) {
+
+.lights {
+	margin: 5% 0 10% 5%;
+	width: 3%;
+}
+ .side:nth-of-type(4) {
 	width: calc(var(--depth) * 1vmin);
 	transform: translate(-50%, -50%) rotateY(-90deg)
 		translate3d(0, 0, calc(var(--width) * 0.5vmin));
 	background: hsl(var(--hue), var(--sat), 75%);
 }
-.cuboid .side:nth-of-type(5) {
+ .side:nth-of-type(5) {
 	height: calc(var(--depth) * 1vmin);
 	transform: translate(-50%, -50%) rotateX(90deg)
 		translate3d(0, 0, calc(var(--height) * 0.5vmin));
 	background: hsl(var(--hue), var(--sat), 70%);
 }
-.cuboid .side:nth-of-type(6) {
+ .side:nth-of-type(6) {
 	height: calc(var(--depth) * 1vmin);
 	transform: translate(-50%, -50%) rotateX(-90deg)
 		translate3d(0, 0, calc(var(--height) * 0.5vmin));
@@ -50,7 +54,8 @@
 /*** CUBOID END ***/
 
 /*** KEYPAD ***/
-.cuboid.keyboard {
+.keyboard {
+  margin-left: 78px;
 	--width: 25;
 	--height: 30;
 	--depth: 20;
@@ -60,44 +65,28 @@
 	position: absolute;
 }
 
-.cuboid.keyboard .side:nth-of-type(3),
-.cuboid.keyboard .side:nth-of-type(4) {
+.keyboard .side:nth-of-type(3),
+.keyboard .side:nth-of-type(4) {
 	background: #888b80;
-}
+}	
 
-.cuboid.keyboard:after {
-	content: "";
-	width: 3.25vmin;
-	height: 1.25vmin;
+div.mark {
+	padding-top: 30%;
+	height: 4%;
 	background: #0002;
-	position: absolute;
-	left: 5%;
-	bottom: 5%;
-	transform: translateZ(10vmin);
 	border-radius: 0.25vmin;
 	border: 0.2vmin solid #0008;
 	box-sizing: border-box;
 	border-color: #fff4 #0004 #0004 #fff4;
 	content: "ARRAS";
 	font-family: Arial;
-	font-size: 0.6vmin;
 	text-align: center;
 	line-height: 1vmin;
 	text-shadow: 0.1vmin 0.1vmin 0 #bec3b090, -0.1vmin -0.1vmin 0 #6667;
 }
 
-/* Ligths */
-.ligths {
-	position: absolute;
-	width: 6vmin;
-	height: 30vmin;
-	transform: translate3d(0.15vmin, -0.5vmin, 10vmin);
-}
-
-.cuboid.light,
-.cuboid.number {
-	--width: 3.25;
-	--height: 3.25;
+.light,
+.number {
 	--depth: 2;
 	--hue: 0;
 	--sat: 50%;
@@ -105,12 +94,9 @@
 	transform: translate3d(0vmin, 0vmin, 1vmin);
 }
 
-.light {
-	width: 3.25vmin;
-	height: 3.25vmin;
-	position: absolute;
-	left: 1.25vmin;
-	top: 2vmin;
+.light, .mark {
+	height: 12%;
+	width: 420%;
 }
 
 .light.yellow {
@@ -159,85 +145,85 @@
 }
 
 /*** Colors ***/
-.cuboid.light.red .side:nth-of-type(1) {
+.light.red .side:nth-of-type(1) {
 	background: #ff5555;
 }
-.cuboid.light.red .side:nth-of-type(3),
-.cuboid.light.red .side:nth-of-type(4) {
+.light.red .side:nth-of-type(3),
+.light.red .side:nth-of-type(4) {
 	background: #cf3f3f;
 }
-.cuboid.light.red .side:nth-of-type(5) {
+.light.red .side:nth-of-type(5) {
 	background: #ff4949;
 }
-.cuboid.light.red .side:nth-of-type(6) {
+.light.red .side:nth-of-type(6) {
 	background: #9f2d2d;
 }
 
-.cuboid.light.yellow .side:nth-of-type(1) {
+.light.yellow .side:nth-of-type(1) {
 	background: #ffb837;
 }
-.cuboid.light.yellow .side:nth-of-type(3),
-.cuboid.light.yellow .side:nth-of-type(4) {
+.light.yellow .side:nth-of-type(3),
+.light.yellow .side:nth-of-type(4) {
 	background: #bd8622;
 }
-.cuboid.light.yellow .side:nth-of-type(5) {
+.light.yellow .side:nth-of-type(5) {
 	background: #eea92b;
 }
-.cuboid.light.yellow .side:nth-of-type(6) {
+.light.yellow .side:nth-of-type(6) {
 	background: #6c4601;
 }
 
-.cuboid.light.green .side:nth-of-type(1) {
+.light.green .side:nth-of-type(1) {
 	background: #2fd92f;
 }
-.cuboid.light.green .side:nth-of-type(3),
-.cuboid.light.green .side:nth-of-type(4) {
+.light.green .side:nth-of-type(3),
+.light.green .side:nth-of-type(4) {
 	background: #0fb60f;
 }
-.cuboid.light.green .side:nth-of-type(5) {
+.light.green .side:nth-of-type(5) {
 	background: #3eea3e;
 }
-.cuboid.light.green .side:nth-of-type(6) {
+.light.green .side:nth-of-type(6) {
 	background: #008800;
 }
 
-.cuboid.light.white .side:nth-of-type(1),
-.cuboid.number .side:nth-of-type(1) {
+.light.white .side:nth-of-type(1),
+.number .side:nth-of-type(1) {
 	background: #fff;
 }
-.cuboid.light.white .side:nth-of-type(3),
-.cuboid.light.white .side:nth-of-type(4),
-.cuboid.number .side:nth-of-type(3),
-.cuboid.number .side:nth-of-type(4) {
+.light.white .side:nth-of-type(3),
+.light.white .side:nth-of-type(4),
+.number .side:nth-of-type(3),
+.number .side:nth-of-type(4) {
 	background: #afaeae;
 }
-.cuboid.light.white .side:nth-of-type(5),
-.cuboid.number .side:nth-of-type(5) {
+.light.white .side:nth-of-type(5),
+.number .side:nth-of-type(5) {
 	background: #e9e9e9;
 }
-.cuboid.light.white .side:nth-of-type(6),
-.cuboid.number .side:nth-of-type(6) {
+.light.white .side:nth-of-type(6),
+.number .side:nth-of-type(6) {
 	background: #878787;
 }
 
-.cuboid.light.white .side:nth-of-type(1) {
+.light.white .side:nth-of-type(1) {
 	background: #ccc;
 	box-shadow: 0 0 0.25vmin 0vmin #fff, 0 0 0.5vmin 0.05vmin #fff,
 		0 0 1vmin 0.5vmin #fff inset;
 	border-color: #fff;
 }
 
-.cuboid.light.btn .side:nth-of-type(1) {
+.light.btn .side:nth-of-type(1) {
 	background: #7b7b7b;
 }
-.cuboid.light.btn .side:nth-of-type(3),
-.cuboid.light.btn .side:nth-of-type(4) {
+.light.btn .side:nth-of-type(3),
+.light.btn .side:nth-of-type(4) {
 	background: #666666;
 }
-.cuboid.light.btn .side:nth-of-type(5) {
+.light.btn .side:nth-of-type(5) {
 	background: #727272;
 }
-.cuboid.light.btn .side:nth-of-type(6) {
+.light.btn .side:nth-of-type(6) {
 	background: #4c4c4c;
 }
 
@@ -269,116 +255,136 @@
 
 /* Numbers */
 .numbers {
-	position: absolute;
 	background: #ffffff8f;
+	margin: 20% 5% 0 0;
 	width: 63%;
-	height: 21.5vmin;
+	height: 71%;
 	border-radius: 0.25vmin;
 	border: 0.25vmin solid #fff;
 	border-color: #72615e #fff6 #fff8 #72615e;
-	transform: translate3d(7vmin, 5.25vmin, 10vmin);
 	box-shadow: 2px 2px 5px #5a433f, -2px -2px 5px #c6bbb9,
 		0 0 1vmin 0 #404040 inset;
+	display: grid;
+	grid-gap: 6%;
+	padding: 7% 5%;
+	grid-template:  "one two three"
+					"four five six"
+					"seven eight nine"
+					". zero .";
 }
+
+/* .number.two, .number.five, .number.eight, .number.zero {
+	justify-self: center;
+}
+
+.number.one, .number.four, .number.seven {
+	margin-left: 25%;
+}
+
+.number.three, .number.six, .number.nine {
+	margin-left: 6%;
+} */
+
+.number.one {
+	grid-area: one;
+}
+
+.number.two {
+	grid-area: two;
+}
+
+.number.three {
+
+	grid-area: three;
+}
+.number.four {
+	grid-area: four;
+}
+
+.number.five {
+	grid-area: five;
+}
+
+.number.six {
+	grid-area: six;
+}
+
+.number.seven {
+	grid-area: seven;
+}
+
+.number.eight {
+	grid-area: eight;
+}
+
+.number.nine {
+	grid-area: nine;
+}
+
+.number.zero {
+	grid-area: zero;
+}
+
 .number {
 	cursor: pointer;
-	position: absolute;
-	transform: translate3d(0, 0, 1vmin);
-	transition: all 0.05s ease 0s; /*test*/
 }
-.cuboid.number.one {
-	left: 1.5vmin;
-	top: 1.25vmin;
-}
-.cuboid.number.two {
-	left: 6vmin;
-	top: 1.25vmin;
-}
-.cuboid.number.three {
-	left: 10.5vmin;
-	top: 1.25vmin;
-}
-.cuboid.number.four {
-	left: 1.5vmin;
-	top: 6vmin;
-}
-.cuboid.number.five {
-	left: 6vmin;
-	top: 6vmin;
-}
-.cuboid.number.six {
-	left: 10.5vmin;
-	top: 6vmin;
-}
-.cuboid.number.seven {
-	left: 1.5vmin;
-	top: 10.75vmin;
-}
-.cuboid.number.eight {
-	left: 6vmin;
-	top: 10.75vmin;
-}
-.cuboid.number.nine {
-	left: 10.5vmin;
-	top: 10.75vmin;
-}
-.number.zero {
-	left: 6vmin;
-	top: 15.5vmin;
-}
+
 .number:active {
 	transform: translate3d(0vmin, 0vmin, 0vmin);
 	transition: all 0.05s ease 0s; /*test*/
 }
 
 /* Btn Numbers */
-.cuboid.number .side:nth-child(1):before {
-	content: "1";
+.number .side {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	font-family: Arial;
-	font-size: 2vmin;
-	line-height: 3vmin;
+	line-height: 200%;
 	position: absolute;
 	text-align: center;
 	width: 100%;
 	height: 100%;
 	text-shadow: 0.15vmin 0.15vmin 0 #fff, -0.1vmin -0.1vmin 0 #6668;
 }
-.cuboid.number.two .side:nth-child(1):before {
+
+.number.one .side:nth-child(1):before {
+	content: "1";
+}
+.number.two .side:nth-child(1):before {
 	content: "2";
 }
-.cuboid.number.three .side:nth-child(1):before {
+.number.three .side:nth-child(1):before {
 	content: "3";
 }
-.cuboid.number.four .side:nth-child(1):before {
+.number.four .side:nth-child(1):before {
 	content: "4";
 }
-.cuboid.number.five .side:nth-child(1):before {
+.number.five .side:nth-child(1):before {
 	content: "5";
 }
-.cuboid.number.six .side:nth-child(1):before {
+.number.six .side:nth-child(1):before {
 	content: "6";
 }
-.cuboid.number.seven .side:nth-child(1):before {
+.number.seven .side:nth-child(1):before {
 	content: "7";
 }
-.cuboid.number.eight .side:nth-child(1):before {
+.number.eight .side:nth-child(1):before {
 	content: "8";
 }
-.cuboid.number.nine .side:nth-child(1):before {
+.number.nine .side:nth-child(1):before {
 	content: "9";
 }
-.cuboid.number.zero .side:nth-child(1):before {
+.number.zero .side:nth-child(1):before {
 	content: "0";
 }
 
 /* Btn Border */
-.cuboid.number:before {
+.number:before {
 	content: "";
 	width: 100%;
 	height: 100%;
 	position: absolute;
-	left: -0.25vmin;
-	top: -0.25vmin;
 	transform: translateZ(-1vmin);
 	box-shadow: 2px 2px 5px #5a433f, -2px -2px 5px #c6bbb9,
 		0 0 1vmin 0 #404040 inset;
@@ -394,31 +400,31 @@
 	transition: all 0.05s ease 0s; /*test*/
 }
 
-.cuboid.number {
+.number {
 	--depth: 1.75;
 	--hue: 150;
 	--sat: 10%;
 }
 
-.cuboid.light .side {
+.light .side {
 	box-shadow: 0 0 2vmin 0vmin #fff8 inset;
 	border-color: #fff1;
 }
 
-.group.power-off .cuboid.light .side {
+.group.power-off .light .side {
 	box-shadow: 0 0 0vmin -0.5vmin #fff8 inset;
 	border-color: #0001;
 }
 
-.cuboid.light.btn .side {
+.light.btn .side {
 	box-shadow: 0 0 0.75vmin 0.5vmin #3338 inset;
 }
 
-.cuboid.light .side + .side {
+.light .side + .side {
 	filter: brightness(1.25);
 }
 
-.group.power-off .cuboid.light.btn .side {
+.group.power-off .light.btn .side {
 	box-shadow: none;
 	border-color: #0000;
 }

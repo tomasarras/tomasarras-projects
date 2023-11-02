@@ -1,0 +1,17 @@
+.sidebar {
+    width: 0;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #000000;
+    overflow-x: hidden;
+    transition: width 0.3s ease-in-out, transform 0.3s ease-in-out;
+    z-index: 1;
+}
+
+.sidebar.open {
+  width: 250px;
+  transform: translateX(0);
+}
+

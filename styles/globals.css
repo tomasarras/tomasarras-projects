@@ -1,0 +1,59 @@
+.app {
+    display: flex;
+    transition: margin-left 0.3s;
+    background-color: black;
+    overflow: hidden;
+}
+
+.content {
+    margin-left: 0;
+    transition: margin-left 0.3s ease-in-out; 
+}
+
+.sidebar-open .content {
+    margin-left: 250px;
+}
+
+.flex {
+    display: flex;
+}
+
+.btn-unset {
+    all: unset;
+}
+
+.icon-sm {
+    height: 16px;
+    width: 16px;
+}
+
+.icon-md {
+    height: 20px;
+    width: 20px;
+}
+
+.icon-xl {
+    height: 24px;
+    width: 24px;
+}
+
+.icon-xxl {
+    height: 32px;
+    width: 32px;
+}
+
+.h-100vh {
+    height: 100vh;
+}
+
+.w-100vw {
+    width: 100vw;
+}
+
+.bg-black {
+    background-color: black;
+}
+
+.r-180 {
+    transform: rotate(180deg);
+}
