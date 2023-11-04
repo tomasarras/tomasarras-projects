@@ -42,8 +42,8 @@
     width: 32px;
 }
 
-.h-100vh {
-    height: 100vh;
+.min-h-100vh {
+    min-height: 100vh;
 }
 
 .w-100vw {
@@ -56,4 +56,8 @@
 
 .r-180 {
     transform: rotate(180deg);
+}
+
+.r-90 {
+    transform: rotate(90deg);
 }

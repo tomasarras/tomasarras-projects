@@ -1,7 +1,7 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import s from "./BTTFNumpad.module.css";
 
-export default function BTTFNumpad({ onConfirm, tempDestination, setTempDestination, width, typingDestination, setTypingDestination }) {
+export default function BTTFNumpad({ isSidebarOpen, onConfirm, tempDestination, setTempDestination, width, typingDestination, setTypingDestination }) {
   const empty = {
     month: "---",
     day: "--",
@@ -13,6 +13,7 @@ export default function BTTFNumpad({ onConfirm, tempDestination, setTempDestinat
     invalid: false,
   };
   const containerRef = useRef(null);
+  const [stats, setStats] = useState({ red: 0, yellow: 0, green: 0, white: 0, });
   const [height, setHeight] = useState(0);
   const months = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DIC"];
   const containerStyles = { height: height + "px" };
@@ -44,11 +45,28 @@ export default function BTTFNumpad({ onConfirm, tempDestination, setTempDestinat
       setTypingDestination(null);
       let month = months.indexOf(tempDestination.month);
       let newDestination = new Date(parseInt(tempDestination.year), month, parseInt(tempDestination.day), parseInt(tempDestination.hour), parseInt(tempDestination.min));
-      onConfirm(newDestination);
+      onConfirm({ destination: newDestination, stats });
     }
   }
 
   useEffect(loadSounds, []);
+
+  const handleKeyUp = useCallback(e => {
+    const key = e.key;
+    const isNumber = key >= '0' && key <= '9'
+    if (!isNumber)
+      return;
+    const number = parseInt(key);
+    onPressNumber(number);
+  }, [typingDestination]);
+
+  useEffect(() => {
+    if (!isSidebarOpen) {
+      return;
+    }
+    window.addEventListener("keyup", handleKeyUp);
+    return () => window.removeEventListener("keyup", handleKeyUp);
+  }, [isSidebarOpen, handleKeyUp]);
 
   useEffect(() => {
     if (typingDestination == null)
@@ -124,7 +142,9 @@ export default function BTTFNumpad({ onConfirm, tempDestination, setTempDestinat
   useEffect(() => {
     const w = width !== undefined ? width : containerRef.current.offsetWidth;
     setHeight(w * 1.2);
-  }, [containerRef])
+  }, [containerRef]);
+
+  const increaseStats = key => setStats(prev => ({ ...prev, [key]: prev[key]+1 }));
   
   const Number = ({ value }) => (
   <div className={`${s.number} ${s[numbers[value]]}`} onClick={() => onPressNumber(value)}>
@@ -150,7 +170,7 @@ export default function BTTFNumpad({ onConfirm, tempDestination, setTempDestinat
   }
 
   const Led = ({ color, onClick }) => (
-  <div onClick={onClick} className={`${s.light} ${s[color]}`}>
+  <div onClick={onClick !== undefined ? onClick : () => increaseStats(color)} className={`${s.light} ${s[color]}`}>
     <div className={s.side}></div>
   </div>
   )

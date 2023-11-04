@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import s from "./BTTFCircuits.module.css";
+import Switch from '../Switch';
 
-export default function BTTFCircuits({ tempDestination, destination, present, lastTime }) {
+export default function BTTFCircuits({ remainingMode, tempDestination, destination, present, lastTime }) {
   const empty = {
     month: "---",
     day: "--",
@@ -12,38 +13,39 @@ export default function BTTFCircuits({ tempDestination, destination, present, la
     isPm: false,
   };
   const [panel, setPanel] = useState({ destination: empty, present: empty, lastTime: empty });
-  const [remainingMode, setRemainingMode] = useState(false);
-  const switchRemainingMode = () => setRemainingMode(!remainingMode);
   
 
   const calcRemainingTime = date => {
     const diff = date - new Date();
+    const remaining = {
+      month: "---",
+      day: "00",
+      year: "0000",
+      hour: "00",
+      min: "00",
+      isAm: false,
+      isPm: false,
+    }
+    if (diff < 0) {
+      return remaining;
+    }
     const millisecondsInYear = 365 * 24 * 60 * 60 * 1000;
     const millisecondsInDay = 24 * 60 * 60 * 1000;
     const millisecondsInMin = 60 * 1000;
 
-    const year = Math.floor(diff / millisecondsInYear)
+    remaining.year = Math.floor(diff / millisecondsInYear)
       .toString()
       .padStart(4, '0');
-    const month = "---";
-    const day = Math.min(Math.floor(diff / millisecondsInDay) % 365, 99)
+    remaining.day = Math.min(Math.floor(diff / millisecondsInDay) % 365, 99)
       .toString()
       .padStart(2, '0');
-    const hour = Math.floor((diff / (60 * 60 * 1000)) % 24)
+    remaining.hour = Math.floor((diff / (60 * 60 * 1000)) % 24)
       .toString()
       .padStart(2, '0');
-    const min = Math.floor((diff / millisecondsInMin) % 60)
+    remaining.min = Math.floor((diff / millisecondsInMin) % 60)
       .toString()
       .padStart(2, '0');
-    return {
-      month,
-      day,
-      year,
-      hour,
-      min,
-      isAm: false,
-      isPm: false,
-    }
+    return remaining;
   };
 
   const updatePanel = () => {
@@ -97,7 +99,7 @@ export default function BTTFCircuits({ tempDestination, destination, present, la
 
   return (<>
     <div className={s[`overall-container`]}>
-      <div onClick={switchRemainingMode} className={`${s[`individual-time-circuit-wrapper-area`]} ${s[`individual-time-circuit-wrapper-area`]} ${s[`destination`]}`}>
+      <div className={`${s[`individual-time-circuit-wrapper-area`]} ${s[`individual-time-circuit-wrapper-area`]} ${s[`destination`]}`}>
         <div className={`${s["individual-time-circuit-content"]}`}>
 
           <div className={`${s["row-of-labels"]}`}>
@@ -162,6 +164,7 @@ export default function BTTFCircuits({ tempDestination, destination, present, la
 
         </div>
       </div>
+
       <div className={`${s["individual-time-circuit-wrapper-area"]} ${s["last-time-departed"]}`}>
         <div className={`${s["individual-time-circuit-content"]}`}>
 
@@ -194,6 +197,14 @@ export default function BTTFCircuits({ tempDestination, destination, present, la
         </div>
       </div>
 
+      {/* <div className={`${s[`individual-time-circuit-wrapper-area`]} ${s[`individual-time-circuit-wrapper-area`]} ${s[`destination`]}`}>
+        <div className={s["settings-wrapper-area"]}>
+          <div className={`${s["sticker-label"]} ${s["month"]}`}>REMAINING MODE</div>
+            <div className={s["switch-remaining"]}>
+              <Switch isOn={remainingMode} onSwitch={switchRemainingMode}/>
+            </div>
+        </div>
+      </div> */}
 
     </div>
   </>)
