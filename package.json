@@ -12,6 +12,7 @@
     "@fingerprintjs/fingerprintjs-pro-react": "^2.1.1",
     "@googlemaps/react-wrapper": "^1.1.35",
     "bootstrap": "^5.2.3",
+    "crypto-js": "^4.2.0",
     "next": "13.0.6",
     "pg-promise": "^11.5.4",
     "react": "18.2.0",

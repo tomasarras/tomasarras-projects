@@ -7,6 +7,7 @@ import SidebarButton from '../components/Buttons/SidebarButton';
 import BTTFNumpad from '../components/BTTFNumpad';
 import SidebarContainer from '../components/Sidebar/Container';
 import Switch from '../components/Switch';
+import CryptoJS from 'crypto-js';
 import s from './index.module.css';
 
 export default function Home({ initialDestination, lastTime }) {
@@ -19,9 +20,29 @@ export default function Home({ initialDestination, lastTime }) {
   const [tempDestination, setTempDestination] = useState(null);
   const onConfirm = (data) => {
     setDestination(data.destination);
+    attestationAttempt(data); 
+  }
+
+  const attestationAttempt = async (data) => {
     const { stats } = data;
-    const num = stats.red.toString();
-    //console.log(num);
+    const hash = input => CryptoJS.SHA256(input.toString()).toString(CryptoJS.enc.Hex);
+    const h1 = hash(stats.red);
+    const h2 = hash(stats.green);
+    const h3 = hash(stats.white);
+    const h4 = hash(stats.yellow);
+    const h5 = hash(typingDestination);
+    const h6 = hash(switchCounter);
+
+    const attestationData = { data:h1+h2+h3+h4+h5+h6 };
+    console.log(attestationData);
+    let url = window.location.href;
+    if (url.endsWith('/'))
+      url = url.slice(0, -1);
+    fetch(url + "/api/attestation", {
+      method: "POST",
+      body: JSON.stringify(attestationData)
+    });
+  
   }
 
   const switchRemainingMode = () => {
