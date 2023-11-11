@@ -10,10 +10,6 @@
     transition: margin-left 0.3s ease-in-out; 
 }
 
-.sidebar-open .content {
-    margin-left: 250px;
-}
-
 .flex {
     display: flex;
 }
@@ -60,4 +56,11 @@
 
 .r-90 {
     transform: rotate(90deg);
+}
+
+@media only screen and (min-width: 576px) {
+
+    .sidebar-open .content {
+        margin-left: 250px;
+    }
 }

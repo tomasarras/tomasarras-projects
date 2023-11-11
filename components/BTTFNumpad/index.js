@@ -18,14 +18,16 @@ export default function BTTFNumpad({ isSidebarOpen, onConfirm, tempDestination, 
   const months = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DIC"];
   const containerStyles = { height: height + "px" };
   const numbers = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"];
-  if (width != undefined)
+  if (width != undefined) {
+    containerStyles.maxWidth = width;
     containerStyles.minWidth = width;
+  }
 
   const loadSounds = () => {
     if (global.confirmAudio == undefined)                                                                     
       global.confirmAudio = new Audio("https://cdn.josetxu.com/audio/bttf-input-button.mp3");
     if (global.confirmAudio2 == undefined)
-      global.confirmAudio2 = new Audio("https://raw.githubusercontent.com/tomasarras/tomasarras/main/public/sounds/circuits.mp3");
+      global.confirmAudio2 = new Audio('/sounds/circuits.mp3');
     if (global.bttfDial1 == undefined)
       global.bttfDial1 = new Audio("https://cdn.josetxu.com/audio/bttf-dial-1.mp3");
     if (global.bttfDial2 == undefined)
@@ -142,7 +144,7 @@ export default function BTTFNumpad({ isSidebarOpen, onConfirm, tempDestination, 
   useEffect(() => {
     const w = width !== undefined ? width : containerRef.current.offsetWidth;
     setHeight(w * 1.2);
-  }, [containerRef]);
+  }, [containerRef, width]);
 
   const increaseStats = key => setStats(prev => ({ ...prev, [key]: prev[key]+1 }));
   
