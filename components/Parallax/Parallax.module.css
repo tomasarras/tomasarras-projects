@@ -1,0 +1,83 @@
+.layer1 {
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+}
+
+.lines1 {
+    filter: blur(6px);
+    position: absolute;
+    top: 68%;
+    left: -5%;
+    transition: all 900ms;
+}
+
+.lines1Passed {
+    top: -10%;
+}
+
+.lines2 {
+    filter: blur(5px);
+    position: absolute;
+    top: 45%;
+    left: 80%;
+    transition: all 900ms;
+}
+
+.lines2Passed {
+    top: -60%;
+}
+
+.mouse {
+    position: fixed;
+    top: 91%;
+    left: 50%;
+    transition: opacity 300ms;
+}
+
+.mousePassed {
+    opacity: 0;
+}
+
+.semicolon {
+    transform: rotate(-20deg);
+    filter: blur(3px);
+    position: absolute;
+    top: 20%;
+    left: 5%;
+    transition: all 900ms;
+}
+
+.semicolonPassed {
+    top: -15%;
+}
+
+.dev {
+    filter: blur(5px);
+    transform: rotate(16deg);
+    position: absolute;
+    top: 20%;
+    left: 85%;
+    transition: all 900ms;
+}
+
+.devPassed {
+    top: -15%;
+}
+
+.faceLogo {
+    background-color: #090909;
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    transition: all 900ms;
+}
+
+.faceLogoPassed {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    transition: all 900ms;
+    filter: blur(3px);
+    transform: scale(0.5)
+}

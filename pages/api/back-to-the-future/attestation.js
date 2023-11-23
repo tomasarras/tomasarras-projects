@@ -2,7 +2,7 @@
 export default async function handler(req, res) {
   let { data } = JSON.parse(req.body);
   if (process.env.PASSWORD == data) {
-    const { client } = require('../../db');
+    const { client } = require('../../../db');
     const db = client();
     const [bttf] = await db.any('SELECT * from bttf');
     const attestationDuration = parseInt(process.env.ATTESTATION_DURATION);

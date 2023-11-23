@@ -1,0 +1,15 @@
+.faceSwap {
+	position: relative;
+	/* width: 200px;
+	height: 200px; */
+	/*background: linear-gradient(to right, white 50%, black 50%);*/
+}
+
+.faceSwap img {
+	position: absolute;
+}
+
+.img2 {
+	/*clip-path: polygon(50% 0, 100% 0, 100% 100%, 50% 100%);*/
+	filter: invert(100%);
+}

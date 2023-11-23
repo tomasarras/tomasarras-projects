@@ -1,0 +1,27 @@
+.header {
+    position: fixed;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    color: white;
+    background-color: #090909;
+}
+
+.headerContainer {
+    border-radius: 60px;
+    height: 60px;
+}
+
+.headerContainer {
+    background-color: #09090980;
+    backdrop-filter: blur(10px);
+    align-items: center;
+    display: flex;
+    border: 1px solid white;
+    width: 50%;
+    justify-content: space-between;
+}
+
+.header ul {
+    display: flex;
+}
