@@ -4,8 +4,11 @@ import styles from '../styles/Home.module.css';
 import Image from 'next/image';
 import { FullPage, Slide } from 'react-full-page';
 import Slider from '../components/Slider';
+import DesktopAnimation from '../components/DesktopAnimation';
+import { useWindowSize } from '@uidotdev/usehooks';
 
 export default function Home({ }) {
+  const size = useWindowSize();
   
   return (
     <div className={styles.container}>
@@ -35,6 +38,10 @@ export default function Home({ }) {
         </Slide>
         <Slide style={{background: "#090909"}}>
           <h1>Another slide content Another slide content Another slide content</h1>
+          <div style={{margin: "145px 0 0 600px"}}>
+
+            <DesktopAnimation width={400} height={400}/>
+          </div>
         </Slide>
       </FullPage>
     </div>

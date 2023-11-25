@@ -1,0 +1,84 @@
+.layer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.container {
+    position: relative;
+}
+
+.item {
+    -webkit-perspective: 240px;
+    perspective: 240px;
+    transform-style: preserve-3d;
+    transform: rotateX(28deg) rotateY(45deg) rotateZ(5deg);
+    position: absolute;
+}
+
+.console1 {
+    top: 27%;
+    left: 45%;
+}
+
+.console2 {
+    top: 10%;
+    left: 19%;
+}
+
+.console3 {
+    top: 54%;
+    left: 45%;
+}
+
+.front1 {
+    top: 10%;
+    left: -10%;
+}
+
+.front2 {
+    top: 40%;
+    left: -8%;
+}
+
+.item .lines {
+    transition: all 500ms ease;
+    left: 0;
+    top: 0;
+}
+
+.item .lines:hover {
+    transform: scale(1.4);
+    left: -10%;
+    top: 8%;
+}
+
+.opacity {
+    opacity: .6;
+}
+
+.item img {
+    position: absolute;
+}
+
+.dev {
+    position: absolute;
+    top: 32%;
+    left: 34%;
+}
+
+.devImg {
+    position: absolute;
+}
+
+.devShadow {
+    left: 6%;
+    -webkit-perspective: 240px;
+    perspective: 240px;
+    transform-style: preserve-3d;
+    transform: rotateX(28deg) rotateY(45deg) rotateZ(5deg);
+    position: absolute;
+    background-color: black;
+    opacity: .5;
+    border-radius: 100%;
+}
