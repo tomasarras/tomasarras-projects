@@ -7,21 +7,73 @@
     background-color: #090909;
 }
 
-.headerContainer {
+.headerContainer, .borderContainer div {
     border-radius: 60px;
     height: 60px;
 }
 
-.headerContainer {
-    background-color: #09090980;
+.borderContainer {
+    overflow: hidden;
+    position: relative;
+}
+
+.borderContainer, .borderContainer div {
+    transition: left 900ms ease;
+}
+
+.borderContainer div {
+    position: absolute;
+    border: 1px solid white;
     backdrop-filter: blur(10px);
+}
+
+.headerContainer {
+    position: absolute;
+    background-color: #09090980;
+    
     align-items: center;
     display: flex;
-    border: 1px solid white;
+    /* border: 1px solid white; */
     width: 50%;
     justify-content: space-between;
 }
 
 .header ul {
     display: flex;
+}
+
+.logo {
+    position: relative;
+    opacity: 0;
+    transition: opacity 900ms ease;
+}
+
+.logo.visible {
+    animation: logo 900ms ease;
+    opacity: 1;
+    left: 0;
+}
+
+.nav {
+    opacity: 0;
+    transition: opacity 900ms ease;
+    
+}
+
+.nav.visible {
+    opacity: 1;
+}
+
+@keyframes logo {
+    0% {
+        opacity: 0;
+        left: 40%;
+    }
+    30% {
+        opacity: 1;
+        left: 40%;
+    }
+    100% {
+        left: 0;
+    }
 }
