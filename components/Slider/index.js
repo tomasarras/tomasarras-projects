@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import styles from "./Slider.module.css";
 import Parallax from '../Parallax';
-import Header from '../Header';
+import { Context } from '../../Context';
 
 export default function Slider({ slidesCount, getCurrentSlideIndex, onNext, onPrev, scrollToSlide }) {
   const [slides, setSlides] = useState([]);
   const currentIndex = getCurrentSlideIndex();
+  const { setCurrentPage } = useContext(Context);
   
   useEffect(() => {
     let slides = [];
@@ -15,8 +16,9 @@ export default function Slider({ slidesCount, getCurrentSlideIndex, onNext, onPr
     setSlides(slides);
   }, [slidesCount]);
 
+  useEffect(() => setCurrentPage(currentIndex), [currentIndex]);
+
   const changePage = index => {
-    console.log(index, slides[index]);
     if (slides.length == 0)
       return;
     scrollToSlide(index);
@@ -24,7 +26,6 @@ export default function Slider({ slidesCount, getCurrentSlideIndex, onNext, onPr
   }
 
   return (<>
-    <Header currentIndex={currentIndex}/>
     <div className={styles.container}>
       <nav className={styles.nav}>
         <ul>
@@ -33,6 +34,6 @@ export default function Slider({ slidesCount, getCurrentSlideIndex, onNext, onPr
         <div style={{ transform: `translateY(${50 * currentIndex}px)` }} className={styles.line}></div>
       </nav>
     </div>
-    <Parallax currentSlideIndex={currentIndex}/>
+    <Parallax/>
   </>)
 }

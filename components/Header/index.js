@@ -1,12 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import styles from "./Header.module.css";
 import { useRef } from 'react';
 import { useWindowSize } from '@uidotdev/usehooks';
+import { Context } from '../../Context';
 
-export default function Header({ currentIndex }) {
+export default function Header() {
+  const { currentPage } = useContext(Context);
+  const [isActive, setIsActive] = useState(false);
   const headerRef = useRef(null);
   const size = useWindowSize();
-  const isActive = currentIndex >= 1;
   const headerClientRect = headerRef?.current?.getBoundingClientRect();
   const hcr = headerClientRect == undefined ? {
     width: 0,
@@ -18,6 +20,10 @@ export default function Header({ currentIndex }) {
   } : headerClientRect;
   const headerWidth = hcr?.width;
   const headerHeight = hcr?.height;
+
+  useEffect(() => {
+    setIsActive(currentPage >= 1);
+  }, [currentPage]);
 
   return (<>
     <header className={`${styles.header} mt-4`}>

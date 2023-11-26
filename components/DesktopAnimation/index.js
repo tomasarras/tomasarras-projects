@@ -1,11 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import s from "./DesktopAnimation.module.css";
 import Image from 'next/image';
+import { Context } from '../../Context';
 
 export default function DesktopAnimation({ width, height }) {
+  const { currentPage } = useContext(Context);
+  const showInPage = 1;
+  const passed = currentPage > showInPage;
+  const isActive = currentPage >= showInPage;
 
   return (<>
-  <div style={{width, height}} className={s.container}>
+  <div style={{width, height}} className={`${s.container} ${isActive ? s.active : ""} ${passed ? s.invisible : ""}`}>
     <div className={`${s.layer1} ${s.layer}`}>
       <Image
         src="/desktop/desktop.svg"
