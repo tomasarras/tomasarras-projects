@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import s from "./DesktopAnimation.module.css";
 import Image from 'next/image';
-import { useWindowSize } from '@uidotdev/usehooks';
 
 export default function DesktopAnimation({ width, height }) {
 
@@ -89,15 +88,15 @@ export default function DesktopAnimation({ width, height }) {
           src="/desktop/background/b5/b1.svg"
           alt="Console"
           className={`${s.opacity}`}
-          width={width * 0.35}
-          height={width * 0.35}
+          width={width * 0.15}
+          height={width * 0.15}
         />
         <Image
           src="/desktop/background/b5/b2.svg"
           alt="Lines"
           className={`${s.lines}`}
-          width={width * 0.35}
-          height={width * 0.35}
+          width={width * 0.15}
+          height={width * 0.15}
         />
       </div>
 

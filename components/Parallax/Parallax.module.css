@@ -1,7 +1,9 @@
 .layer1 {
+    z-index: -1;
     position: fixed;
     height: 100vh;
     width: 100vw;
+    background-color: #090909;
 }
 
 .lines1 {
@@ -19,7 +21,7 @@
 .lines2 {
     filter: blur(5px);
     position: absolute;
-    top: 45%;
+    top: 75%;
     left: 80%;
     transition: all 900ms;
 }
@@ -66,7 +68,6 @@
 }
 
 .faceLogo {
-    background-color: #090909;
     position: absolute;
     top: 0%;
     left: 50%;
