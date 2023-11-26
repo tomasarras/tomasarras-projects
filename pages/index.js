@@ -40,7 +40,7 @@ export default function Home({ }) {
             </div> */}
         </Slide>
         <Slide>
-          <Container>
+          <Container page={1}>
             <div className='w-100 h-100 align-center d-flex justify-between items-center'>
               <div className='w-50'>
                 <div className='d-flex items-center w-100 flex-column mb-6'>
@@ -56,7 +56,7 @@ export default function Home({ }) {
           </Container>
         </Slide>
         <Slide>
-          <Container>
+          <Container page={2}>
             <div className='w-100 h-100 align-center d-flex justify-between items-center'>
               <div className='w-50'>
                 <div className='d-flex items-center w-100 flex-column mb-6'>
