@@ -35,8 +35,8 @@ export default function Header() {
         <nav className={`me-4 ${styles.nav} ${isActive && styles.visible}`}>
           <ul>
             <li className='ms-4'>About</li>
-            <li className='ms-4'>Experience</li>
             <li className='ms-4'>Skills</li>
+            <li className='ms-4'>Experience</li>
             <li className='ms-4'>Portfolio</li>
             <li className='ms-4'>Contact</li>
           </ul>

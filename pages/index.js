@@ -8,6 +8,10 @@ import DesktopAnimation from '../components/DesktopAnimation';
 import { useWindowSize } from '@uidotdev/usehooks';
 import Container from '../components/Container';
 import Header from '../components/Header';
+import Experience from '../components/Pages/Experience';
+import About from '../components/Pages/About';
+import Hero from '../components/Pages/Hero';
+import Skills from '../components/Pages/Skills';
 
 export default function Home({ }) {
   const size = useWindowSize();
@@ -26,52 +30,22 @@ export default function Home({ }) {
 
       <Header/>
       <FullPage duration={100} controls={Slider}>
-        <Slide >
-
-          <h1 className={styles.slide1Title}>Hello friend.</h1>
-          {/* <div style={{filter: "blur(6px)"}}>
-
-          <Image
-            src="/icons/code.svg"
-            alt="Logo"
-            width={600}
-            height={800}
-            />
-            </div> */}
+        <Slide>
+          <Hero/>
         </Slide>
         <Slide>
           <Container page={1}>
-            <div className='w-100 h-100 align-center d-flex justify-between items-center'>
-              <div className='w-5/12'>
-                <div className='d-flex items-center w-100 flex-column mb-6'>
-                  <h1 className='mb-4 text-5xl font-bold'>About me</h1>
-                  <div className='title-underline'></div>
-                </div>
-                <h2 className='text-3xl mb-6'>Full Stack Web Developer</h2>
-                <p className='mb-2'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis exercitationem labore architecto! Itaque, nesciunt obcaecati accusantium quo enim temporibus, nostrum praesentium consequuntur et sed provident impedit repellat reprehenderit iusto fuga.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis exercitationem labore architecto! Itaque, nesciunt obcaecati accusantium quo enim temporibus, nostrum praesentium consequuntur et sed provident impedit repellat reprehenderit iusto fuga.</p>
-              </div>
-              <div className='w-7/12 d-flex justify-center'>
-                <DesktopAnimation width={600} height={600}/>
-              </div>
-            </div>
+            <About/>
           </Container>
         </Slide>
         <Slide>
           <Container page={2}>
-          <div className='w-100 h-100 align-center d-flex justify-between items-center'>
-              <div className='w-5/12'>
-                <div className='d-flex items-center w-100 flex-column mb-6'>
-                  <h1 className='mb-4 text-5xl font-bold'>Skills</h1>
-                  <div className='title-underline'></div>
-                </div>
-                <p className='mb-2'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis exercitationem labore architecto! Itaque, nesciunt obcaecati accusantium quo enim temporibus, nostrum praesentium consequuntur et sed provident impedit repellat reprehenderit iusto fuga.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis exercitationem labore architecto! Itaque, nesciunt obcaecati accusantium quo enim temporibus, nostrum praesentium consequuntur et sed provident impedit repellat reprehenderit iusto fuga.</p>
-              </div>
-              <div className='w-7/12 d-flex justify-center'>
-                
-              </div>
-            </div>
+            <Skills/>
+          </Container>
+        </Slide>
+        <Slide>
+          <Container page={3}>
+            <Experience/>
           </Container>
         </Slide>
       </FullPage>

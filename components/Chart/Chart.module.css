@@ -1,0 +1,29 @@
+.container div {
+    position: absolute;
+    opacity: .2;
+    transition: all 500ms ease;
+}
+
+.container div.active {
+    opacity: 1;
+}
+
+.container div span {
+    position: absolute;
+}
+
+.designLabel {
+    left: 37%;
+    top: 80%;
+}
+
+.frontendLabel {
+    left: 65%;
+    top: 45%;
+}
+
+.backendLabel {
+    left: 15%;
+    top: 45%;
+}
+
