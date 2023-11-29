@@ -29,7 +29,7 @@ export default function Parallax() {
     <div className={`${styles.dev} ${currentPage >= 1 ? styles.devPassed : ''}`}>
       <Dev width={size.width * 0.07} height={size.width * 0.07}/>
     </div>
-    <div style={{ width: faceLogoSize+"px", top: (size.height/2) - (faceLogoSize / 2) - 100 + "px", left: `${currentPage == 0 ? (size.width / 2) -  (faceLogoSize / 2) + "px" : "70%"}` }} className={`${styles.faceLogo} ${currentPage >= 1 ? styles.faceLogoPassed : ''}`}>
+    <div style={{ width: faceLogoSize + "px", top: (size.height/2) - (faceLogoSize / 2) - 100 + "px", left: `${currentPage == 0 ? (size.width / 2) -  (faceLogoSize / 2) + "px" : "70%"}` }} className={`${styles.faceLogo} ${currentPage == 1 ? styles.faceLogoPassed : ''}`}>
       <FaceLogo size={faceLogoSize}/>
     </div>
     

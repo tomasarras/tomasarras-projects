@@ -4,6 +4,7 @@
     width: 100%;
     justify-content: center;
     color: white;
+    z-index: 9999;
 }
 
 .headerContainer, .borderContainer div {

@@ -75,10 +75,13 @@
 }
 
 .faceLogoPassed {
-    position: absolute;
-    top: 0%;
-    left: 0%;
-    transition: all 900ms;
     filter: blur(3px);
     transform: scale(0.5)
 }
+
+/* .faceLogoPassed {
+    position: absolute;
+    transition: all 900ms;
+    filter: blur(3px);
+    transform: scale(0.5)
+} */

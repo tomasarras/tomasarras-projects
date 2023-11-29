@@ -72,9 +72,12 @@
 .dev div.devShadow, img.devImg {
     transition-delay: 800ms;
 }
-
-.container.active .item img, .container.active .devImg {
+.container.active .devImg {
     opacity: 1;
+}
+
+.container.active .item img {
+    opacity: .6;
 }
 
 .container.active .devShadow {
@@ -84,6 +87,10 @@
 .console1 {
     top: 37%;
     left: 45%;
+}
+
+.devMov {
+    animation: devMov 3s linear infinite;
 }
 
 .console2 {
@@ -146,4 +153,19 @@
     background-color: black;
     opacity: .5;
     border-radius: 100%;
+}
+
+@keyframes devMov {
+    0% {
+        top: 2.5%;
+    }
+    50% {
+        top: 3.2%;
+    }
+    90% {
+        top: 2.5%;
+    }
+    100% {
+        top: 2.5%;
+    }
 }

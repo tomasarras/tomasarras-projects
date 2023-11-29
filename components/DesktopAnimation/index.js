@@ -108,9 +108,16 @@ export default function DesktopAnimation({ width, height }) {
       <div style={{width, height}} className={`${s.dev}`}>
         <div style={{width: width * 0.20, height: width * 0.20}} className={s.devShadow}></div>
         <Image
-          src="/desktop/background/b6/dev.svg"
+          src="/desktop/background/b6/circle.svg"
           alt="Lines"
           className={`${s.devImg}`}
+          width={width * 0.20}
+          height={width * 0.20}
+        />
+        <Image
+          src="/desktop/background/b6/dev.svg"
+          alt="dev"
+          className={`${s.devImg} ${s.devMov}`}
           width={width * 0.20}
           height={width * 0.20}
         />
