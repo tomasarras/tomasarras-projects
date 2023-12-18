@@ -7,6 +7,7 @@ import { Context } from '../../Context';
 export default function Header() {
   const { currentPage } = useContext(Context);
   const [isActive, setIsActive] = useState(false);
+  const [firstPagePassed, setFirstPagePassed] = useState(false);
   const headerRef = useRef(null);
   const size = useWindowSize();
   const headerClientRect = headerRef?.current?.getBoundingClientRect();
@@ -22,13 +23,15 @@ export default function Header() {
   const headerHeight = hcr?.height;
 
   useEffect(() => {
+    if (currentPage >= 1 && !firstPagePassed)
+      setFirstPagePassed(true)
     setIsActive(currentPage >= 1);
   }, [currentPage]);
 
   return (<>
     <header className={`${styles.header} mt-4`}>
       <div style={{left: (isActive ? 0 : hcr.left*2) + "px", width: hcr.width + "px", height: hcr.height + "px"}} className={styles.borderContainer}>
-        <div style={{left: (isActive ? 0 : (((size.width/2) + hcr.left*2)*-1)/2), width: headerWidth + "px", height: headerHeight + "px"}}></div>
+        <div className={firstPagePassed && styles.black} style={{left: (isActive ? 0 : (((size.width/2) + hcr.left*2)*-1)/2), width: headerWidth + "px", height: headerHeight + "px"}}></div>
       </div>
       <div ref={headerRef} className={`${styles.headerContainer} p-2 ${isActive && styles.visible}`}>
         <div className={`ms-4 ${styles.logo} ${isActive && styles.visible}`}>Tomas Arras</div>

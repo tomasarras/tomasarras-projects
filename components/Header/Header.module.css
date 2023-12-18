@@ -17,7 +17,7 @@
     position: relative;
 }
 
-.borderContainer, .borderContainer div {
+.borderContainer, .borderContainer div.black {
     transition: left 900ms ease;
 }
 

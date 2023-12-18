@@ -70,10 +70,6 @@ ul, li {
     width: 32px;
 }
 
-.min-h-100vh {
-    min-height: 100vh;
-}
-
 .w-100vw {
     width: 100vw;
 }

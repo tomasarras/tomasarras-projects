@@ -1,7 +1,7 @@
 .layer1 {
     z-index: -1;
     position: fixed;
-    height: 100vh;
+    height: 100dvh;
     width: 100vw;
     background-color: #090909;
 }

@@ -125,7 +125,7 @@ export default function BackToTheFuture({ initialDestination, lastTime }) {
                 />
               </div>
             </SidebarResponsive>
-            <div className={`h-100vh flex align-items-center ${s["sidebar-button-container"]}`}>
+            <div className={`flex align-items-center ${s["sidebar-button-container"]}`}>
               <SidebarButton className={s["sidebar-button"]} isSidebarOpen={isSidebarOpen} onClick={toggleSidebar}/>
             </div>
             <div className={`${s["circuits-container"]} flex align-items-center justify-content-center w-100 py-4`}>

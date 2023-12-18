@@ -3,11 +3,25 @@ import styles from './Skills.module.css';
 import Chart from '../../Chart';
 import { useRef } from 'react';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 
 export default function Skills() {
   const chartContainerRef = useRef(null);
   const [highlightedType, setHighlightedType] = useState(null);
   const chartContainerWidth = chartContainerRef?.current?.getBoundingClientRect()?.width;
+  const fadeInAnimationVariants = {
+    initial: {
+      opacity: 0,
+      y: 100,
+    },
+    animate: (index) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: 0.05 * index,
+      }
+    })
+  }
   const devIcons1 = [{
     src: "react.svg",
     name: "React",
@@ -87,10 +101,16 @@ export default function Skills() {
       </div>
       <div className={`w-full ${styles.icons}`}>
         <div className='d-flex justify-center w-full mb-4'>
-          {devIcons1.map(icon => (
-            <div className='d-flex flex-col'>
+          {devIcons1.map((icon, index) => (
+            <motion.div
+              className='d-flex flex-col'
+              variants={fadeInAnimationVariants}
+              key={icon.src}
+              initial="initial"
+              whileInView="animate"
+              custom={index}
+            >
               <Image
-                key={icon.src}
                 src={"/icons/" + icon.src}
                 className={`mx-4 ${highlightedType === icon.type ? styles.active : ""}`}
                 alt="icon"
@@ -100,13 +120,19 @@ export default function Skills() {
                 onMouseLeave={() => setHighlightedType(null)}
               />
               <span className={`text-center ${highlightedType === icon.type ? "" : styles.invisible} ${styles.iconLabel}`}>{icon.name}</span>
-            </div>))}
+            </motion.div>))}
         </div>
         <div className='d-flex justify-center w-full'>
-          {devIcons2.map(icon => (
-            <div className='d-flex flex-col'>
-            <Image
+          {devIcons2.map((icon, index) => (
+            <motion.div
+              className='d-flex flex-col'
+              variants={fadeInAnimationVariants}
               key={icon.src}
+              initial="initial"
+              whileInView="animate"
+              custom={index}
+            >
+              <Image
               src={"/icons/" + icon.src}
               className={`mx-4 ${highlightedType === icon.type ? styles.active : ""}`}
               alt="icon"
@@ -116,7 +142,7 @@ export default function Skills() {
               onMouseLeave={() => setHighlightedType(null)}
             />
             <span className={`text-center ${highlightedType === icon.type ? "" : styles.invisible} ${styles.iconLabel}`}>{icon.name}</span>
-          </div>))}
+          </motion.div>))}
         </div>
       </div>
     </div>
