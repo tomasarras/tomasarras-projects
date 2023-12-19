@@ -20,7 +20,6 @@ export default function Home({ }) {
     <div className={styles.container}>
       <Head>
         <title>Tomas Arras</title>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" integrity="sha256-2TnSHycBDAm2wpZmgdi0z81kykGPJAkiUY+Wf97RbvY=" crossorigin="anonymous"/>
         <meta name="Tomas Arras" content="Tomas Arras" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
         <link rel="manifest" href="manifest.json"/>

@@ -1,23 +1,17 @@
 import React from 'react';
 import DesktopAnimation from '../../DesktopAnimation';
 import { motion } from 'framer-motion';
+import { useAnimationScroll } from '../../../hooks/useAnimationScroll';
+import { useEffect } from 'react';
 
 export default function About() {
 
-  const commonAnimation = {
-    initial: {
-      opacity: .6,
-      y: 300
-    },
-    animate: {
-      opacity: 1,
-      y:0,
-    }
-  }
+  const animation = useAnimationScroll(1)
+  useEffect(() => console.log(animation), [animation])
 
   return (
     <div className='w-100 h-100 align-center d-flex justify-between items-center'>
-      <motion.div transition={{ duration: .5, ease: 'easeOut' }} initial="initial" whileInView="animate" variants={commonAnimation} className='w-5/12'>
+      <motion.div {...animation} className='w-5/12'>
         <div className='d-flex items-center w-100 flex-column mb-6'>
           <h1 className='mb-4 text-5xl font-bold'>About me</h1>
           <div className='title-underline'></div>

@@ -9,6 +9,7 @@ export default function Skills() {
   const chartContainerRef = useRef(null);
   const [highlightedType, setHighlightedType] = useState(null);
   const chartContainerWidth = chartContainerRef?.current?.getBoundingClientRect()?.width;
+  const devIconSize = 60;
   const fadeInAnimationVariants = {
     initial: {
       opacity: 0,
@@ -73,7 +74,7 @@ export default function Skills() {
     type: "backend",
   },
   {
-    src: "xd.png",
+    src: "xd.svg",
     name: "Xd",
     type: "design",
   },
@@ -114,8 +115,8 @@ export default function Skills() {
                 src={"/icons/" + icon.src}
                 className={`mx-4 ${highlightedType === icon.type ? styles.active : ""}`}
                 alt="icon"
-                width={60}
-                height={60}
+                width={devIconSize}
+                height={devIconSize}
                 onMouseEnter={() => setHighlightedType(icon.type)}
                 onMouseLeave={() => setHighlightedType(null)}
               />
@@ -136,8 +137,8 @@ export default function Skills() {
               src={"/icons/" + icon.src}
               className={`mx-4 ${highlightedType === icon.type ? styles.active : ""}`}
               alt="icon"
-              width={60}
-              height={60}
+              width={devIconSize}
+              height={devIconSize}
               onMouseEnter={() => setHighlightedType(icon.type)}
               onMouseLeave={() => setHighlightedType(null)}
             />

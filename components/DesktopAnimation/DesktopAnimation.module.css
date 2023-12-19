@@ -89,10 +89,6 @@
     left: 45%;
 }
 
-.devMov {
-    animation: devMov 3s linear infinite;
-}
-
 .console2 {
     top: 22%;
     left: 19%;
@@ -114,15 +110,8 @@
 }
 
 .item .lines {
-    transition: all 500ms ease;
     left: 0;
     top: 0;
-}
-
-.item .lines:hover {
-    transform: scale(1.4);
-    left: -10%;
-    top: 8%;
 }
 
 .opacity {
@@ -143,6 +132,11 @@
     position: absolute;
 }
 
+.devMov {
+    position: relative;
+    top: 11.5%;
+}
+
 .devShadow {
     left: 6%;
     -webkit-perspective: 240px;
@@ -153,19 +147,4 @@
     background-color: black;
     opacity: .5;
     border-radius: 100%;
-}
-
-@keyframes devMov {
-    0% {
-        top: 2.5%;
-    }
-    50% {
-        top: 3.2%;
-    }
-    90% {
-        top: 2.5%;
-    }
-    100% {
-        top: 2.5%;
-    }
 }
