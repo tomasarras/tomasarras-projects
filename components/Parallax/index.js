@@ -6,15 +6,16 @@ import MouseAnimation from '../Icons/MouseAnimation';
 import Semicolon from '../Icons/Semicolon';
 import Dev from '../Icons/Dev';
 import { Context } from '../../Context';
+import { motion } from 'framer-motion';
 
 export default function Parallax() {
   const { currentPage } = useContext(Context);
   const size = useWindowSize();
 
   return (<div className={styles.layer1}>
-    <div className={`${styles.lines1} ${currentPage >= 1 ? styles.lines1Passed : ''}`}>
+    <motion.div animate={{y: currentPage == 0 ? 0:-650}} transition={{duration: .9}} className={`${styles.lines1} ${currentPage >= 1 ? styles.lines1Passed : ''}`}>
       <CodeLines width={size.width * 0.25} height={size.width * 0.25}/>
-    </div>
+    </motion.div>
     <div className={`${styles.lines2} ${currentPage >= 1 ? styles.lines2Passed : ''}`}>
       <CodeLines width={size.width * 0.45} height={size.width * 0.45}/>
     </div>

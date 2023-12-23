@@ -7,7 +7,7 @@ export const useAnimationScroll = (targetIndex) => {
     const animationVariant = {
         before: {
             opacity: .6,
-            y: -100,
+            y: -400,
         },
         whileInView: {
             opacity: 1,
@@ -15,17 +15,17 @@ export const useAnimationScroll = (targetIndex) => {
         },
         passed: {
             opacity: .6,
-            y: 100,
+            y: 400,
         },
     }
     const animation = {
-        transition: { duration: .5, ease: 'easeOut' },
+        transition: { duration: .8, ease: 'easeOut' },
     }
     if (currentPage == targetIndex)
-        animation.animation = animationVariant.whileInView
+        animation.animate = animationVariant.whileInView
     else if(currentPage > targetIndex)
-        animation.animation = animationVariant.passed
+        animation.animate = animationVariant.before
     else
-        animation.animation = animationVariant.before
+        animation.animate = animationVariant.passed
     return animation
 }

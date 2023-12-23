@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
 import Image from 'next/image';
-import { FullPage, Slide } from 'react-full-page';
+import { FullPage, Slide } from '../fork-libraries/react-full-page';
 import Slider from '../components/Slider';
 import DesktopAnimation from '../components/DesktopAnimation';
 import { useWindowSize } from '@uidotdev/usehooks';

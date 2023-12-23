@@ -11,12 +11,12 @@
     position: absolute;
     top: 68%;
     left: -5%;
-    transition: all 900ms;
+    /*transition: all 900ms; */
 }
 
-.lines1Passed {
+/* .lines1Passed {
     top: -10%;
-}
+} */
 
 .lines2 {
     filter: blur(5px);
