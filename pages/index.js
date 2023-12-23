@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
 import Image from 'next/image';
-import { FullPage, Slide } from '../fork-libraries/react-full-page';
 import Slider from '../components/Slider';
 import DesktopAnimation from '../components/DesktopAnimation';
 import { useWindowSize } from '@uidotdev/usehooks';
@@ -12,6 +11,7 @@ import Experience from '../components/Pages/Experience';
 import About from '../components/Pages/About';
 import Hero from '../components/Pages/Hero';
 import Skills from '../components/Pages/Skills';
+import FullPage from '../components/Scroll/FullPage';
 
 export default function Home({ }) {
   const size = useWindowSize();
@@ -26,27 +26,19 @@ export default function Home({ }) {
         <link rel="apple-touch-icon" href="logo.ico"/>
         <link rel="icon" href="/logo.ico" />
       </Head>
-
+      
       <Header/>
-      <FullPage duration={100} controls={Slider}>
-        <Slide>
-          <Hero/>
-        </Slide>
-        <Slide>
-          <Container page={1}>
-            <About/>
-          </Container>
-        </Slide>
-        <Slide>
-          <Container page={2}>
-            <Skills/>
-          </Container>
-        </Slide>
-        <Slide>
-          <Container page={3}>
-            <Experience/>
-          </Container>
-        </Slide>
+      <FullPage duration={900} controls={Slider}>
+        <Hero/>
+        <Container page={1}>
+          <About/>
+        </Container>
+        <Container page={2}>
+          <Skills/>
+        </Container>
+        <Container page={3}>
+          <Experience/>
+        </Container>
       </FullPage>
     </div>
   )

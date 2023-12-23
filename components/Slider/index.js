@@ -3,10 +3,9 @@ import styles from "./Slider.module.css";
 import Parallax from '../Parallax';
 import { Context } from '../../Context';
 
-export default function Slider({ slidesCount, getCurrentSlideIndex, onNext, onPrev, scrollToSlide }) {
+export default function Slider({ slidesCount }) {
   const [slides, setSlides] = useState([]);
-  const currentIndex = getCurrentSlideIndex();
-  const { setCurrentPage } = useContext(Context);
+  const { setCurrentPage, currentPage } = useContext(Context);
   
   useEffect(() => {
     let slides = [];
@@ -16,12 +15,10 @@ export default function Slider({ slidesCount, getCurrentSlideIndex, onNext, onPr
     setSlides(slides);
   }, [slidesCount]);
 
-  useEffect(() => setCurrentPage(currentIndex), [currentIndex]);
-
   const changePage = index => {
     if (slides.length == 0)
       return;
-    scrollToSlide(index);
+    setCurrentPage(index)
     setSlides(slides => slides.map((slide, i) => ({ ...slide, active: i == index })));
   }
 
@@ -31,7 +28,7 @@ export default function Slider({ slidesCount, getCurrentSlideIndex, onNext, onPr
         <ul>
           {slides.map((slide, i) => <li onClick={() => changePage(i)} key={i}>{slide.name}</li>)}
         </ul>
-        <div style={{ transform: `translateY(${50 * currentIndex}px)` }} className={styles.line}></div>
+        <div style={{ transform: `translateY(${50 * currentPage}px)` }} className={styles.line}></div>
       </nav>
     </div>
     <Parallax/>
