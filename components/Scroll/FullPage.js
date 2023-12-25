@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useContext, useRef } from 'react';
 import s from './FullPage.module.css'
 import Slider from '../Slider';
-import { easeInOutCirc, isMobileDevice } from '../../utils/utils'
+import { easeInOutCirc, getRequestAnimationFrame, isMobileDevice } from '../../utils/utils'
 import { Context } from '../../Context';
 
-export default function FullPage({ children, duration = 100 }) {
+export default function FullPage({ children, duration = 700 }) {
     const childrenArray = React.Children.toArray(children)
     const slidesCount = React.Children.count(children);
     const { setCurrentPage, currentPage } = useContext(Context)
@@ -12,17 +12,13 @@ export default function FullPage({ children, duration = 100 }) {
     const [isScrollPending, setIsScrollPending] = useState(false)
     const hasPageBeenRendered = useRef({ effect: false })
     
-    const animatedScrollTo = (scrollTo) => {
+    const animatedScrollTo = (scrollTo, callback) => {
         //TODO: deprecated
         const scrollFrom = window.scrollY || window.pageYOffset || 0;
         const scrollDiff = scrollTo - scrollFrom;
         
         const animateScroll = () => {
             let isScrolling = false;
-            const raf = window.requestAnimationFrame ||
-                        window.webkitRequestAnimationFrame ||
-                        window.mozRequestAnimationFrame    ||
-                        window.msRequestAnimationFrame;
 
             function smoothScrollTo(newScrollPos, duration) {
                 if (isScrolling) return;
@@ -38,13 +34,14 @@ export default function FullPage({ children, duration = 100 }) {
                     if (elapsedTime < duration) {
                         const easedValue = easeInOutCirc(elapsedTime, startValue, newScrollPos - startValue, duration);
                         window.scrollTo({ top: easedValue, behavior: 'instant' });
-                        raf(step);
+                        getRequestAnimationFrame()(step);
                     } else {
                         window.scrollTo({ top: newScrollPos, behavior: 'smooth' });
                         isScrolling = false;
+                        callback()
                     }
                 }
-                raf(step);
+                getRequestAnimationFrame()(step);
             }
             smoothScrollTo(scrollFrom + scrollDiff, duration);
         }
@@ -64,10 +61,7 @@ export default function FullPage({ children, duration = 100 }) {
     const scrollToSlide = (slide) => {
         if (!isScrollPending && slide >= 0 && slide < slidesCount) {      
             setIsScrollPending(isScrollPending)
-            animatedScrollTo(slides[slide], duration, () => {
-                setIsScrollPending(false)
-                setIsScrolledAlready(true);
-            });
+            animatedScrollTo(slides[slide], () => setIsScrollPending(false));
         }
     }
 

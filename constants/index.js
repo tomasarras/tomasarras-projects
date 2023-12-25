@@ -1,0 +1,1 @@
+export const animationScrollDuration = 900

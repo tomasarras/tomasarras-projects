@@ -12,6 +12,7 @@ import About from '../components/Pages/About';
 import Hero from '../components/Pages/Hero';
 import Skills from '../components/Pages/Skills';
 import FullPage from '../components/Scroll/FullPage';
+import { animationScrollDuration } from '../constants';
 
 export default function Home({ }) {
   const size = useWindowSize();
@@ -28,7 +29,7 @@ export default function Home({ }) {
       </Head>
       
       <Header/>
-      <FullPage duration={900} controls={Slider}>
+      <FullPage duration={animationScrollDuration} controls={Slider}>
         <Hero/>
         <Container page={1}>
           <About/>
