@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import styles from "./Experience.module.css";
+import WorkTimeline from '../../timeline';
 
 export default function Experience() {
 
@@ -25,7 +26,8 @@ export default function Experience() {
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis exercitationem labore architecto! Itaque, nesciunt obcaecati accusantium quo enim temporibus, nostrum praesentium consequuntur et sed provident impedit repellat reprehenderit iusto fuga.</p>
     </div>
     <div className='w-6/12 d-flex flex-col'>
-      <ItemContainer date={"2023 - present"}>
+      <WorkTimeline/>
+      {/* <ItemContainer date={"2023 - present"}>
         <h3>Backender</h3>
         <h4>Senior engeniier</h4>
         <p className='mt-2'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis exercitationem labore architecto! Itaque, nesciunt obcaecati accusantium quo enim temporibus, nostrum praesentium consequuntur et sed provident impedit repellat reprehenderit iusto fuga.</p>
@@ -34,7 +36,7 @@ export default function Experience() {
         <h3>Backender</h3>
         <h4>Senior engeniier</h4>
         <p className='mt-2'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis exercitationem labore architecto! Itaque, nesciunt obcaecati accusantium quo enim temporibus, nostrum praesentium consequuntur et sed provident impedit repellat reprehenderit iusto fuga.</p>
-      </ItemContainer>
+      </ItemContainer> */}
     </div>
   </div>);
 }
