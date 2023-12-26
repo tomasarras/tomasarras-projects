@@ -3,21 +3,10 @@ import DesktopAnimation from '../../DesktopAnimation';
 import { motion } from 'framer-motion';
 import { useAnimationScroll } from '../../../hooks/useAnimationScroll';
 import { useEffect } from 'react';
-import { Lethargy } from 'lethargy'
 
 export default function About() {
 
   const animation = useAnimationScroll(1)
-  const [l, setL] = useState(null)
-  useEffect(() => {
-    //console.log(animation)
-    //console.log(Lethargy)
-    if (l === null) {
-      const n = new Lethargy()
-      setL(n)
-      window.l = n
-    }
-  }, [animation, l])
 
   return (
     <div className='w-100 h-100 align-center d-flex justify-between items-center'>

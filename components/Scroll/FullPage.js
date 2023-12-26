@@ -3,17 +3,18 @@ import s from './FullPage.module.css'
 import Slider from '../Slider';
 import { easeInOutCirc, getRequestAnimationFrame, isMobileDevice } from '../../utils/utils'
 import { Context } from '../../Context';
+import { Lethargy } from 'lethargy'
 
+const lethargy = new Lethargy()
 export default function FullPage({ children, duration = 700 }) {
     const childrenArray = React.Children.toArray(children)
     const slidesCount = React.Children.count(children);
     const { setCurrentPage, currentPage } = useContext(Context)
     const [slides, setSlides] = useState([])
-    const [isScrollPending, setIsScrollPending] = useState(false)
+    const isScrollPending = useRef(false)
     const hasPageBeenRendered = useRef({ effect: false })
-    
+     
     const animatedScrollTo = (scrollTo, callback) => {
-        //TODO: deprecated
         const scrollFrom = window.scrollY || window.pageYOffset || 0;
         const scrollDiff = scrollTo - scrollFrom;
         
@@ -59,15 +60,16 @@ export default function FullPage({ children, duration = 700 }) {
     }
 
     const scrollToSlide = (slide) => {
-        if (!isScrollPending && slide >= 0 && slide < slidesCount) {      
-            setIsScrollPending(isScrollPending)
-            animatedScrollTo(slides[slide], () => setIsScrollPending(false));
+        if (!isScrollPending.current && slide >= 0 && slide < slidesCount) {      
+            isScrollPending.current = true
+            animatedScrollTo(slides[slide], () => isScrollPending.current = false);
         }
     }
 
     const onScroll = (evt) => {   
         evt.preventDefault();
-        if (isScrollPending) return;
+        console.log(lethargy.check(evt));
+        if (isScrollPending.current || lethargy.check(evt) === false) return;
         const scrollDown = (evt.wheelDelta || -evt.deltaY || -evt.detail) < 0;
         let newActiveSlide = scrollDown ? currentPage+1 : currentPage-1
         if (newActiveSlide == -1)
@@ -94,12 +96,11 @@ export default function FullPage({ children, duration = 700 }) {
         document.removeEventListener('wheel', onScroll, { passive: false });
         document.removeEventListener('resize', onResize);
       }
-    }, [isScrollPending, currentPage])
+    }, [currentPage])
 
     useEffect(() => {
         if (hasPageBeenRendered.current["effect"]) {
             scrollToSlide(currentPage);
-            setCurrentPage(currentPage)
         }
         hasPageBeenRendered.current["effect"] = true
     }, [currentPage])

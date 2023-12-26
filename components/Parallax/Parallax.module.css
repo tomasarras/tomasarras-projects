@@ -7,27 +7,17 @@
 }
 
 .lines1 {
-    filter: blur(6px);
+    filter: blur(4px);
     position: absolute;
     top: 68%;
     left: -5%;
-    /*transition: all 900ms; */
 }
-
-/* .lines1Passed {
-    top: -10%;
-} */
 
 .lines2 {
     filter: blur(5px);
     position: absolute;
     top: 75%;
     left: 80%;
-    transition: all 900ms;
-}
-
-.lines2Passed {
-    top: -60%;
 }
 
 .mouse {
@@ -47,24 +37,14 @@
     position: absolute;
     top: 20%;
     left: 5%;
-    transition: all 900ms;
-}
-
-.semicolonPassed {
-    top: -15%;
 }
 
 .dev {
-    filter: blur(5px);
+    filter: blur(3px);
     transform: rotate(16deg);
     position: absolute;
-    top: 20%;
+    top: 50%;
     left: 85%;
-    transition: all 900ms;
-}
-
-.devPassed {
-    top: -15%;
 }
 
 .faceLogo {
