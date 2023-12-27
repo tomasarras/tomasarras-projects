@@ -98,6 +98,10 @@ ul, li {
     border-radius: 5px;
 }
 
+.container-100dvh {
+    height: calc(100dvh - 60px);
+}
+
 @media only screen and (min-width: 576px) {
 
     .sidebar-open .content {

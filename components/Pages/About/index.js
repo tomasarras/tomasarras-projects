@@ -10,7 +10,7 @@ export default function About() {
   const animation = useAnimationScroll(1)
 
   return (
-    <div className={`${styles.container} align-center d-flex justify-between items-center`}>
+    <div className={`container-100dvh align-center d-flex justify-between items-center`}>
       <div {...animation} className='w-5/12'>
         <div className='d-flex items-center w-100 flex-column mb-6'>
           <h1 className='mb-4 text-5xl font-bold'>About me</h1>
