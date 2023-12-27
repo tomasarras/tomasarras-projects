@@ -1,17 +1,17 @@
 import React, { useContext, useEffect, useState } from 'react';
 import styles from "./Parallax.module.css";
 import CodeLines from './CodeLines';
-import { useWindowSize } from "@uidotdev/usehooks";
 import MouseAnimation from '../Icons/MouseAnimation';
 import Semicolon from '../Icons/Semicolon';
 import Dev from '../Icons/Dev';
 import { Context } from '../../Context';
 import { motion } from 'framer-motion';
 import { animationScrollDuration } from '../../constants';
+import useWindowDimensions from '../../hooks/useWindowDimensions';
 
 export default function Parallax() {
   const { currentPage } = useContext(Context);
-  const size = useWindowSize();
+  const size = useWindowDimensions();
   const animation = (translation) => (
     {
       animate: { y: currentPage*translation*-1 },

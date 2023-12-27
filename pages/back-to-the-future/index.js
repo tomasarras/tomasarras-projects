@@ -5,14 +5,14 @@ import SidebarButton from '../../components/Buttons/SidebarButton';
 import SidebarContainer from '../../components/Sidebar/Container';
 import CryptoJS from 'crypto-js';
 import BTTFCircuitsManager from '../../components/BTTFCircuits/BTTFCircuitsManager';
-import { useWindowSize } from '@uidotdev/usehooks';
 import SidebarResponsive from '../../components/Sidebar/SidebarResponsive';
 import SidebarContent from '../../components/Sidebar/SidebarContent';
 import s from './BackToTheFuture.module.css';
+import useWindowDimensions from '../../hooks/useWindowDimensions';
 
 export default function BackToTheFuture({ initialDestination, lastTime }) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const size = useWindowSize();
+  const size = useWindowDimensions();
   const [panelWidth, setPanelWidth] = useState(960);
   const [panelHeight, setPanelHeight] = useState(195);
   const [destination, setDestination] = useState(new Date(initialDestination));

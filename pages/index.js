@@ -4,7 +4,6 @@ import styles from '../styles/Home.module.css';
 import Image from 'next/image';
 import Slider from '../components/Slider';
 import DesktopAnimation from '../components/DesktopAnimation';
-import { useWindowSize } from '@uidotdev/usehooks';
 import Container from '../components/Container';
 import Header from '../components/Header';
 import Experience from '../components/Pages/Experience';
@@ -13,9 +12,10 @@ import Hero from '../components/Pages/Hero';
 import Skills from '../components/Pages/Skills';
 import FullPage from '../components/Scroll/FullPage';
 import { animationScrollDuration } from '../constants';
+import useWindowDimensions from '../hooks/useWindowDimensions';
 
 export default function Home({ }) {
-  const size = useWindowSize();
+  const size = useWindowDimensions();
 
   return (
     <div className={styles.container}>

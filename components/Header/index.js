@@ -1,15 +1,15 @@
 import React, { useContext, useEffect, useState } from 'react';
 import styles from "./Header.module.css";
 import { useRef } from 'react';
-import { useWindowSize } from '@uidotdev/usehooks';
 import { Context } from '../../Context';
+import useWindowDimensions from '../../hooks/useWindowDimensions';
 
 export default function Header() {
   const { currentPage } = useContext(Context);
   const [isActive, setIsActive] = useState(false);
   const [firstPagePassed, setFirstPagePassed] = useState(false);
   const headerRef = useRef(null);
-  const size = useWindowSize();
+  const size = useWindowDimensions();
   const headerClientRect = headerRef?.current?.getBoundingClientRect();
   const hcr = headerClientRect == undefined ? {
     width: 0,

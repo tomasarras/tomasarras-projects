@@ -1,11 +1,11 @@
 import React from 'react';
-import { useWindowSize } from '@uidotdev/usehooks';
 import BTTFNumpad from '../BTTFNumpad';
 import Switch from '../Switch';
 import s from "./SidebarContent.module.css";
+import useWindowDimensions from '../../hooks/useWindowDimensions';
 
 export default function SidebarContent({ isSidebarOpen, onConfirm, tempDestination, setTempDestination, typingDestination, setTypingDestination, switchRemainingMode, remainingMode }) {
-  const size = useWindowSize();
+  const size = useWindowDimensions();
   const isMobile = () => size.width <= 576;
   
   return (<> 

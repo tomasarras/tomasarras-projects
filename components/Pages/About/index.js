@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import DesktopAnimation from '../../DesktopAnimation';
 import { motion } from 'framer-motion';
 import { useAnimationScroll } from '../../../hooks/useAnimationScroll';
-import { useEffect } from 'react';
+import useWindowDimensions from "../../../hooks/useWindowDimensions"
 
 export default function About() {
-
+  const size = useWindowDimensions()
   const animation = useAnimationScroll(1)
 
   return (

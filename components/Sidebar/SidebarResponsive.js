@@ -1,10 +1,9 @@
 import React from 'react';
 import s from './SidebarResponsive.module.css'
-import { useWindowSize } from '@uidotdev/usehooks';
+import useWindowDimensions from '../../hooks/useWindowDimensions';
 
 export default function SidebarResponsive({ isOpen, onClose, children }) {
-  const size = useWindowSize();
-
+  const size = useWindowDimensions();
   
   return (<> {size.width <= 576 &&
     <div className={`${s.sidebar} ${isOpen ? s.open : ''}`}>
