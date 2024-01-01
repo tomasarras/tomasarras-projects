@@ -101,7 +101,7 @@ export default function Skills() {
         </div>
       </div>
       <div className={`w-full ${styles.icons}`}>
-        <div className='grid gap-4 grid-cols-6 w-6/12 mx-auto'>
+        <div className={`grid gap-4 grid-cols-6 mx-auto ${styles.iconsContainer}`}>
           {devIcons.map((icon, index) => (
             <motion.div
               className='d-flex flex-col justify-center items-center'

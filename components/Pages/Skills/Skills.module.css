@@ -8,6 +8,10 @@
     filter: none;
 }
 
+.iconsContainer {
+    max-width: 800px;
+}
+
 .iconLabel {
     opacity: 1;
     transition: all 500ms ease;
