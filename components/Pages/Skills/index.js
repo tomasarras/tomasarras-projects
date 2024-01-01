@@ -39,20 +39,21 @@ export default function Skills() {
     type: "frontend",
   },
   {
-    src: "javascript.svg",
-    name: "Javascript",
-    type: "frontend",
-  },
-  {
     src: "tailwind.svg",
     name: "Tailwind",
     type: "frontend",
   },
   {
-    src: "java.svg",
-    name: "Java",
-    type: "backend",
-  }];
+    src: "docker.svg",
+    name: "Docker",
+    type: "devops",
+  },
+  {
+    src: "git.svg",
+    name: "Git",
+    type: "devops",
+  },
+];
   const devIcons2 = [{
     src: "postgresql.svg",
     name: "PostgreSQL",
@@ -64,24 +65,24 @@ export default function Skills() {
     type: "backend",
   },
   {
-    src: "docker.svg",
-    name: "Docker",
-    type: "backend",
-  },
-  {
     src: "spring.svg",
     name: "Spring",
     type: "backend",
   },
   {
-    src: "xd.svg",
-    name: "Xd",
-    type: "design",
+    src: "java.svg",
+    name: "Java",
+    type: "backend",
   },
   {
-    src: "figma.svg",
-    name: "Figma",
-    type: "design",
+    src: "aws.svg",
+    name: "AWS",
+    type: "devops",
+  },
+  {
+    src: "jenkins.svg",
+    name: "Jenkins",
+    type: "devops",
   }];
 
   return (
@@ -101,7 +102,7 @@ export default function Skills() {
         </div>
       </div>
       <div className={`w-full ${styles.icons}`}>
-        <div className='d-flex justify-center w-full mb-4'>
+        <div className='d-flex justify-center w-full items-center mb-4'>
           {devIcons1.map((icon, index) => (
             <motion.div
               className='d-flex flex-col'
@@ -123,7 +124,7 @@ export default function Skills() {
               <span className={`text-center ${highlightedType === icon.type ? "" : styles.invisible} ${styles.iconLabel}`}>{icon.name}</span>
             </motion.div>))}
         </div>
-        <div className='d-flex justify-center w-full'>
+        <div className='d-flex justify-center w-full items-center'>
           {devIcons2.map((icon, index) => (
             <motion.div
               className='d-flex flex-col'
