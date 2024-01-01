@@ -1,6 +1,7 @@
 .icons img {
     filter: grayscale(100%);
     transition: filter 500ms ease;
+    height: inherit;
 }
 
 .icons img.active {

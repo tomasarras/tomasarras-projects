@@ -23,7 +23,7 @@ export default function Skills() {
       }
     })
   }
-  const devIcons1 = [{
+  const devIcons = [{
     src: "react.svg",
     name: "React",
     type: "frontend",
@@ -53,8 +53,7 @@ export default function Skills() {
     name: "Git",
     type: "devops",
   },
-];
-  const devIcons2 = [{
+  {
     src: "postgresql.svg",
     name: "PostgreSQL",
     type: "backend",
@@ -102,49 +101,27 @@ export default function Skills() {
         </div>
       </div>
       <div className={`w-full ${styles.icons}`}>
-        <div className='d-flex justify-center w-full items-center mb-4'>
-          {devIcons1.map((icon, index) => (
+        <div className='grid gap-4 grid-cols-6 w-6/12 mx-auto'>
+          {devIcons.map((icon, index) => (
             <motion.div
-              className='d-flex flex-col'
+              className='d-flex flex-col justify-center items-center'
               variants={fadeInAnimationVariants}
               key={icon.src}
               initial="initial"
               whileInView="animate"
               custom={index}
             >
-              <Image
-                src={"/icons/" + icon.src}
-                className={`mx-4 ${highlightedType === icon.type ? styles.active : ""}`}
-                alt="icon"
-                width={devIconSize}
-                height={devIconSize}
-                onMouseEnter={() => setHighlightedType(icon.type)}
-                onMouseLeave={() => setHighlightedType(null)}
-              />
+              <div style={{width: devIconSize, height: devIconSize}} className='flex justify-center items-center'>
+                <img
+                  src={"/icons/" + icon.src}
+                  className={`${highlightedType === icon.type ? styles.active : ""}`}
+                  alt="icon"
+                  onMouseEnter={() => setHighlightedType(icon.type)}
+                  onMouseLeave={() => setHighlightedType(null)}
+                />
+              </div>
               <span className={`text-center ${highlightedType === icon.type ? "" : styles.invisible} ${styles.iconLabel}`}>{icon.name}</span>
             </motion.div>))}
-        </div>
-        <div className='d-flex justify-center w-full items-center'>
-          {devIcons2.map((icon, index) => (
-            <motion.div
-              className='d-flex flex-col'
-              variants={fadeInAnimationVariants}
-              key={icon.src}
-              initial="initial"
-              whileInView="animate"
-              custom={index}
-            >
-              <Image
-              src={"/icons/" + icon.src}
-              className={`mx-4 ${highlightedType === icon.type ? styles.active : ""}`}
-              alt="icon"
-              width={devIconSize}
-              height={devIconSize}
-              onMouseEnter={() => setHighlightedType(icon.type)}
-              onMouseLeave={() => setHighlightedType(null)}
-            />
-            <span className={`text-center ${highlightedType === icon.type ? "" : styles.invisible} ${styles.iconLabel}`}>{icon.name}</span>
-          </motion.div>))}
         </div>
       </div>
     </div>
