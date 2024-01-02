@@ -13,6 +13,7 @@ import Skills from '../components/Pages/Skills';
 import FullPage from '../components/Scroll/FullPage';
 import { animationScrollDuration } from '../constants';
 import useWindowDimensions from '../hooks/useWindowDimensions';
+import Contact from '../components/Pages/Contact/Contact';
 
 export default function Home({ }) {
   const size = useWindowDimensions();
@@ -39,6 +40,9 @@ export default function Home({ }) {
         </Container>
         <Container page={3}>
           <Experience/>
+        </Container>
+        <Container page={4}>
+          <Contact/>
         </Container>
       </FullPage>
     </div>

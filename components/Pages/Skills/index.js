@@ -95,7 +95,7 @@ export default function Skills() {
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis exercitationem labore architecto! Itaque, nesciunt obcaecati accusantium quo enim temporibus, nostrum praesentium consequuntur et sed provident impedit repellat reprehenderit iusto fuga.</p>
         </div>
         <div className='w-7/12 d-flex justify-center items-center h-full'>
-          <div className='w-6/12' ref={chartContainerRef} style={{height: chartContainerWidth}}>
+          <div className='w-7/12' ref={chartContainerRef} style={{height: chartContainerWidth}}>
             <Chart activeChart={highlightedType} size={chartContainerWidth != undefined ? chartContainerWidth : 200}/>
           </div>
         </div>
