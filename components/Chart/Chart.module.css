@@ -12,18 +12,18 @@
     position: absolute;
 }
 
-.designLabel {
-    left: 37%;
+.devopsLabel {
+    left: 20%;
     top: 80%;
 }
 
 .frontendLabel {
-    left: 8%;
-    top: 39%;
+    left: 55%;
+    top: 30%;
 }
 
 .backendLabel {
-    left: 72%;
-    top: 39%;
+    left: 15%;
+    top: 25%;
 }
 

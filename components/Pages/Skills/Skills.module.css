@@ -1,10 +1,15 @@
 .icons img {
     filter: grayscale(100%);
     transition: filter 500ms ease;
+    height: inherit;
 }
 
 .icons img.active {
     filter: none;
+}
+
+.iconsContainer {
+    max-width: 800px;
 }
 
 .iconLabel {

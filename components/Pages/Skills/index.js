@@ -23,7 +23,7 @@ export default function Skills() {
       }
     })
   }
-  const devIcons1 = [{
+  const devIcons = [{
     src: "react.svg",
     name: "React",
     type: "frontend",
@@ -39,21 +39,21 @@ export default function Skills() {
     type: "frontend",
   },
   {
-    src: "javascript.svg",
-    name: "Javascript",
-    type: "frontend",
-  },
-  {
     src: "tailwind.svg",
     name: "Tailwind",
     type: "frontend",
   },
   {
-    src: "java.svg",
-    name: "Java",
-    type: "backend",
-  }];
-  const devIcons2 = [{
+    src: "docker.svg",
+    name: "Docker",
+    type: "devops",
+  },
+  {
+    src: "git.svg",
+    name: "Git",
+    type: "devops",
+  },
+  {
     src: "postgresql.svg",
     name: "PostgreSQL",
     type: "backend",
@@ -64,24 +64,24 @@ export default function Skills() {
     type: "backend",
   },
   {
-    src: "docker.svg",
-    name: "Docker",
-    type: "backend",
-  },
-  {
     src: "spring.svg",
     name: "Spring",
     type: "backend",
   },
   {
-    src: "xd.svg",
-    name: "Xd",
-    type: "design",
+    src: "java.svg",
+    name: "Java",
+    type: "backend",
   },
   {
-    src: "figma.svg",
-    name: "Figma",
-    type: "design",
+    src: "aws.svg",
+    name: "AWS",
+    type: "devops",
+  },
+  {
+    src: "jenkins.svg",
+    name: "Jenkins",
+    type: "devops",
   }];
 
   return (
@@ -95,55 +95,33 @@ export default function Skills() {
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis exercitationem labore architecto! Itaque, nesciunt obcaecati accusantium quo enim temporibus, nostrum praesentium consequuntur et sed provident impedit repellat reprehenderit iusto fuga.</p>
         </div>
         <div className='w-7/12 d-flex justify-center items-center h-full'>
-          <div className='w-6/12' ref={chartContainerRef} style={{height: chartContainerWidth}}>
+          <div className='w-7/12' ref={chartContainerRef} style={{height: chartContainerWidth}}>
             <Chart activeChart={highlightedType} size={chartContainerWidth != undefined ? chartContainerWidth : 200}/>
           </div>
         </div>
       </div>
       <div className={`w-full ${styles.icons}`}>
-        <div className='d-flex justify-center w-full mb-4'>
-          {devIcons1.map((icon, index) => (
+        <div className={`grid gap-4 grid-cols-6 mx-auto ${styles.iconsContainer}`}>
+          {devIcons.map((icon, index) => (
             <motion.div
-              className='d-flex flex-col'
+              className='d-flex flex-col justify-center items-center'
               variants={fadeInAnimationVariants}
               key={icon.src}
               initial="initial"
               whileInView="animate"
               custom={index}
             >
-              <Image
-                src={"/icons/" + icon.src}
-                className={`mx-4 ${highlightedType === icon.type ? styles.active : ""}`}
-                alt="icon"
-                width={devIconSize}
-                height={devIconSize}
-                onMouseEnter={() => setHighlightedType(icon.type)}
-                onMouseLeave={() => setHighlightedType(null)}
-              />
+              <div style={{width: devIconSize, height: devIconSize}} className='flex justify-center items-center'>
+                <img
+                  src={"/icons/" + icon.src}
+                  className={`${highlightedType === icon.type ? styles.active : ""}`}
+                  alt="icon"
+                  onMouseEnter={() => setHighlightedType(icon.type)}
+                  onMouseLeave={() => setHighlightedType(null)}
+                />
+              </div>
               <span className={`text-center ${highlightedType === icon.type ? "" : styles.invisible} ${styles.iconLabel}`}>{icon.name}</span>
             </motion.div>))}
-        </div>
-        <div className='d-flex justify-center w-full'>
-          {devIcons2.map((icon, index) => (
-            <motion.div
-              className='d-flex flex-col'
-              variants={fadeInAnimationVariants}
-              key={icon.src}
-              initial="initial"
-              whileInView="animate"
-              custom={index}
-            >
-              <Image
-              src={"/icons/" + icon.src}
-              className={`mx-4 ${highlightedType === icon.type ? styles.active : ""}`}
-              alt="icon"
-              width={devIconSize}
-              height={devIconSize}
-              onMouseEnter={() => setHighlightedType(icon.type)}
-              onMouseLeave={() => setHighlightedType(null)}
-            />
-            <span className={`text-center ${highlightedType === icon.type ? "" : styles.invisible} ${styles.iconLabel}`}>{icon.name}</span>
-          </motion.div>))}
         </div>
       </div>
     </div>
