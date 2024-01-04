@@ -20,6 +20,19 @@
     left: 80%;
 }
 
+.lines3 {
+    filter: blur(4px);
+    position: absolute;
+    right: -13%;
+}
+
+.lines4 {
+    filter: blur(4px);
+    position: absolute;
+    left: -9%;
+}
+
+
 .mouse {
     position: fixed;
     top: 91%;
@@ -59,9 +72,8 @@
     transform: scale(0.5)
 }
 
-/* .faceLogoPassed {
+.tomasarras {
     position: absolute;
-    transition: all 900ms;
-    filter: blur(3px);
-    transform: scale(0.5)
-} */
+    left: 28%;
+    opacity: .5;
+}
