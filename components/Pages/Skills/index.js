@@ -4,10 +4,12 @@ import Chart from '../../Chart';
 import { useRef } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+import { useAnimationScroll } from '../../../hooks/useAnimationScroll';
 
 export default function Skills() {
   const chartContainerRef = useRef(null);
   const [highlightedType, setHighlightedType] = useState(null);
+  const animation = useAnimationScroll(2);
   const chartContainerWidth = chartContainerRef?.current?.getBoundingClientRect()?.width;
   const devIconSize = 60;
   const fadeInAnimationVariants = {
@@ -87,13 +89,13 @@ export default function Skills() {
   return (
     <div className='w-100 h-100 align-center flex-col d-flex justify-between items-center'>
       <div className='w-100 h-100 align-center d-flex justify-between items-center'>
-        <div className='w-5/12'>
+        <motion.div {...animation} className='w-5/12'>
           <div className='d-flex items-center w-100 flex-column mb-6'>
             <h1 className='mb-4 text-5xl font-bold'>Skills</h1>
             <div className='title-underline'></div>
           </div>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis exercitationem labore architecto! Itaque, nesciunt obcaecati accusantium quo enim temporibus, nostrum praesentium consequuntur et sed provident impedit repellat reprehenderit iusto fuga.</p>
-        </div>
+        </motion.div>
         <div className='w-7/12 d-flex justify-center items-center h-full'>
           <div className='w-7/12' ref={chartContainerRef} style={{height: chartContainerWidth}}>
             <Chart activeChart={highlightedType} size={chartContainerWidth != undefined ? chartContainerWidth : 200}/>

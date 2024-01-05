@@ -50,7 +50,7 @@ export default function Parallax() {
     <motion.div {...animation(size.height * .32)} className={`${styles.dev}`}>
       <Dev width={size.width * 0.07} height={size.width * 0.07}/>
     </motion.div>
-    <motion.div {...animationT(size.height *.5, 3)} className={`${styles.tomasarras}`} style={{top: tomasarrasTop}}>
+    <motion.div {...animationT(size.height *.1, 3)} className={`${styles.tomasarras}`} style={{top: tomasarrasTop}}>
       <Image src="/portrait/portrait_deco.png" width={size.width * 0.2} height={size.width * 0.2} alt='Tomas Arras'/>
     </motion.div>
     <motion.div {...animationT(size.height *.5, 2)}  className={`${styles.lines3}`} style={{top: lines3Top}}>

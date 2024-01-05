@@ -7,8 +7,7 @@ import styles from "./Contact.module.css"
 import Image from 'next/image';
 
 export default function Contact() {
-  const size = useWindowDimensions()
-  const animation = useAnimationScroll(1)
+  const animation = useAnimationScroll(4)
   const [current, setCurrent] = useState(0)
   const imgSize = 2159
   const images = [
@@ -77,11 +76,11 @@ Want to start new project? Or just say hey.
 You can also follow me on Instagram.
 tomasarras@gmail.com</p>
       </div>
-      <div className='w-6/12 d-flex justify-center'>
+      <motion.div {...animation} className='w-6/12 d-flex justify-center'>
         <div className={`${styles.imageContainer} flex justify-center items-center w-8/12`}>
           {/* TODO: quitarle gradiente y ver si la imagen esta bien */}
           <Image alt="Tomas Arras" onClick={ () => setCurrent(current+1)} /*style={{filter: "grayscale(100%)"}}*/ /*src={images[current]}*/ src="/portrait/contact.png" width={imgSize} height={imgSize}/>
         </div>
-      </div>
+      </motion.div>
     </div>);
 }

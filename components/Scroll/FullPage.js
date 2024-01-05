@@ -68,7 +68,6 @@ export default function FullPage({ children, duration = 700 }) {
 
     const onScroll = (evt) => {   
         evt.preventDefault();
-        console.log(lethargy.check(evt));
         if (isScrollPending.current || lethargy.check(evt) === false) return;
         const scrollDown = (evt.wheelDelta || -evt.deltaY || -evt.detail) < 0;
         let newActiveSlide = scrollDown ? currentPage+1 : currentPage-1

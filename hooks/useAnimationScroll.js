@@ -1,31 +1,22 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { Context } from "../Context";
+import { animationScrollDuration } from "../constants";
+import useWindowDimensions from "./useWindowDimensions";
 
 export const useAnimationScroll = (targetIndex) => {
     const { currentPage } = useContext(Context)
-
-    const animationVariant = {
-        before: {
-            opacity: .6,
-            y: -400,
-        },
-        whileInView: {
-            opacity: 1,
-            y: 0,
-        },
-        passed: {
-            opacity: .6,
-            y: 400,
-        },
-    }
-    const animation = {
-        transition: { duration: .8, ease: 'easeOut' },
-    }
+    const size = useWindowDimensions()
+    let y;
     if (currentPage == targetIndex)
-        animation.animate = animationVariant.whileInView
-    else if(currentPage > targetIndex)
-        animation.animate = animationVariant.before
-    else
-        animation.animate = animationVariant.passed
-    return animation
+        y = 0;
+    else if (currentPage > targetIndex) {
+        y = -size.height;
+    } else if (currentPage < targetIndex) {
+        y = size.height;
+    }
+
+    return {
+        animate: { y },
+        transition: { ease:"circInOut", duration: animationScrollDuration/1000 }
+    }
 }
