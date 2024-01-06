@@ -1,15 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import styles from './Skills.module.css';
-import Chart from '../../Chart';
-import { useRef } from 'react';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
+import { motion, useScroll } from 'framer-motion';
 import { useAnimationScroll } from '../../../hooks/useAnimationScroll';
+import { Context } from '../../../Context';
+import useWindowDimensions from '../../../hooks/useWindowDimensions';
 
 export default function Skills() {
   const [highlightedType, setHighlightedType] = useState(null);
+  const { currentPage } = useContext(Context)
   const animation = useAnimationScroll(2);
+  const size = useWindowDimensions()
   const devIconSize = 60;
+  const imgDecorationAnimation = {
+    y: currentPage === 2 ? 0 : currentPage === 1 ? size.height /10 : size.height /10 *-1,
+  }
+  const dotsDecorationAnimation = {
+    y: currentPage === 2 ? 0 : currentPage === 1 ? size.height /10 *-1 : size.height /10,
+  }
   const fadeInAnimationVariants = {
     initial: {
       opacity: 0,
@@ -86,23 +94,25 @@ export default function Skills() {
 
   return (
     <div className='w-100 h-100 align-center flex-col d-flex justify-between items-center'>
-      <div className='w-100 h-100 align-center d-flex justify-between items-center'>
-        <motion.div {...animation} className='w-5/12'>
+      <div className='w-100 h-100 align-center grid gap-4 grid-cols-12 justify-between items-center'>
+        <motion.div {...animation} className='col-span-4'>
           <div className='d-flex items-center w-100 flex-column mb-6'>
             <h1 className='mb-4 text-5xl font-bold'>Skills</h1>
             <div className='title-underline'></div>
           </div>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis exercitationem labore architecto! Itaque, nesciunt obcaecati accusantium quo enim temporibus, nostrum praesentium consequuntur et sed provident impedit repellat reprehenderit iusto fuga.</p>
         </motion.div>
-        <div className='w-full d-flex justify-center items-center h-full'>
+        <div className='col-start-6 col-span-8 d-flex justify-center items-center h-full'>
           <div className={`w-full`}>
             <div className='relative top-0'>
-              <div className={`${styles.dots} absolute`}>
+              <motion.div animate={dotsDecorationAnimation} transition={{ duration: .9 }} className={`${styles.dots} absolute`}>
                 <Image className={`invisible`} src={"/frontend-resize.png"} width={2969} height={1236} alt='invisible'/>
-              </div>
-              <Image className={`${styles.imgDecoration} ${highlightedType === null || highlightedType == "frontend" ? styles.active : ""} ml-4`} src={"/frontend-resize.png"} width={2969} height={1236} alt='backend'/>
-              <Image className={`${styles.imgDecoration} ${highlightedType === null || highlightedType == "devops" ? styles.active : ""} absolute top-0 ml-4`} src={"/devops-resize.png"} width={2969} height={1236} alt='backend'/>
-              <Image className={`${styles.imgDecoration} ${highlightedType === null || highlightedType == "backend" ? styles.active : ""} absolute top-0 ml-4`} src={"/backend-resize.png"} width={2969} height={1236} alt='backend'/>
+              </motion.div>
+              <motion.div animate={imgDecorationAnimation} transition={{ duration: .9 }}>
+                <Image className={`${styles.imgDecoration} ${highlightedType === null || highlightedType == "frontend" ? styles.active : ""} ml-10`} src={"/frontend-resize.png"} width={2969} height={1236} alt='backend'/>
+                <Image className={`${styles.imgDecoration} ${highlightedType === null || highlightedType == "devops" ? styles.active : ""} absolute top-0 ml-10`} src={"/devops-resize.png"} width={2969} height={1236} alt='backend'/>
+                <Image className={`${styles.imgDecoration} ${highlightedType === null || highlightedType == "backend" ? styles.active : ""} absolute top-0 ml-10`} src={"/backend-resize.png"} width={2969} height={1236} alt='backend'/>
+              </motion.div>
             </div>
           </div>
         </div>
