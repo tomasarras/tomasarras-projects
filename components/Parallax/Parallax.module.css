@@ -26,6 +26,16 @@
     right: -13%;
 }
 
+.dots {
+    position: relative;
+    width: 1500px;
+    height: 500px;
+    background-image: radial-gradient(white 1px, transparent 0);
+    background-size: 40px 40px;
+    background-position: -19px -19px;
+    left: 35%;
+}
+
 .lines4 {
     filter: blur(4px);
     position: absolute;

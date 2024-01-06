@@ -7,10 +7,8 @@ import { motion } from 'framer-motion';
 import { useAnimationScroll } from '../../../hooks/useAnimationScroll';
 
 export default function Skills() {
-  const chartContainerRef = useRef(null);
   const [highlightedType, setHighlightedType] = useState(null);
   const animation = useAnimationScroll(2);
-  const chartContainerWidth = chartContainerRef?.current?.getBoundingClientRect()?.width;
   const devIconSize = 60;
   const fadeInAnimationVariants = {
     initial: {
@@ -96,9 +94,16 @@ export default function Skills() {
           </div>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis exercitationem labore architecto! Itaque, nesciunt obcaecati accusantium quo enim temporibus, nostrum praesentium consequuntur et sed provident impedit repellat reprehenderit iusto fuga.</p>
         </motion.div>
-        <div className='w-7/12 d-flex justify-center items-center h-full'>
-          <div className='w-7/12' ref={chartContainerRef} style={{height: chartContainerWidth}}>
-            <Chart activeChart={highlightedType} size={chartContainerWidth != undefined ? chartContainerWidth : 200}/>
+        <div className='w-full d-flex justify-center items-center h-full'>
+          <div className={`w-full`}>
+            <div className='relative top-0'>
+              <div className={`${styles.dots} absolute`}>
+                <Image className={`invisible`} src={"/frontend-resize.png"} width={2969} height={1236} alt='invisible'/>
+              </div>
+              <Image className={`${styles.imgDecoration} ${highlightedType === null || highlightedType == "frontend" ? styles.active : ""} ml-4`} src={"/frontend-resize.png"} width={2969} height={1236} alt='backend'/>
+              <Image className={`${styles.imgDecoration} ${highlightedType === null || highlightedType == "devops" ? styles.active : ""} absolute top-0 ml-4`} src={"/devops-resize.png"} width={2969} height={1236} alt='backend'/>
+              <Image className={`${styles.imgDecoration} ${highlightedType === null || highlightedType == "backend" ? styles.active : ""} absolute top-0 ml-4`} src={"/backend-resize.png"} width={2969} height={1236} alt='backend'/>
+            </div>
           </div>
         </div>
       </div>
