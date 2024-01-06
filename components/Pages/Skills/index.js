@@ -5,6 +5,7 @@ import { motion, useScroll } from 'framer-motion';
 import { useAnimationScroll } from '../../../hooks/useAnimationScroll';
 import { Context } from '../../../Context';
 import useWindowDimensions from '../../../hooks/useWindowDimensions';
+import { animationScrollDuration } from '../../../constants';
 
 export default function Skills() {
   const [highlightedType, setHighlightedType] = useState(null);
@@ -105,10 +106,10 @@ export default function Skills() {
         <div className='col-start-6 col-span-8 d-flex justify-center items-center h-full'>
           <div className={`w-full`}>
             <div className='relative top-0'>
-              <motion.div animate={dotsDecorationAnimation} transition={{ duration: .9 }} className={`${styles.dots} absolute`}>
+              <motion.div animate={dotsDecorationAnimation} transition={{ duration: animationScrollDuration / 1000 }} className={`${styles.dots} absolute`}>
                 <Image className={`invisible`} src={"/frontend-resize.png"} width={2969} height={1236} alt='invisible'/>
               </motion.div>
-              <motion.div animate={imgDecorationAnimation} transition={{ duration: .9 }}>
+              <motion.div animate={imgDecorationAnimation} transition={{ duration: animationScrollDuration / 1000 }}>
                 <Image className={`${styles.imgDecoration} ${highlightedType === null || highlightedType == "frontend" ? styles.active : ""} ml-10`} src={"/frontend-resize.png"} width={2969} height={1236} alt='backend'/>
                 <Image className={`${styles.imgDecoration} ${highlightedType === null || highlightedType == "devops" ? styles.active : ""} absolute top-0 ml-10`} src={"/devops-resize.png"} width={2969} height={1236} alt='backend'/>
                 <Image className={`${styles.imgDecoration} ${highlightedType === null || highlightedType == "backend" ? styles.active : ""} absolute top-0 ml-10`} src={"/backend-resize.png"} width={2969} height={1236} alt='backend'/>

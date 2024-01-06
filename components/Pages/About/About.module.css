@@ -1,0 +1,12 @@
+.dots {
+    position: absolute;
+    width: 200%;
+    height: 60%;
+    right: -100%;
+    margin-top: 20%;
+    z-index: -1;
+
+    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEeSURBVHhe7dYxTsNAEIVhAyU5hHsOgRtukDRUNJyKPhIiN6BxTUUTKRUyh6BJxZv1RDIRlhMlOytF/yetZjPZFG+keF0BAAAAAAAAAADgzJqmufXtpGPOnuraa1YKNFNZq973nXF+xs7ab7K78ZpV13Xbuq7X2r6qfujzd//NXx5+pfXUtu0mNTMLGYBR6C+F/9T23yEMwj8q/HtqBggbgBkbQqnw5sprKAV+UFlqzVOjUHhTZADGh/DWf6oWJcKbkFtgxNarGe5DFRnA4D+/8LXyXrjQh6DZf+BN3Q65hQ5gP3xqSskhhA1gLPxOqSGE3AIKb+/29ib4PPW011m7HV607nT2JzUvgYId/G5/zFkAAAAAAAAAAAAcpKp+AfxVfc4oOK0IAAAAAElFTkSuQmCC");
+    background-repeat: space;
+    background-size: 42px;
+}
