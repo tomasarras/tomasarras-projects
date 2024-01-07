@@ -3,6 +3,7 @@ import s from "./DesktopAnimation.module.css";
 import Image from 'next/image';
 import { Context } from '../../Context';
 import { motion } from 'framer-motion';
+import Dev from '../Icons/Dev';
 
 export default function DesktopAnimation({ width, height }) {
   const { currentPage } = useContext(Context);
@@ -155,9 +156,7 @@ export default function DesktopAnimation({ width, height }) {
             height={width * 0.20}
           />
           <motion.div animate={{ y: [0,2,0,-2,0] }} transition={{ repeat: Infinity, duration: 3, transition: 'ease' }} className={s.devMov}>
-            <Image
-              src="/desktop/background/b6/dev.svg"
-              alt="dev"
+            <Dev
               className={`${s.devImg}`}
               width={width * 0.20}
               height={width * 0.20}

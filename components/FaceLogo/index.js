@@ -9,6 +9,7 @@ export default function FaceLogo({ size }) {
     <div style={{width: size+"px"}} className={s.faceSwap}>
       <Image
         src="/logo.svg"
+        priority
         className={s.img}
         alt="Logo"
         width={size}

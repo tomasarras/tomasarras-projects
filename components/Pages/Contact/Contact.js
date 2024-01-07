@@ -1,15 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import DesktopAnimation from '../../DesktopAnimation';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { useAnimationScroll } from '../../../hooks/useAnimationScroll';
-import useWindowDimensions from "../../../hooks/useWindowDimensions"
 import styles from "./Contact.module.css"
 import Image from 'next/image';
+import contactImg from "../../../public/portrait/contact.png"
 
 export default function Contact() {
   const animation = useAnimationScroll(4)
-  const [current, setCurrent] = useState(0)
-  const imgSize = 2159
   const images = [
     // "/portrait/dark/APC_0009_fade.png",
     // "/portrait/dark/APC_0009_no_fade.png",
@@ -79,7 +76,8 @@ tomasarras@gmail.com</p>
       <motion.div {...animation} className='w-6/12 d-flex justify-center'>
         <div className={`${styles.imageContainer} flex justify-center items-center w-8/12`}>
           {/* TODO: quitarle gradiente y ver si la imagen esta bien */}
-          <Image alt="Tomas Arras" onClick={ () => setCurrent(current+1)} /*style={{filter: "grayscale(100%)"}}*/ /*src={images[current]}*/ src="/portrait/contact.png" width={imgSize} height={imgSize}/>
+          {/* TODO: next image loader */}
+          <Image priority alt="Tomas Arras" src={contactImg}/>
         </div>
       </motion.div>
     </div>);

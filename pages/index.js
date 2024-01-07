@@ -12,11 +12,9 @@ import Hero from '../components/Pages/Hero';
 import Skills from '../components/Pages/Skills';
 import FullPage from '../components/Scroll/FullPage';
 import { animationScrollDuration } from '../constants';
-import useWindowDimensions from '../hooks/useWindowDimensions';
 import Contact from '../components/Pages/Contact/Contact';
 
 export default function Home({ }) {
-  const size = useWindowDimensions();
 
   return (
     <div className={styles.container}>
