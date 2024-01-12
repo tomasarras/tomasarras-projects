@@ -4,10 +4,12 @@ import Slider from '../Slider/Slider';
 import { easeInOutCirc, getRequestAnimationFrame, isMobileDevice } from '../../utils/utils'
 import { Context } from '../../Context';
 import { Lethargy } from 'lethargy'
+import useWindowDimensions from '../../hooks/useWindowDimensions';
 
 const lethargy = new Lethargy()
 export default function FullPage({ children, duration = 700 }) {
     const childrenArray = React.Children.toArray(children)
+    const size = useWindowDimensions();
     const slidesCount = React.Children.count(children);
     const { setCurrentPage, currentPage } = useContext(Context)
     const [slides, setSlides] = useState([])

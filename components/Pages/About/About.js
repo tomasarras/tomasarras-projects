@@ -5,7 +5,7 @@ import { useAnimationScroll } from '../../../hooks/useAnimationScroll';
 import useWindowDimensions from "../../../hooks/useWindowDimensions"
 import styles from "./About.module.css"
 import { Context } from '../../../Context';
-import { animationScrollDuration } from '../../../constants';
+import { animationScrollDuration } from '../../../constants/Constants';
 
 export default function About() {
   const { currentPage } = useContext(Context)

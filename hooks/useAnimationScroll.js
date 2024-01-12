@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { Context } from "../Context";
-import { animationScrollDuration } from "../constants";
+import { animationScrollDuration } from "../constants/Constants";
 import useWindowDimensions from "./useWindowDimensions";
 
 export const useAnimationScroll = (targetIndex) => {

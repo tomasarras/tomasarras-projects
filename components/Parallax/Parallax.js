@@ -5,7 +5,7 @@ import MouseAnimation from '../Icons/MouseAnimation/MouseAnimation';
 import Semicolon from '../Icons/Semicolon/Semicolon';
 import { Context } from '../../Context';
 import { motion } from 'framer-motion';
-import { animationScrollDuration } from '../../constants';
+import { animationScrollDuration } from '../../constants/Constants';
 import useWindowDimensions from '../../hooks/useWindowDimensions';
 import Image from 'next/image';
 import DevIconPlain from '../Icons/Dev/DevIconPlain';

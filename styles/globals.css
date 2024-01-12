@@ -10,6 +10,10 @@
     --background-color: #040404;
 }
 
+body {
+    background-color: var(--background-color);
+}
+
 h1 {
     @apply text-3xl;
 }

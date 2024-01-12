@@ -8,7 +8,7 @@ import About from '../components/Pages/About/About';
 import Hero from '../components/Pages/Hero/Hero';
 import Skills from '../components/Pages/Skills/Skills';
 import FullPage from '../components/Scroll/FullPage';
-import { animationScrollDuration } from '../constants';
+import { animationScrollDuration } from '../constants/Constants';
 import Contact from '../components/Pages/Contact/Contact';
 
 export default function Home({ }) {

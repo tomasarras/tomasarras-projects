@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import s from "./DesktopAnimation.module.css";
 import Image from 'next/image';
 import { Context } from '../../Context';
@@ -9,7 +9,8 @@ export default function DesktopAnimation({ width, height }) {
   const { currentPage } = useContext(Context);
   const showInPage = 1;
   const passed = currentPage > showInPage;
-  const isActive = currentPage >= showInPage;
+  const containerRef = useRef(null)
+  const [isActive, setIsActive] = useState(false)
   const codeVariants = {
     initial: {
       scale: 1,
@@ -29,8 +30,42 @@ export default function DesktopAnimation({ width, height }) {
     variants: codeVariants
   }
 
+  // useEffect(() => {
+  //   setIsActive(currentPage >= showInPage)
+  // }, [currentPage])
+
+  useEffect(() => {
+    console.log(isActive, "isssss");
+  }, [isActive])
+  
+  
+
+  useEffect(() => {
+    const handleScroll = () => {
+      console.log("ESCROLS");
+      // Obtén el valor actual del scroll
+      const scrollY = window.scrollY || window.pageYOffset;
+      console.log("scrollY", scrollY);
+      // Puedes ajustar estos valores según tus necesidades
+      const element = containerRef.current; 
+      const elementTop = element.getBoundingClientRect().top + scrollY;
+      const elementBottom = elementTop + element.clientHeight;
+
+      // Verifica si el elemento está en la pantalla
+      setIsActive(scrollY >= elementTop && scrollY <= elementBottom);
+    };
+
+    // Agrega el evento de scroll al montar el componente
+    window.addEventListener('scroll', handleScroll);
+
+    // Limpia el evento al desmontar el componente para evitar pérdida de rendimiento
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (<>
-  <div style={{width, height}} className={`${s.container} ${isActive ? s.active : ""} ${passed ? s.invisible : ""}`}>
+  <div ref={containerRef} style={{width, height}} className={`${s.container} ${isActive ? s.active : ""} ${passed ? s.invisible : ""}`}>
     <div className={`${s.layer1} ${s.layer}`}>
       <Image
         src="/desktop/desktop.svg"

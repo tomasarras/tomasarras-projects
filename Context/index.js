@@ -1,11 +1,12 @@
 import React, { createContext, useEffect, useRef, useState } from "react";
 import { getRequestAnimationFrame, easeInOutCirc } from "../utils/utils";
-import { animationScrollDuration } from "../constants"
+import { animationScrollDuration } from "../constants/Constants"
 
 export const Context = createContext();
 
 export const Provider = ({ children }) => {
     const [currentPage, setCurrentPage] = useState(0);
+    const [scrollY, setScrollY] = useState(0);
     const hasPageBeenRendered = useRef({ effect: 2 })
     const [easeScroll, setEaseScroll] = useState(0)
     const prevCurrentPageRef = useRef(0);
@@ -40,6 +41,8 @@ export const Provider = ({ children }) => {
         setCurrentPage,
         currentPage,
         easeScroll,
+        scrollY,
+        setScrollY,
     }}>
         {children}
     </Context.Provider>);

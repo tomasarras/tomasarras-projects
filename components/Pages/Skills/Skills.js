@@ -5,7 +5,7 @@ import { motion, useScroll } from 'framer-motion';
 import { useAnimationScroll } from '../../../hooks/useAnimationScroll';
 import { Context } from '../../../Context';
 import useWindowDimensions from '../../../hooks/useWindowDimensions';
-import { animationScrollDuration } from '../../../constants';
+import { animationScrollDuration } from '../../../constants/Constants';
 
 export default function Skills() {
   const [highlightedType, setHighlightedType] = useState(null);
