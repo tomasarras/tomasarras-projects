@@ -30,7 +30,7 @@ export default function Home({ }) {
         <Container page={1}>
           <About/>
         </Container>
-        <Container page={2}>
+        {/* <Container page={2}>
           <Skills/>
         </Container>
         <Container page={3}>
@@ -38,7 +38,7 @@ export default function Home({ }) {
         </Container>
         <Container page={4}>
           <Contact/>
-        </Container>
+        </Container> */}
       </FullPage>
     </div>
   )

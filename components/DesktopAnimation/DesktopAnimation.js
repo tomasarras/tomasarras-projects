@@ -4,13 +4,30 @@ import Image from 'next/image';
 import { Context } from '../../Context';
 import { motion } from 'framer-motion';
 import Dev from '../Icons/Dev/Dev';
+import useWindowDimensions from '../../hooks/useWindowDimensions';
+import { sm } from '../../constants/Constants';
+import desktopSvg from "../../public/desktop/desktop.svg"
+import codeConsole2 from "../../public/desktop/background/b2/code_console.svg"
+import codeConsole3 from "../../public/desktop/background/b3/code_console.svg"
+import lines1 from "../../public/desktop/background/b1/lines.svg"
+import lines2 from "../../public/desktop/background/b2/lines.svg"
+import b1 from "../../public/desktop/background/b4/b1.svg"
+import b2 from "../../public/desktop/background/b4/b2.svg"
+import b5 from "../../public/desktop/background/b5/b1.svg"
+import b52 from "../../public/desktop/background/b5/b2.svg"
+import b3Lines from "../../public/desktop/background/b3/lines.svg"
+import circle from "../../public/desktop/background/b6/circle.svg"
 
-export default function DesktopAnimation({ width, height }) {
+export default function DesktopAnimation({ className }) {
   const { currentPage } = useContext(Context);
   const showInPage = 1;
+  const size = useWindowDimensions()
+  const [width, setWidth] = useState(0)
+  const [height, setHeight] = useState(0)
   const passed = currentPage > showInPage;
-  const containerRef = useRef(null)
-  const [isActive, setIsActive] = useState(false)
+  // const containerRef = useRef(null)
+  const [isActive, setIsActive] = useState(true)
+  const desktopRef = useRef(null)
   const codeVariants = {
     initial: {
       scale: 1,
@@ -37,168 +54,152 @@ export default function DesktopAnimation({ width, height }) {
   useEffect(() => {
     console.log(isActive, "isssss");
   }, [isActive])
-  
-  
 
   useEffect(() => {
-    const handleScroll = () => {
-      console.log("ESCROLS");
-      // Obtén el valor actual del scroll
-      const scrollY = window.scrollY || window.pageYOffset;
-      console.log("scrollY", scrollY);
-      // Puedes ajustar estos valores según tus necesidades
-      const element = containerRef.current; 
-      const elementTop = element.getBoundingClientRect().top + scrollY;
-      const elementBottom = elementTop + element.clientHeight;
+    if (desktopRef.current) {
+      setHeight(desktopRef.current.offsetHeight + "px")
+      setWidth(desktopRef.current.offsetWidth + "px")
+    }
+  }, [desktopRef, size])
+  
+  useEffect(() => {
+    console.log(width, height);
+  }, [width, height])
+  
 
-      // Verifica si el elemento está en la pantalla
-      setIsActive(scrollY >= elementTop && scrollY <= elementBottom);
-    };
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     console.log("ESCROLS");
+  //     // Obtén el valor actual del scroll
+  //     const scrollY = window.scrollY || window.pageYOffset;
+  //     console.log("scrollY", scrollY);
+  //     // Puedes ajustar estos valores según tus necesidades
+  //     const element = containerRef.current; 
+  //     const elementTop = element.getBoundingClientRect().top + scrollY;
+  //     const elementBottom = elementTop + element.clientHeight;
 
-    // Agrega el evento de scroll al montar el componente
-    window.addEventListener('scroll', handleScroll);
+  //     // Verifica si el elemento está en la pantalla
+  //     //setIsActive(scrollY >= elementTop && scrollY <= elementBottom);
+  //   };
 
-    // Limpia el evento al desmontar el componente para evitar pérdida de rendimiento
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
+  //   // Agrega el evento de scroll al montar el componente
+  //   window.addEventListener('scroll', handleScroll);
+
+  //   // Limpia el evento al desmontar el componente para evitar pérdida de rendimiento
+  //   return () => {
+  //     window.removeEventListener('scroll', handleScroll);
+  //   };
+  // }, []);
 
   return (<>
-  <div ref={containerRef} style={{width, height}} className={`${s.container} ${isActive ? s.active : ""} ${passed ? s.invisible : ""}`}>
-    <div className={`${s.layer1} ${s.layer}`}>
-      <Image
-        src="/desktop/desktop.svg"
-        alt="Desktop"
-        width={width}
-        height={width}
-      />
-    </div>
-    <div className={`${s.layer2} ${s.layer}`}>
-      <div style={{width, height}} className={`${s.item} ${s.console1}`}>
-        <div style={{width: width * 0.45,height: height * 0.45}} className='absolute'>
+  <div className={`${s.container} ${isActive ? s.active : ""} ${passed ? s.invisible : ""} ${className}`}>
+    <div style={{width: width,height: height}} className={`absolute`}>
+      <div style={{width: "35%", height: "35%"}} className={`${s.item} ${s.console1}`}>
+        <div className='absolute w-100 h-100'>
           <Image
-            src="/desktop/background/b1/code_console2.svg"
+            src={codeConsole2}
             alt="Console"
             className={`${s.opacity}`}
-            width={width * 0.45}
-            height={width * 0.45}
           />
           <motion.div {...codeAnimation}>
             <Image
-              src="/desktop/background/b1/lines.svg"
+              src={lines1}
               alt="Lines"
               className={`${s.lines}`}
-              width={width * 0.45}
-              height={width * 0.45}
             />
           </motion.div>
         </div>
       </div>
 
-      <div style={{width, height}} className={`${s.item} ${s.console2}`}>
-        <div style={{width: width * 0.35,height: height * 0.35}} className='absolute'>
+      <div style={{width: "35%", height: "35%"}} className={`${s.item} ${s.console2}`}>
+        <div className='absolute w-100 h-100'>
           <Image
-            src="/desktop/background/b2/code_console.svg"
+            src={codeConsole2}
             alt="Console"
             className={`${s.opacity}`}
-            width={width * 0.35}
-            height={width * 0.35}
           />
           <motion.div {...codeAnimation}>
             <Image
-              src="/desktop/background/b2/lines.svg"
+              src={lines2}
               alt="Lines"
               className={`${s.lines}`}
-              width={width * 0.35}
-              height={width * 0.35}
             />
           </motion.div>
         </div>
       </div>
 
-      <div style={{width, height}} className={`${s.item} ${s.console3}`}>
-        <div style={{width: width * 0.35,height: height * 0.35}} className='absolute'>
+      <div style={{width: "35%", height: "35%"}} className={`${s.item} ${s.console3}`}>
+        <div className='absolute w-100 h-100'>
           <Image
-            src="/desktop/background/b3/code_console.svg"
+            src={codeConsole3}
             alt="Console"
             className={`${s.opacity}`}
-            width={width * 0.35}
-            height={width * 0.35}
           />
           <motion.div {...codeAnimation}>
             <Image
-              src="/desktop/background/b3/lines.svg"
+              src={b3Lines}
               alt="Lines"
               className={`${s.lines}`}
-              width={width * 0.35}
-              height={width * 0.35}
             />
           </motion.div>
         </div>
       </div>
 
-      <div style={{width, height}} className={`${s.item} ${s.front1}`}>
-        <div style={{width: width * 0.35,height: height * 0.35}} className='absolute'>
+      <div style={{width: "35%", height: "35%"}} className={`${s.item} ${s.front1}`}>
+        <div className='absolute w-100 h-100'>
           <Image
-            src="/desktop/background/b4/b2.svg"
+            src={b2}
             alt="Console"
             className={`${s.opacity}`}
-            width={width * 0.35}
-            height={width * 0.35}
           />
           <motion.div {...codeAnimation}>
             <Image
-              src="/desktop/background/b4/b1.svg"
+              src={b1}
               alt="Lines"
               className={`${s.lines}`}
-              width={width * 0.35}
-              height={width * 0.35}
             />
           </motion.div>
         </div>
       </div>
 
-      <div style={{width, height}} className={`${s.item} ${s.front2}`}>
-        <div style={{width: width * 0.15,height: height * 0.15}} className='absolute'>
+      <div style={{width: "20%", height: "20%"}} className={`${s.item} ${s.front2}`}>
+        <div className='absolute w-100 h-100'>
           <Image
-            src="/desktop/background/b5/b1.svg"
+            src={b5}
             alt="Console"
             className={`${s.opacity}`}
-            width={width * 0.15}
-            height={width * 0.15}
           />
           <motion.div {...codeAnimation}>
             <Image
-              src="/desktop/background/b5/b2.svg"
+              src={b52}
               alt="Lines"
               className={`${s.lines}`}
-              width={width * 0.15}
-              height={width * 0.15}
             />
           </motion.div>
         </div>
       </div>
 
-      <div style={{width, height}} className={`${s.dev}`}>
-        <div style={{width: width * 0.20, height: width * 0.20}} className={s.devShadow}></div>
-        <div style={{width: width * 0.20,height: height * 0.20}} className='relative'>
+      <div style={{width: "15%", height: "15%"}} className={`${s.dev}`}>
+        <div className={`${s.devShadow} w-100 h-100`}></div>
+        <div className='relative w-100 h-100'>
           <Image
-            src="/desktop/background/b6/circle.svg"
+            src={circle}
             alt="Lines"
             className={`${s.devImg}`}
-            width={width * 0.20}
-            height={width * 0.20}
           />
-          <motion.div animate={{ y: [0,2,0,-2,0] }} transition={{ repeat: Infinity, duration: 3, transition: 'ease' }} className={s.devMov}>
+          <motion.div animate={{ y: [0,2,0,-2,0] }} transition={{ repeat: Infinity, duration: 3, transition: 'ease' }} className={`${s.devMov} w-100 h-100`}>
             <Dev
-              className={`${s.devImg}`}
-              width={width * 0.20}
-              height={width * 0.20}
+              className={`${s.devImg} ${s.devIcon} w-4/5 h-4/5`}
             />
           </motion.div>
         </div>
       </div>
+    </div>
+    <div ref={desktopRef}>
+      <Image
+        src={desktopSvg}
+        alt="Desktop"
+      />
     </div>
   </div>
   </>);

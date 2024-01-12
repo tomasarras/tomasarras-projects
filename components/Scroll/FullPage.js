@@ -1,10 +1,11 @@
 import React, { useState, useEffect, useContext, useRef } from 'react';
 import s from './FullPage.module.css'
 import Slider from '../Slider/Slider';
-import { easeInOutCirc, getRequestAnimationFrame, isMobileDevice } from '../../utils/utils'
+import { easeInOutCirc, getRequestAnimationFrame, isDesktop, isClient } from '../../utils/utils'
 import { Context } from '../../Context';
 import { Lethargy } from 'lethargy'
 import useWindowDimensions from '../../hooks/useWindowDimensions';
+import Parallax from '../Parallax/Parallax';
 
 const lethargy = new Lethargy()
 export default function FullPage({ children, duration = 700 }) {
@@ -83,11 +84,7 @@ export default function FullPage({ children, duration = 700 }) {
     const onResize = () => updateSlides();
 
     useEffect(() => {
-        const isMobile = isMobileDevice();
-        if (isMobile) {
-            //document.addEventListener('touchmove', this.onTouchMove, { passive: false });
-            //document.addEventListener('touchstart', this.onTouchStart);
-        } else {
+        if (isClient() && isDesktop(size)) {
             document.addEventListener('wheel', onScroll, { passive: false });
         }
         window.addEventListener('resize', onResize);
@@ -97,7 +94,7 @@ export default function FullPage({ children, duration = 700 }) {
         document.removeEventListener('wheel', onScroll, { passive: false });
         document.removeEventListener('resize', onResize);
       }
-    }, [currentPage])
+    }, [currentPage, size])
 
     useEffect(() => {
         if (hasPageBeenRendered.current["effect"]) {
@@ -108,9 +105,10 @@ export default function FullPage({ children, duration = 700 }) {
 
     return (
     <>
-        <Slider slidesCount={slidesCount}/>
+        {isDesktop(size) && <Slider slidesCount={slidesCount}/>}
+        <Parallax/>
         {childrenArray.map((child, index) => (
-            <div className={s.slide} key={index}>{child}</div>
+            <div className={`${s.slide} overflow-x-hidden`} key={index}>{child}</div>
         ))}
     </>
     )

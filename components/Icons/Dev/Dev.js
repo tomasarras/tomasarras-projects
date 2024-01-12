@@ -4,7 +4,7 @@ import Image from 'next/image';
 export default function Dev({ width, height, className }) {
 
   
-  return (<div className={className} style={{width: width + "px", height: height + "px"}}>
+  return (<div className={className}>
 <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0.00 0.00 196.00 169.00">
 <g stroke-width="2.00" fill="none" stroke-linecap="butt">
 <path stroke="#2e2c09" vector-effect="non-scaling-stroke" d="

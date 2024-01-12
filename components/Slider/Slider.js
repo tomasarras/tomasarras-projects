@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
 import styles from "./Slider.module.css";
-import Parallax from '../Parallax/Parallax';
 import { Context } from '../../Context';
 
 export default function Slider({ slidesCount }) {
@@ -31,6 +30,5 @@ export default function Slider({ slidesCount }) {
         <div style={{ transform: `translateY(${50 * currentPage}px)` }} className={styles.line}></div>
       </nav>
     </div>
-    <Parallax/>
   </>)
 }

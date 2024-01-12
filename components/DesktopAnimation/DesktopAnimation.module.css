@@ -1,9 +1,3 @@
-.layer {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-}
-
 .container {
     position: relative;
     left: 50%;
@@ -85,28 +79,28 @@
 }
 
 .console1 {
-    top: 37%;
-    left: 45%;
+    top: 29%;
+    left: 55%;
 }
 
 .console2 {
-    top: 22%;
-    left: 19%;
+    top: 16%;
+    left: 29%;
 }
 
 .console3 {
-    top: 61%;
-    left: 45%;
+    top: 45%;
+    left: 55%;
 }
 
 .front1 {
-    top: 10%;
-    left: -10%;
+    top: 3%;
+    left: 3%;
 }
 
 .front2 {
-    top: 40%;
-    left: -3%;
+    top: 20%;
+    left: 4%;
 }
 
 .item .lines {
@@ -132,13 +126,18 @@
     position: absolute;
 }
 
+.devIcon {
+    left: 10%;
+    top: 5%;
+}
+
 .devMov {
     position: relative;
     top: 11.5%;
 }
 
 .devShadow {
-    left: 6%;
+    left: 14%;
     -webkit-perspective: 240px;
     perspective: 240px;
     transform-style: preserve-3d;
