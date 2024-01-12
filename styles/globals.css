@@ -6,6 +6,10 @@
     display: none;
 }
 
+:root {
+    --background-color: #040404;
+}
+
 h1 {
     @apply text-3xl;
 }
