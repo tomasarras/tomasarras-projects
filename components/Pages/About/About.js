@@ -32,7 +32,7 @@ export default function About() {
       <div className={`mt-4 sm:flex col-start-7 col-span-12 flex-column items-center justify-center relative`}>
         <motion.div animate={dotsDecorationAnimation} transition={{ duration: animationScrollDuration / 1000 }} className={styles.dots}></motion.div>
         <div className='w-full flex justify-center'>
-          <DesktopAnimation className="w-50 sm:w-full"/>
+          <DesktopAnimation className="w-6/12 sm:w-full"/>
         </div>
       </div>
     </div>);
