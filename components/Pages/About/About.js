@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import DesktopAnimation from '../../DesktopAnimation';
+import DesktopAnimation from '../../DesktopAnimation/DesktopAnimation';
 import { motion } from 'framer-motion';
 import { useAnimationScroll } from '../../../hooks/useAnimationScroll';
 import useWindowDimensions from "../../../hooks/useWindowDimensions"

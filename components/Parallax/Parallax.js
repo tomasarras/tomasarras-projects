@@ -1,9 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react';
 import styles from "./Parallax.module.css";
-import CodeLines from './CodeLines';
-import MouseAnimation from '../Icons/MouseAnimation';
-import Semicolon from '../Icons/Semicolon';
-import Dev from '../Icons/Dev';
+import CodeLines from './CodeLines/CodeLines';
+import MouseAnimation from '../Icons/MouseAnimation/MouseAnimation';
+import Semicolon from '../Icons/Semicolon/Semicolon';
 import { Context } from '../../Context';
 import { motion } from 'framer-motion';
 import { animationScrollDuration } from '../../constants';

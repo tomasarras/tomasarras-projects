@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import styles from "./Slider.module.css";
-import Parallax from '../Parallax';
+import Parallax from '../Parallax/Parallax';
 import { Context } from '../../Context';
 
 export default function Slider({ slidesCount }) {

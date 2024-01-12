@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Hero.module.css';
 import { motion } from 'framer-motion'
-import FaceLogo from '../../FaceLogo';
+import FaceLogo from '../../FaceLogo/FaceLogo';
 export default function Hero() {
   const faceLogoSize = 270;
   const faceAnimation = {

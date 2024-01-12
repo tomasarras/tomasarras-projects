@@ -3,7 +3,7 @@ import s from "./DesktopAnimation.module.css";
 import Image from 'next/image';
 import { Context } from '../../Context';
 import { motion } from 'framer-motion';
-import Dev from '../Icons/Dev';
+import Dev from '../Icons/Dev/Dev';
 
 export default function DesktopAnimation({ width, height }) {
   const { currentPage } = useContext(Context);

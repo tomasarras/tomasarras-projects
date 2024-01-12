@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext, useRef } from 'react';
 import s from './FullPage.module.css'
-import Slider from '../Slider';
+import Slider from '../Slider/Slider';
 import { easeInOutCirc, getRequestAnimationFrame, isMobileDevice } from '../../utils/utils'
 import { Context } from '../../Context';
 import { Lethargy } from 'lethargy'
