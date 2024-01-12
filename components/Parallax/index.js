@@ -9,6 +9,7 @@ import { motion } from 'framer-motion';
 import { animationScrollDuration } from '../../constants';
 import useWindowDimensions from '../../hooks/useWindowDimensions';
 import Image from 'next/image';
+import DevIconPlain from '../Icons/Dev/DevIconPlain';
 
 export default function Parallax() {
   const { currentPage } = useContext(Context);
@@ -39,7 +40,7 @@ export default function Parallax() {
       <CodeLines width={size.width * 0.25} height={size.width * 0.25}/>
     </motion.div>
     <motion.div {...animation(size.height * .95)} className={`${styles.lines2}`}>
-      <CodeLines width={size.width * 0.45} height={size.width * 0.45}/>
+      <CodeLines width={size.width * 0.25} height={size.width * 0.25}/>
     </motion.div>
     <div className={`${styles.mouse} ${currentPage >= 1 ? styles.mousePassed : ''}`}>
       <MouseAnimation/>
@@ -48,7 +49,7 @@ export default function Parallax() {
       <Semicolon width={size.width * 0.02} height={size.width * 0.02}/>
     </motion.div>
     <motion.div {...animation(size.height * .32)} className={`${styles.dev}`}>
-      <Dev width={size.width * 0.07} height={size.width * 0.07}/>
+      <DevIconPlain width={size.width * 0.05} height={size.width * 0.05} />
     </motion.div>
     <motion.div {...animationT(size.height *.1, 3)} className={`${styles.tomasarras}`} style={{top: tomasarrasTop}}>
       <Image src="/portrait/portrait_deco.png" width={size.width * 0.2} height={size.width * 0.2} alt='Tomas Arras'/>

@@ -29,13 +29,16 @@
 
 .headerContainer {
     position: absolute;
-    background-color: #1A1A1A80;
-    
+    background-color: var(--background-color);
     align-items: center;
     display: flex;
-    /* border: 1px solid white; */
     width: 50%;
     justify-content: space-between;
+    transition: background-color 0.9s;
+}
+
+.headerContainer.visible {
+    background-color: #1A1A1A80;
 }
 
 .header ul {
