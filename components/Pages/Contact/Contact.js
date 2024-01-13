@@ -4,9 +4,13 @@ import { useAnimationScroll } from '../../../hooks/useAnimationScroll';
 import styles from "./Contact.module.css"
 import Image from 'next/image';
 import contactImg from "../../../public/portrait/contact.png"
+import AnimationHandler from '../../Utils/AnimationHandler';
+import { isDesktop } from '../../../utils/utils';
+import useWindowDimensions from '../../../hooks/useWindowDimensions';
 
 export default function Contact() {
   const animation = useAnimationScroll(4)
+  const size = useWindowDimensions()
   const images = [
     // "/portrait/dark/APC_0009_fade.png",
     // "/portrait/dark/APC_0009_no_fade.png",
@@ -65,20 +69,21 @@ export default function Contact() {
     
   ]
   return (
-    <div className={`container-100dvh align-center d-flex justify-between items-center`}>
-      <div {...animation} className='w-6/12'>
+    <div className={`align-center flex flex-col sm:flex-row justify-between items-center`}>
+      <div {...animation} className='w-full sm:w-6/12'>
         <p>What would you do if you had a software expert available at your fingertips?
 
-Want to start new project? Or just say hey.
-You can also follow me on Instagram.
-tomasarras@gmail.com</p>
+          Want to start new project? Or just say hey.
+          You can also follow me on Instagram.
+          tomasarras@gmail.com
+        </p>
       </div>
-      <motion.div {...animation} className='w-6/12 d-flex justify-center'>
+      <AnimationHandler className='w-full sm:w-6/12 d-flex justify-center' isAnimationEnabled={isDesktop(size)} {...animation}>
         <div className={`${styles.imageContainer} flex justify-center items-center w-8/12`}>
           {/* TODO: quitarle gradiente y ver si la imagen esta bien */}
           {/* TODO: next image loader */}
           <Image priority alt="Tomas Arras" src={contactImg}/>
         </div>
-      </motion.div>
+      </AnimationHandler>
     </div>);
 }

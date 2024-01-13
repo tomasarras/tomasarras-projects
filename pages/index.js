@@ -36,9 +36,9 @@ export default function Home({ }) {
         <Container page={3}>
           <Experience/>
         </Container>
-        {/* <Container page={4}>
+        <Container page={4}>
           <Contact/>
-        </Container> */}
+        </Container>
       </FullPage>
     </div>
   )
