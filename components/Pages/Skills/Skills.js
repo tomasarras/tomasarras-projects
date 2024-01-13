@@ -10,10 +10,7 @@ import { isDesktop } from '../../../utils/utils';
 import frontendImgDecoration from '../../../public/frontend-resize.png'
 import devopsImgDecoration from '../../../public/devops-resize.png'
 import backendImgDecoration from '../../../public/backend-resize.png'
-
-const AnimationHandler = (props) => props.isAnimationEnabled ? 
-  <motion.div {...props}>{props.children}</motion.div>
-  : <div {...props}>{props.children}</div>
+import AnimationHandler from '../../Utils/AnimationHandler';
 
 export default function Skills() {
   const [highlightedType, setHighlightedType] = useState(null);

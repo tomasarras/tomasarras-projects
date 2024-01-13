@@ -33,10 +33,10 @@ export default function Home({ }) {
         <Container page={2}>
           <Skills/>
         </Container>
-        {/* <Container page={3}>
+        <Container page={3}>
           <Experience/>
         </Container>
-        <Container page={4}>
+        {/* <Container page={4}>
           <Contact/>
         </Container> */}
       </FullPage>
