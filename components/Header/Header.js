@@ -8,14 +8,14 @@ import hamburgerIcon from "../../public/icons/hamburger.svg"
 import { HamburgerIcon } from '../Icons/HamburgerIcon';
 import { useToggle } from '../../hooks/useToggle';
 import SidebarResponsive from '../Sidebar/SidebarResponsive';
-import Sidebar from '../Sidebar';
+import CustomSidebar from '../Sidebar/CustomSidebar';
 
 export default function Header() {
   const { currentPage } = useContext(Context);
   const [isActive, setIsActive] = useState(false);
   const [firstPagePassed, setFirstPagePassed] = useState(false);
   const [isSidebarOpen, toggleSidebar] = useToggle()
-  
+
   useEffect(() => {
     if (currentPage >= 1 && !firstPagePassed)
       setFirstPagePassed(true)
@@ -26,9 +26,9 @@ export default function Header() {
     <header className={`${styles.header} sm:mt-4`}>
       <div className='w-full sm:container sm:mx-auto'>
         {/** MOBILE */}
-        <Sidebar isOpen={isSidebarOpen}>
+        <CustomSidebar isOpen={false}>
           <div>asofgapsoigfj</div>
-        </Sidebar>
+        </CustomSidebar>
         <div className={`${styles.blur} ${styles.mobileContainer} flex justify-between items-center container sm:hidden`}>
           <div>Tomas Arras</div>
           <div>
