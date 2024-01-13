@@ -1,7 +1,12 @@
+.borderContainer, .headerContainer, .headerWrapper {
+    max-width: var(--header-max-width);
+    width: 100%;
+}
+
 .header {
+    width: 100%;
     position: fixed;
     display: flex;
-    width: 100%;
     justify-content: center;
     color: white;
     z-index: 9999;
@@ -14,7 +19,15 @@
 
 .borderContainer {
     overflow: hidden;
-    position: relative;
+    left: 100%;
+}
+
+.borderContainer div {
+    left: -100%;
+}
+
+.borderContainer.active, .borderContainer.active div {
+    left: 0;
 }
 
 .borderContainer, .borderContainer div.black {
@@ -28,11 +41,9 @@
 }
 
 .headerContainer {
-    position: absolute;
     background-color: var(--background-color);
     align-items: center;
     display: flex;
-    width: 50%;
     justify-content: space-between;
     transition: background-color 0.9s;
 }
@@ -60,7 +71,7 @@
 .nav {
     opacity: 0;
     transition: opacity 900ms ease;
-    
+    z-index: 1;
 }
 
 .nav.visible {
