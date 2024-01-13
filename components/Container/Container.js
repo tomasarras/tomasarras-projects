@@ -8,6 +8,7 @@ export default function Container({ children, page }) {
 
   return (
   <section className={`container py-4 h-100 ${s.section} ${!isActive && s.invisible}`}>
+    {/**TODO: este padding es del header, en mobile no mostrar */}
     <div style={{ padding: "60px 0"}} className='h-100'>
       {children}
     </div>

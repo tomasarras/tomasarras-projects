@@ -8,11 +8,15 @@
     background-image: radial-gradient(#404040 2px, transparent 0);
     background-size: 40px 40px;
     background-position: -19px -19px;
+    z-index: -1;
+}
+
+.dotsDesktop {
     width: 150%;
     height: 60%;
     margin-top: 15%;
     top: 0;
-    z-index: -1;
+
 }
 
 .icons img.active {

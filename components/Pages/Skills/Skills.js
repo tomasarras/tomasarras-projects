@@ -6,13 +6,22 @@ import { useAnimationScroll } from '../../../hooks/useAnimationScroll';
 import { Context } from '../../../Context';
 import useWindowDimensions from '../../../hooks/useWindowDimensions';
 import { animationScrollDuration } from '../../../constants/Constants';
+import { isDesktop } from '../../../utils/utils';
+import frontendImgDecoration from '../../../public/frontend-resize.png'
+import devopsImgDecoration from '../../../public/devops-resize.png'
+import backendImgDecoration from '../../../public/backend-resize.png'
+
+const AnimationHandler = (props) => props.isAnimationEnabled ? 
+  <motion.div {...props}>{props.children}</motion.div>
+  : <div {...props}>{props.children}</div>
 
 export default function Skills() {
   const [highlightedType, setHighlightedType] = useState(null);
   const { currentPage } = useContext(Context)
   const animation = useAnimationScroll(2);
   const size = useWindowDimensions()
-  const devIconSize = 60;
+  const isAnimationEnabled = isDesktop(size)
+  const devIconSize = isAnimationEnabled ? 60 : 40;
   const imgDecorationAnimation = {
     y: currentPage === 2 ? 0 : currentPage === 1 ? size.height /10 : size.height /10 *-1,
   }
@@ -94,32 +103,34 @@ export default function Skills() {
   }];
 
   return (
-    <div className='w-100 h-100 align-center flex-col d-flex justify-between items-center'>
-      <div className='w-100 h-100 align-center grid gap-4 grid-cols-12 justify-between items-center'>
-        <motion.div {...animation} className='col-span-4'>
+    <div className='align-center flex-col d-flex justify-between items-center'>
+      <div className='w-100 h-100 align-center flex flex-column sm:grid sm:gap-4 sm:grid-cols-12 justify-between items-center'>
+        <AnimationHandler isAnimationEnabled={isAnimationEnabled} {...animation} className='sm:col-span-4'>
           <div className='d-flex items-center w-100 flex-column mb-6'>
             <h1 className='mb-4 text-5xl font-bold'>Skills</h1>
             <div className='title-underline'></div>
           </div>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis exercitationem labore architecto! Itaque, nesciunt obcaecati accusantium quo enim temporibus, nostrum praesentium consequuntur et sed provident impedit repellat reprehenderit iusto fuga.</p>
-        </motion.div>
-        <div className='col-start-6 col-span-8 d-flex justify-center items-center h-full'>
-          <div className={`w-full`}>
+        </AnimationHandler>
+  
+        <div className='w-full relative sm:col-start-6 sm:col-span-8 flex justify-center items-center sm:h-full relative'>
+          <div className={`sm:hidden ${styles.dots} absolute w-full h-50`}></div>
+          <div className={`w-4/5`}>
             <div className='relative top-0'>
-              <motion.div animate={dotsDecorationAnimation} transition={{ duration: animationScrollDuration / 1000 }} className={`${styles.dots} absolute`}>
-                <Image className={`invisible`} src={"/frontend-resize.png"} width={2969} height={1236} alt='invisible'/>
-              </motion.div>
-              <motion.div animate={imgDecorationAnimation} transition={{ duration: animationScrollDuration / 1000 }}>
-                <Image className={`${styles.imgDecoration} ${highlightedType === null || highlightedType == "frontend" ? styles.active : ""} ml-10`} src={"/frontend-resize.png"} width={2969} height={1236} alt='backend'/>
-                <Image className={`${styles.imgDecoration} ${highlightedType === null || highlightedType == "devops" ? styles.active : ""} absolute top-0 ml-10`} src={"/devops-resize.png"} width={2969} height={1236} alt='backend'/>
-                <Image className={`${styles.imgDecoration} ${highlightedType === null || highlightedType == "backend" ? styles.active : ""} absolute top-0 ml-10`} src={"/backend-resize.png"} width={2969} height={1236} alt='backend'/>
-              </motion.div>
+              <AnimationHandler isAnimationEnabled={isAnimationEnabled} animate={dotsDecorationAnimation} transition={{ duration: animationScrollDuration / 1000 }} 
+                className={`hidden sm:block ${styles.dotsDesktop} ${styles.dots} absolute t-0 l-0 w-full h-50`}>
+              </AnimationHandler>
+              <AnimationHandler isAnimationEnabled={isAnimationEnabled} animate={imgDecorationAnimation} transition={{ duration: animationScrollDuration / 1000 }}>
+                <Image className={`${styles.imgDecoration} ${highlightedType === null || highlightedType == "frontend" ? styles.active : ""} sm:ml-10`} src={frontendImgDecoration} alt='front-end'/>
+                <Image className={`${styles.imgDecoration} ${highlightedType === null || highlightedType == "devops" ? styles.active : ""} absolute top-0 sm:ml-10`} src={devopsImgDecoration} alt='devops'/>
+                <Image className={`${styles.imgDecoration} ${highlightedType === null || highlightedType == "backend" ? styles.active : ""} absolute top-0 sm:ml-10`} src={backendImgDecoration} alt='backend'/>
+              </AnimationHandler>
             </div>
           </div>
         </div>
       </div>
       <div className={`w-full ${styles.icons}`}>
-        <div className={`grid gap-4 grid-cols-6 mx-auto ${styles.iconsContainer}`}>
+        <div className={`grid sm:gap-4 grid-cols-4 sm:grid-cols-6 mx-auto ${styles.iconsContainer}`}>
           {devIcons.map((icon, index) => (
             <motion.div
               className='d-flex flex-col justify-center items-center'
