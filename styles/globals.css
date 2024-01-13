@@ -8,7 +8,10 @@
 
 :root {
     --background-color: #040404;
-    --header-max-width: 768px;
+}
+
+.invert-color {
+    filter: invert(100%);
 }
 
 body {

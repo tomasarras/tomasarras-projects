@@ -1,5 +1,4 @@
 .borderContainer, .headerContainer, .headerWrapper {
-    max-width: var(--header-max-width);
     width: 100%;
 }
 
@@ -14,6 +13,9 @@
 
 .headerContainer, .borderContainer div {
     border-radius: 60px;
+}
+
+.headerContainer, .borderContainer div, .mobileContainer {
     height: 60px;
 }
 
@@ -36,6 +38,9 @@
 
 .borderContainer div {
     position: absolute;
+}
+
+.blur {
     border: 1px solid white;
     backdrop-filter: blur(10px);
 }
@@ -56,10 +61,10 @@
     display: flex;
 }
 
-.logo {
-    position: relative;
+.nav {
     opacity: 0;
     transition: opacity 900ms ease;
+    z-index: 1;
 }
 
 .logo.visible {
@@ -68,15 +73,19 @@
     left: 0;
 }
 
-.nav {
-    opacity: 0;
-    transition: opacity 900ms ease;
-    z-index: 1;
-}
-
 .nav.visible {
     opacity: 1;
 }
+
+@media only screen and (min-width: 576px) {
+
+    .logo {
+        position: relative;
+        opacity: 0;
+        transition: opacity 900ms ease;
+    }
+}
+
 
 @keyframes logo {
     0% {

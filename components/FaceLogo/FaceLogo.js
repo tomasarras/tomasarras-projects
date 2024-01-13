@@ -6,11 +6,11 @@ import Image from 'next/image';
 export default function FaceLogo({ size }) {
 
   return (<>
-    <div style={{width: size+"px"}} className={s.faceSwap}>
+    <div style={{width: size+"px"}}>
       <Image
         src="/logo.svg"
         priority
-        className={s.img}
+        className="invert-color"
         alt="Logo"
         width={size}
         height={size}
