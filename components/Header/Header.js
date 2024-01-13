@@ -26,7 +26,7 @@ export default function Header() {
     <header className={`${styles.header} sm:mt-4`}>
       <div className='w-full sm:container sm:mx-auto'>
         {/** MOBILE */}
-        <CustomSidebar isOpen={false}>
+        <CustomSidebar isOpen={isSidebarOpen} onClose={toggleSidebar}>
           <div>asofgapsoigfj</div>
         </CustomSidebar>
         <div className={`${styles.blur} ${styles.mobileContainer} flex justify-between items-center container sm:hidden`}>
@@ -44,7 +44,7 @@ export default function Header() {
           </div>
           <div className={`${styles.headerContainer} p-2 ${isActive && styles.visible}`}>
             <div className={`ms-4 ${styles.logo} ${isActive && styles.visible}`}>Tomas Arras</div>
-            <nav className={`hidden block me-4 ${styles.nav} ${isActive && styles.visible}`}>
+            <nav className={`hidden sm:block me-4 ${styles.nav} ${isActive && styles.visible}`}>
               <ul>
                 <li className='ms-4'>About</li>
                 <li className='ms-4'>Skills</li>
