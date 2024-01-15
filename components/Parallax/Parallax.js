@@ -9,9 +9,10 @@ import { animationScrollDuration } from '../../constants/Constants';
 import useWindowDimensions from '../../hooks/useWindowDimensions';
 import Image from 'next/image';
 import DevIconPlain from '../Icons/Dev/DevIconPlain';
+import MobileAnimation from '../Icons/MouseAnimation/MobileAnimation';
 
 export default function Parallax() {
-  const { currentPage } = useContext(Context);
+  const { currentPage, scrollY } = useContext(Context);
   const size = useWindowDimensions();
   const tomasarrasTop = (size.height * 3) + (size.height / 1.65)
   const lines3Top = (size.height * 2) + (size.height / 1.5)
@@ -34,6 +35,11 @@ export default function Parallax() {
     }
   }
 
+  useEffect(() => {
+    console.log(scrollY, "scroll");
+  }, [scrollY])
+  
+
   return (<div className={styles.layer1}>
     <motion.div {...animation(size.height * .43)}  className={`${styles.lines1}`}>
       <CodeLines width={size.width * 0.25} height={size.width * 0.25}/>
@@ -41,8 +47,13 @@ export default function Parallax() {
     <motion.div {...animation(size.height * .95)} className={`${styles.lines2}`}>
       <CodeLines width={size.width * 0.25} height={size.width * 0.25}/>
     </motion.div>
-    <div className={`${styles.mouse} ${currentPage >= 1 ? styles.mousePassed : ''}`}>
-      <MouseAnimation/>
+    <div className={`${styles.mouse} ${scrollY > 0 ? styles.mousePassed : ''}`}>
+      <div className='h-8 w-8 hidden sm:block'>
+        <MouseAnimation/>
+      </div>
+      <div className='h-10 w-10 invert-color sm:hidden'>
+        <MobileAnimation/>
+      </div>
     </div>
     <motion.div {...animation(size.height * .266)} className={`${styles.semicolon}`}>
       <Semicolon width={size.width * 0.02} height={size.width * 0.02}/>

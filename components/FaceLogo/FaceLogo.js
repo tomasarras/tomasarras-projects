@@ -1,20 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import s from "./FaceLogo.module.css";
 import Image from 'next/image';
+import logo from "../../public/logo.svg"
 
 
-export default function FaceLogo({ size }) {
+export default function FaceLogo() {
 
   return (<>
-    <div style={{width: size+"px"}}>
-      <Image
-        src="/logo.svg"
-        priority
-        className="invert-color"
-        alt="Logo"
-        width={size}
-        height={size}
-      />
-    </div>
+    <Image
+      src={logo}
+      priority
+      className="invert-color"
+      alt="Logo"
+    />
   </>)
 }

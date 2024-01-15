@@ -1,7 +1,7 @@
 import React from 'react';
 import s from './MouseAnimation.module.css'
 
-export default function MouseAnimation({ children }) {
+export default function MouseAnimation() {
 
   
   return (<>

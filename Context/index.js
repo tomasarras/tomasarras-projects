@@ -36,6 +36,26 @@ export const Provider = ({ children }) => {
             hasPageBeenRendered.current["effect"] = hasPageBeenRendered.current["effect"]-1
         prevCurrentPageRef.current = currentPage
     }, [currentPage])
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const scrollY = window.scrollY || window.pageYOffset;
+            setScrollY(scrollY)
+            // Puedes ajustar estos valores según tus necesidades
+            // const element = containerRef.current; 
+            // const elementTop = element.getBoundingClientRect().top + scrollY;
+            // const elementBottom = elementTop + element.clientHeight;
+
+            // Verifica si el elemento está en la pantalla
+            //setIsActive(scrollY >= elementTop && scrollY <= elementBottom);
+        };
+
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
     
     return (<Context.Provider value={{
         setCurrentPage,

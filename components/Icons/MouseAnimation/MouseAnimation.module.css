@@ -19,6 +19,7 @@
 .mouse::before {
     content: '';
     width: 5px;
+    left: 48%;
     height: 5px;
     position: absolute;
     top: 7px;
