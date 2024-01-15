@@ -7,9 +7,9 @@ export default function Container({ children, page }) {
   const isActive = page == undefined || page == currentPage;
 
   return (
-  <section className={`container py-4 h-100 ${s.section} ${!isActive && s.invisible}`}>
+  <section className={`container sm:py-4 h-100 ${s.section} ${!isActive && s.invisible}`}>
     {/**TODO: este padding es del header, en mobile no mostrar */}
-    <div className={`${s.div} h-100`}>
+    <div className={`${s.div} h-100 flex justify-center items-center`}>
       {children}
     </div>
   </section>)
