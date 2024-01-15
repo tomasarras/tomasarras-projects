@@ -7,7 +7,7 @@ export default function Container({ children, page }) {
   const isActive = page == undefined || page == currentPage;
 
   return (
-  <section className={`container sm:py-4 sm:h-100 ${s.section} ${!isActive && s.invisible}`}>
+  <section className={`container py-4 h-100 ${s.section} ${!isActive && s.invisible}`}>
     {/**TODO: este padding es del header, en mobile no mostrar */}
     <div className={`${s.div} h-100`}>
       {children}

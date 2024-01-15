@@ -14,6 +14,7 @@ export default function FullPage({ children, duration = 700 }) {
     const slidesCount = React.Children.count(children);
     const { setCurrentPage, currentPage } = useContext(Context)
     const [slides, setSlides] = useState([])
+    const slidesRef = useRef([])
     const isScrollPending = useRef(false)
     const hasPageBeenRendered = useRef({ effect: false })
      
@@ -103,12 +104,21 @@ export default function FullPage({ children, duration = 700 }) {
         hasPageBeenRendered.current["effect"] = true
     }, [currentPage])
 
+    useEffect(() => {
+        slidesRef.current.forEach(slide => {
+            slide.firstChild.style.height = slide.getBoundingClientRect().height + "px"
+        })
+    }, [slidesRef, size])
+    
+
     return (
     <>
         {isDesktop(size) && <Slider slidesCount={slidesCount}/>}
         <Parallax/>
         {childrenArray.map((child, index) => (
-            <div className={`${s.slide} ${index === 0 ? s.fullscreen : ''} overflow-x-hidden`} key={index}>{child}</div>
+            <div ref={el => slidesRef.current[index] = el} className={`${s.slide} overflow-x-hidden`} key={index}>
+                <div>{child}</div>
+            </div>
         ))}
     </>
     )
