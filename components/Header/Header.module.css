@@ -12,11 +12,27 @@
 }
 
 .headerContainer, .borderContainer div {
-    border-radius: 60px;
+    border-radius: var(--header-height);
 }
 
 .headerContainer, .borderContainer div, .mobileContainer {
-    height: 60px;
+    height: var(--header-height);
+}
+
+.dropdownMobile li {
+    width: 100%;
+}
+
+.dropdownMobile li span{
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.dropdownMobile li {
+    padding: 2rem 3rem;
+    /* TODO: check */
+    font-size: 1.2rem;
+    font-weight: 700;
 }
 
 .borderContainer {
@@ -53,8 +69,12 @@
     transition: background-color 0.9s;
 }
 
-.headerContainer.visible, .mobileContainer {
+.headerContainer.visible {
     background-color: var(--header-active-color);
+}
+
+.mobileContainer {
+    background-color: var(--header-active-mobile-color);
 }
 
 .header ul {

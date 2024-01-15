@@ -6,3 +6,7 @@
     opacity: 1;
     transition: opacity 400ms ease;
 } */
+
+.div {
+    padding: var(--header-height) 0;
+}

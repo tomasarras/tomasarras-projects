@@ -7,8 +7,10 @@
 }
 
 :root {
+    --header-height: 60px;
     --background-color: #040404;
     --header-active-color: #17171780;
+    --header-active-mobile-color: #171717;
     --sidebar-active-color: #202020;
 }
 
@@ -113,7 +115,7 @@ ul, li {
 }
 
 .container-100dvh {
-    height: calc(100dvh - 60px);
+    height: calc(100dvh - var(--header-height));
 }
 
 @media only screen and (min-width: 576px) {
