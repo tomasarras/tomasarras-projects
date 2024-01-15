@@ -53,8 +53,8 @@
     transition: background-color 0.9s;
 }
 
-.headerContainer.visible {
-    background-color: #1A1A1A80;
+.headerContainer.visible, .mobileContainer {
+    background-color: var(--header-active-color);
 }
 
 .header ul {

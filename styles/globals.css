@@ -8,6 +8,8 @@
 
 :root {
     --background-color: #040404;
+    --header-active-color: #17171780;
+    --sidebar-active-color: #202020;
 }
 
 .invert-color {

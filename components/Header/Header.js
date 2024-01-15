@@ -27,7 +27,15 @@ export default function Header() {
       <div className='w-full sm:container sm:mx-auto'>
         {/** MOBILE */}
         <CustomSidebar isOpen={isSidebarOpen} onClose={toggleSidebar}>
-          <div>asofgapsoigfj</div>
+          <nav>
+            <ul className={`flex flex-col`}>
+              <li className=''>About</li>
+              <li className=''>Skills</li>
+              <li className=''>Experience</li>
+              <li className=''>Portfolio</li>
+              <li className=''>Contact</li>
+            </ul>
+          </nav>
         </CustomSidebar>
         <div className={`${styles.blur} ${styles.mobileContainer} flex justify-between items-center container sm:hidden`}>
           <div>Tomas Arras</div>

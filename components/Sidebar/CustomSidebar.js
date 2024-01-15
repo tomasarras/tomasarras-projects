@@ -11,10 +11,7 @@ export default function CustomSidebar({ isOpen, children, onClose }) {
         if (container.current == undefined || sidebar.current == undefined) return
         if (container.current.contains(event.target) &&
             !sidebar.current.contains(event.target)) {
-                console.log("yes");
                 onClose()
-        } else {
-            console.log("nope");
         }
     }
     
@@ -31,7 +28,7 @@ export default function CustomSidebar({ isOpen, children, onClose }) {
             transition={{ type: "spring", bounce: 0, duration: 0.8 }}
             className={`sm:hidden w-full h-full fixed top-0 flex flex-row-reverse z-20`}
             >
-            <div ref={sidebar} className={`${s.sidebar} ${isOpen ? s.open : ''}`}>
+            <div ref={sidebar} className={`${s.sidebar} ${isOpen ? s.open : ''} p-4`}>
                 <div onClick={onClose} className='h-8 w-8'><CloseIcon/></div>
                 {children}
             </div>
