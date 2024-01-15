@@ -7,12 +7,12 @@ import AnimationHandler from '../../Utils/AnimationHandler';
 import { isDesktop } from '../../../utils/utils';
 import useWindowDimensions from '../../../hooks/useWindowDimensions';
 
-export default function Experience() {
+export default function Experience({ innerRef }) {
   const size = useWindowDimensions()
   const animation = useAnimationScroll(3);
 
   return (
-  <div className='flex align-center justify-between items-center'>
+  <div ref={innerRef} className='flex align-center justify-between items-center'>
     <div className='flex flex-col sm:flex-row'>
       <AnimationHandler isAnimationEnabled={isDesktop(size)} {...animation} className='sm:w-6/12 sm:me-2'>
         <div>

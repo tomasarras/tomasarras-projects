@@ -8,7 +8,7 @@ import AnimationHandler from '../../Utils/AnimationHandler';
 import { isDesktop } from '../../../utils/utils';
 import useWindowDimensions from '../../../hooks/useWindowDimensions';
 
-export default function Contact() {
+export default function Contact({ innerRef }) {
   const animation = useAnimationScroll(4)
   const size = useWindowDimensions()
   const images = [
@@ -69,7 +69,7 @@ export default function Contact() {
     
   ]
   return (
-    <div className={`align-center flex flex-col sm:flex-row justify-between items-center`}>
+    <div ref={innerRef} className={`align-center flex flex-col sm:flex-row justify-between items-center`}>
       <div {...animation} className='w-full sm:w-6/12'>
         <p>What would you do if you had a software expert available at your fingertips?
 

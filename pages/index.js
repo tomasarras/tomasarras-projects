@@ -10,8 +10,10 @@ import Skills from '../components/Pages/Skills/Skills';
 import FullPage from '../components/Scroll/FullPage';
 import { animationScrollDuration } from '../constants/Constants';
 import Contact from '../components/Pages/Contact/Contact';
+import { useRef } from 'react';
 
 export default function Home({ }) {
+  const sections = useRef([])
 
   return (
     <div className={styles.container}>
@@ -24,20 +26,20 @@ export default function Home({ }) {
         <link rel="icon" href="/logo.ico" />
       </Head>
       
-      <Header/>
+      <Header sections={sections}/>
       <FullPage duration={animationScrollDuration} controls={Slider}>
         <Hero/>
         <Container page={1}>
-          <About/>
+          <About innerRef={(el) => sections.current[1] = el}/>
         </Container>
         <Container page={2}>
-          <Skills/>
+          <Skills innerRef={(el) => sections.current[2] = el}/>
         </Container>
         <Container page={3}>
-          <Experience/>
+          <Experience innerRef={(el) => sections.current[3] = el}/>
         </Container>
         <Container page={4}>
-          <Contact/>
+          <Contact innerRef={(el) => sections.current[4] = el}/>
         </Container>
       </FullPage>
     </div>

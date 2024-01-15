@@ -8,7 +8,7 @@ import { Context } from '../../../Context';
 import { animationScrollDuration } from '../../../constants/Constants';
 import { isDesktop } from '../../../utils/utils';
 
-export default function About() {
+export default function About({ innerRef }) {
   const { currentPage } = useContext(Context)
   const size = useWindowDimensions()
   const scrollAnimation = useAnimationScroll(1)
@@ -19,7 +19,7 @@ export default function About() {
 
 
   return (
-    <div className={`sm:grid sm:gap-4 sm:grid-cols-12 sm:align-center`}>
+    <div ref={innerRef} className={`sm:grid sm:gap-4 sm:grid-cols-12 sm:align-center`}>
       <motion.div {...animation} className='sm:col-span-5 flex flex-column items-center justify-center'>
         <div className='d-flex items-center w-100 flex-column mb-6'>
           <h1 className='mb-4 text-5xl font-bold'>About me</h1>
