@@ -1,4 +1,11 @@
-.slide {
+@media only screen and (min-width: 576px) {
+    .slide {
+        height: 100dvh;
+        width: 100vw;
+    }
+}
+
+.fullscreen {
     height: 100dvh;
     width: 100vw;
 }

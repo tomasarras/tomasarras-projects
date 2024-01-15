@@ -108,7 +108,7 @@ export default function FullPage({ children, duration = 700 }) {
         {isDesktop(size) && <Slider slidesCount={slidesCount}/>}
         <Parallax/>
         {childrenArray.map((child, index) => (
-            <div className={`${s.slide} overflow-x-hidden`} key={index}>{child}</div>
+            <div className={`${s.slide} ${index === 0 ? s.fullscreen : ''} overflow-x-hidden`} key={index}>{child}</div>
         ))}
     </>
     )
