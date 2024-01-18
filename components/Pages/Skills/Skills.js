@@ -102,7 +102,7 @@ export default function Skills({ innerRef }) {
   return (
     <div ref={innerRef} className='sm:h-full align-center flex-col d-flex justify-between items-center'>
       <div className='w-full h-full align-center flex flex-column sm:grid sm:gap-4 sm:grid-cols-12 justify-between items-center'>
-        <AnimationHandler isAnimationEnabled={isAnimationEnabled} {...animation} className='sm:col-span-4'>
+        <AnimationHandler isAnimationEnabled={isAnimationEnabled} {...animation} className='sm:col-span-6 '>
           <div className='d-flex items-center w-100 flex-column mb-6'>
             <h1 className='mb-4 text-5xl font-bold'>Skills</h1>
             <div className='title-underline'></div>
@@ -110,7 +110,7 @@ export default function Skills({ innerRef }) {
           <p>Mi caja de herramientas está llena de lenguajes de programación, frameworks y tecnologías modernas. Desde el frontend con React, Vue, Bootstrap, Tailwind hasta el backend con Spring, Laravel, ExpressJS, estoy equipado para abordar una variedad de proyectos desafiantes.</p>
         </AnimationHandler>
   
-        <div className='w-full relative sm:col-start-6 sm:col-span-8 flex justify-center items-center sm:h-full relative'>
+        <div className='my-10 sm:my-0 w-full relative sm:col-start-6 sm:col-span-6 flex justify-center items-center sm:h-full relative'>
           <div className={`sm:hidden ${styles.dots} absolute w-full h-50`}></div>
           <div className={`w-4/5`}>
             <div className='relative top-0'>

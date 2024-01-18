@@ -46,7 +46,7 @@ export default function WorkTimeline({ }) {
       {/* TODO: check todo */}
       {/* TODO: university */}
       {/* TODO: badges icons */}
-        <ol className="relative">                  
+        <ol className="relative sm:grid sm:gap-4 sm:grid-cols-2 ">                  
           <Item i={0} time="February 2022 - 2024 (present)" title="Backend developer at CertiSur" first>
             <p className='text-gray-500 dark:text-gray-400 mb-3'>Development of a service with multiserveces and digital signature</p>
             <Badge>Java</Badge>

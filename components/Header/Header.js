@@ -5,6 +5,8 @@ import { HamburgerIcon } from '../Icons/HamburgerIcon';
 import { useToggle } from '../../hooks/useToggle';
 import DropdownHeaderMenu from '../Dropdown/DropdownHeaderMenu';
 import { motion } from 'framer-motion';
+import useWindowDimensions from '../../hooks/useWindowDimensions';
+import { isDesktop, isTablet } from '../../utils/utils';
 
 const AnimatedMenuItem = ({ isOpen, i, children }) => {
   const fadeInAnimationVariants = {
@@ -26,16 +28,25 @@ const AnimatedMenuItem = ({ isOpen, i, children }) => {
 
 export default function Header({ sections }) {
   const { currentPage, setCurrentPage, scrollY } = useContext(Context);
+  const size = useWindowDimensions()
   const headerRef = useRef()
   const [isActive, setIsActive] = useState(false);
   const [firstPagePassed, setFirstPagePassed] = useState(false);
   const [isSidebarOpen, toggleSidebar] = useToggle()
 
   useEffect(() => {
-    if (currentPage >= 1 && !firstPagePassed)
-      setFirstPagePassed(true)
-    setIsActive(currentPage >= 1);
-  }, [currentPage]);
+    if (isDesktop(size)) {
+      if (currentPage >= 1 && !firstPagePassed)
+        setFirstPagePassed(true)
+      setIsActive(currentPage >= 1);
+    } else if (isTablet(size)) {
+      if (scrollY >= 1 && !firstPagePassed)
+        setFirstPagePassed(true)
+      setIsActive(scrollY >= 1);
+    } else {
+
+    }
+  }, [currentPage, scrollY, size]);
 
   useEffect(() => {
     const handleClickOutsideHeader = (event) => {

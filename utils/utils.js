@@ -1,4 +1,4 @@
-import { sm } from "../constants/Constants";
+import { lg, sm } from "../constants/Constants";
 
 export const isMobileDevice = () => (typeof window.orientation !== 'undefined') || (navigator.userAgent.indexOf('IEMobile') !== -1);
 //TODO: Screen.roeintation deprecation
@@ -11,7 +11,8 @@ export const easeInOutCirc = (currentTime, startValue, changeInValue, duration) 
   return changeInValue / 2 * (Math.sqrt(1 - currentTime * currentTime) + 1) + startValue;
 }
 
-export const isDesktop = (size) => size !== undefined && size.width > sm
+export const isDesktop = (size) => size !== undefined && size.width > lg
+export const isTablet = (size) => size !== undefined && size.width <= lg && size.width > sm
 
 export const isClient = () => typeof window !== "undefined"
 

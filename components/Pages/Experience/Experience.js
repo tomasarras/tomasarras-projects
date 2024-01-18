@@ -11,26 +11,30 @@ import experienceImageIllustration from "../../../public/experience-illustration
 
 export default function Experience({ innerRef }) {
   const size = useWindowDimensions()
+  console.log(size);
   const animation = useAnimationScroll(3);
 
   return (
   <div ref={innerRef} className='flex align-center justify-between items-center'>
-    <div className='flex flex-col sm:flex-row'>
-      <AnimationHandler isAnimationEnabled={isDesktop(size)} {...animation} className='sm:w-6/12 sm:me-2'>
+    <div className='flex flex-col xl:flex-row'>
+      <AnimationHandler
+        isAnimationEnabled={isDesktop(size)}
+        {...animation}
+        className='w-full xl:w-6/12 xl:me-2'>
         <div>
           <div className='d-flex items-center w-100 flex-column mb-6'>
             <h1 className='mb-4 text-5xl font-bold'>Experience</h1>
             <div className='title-underline'></div>
           </div>
           <p className='mb-10'>A lo largo de mi carrera, he tenido el privilegio de trabajar en diversos roles y tecnologías que han ampliado mi experiencia en el desarrollo web con tecnologías de frontend y de backend. Aquí hay un vistazo a algunas de mis experiencias más destacadas:</p>
-          <div className='hidden sm:flex justify-center'>
-            <div className='w-10/12'>
+          <div className='hidden xl:flex justify-center'>
+            <div className='sm:w-8/12'>
               <Image src={experienceImageIllustration}/>
             </div>
           </div>
         </div>
       </AnimationHandler>
-      <div className='sm:w-6/12 flex flex-col sm:ms-2'>
+      <div className='xl:w-6/12 xl:ms-2'>
         <WorkTimeline/>
       </div>
     </div>
