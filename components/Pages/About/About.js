@@ -22,12 +22,12 @@ export default function About({ innerRef }) {
     <div ref={innerRef} className={`sm:grid sm:gap-4 sm:grid-cols-12 sm:align-center`}>
       <motion.div {...animation} className='sm:col-span-5 flex flex-column items-center justify-center'>
         <div className='d-flex items-center w-100 flex-column mb-6'>
-          <h1 className='mb-4 text-5xl font-bold'>About me</h1>
+          <h1 className='mb-3 font-bold'>Hi, I'm Tomas Arras 👋</h1>
+          <h2 className='mb-6'>Full Stack Web Developer</h2>
           <div className='title-underline'></div>
         </div>
-        <h2 className='text-3xl mb-6'>Full Stack Web Developer</h2>
-        <p className='mb-2'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis exercitationem labore architecto! Itaque, nesciunt obcaecati accusantium quo enim temporibus, nostrum praesentium consequuntur et sed provident impedit repellat reprehenderit iusto fuga.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis exercitationem labore architecto! Itaque, nesciunt obcaecati accusantium quo enim temporibus, nostrum praesentium consequuntur et sed provident impedit repellat reprehenderit iusto fuga.</p>
+        <p className='mb-7'>Un apasionado desarrollador web especializado en la creacion de soluciones tanto en el frontend como en el backend. Soy un aficionado a la tecnologia y tengo las habilidades para traducir ideas en codigo para crear experencias digitales y funcionales</p>
+        <p>Me considero un solucionador de problemas apasionado. Superando desafíos con una mentalidad creativa y perseverante, buscando superar obstáculos para lograr productos de alta calidad.</p>
       </motion.div>
       <div className={`mt-4 sm:flex col-start-7 col-span-12 flex-column items-center justify-center relative`}>
         <motion.div animate={dotsDecorationAnimation} transition={{ duration: animationScrollDuration / 1000 }} className={styles.dots}></motion.div>

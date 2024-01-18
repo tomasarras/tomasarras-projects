@@ -52,14 +52,17 @@ export default function WorkTimeline({ }) {
             <Badge>Java</Badge>
             <Badge>Spring</Badge>
           </Item>
-          <Item i={1} time="September 2021 - February 2022" title="FullStack developer at Taggify">
+          {/**TODO: link en ingles https://www.taggify.net/en */}
+          <Item i={1} time="September 2021 - February 2022" title={<>FullStack developer at <a href='https://www.taggify.net/en'>Taggify</a></>}>
             <p className='text-gray-500 dark:text-gray-400 mb-3'>
               Development of a service with multiserveces and digital signature
             </p>
             <Badge>Java</Badge>
             <Badge>Spring</Badge>
           </Item>
-          <Item i={2} time="January 2021 - September 2021" title="FullStack developer at IDEAAS" last><p className='text-gray-500 dark:text-gray-400 mb-3'>All of the pages and components are first designed in Figma and we keep a parity between the two versions even as we update the project.</p></Item>
+          <Item i={2} time="January 2021 - September 2021" title={<>FullStack developer at <a href="https://www.ideaas.com.ar/">IDEAAS</a></>}><p className='text-gray-500 dark:text-gray-400 mb-3'>All of the pages and components are first designed in Figma and we keep a parity between the two versions even as we update the project.</p></Item>
+          {/**TODO: link en ingles https://www.unicen.edu.ar/english */}
+          <Item i={3} time="January 2018 - December 2021" title={<>Graduated from the University of <a href='https://www.unicen.edu.ar/content/tandil'>UNICEN</a> in Tandil, Argentina</>} last><p className='text-gray-500 dark:text-gray-400 mb-3'>Graduated as a Software Developer.</p></Item>
         </ol>
 
 

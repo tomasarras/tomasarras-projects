@@ -6,6 +6,8 @@ import { motion } from 'framer-motion';
 import AnimationHandler from '../../Utils/AnimationHandler';
 import { isDesktop } from '../../../utils/utils';
 import useWindowDimensions from '../../../hooks/useWindowDimensions';
+import Image from 'next/image';
+import experienceImageIllustration from "../../../public/experience-illustration.png"
 
 export default function Experience({ innerRef }) {
   const size = useWindowDimensions()
@@ -20,8 +22,12 @@ export default function Experience({ innerRef }) {
             <h1 className='mb-4 text-5xl font-bold'>Experience</h1>
             <div className='title-underline'></div>
           </div>
-          <p className='mb-2'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis exercitationem labore architecto! Itaque, nesciunt obcaecati accusantium quo enim temporibus, nostrum praesentium consequuntur et sed provident impedit repellat reprehenderit iusto fuga.</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis exercitationem labore architecto! Itaque, nesciunt obcaecati accusantium quo enim temporibus, nostrum praesentium consequuntur et sed provident impedit repellat reprehenderit iusto fuga.</p>
+          <p className='mb-10'>A lo largo de mi carrera, he tenido el privilegio de trabajar en diversos roles y tecnologías que han ampliado mi experiencia en el desarrollo web con tecnologías de frontend y de backend. Aquí hay un vistazo a algunas de mis experiencias más destacadas:</p>
+          <div className='hidden sm:flex justify-center'>
+            <div className='w-10/12'>
+              <Image src={experienceImageIllustration}/>
+            </div>
+          </div>
         </div>
       </AnimationHandler>
       <div className='sm:w-6/12 flex flex-col sm:ms-2'>

@@ -100,14 +100,14 @@ export default function Skills({ innerRef }) {
   }];
 
   return (
-    <div ref={innerRef} className='sm:h-100 align-center flex-col d-flex justify-between items-center'>
-      <div className='w-100 h-100 align-center flex flex-column sm:grid sm:gap-4 sm:grid-cols-12 justify-between items-center'>
+    <div ref={innerRef} className='sm:h-full align-center flex-col d-flex justify-between items-center'>
+      <div className='w-full h-full align-center flex flex-column sm:grid sm:gap-4 sm:grid-cols-12 justify-between items-center'>
         <AnimationHandler isAnimationEnabled={isAnimationEnabled} {...animation} className='sm:col-span-4'>
           <div className='d-flex items-center w-100 flex-column mb-6'>
             <h1 className='mb-4 text-5xl font-bold'>Skills</h1>
             <div className='title-underline'></div>
           </div>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis exercitationem labore architecto! Itaque, nesciunt obcaecati accusantium quo enim temporibus, nostrum praesentium consequuntur et sed provident impedit repellat reprehenderit iusto fuga.</p>
+          <p>Mi caja de herramientas está llena de lenguajes de programación, frameworks y tecnologías modernas. Desde el frontend con React, Vue, Bootstrap, Tailwind hasta el backend con Spring, Laravel, ExpressJS, estoy equipado para abordar una variedad de proyectos desafiantes.</p>
         </AnimationHandler>
   
         <div className='w-full relative sm:col-start-6 sm:col-span-8 flex justify-center items-center sm:h-full relative'>

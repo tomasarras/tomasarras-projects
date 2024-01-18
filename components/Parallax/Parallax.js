@@ -14,7 +14,7 @@ import MobileAnimation from '../Icons/MouseAnimation/MobileAnimation';
 export default function Parallax() {
   const { currentPage, scrollY } = useContext(Context);
   const size = useWindowDimensions();
-  const tomasarrasTop = (size.height * 3) + (size.height / 1.65)
+  const tomasarrasTop = (size.height * 3) + (size.height / 1.3)
   const lines3Top = (size.height * 2) + (size.height / 1.5)
   const lines4Top = (size.height * 3) + (size.height / 1.5)
   const lines5Top = (size.height * 4) + (size.height / 1.5)
