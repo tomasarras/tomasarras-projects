@@ -179,7 +179,7 @@ export default function DesktopAnimation({ className }) {
         </div>
       </div>
 
-      <div style={{width: "15%", height: "15%"}} className={`${s.dev}`}>
+      <div style={{width: "30%", height: "30%"}} className={`${s.dev}`}>
         <div className={`${s.devShadow} w-100 h-100`}></div>
         <div className='relative w-100 h-100'>
           <Image
