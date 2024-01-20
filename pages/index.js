@@ -29,16 +29,16 @@ export default function Home({ }) {
       <Header sections={sections}/>
       <FullPage duration={animationScrollDuration} controls={Slider}>
         <Hero/>
-        <Container page={1}>
+        <Container page={1} center>
           <About innerRef={(el) => sections.current[1] = el}/>
         </Container>
         <Container page={2}>
           <Skills innerRef={(el) => sections.current[2] = el}/>
         </Container>
-        <Container page={3}>
+        <Container page={3} center>
           <Experience innerRef={(el) => sections.current[3] = el}/>
         </Container>
-        <Container page={4}>
+        <Container page={4} noCenter>
           <Contact innerRef={(el) => sections.current[4] = el}/>
         </Container>
       </FullPage>

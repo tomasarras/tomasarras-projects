@@ -2,14 +2,14 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Context } from '../../Context';
 import s from './Container.module.css';
 
-export default function Container({ children, page }) {
+export default function Container({ children, page, center = false, noCenter = false }) {
   const { currentPage } = useContext(Context);
   const isActive = page == undefined || page == currentPage;
 
   return (
   <section className={`container sm:py-4 h-100 ${s.section} ${!isActive && s.invisible}`}>
     {/**TODO: este padding es del header, en mobile no mostrar */}
-    <div className={`${s.div} h-100 flex justify-center items-center`}>
+    <div className={`${noCenter ? s.noCenter : s.div} h-100 flex ${center ? "justify-center items-center" : ""}`}>
       {children}
     </div>
   </section>)

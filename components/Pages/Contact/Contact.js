@@ -7,10 +7,39 @@ import contactImg from "../../../public/portrait/contact.png"
 import AnimationHandler from '../../Utils/AnimationHandler';
 import { isDesktop } from '../../../utils/utils';
 import useWindowDimensions from '../../../hooks/useWindowDimensions';
+import Link from 'next/link';
+import instagramIcon from "../../../public/icons/instagram-white.svg"
+import githubIcon from "../../../public/icons/github-white.svg"
+import linkedInIcon from "../../../public/icons/linkedin-white.svg"
 
 export default function Contact({ innerRef }) {
   const animation = useAnimationScroll(4)
   const size = useWindowDimensions()
+  const icons = [
+    {
+      name: "Instagram",
+      src: instagramIcon,
+      href: "https://www.instagram.com/tomasarras/",
+      alt: "instagram"
+    },
+    {
+      name: "GitHub",
+      src: githubIcon,
+      href: "https://github.com/tomasarras",
+      alt: "github"
+    },
+    {
+      name: "LinkedIn",
+      src: linkedInIcon,
+      href: "https://www.linkedin.com/in/tomas-arras-49b1aa1b6/",
+      alt: "linkedin"
+    },
+    // {
+    //   name: "Email",
+    //   src: githubIcon,
+    //   href: "https://github.com/tomasarras"
+    // }
+  ]
   const images = [
     // "/portrait/dark/APC_0009_fade.png",
     // "/portrait/dark/APC_0009_no_fade.png",
@@ -69,16 +98,15 @@ export default function Contact({ innerRef }) {
     
   ]
   return (
-    <div ref={innerRef} className={`align-center flex flex-col sm:flex-row justify-between items-center`}>
-      <div {...animation} className='w-full sm:w-6/12'>
-        <p>What would you do if you had a software expert available at your fingertips?
-
-          Want to start new project? Or just say hey.
-          You can also follow me on Instagram.
-          tomasarras@gmail.com
-        </p>
+    <div ref={innerRef} className={`grid grid-cols-1 md:grid-cols-12 md:items-center`}>
+      <div {...animation} className={`h-full md:col-span-4 ${styles.textContainer} flex flex-col justify-end`}>
+        <p className='mb-6'>Siente total libertad de contactarme para discutir proyectos emocionantes, oportunidades de colaboración o simplemente para saludar. Estoy aquí para ti.</p>
+        <h3>Social</h3>
+        <div className='flex my-2'>
+          {icons.map(icon => <Link href={icon.href} passHref><Image className='h-10 w-10 me-2' src={icon.src} alt={icon.alt} width={40} height={40}/></Link>)}
+        </div>
       </div>
-      <AnimationHandler className='w-full sm:w-6/12 d-flex justify-center' isAnimationEnabled={isDesktop(size)} {...animation}>
+      <AnimationHandler className={`h-max mt-10 ${styles.imageContainer} md:col-span-8 d-flex justify-center`} isAnimationEnabled={isDesktop(size)} {...animation}>
         <div className={`${styles.imageContainer} flex justify-center items-center w-8/12`}>
           {/* TODO: quitarle gradiente y ver si la imagen esta bien */}
           {/* TODO: next image loader */}

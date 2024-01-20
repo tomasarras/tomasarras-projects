@@ -3,3 +3,21 @@
     border-radius: 100%;
     overflow: hidden;
 }
+
+.textContainer {
+    order: 2;
+}
+
+.imageContainer {
+    order: 1;
+}
+
+@media only screen and (min-width: 768px) {
+    .textContainer {
+        order: 1;
+    }
+    
+    .imageContainer {
+        order: 2;
+    }
+}

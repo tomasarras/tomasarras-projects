@@ -86,11 +86,13 @@ export default function Header({ sections }) {
     <header ref={headerRef} className={`${styles.header} sm:mt-4`}>
       <div className='w-full sm:container sm:mx-auto'>
         {/** MOBILE */}
-        <div className={`${styles.blur} ${styles.mobileContainer} flex justify-between items-center container sm:hidden`}>
-          <div onClick={() => handleChangeIndexMobile(0)}>Tomas Arras</div>
-          <div>
-            <div className="h-6 w-8" onClick={toggleSidebar}>
-              <HamburgerIcon width={32} height={24} isOpen={isSidebarOpen} transition={{ ease: "easeOut", duration: 0.2 }} strokeWidth="2"/>
+        <div className={`${styles.blur} ${styles.mobileContainer} flex justify-between items-center sm:hidden`}>
+          <div className='container flex justify-between items-center'>
+            <div onClick={() => handleChangeIndexMobile(0)}>Tomas Arras</div>
+            <div>
+              <div className="h-6 w-8" onClick={toggleSidebar}>
+                <HamburgerIcon width={32} height={24} isOpen={isSidebarOpen} transition={{ ease: "easeOut", duration: 0.2 }} strokeWidth="2"/>
+              </div>
             </div>
           </div>
         </div>

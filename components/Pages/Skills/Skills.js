@@ -100,9 +100,13 @@ export default function Skills({ innerRef }) {
   }];
 
   return (
-    <div ref={innerRef} className='sm:h-full align-center flex-col d-flex justify-between items-center'>
-      <div className='w-full h-full align-center flex flex-column sm:grid sm:gap-4 sm:grid-cols-12 justify-between items-center'>
-        <AnimationHandler isAnimationEnabled={isAnimationEnabled} {...animation} className='sm:col-span-6 '>
+    <div ref={innerRef} className={`align-center flex-col d-flex justify-around`}>
+      <div className={`xl:h-max w-full h-full flex flex-column sm:grid sm:gap-4 sm:grid-cols-12 items-center`}>
+        <AnimationHandler
+          isAnimationEnabled={isAnimationEnabled}
+          {...animation}
+          className='sm:col-span-6 md:col-span-5 2xl:col-span-4'
+        >
           <div className='d-flex items-center w-100 flex-column mb-6'>
             <h1 className='mb-4 text-5xl font-bold'>Skills</h1>
             <div className='title-underline'></div>
@@ -110,17 +114,22 @@ export default function Skills({ innerRef }) {
           <p>Mi caja de herramientas está llena de lenguajes de programación, frameworks y tecnologías modernas. Desde el frontend con React, Vue, Bootstrap, Tailwind hasta el backend con Spring, Laravel, ExpressJS, estoy equipado para abordar una variedad de proyectos desafiantes.</p>
         </AnimationHandler>
   
-        <div className='my-10 sm:my-0 w-full relative sm:col-start-6 sm:col-span-6 flex justify-center items-center sm:h-full relative'>
+        <div className='my-10 sm:my-0 w-full relative flex justify-center items-center relative
+            sm:col-start-7 sm:col-span-6 
+            md:col-start-7 md:col-span-6 
+            lg:col-start-6 lg:col-span-7 
+            xl:col-start-6 xl:col-span-7
+            2xl:col-start-6 2xl:col-span-7 '>
           <div className={`sm:hidden ${styles.dots} absolute w-full h-50`}></div>
-          <div className={`w-4/5`}>
+          <div className={`w-9/12 sm:w-full lg:w-4/5`}>
             <div className='relative top-0'>
               <AnimationHandler isAnimationEnabled={isAnimationEnabled} animate={dotsDecorationAnimation} transition={{ duration: animationScrollDuration / 1000 }} 
                 className={`hidden sm:block ${styles.dotsDesktop} ${styles.dots} absolute t-0 l-0 w-full h-50`}>
               </AnimationHandler>
               <AnimationHandler isAnimationEnabled={isAnimationEnabled} animate={imgDecorationAnimation} transition={{ duration: animationScrollDuration / 1000 }}>
-                <Image className={`${styles.imgDecoration} ${highlightedType === null || highlightedType == "frontend" ? styles.active : ""} sm:ml-10`} src={frontendImgDecoration} alt='front-end'/>
-                <Image className={`${styles.imgDecoration} ${highlightedType === null || highlightedType == "devops" ? styles.active : ""} absolute top-0 sm:ml-10`} src={devopsImgDecoration} alt='devops'/>
-                <Image className={`${styles.imgDecoration} ${highlightedType === null || highlightedType == "backend" ? styles.active : ""} absolute top-0 sm:ml-10`} src={backendImgDecoration} alt='backend'/>
+                <Image className={`${styles.imgDecoration} ${highlightedType === null || highlightedType == "frontend" ? styles.active : ""}`} src={frontendImgDecoration} alt='front-end'/>
+                <Image className={`${styles.imgDecoration} ${highlightedType === null || highlightedType == "devops" ? styles.active : ""} absolute top-0`} src={devopsImgDecoration} alt='devops'/>
+                <Image className={`${styles.imgDecoration} ${highlightedType === null || highlightedType == "backend" ? styles.active : ""} absolute top-0`} src={backendImgDecoration} alt='backend'/>
               </AnimationHandler>
             </div>
           </div>

@@ -17,3 +17,32 @@
 .itemContainer:not(.lastContainer)  {
     padding-bottom: 1.5rem;
 }
+
+@media only screen and (min-width: 1440px) {
+    .ol {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+}
+
+@media only screen and (min-width: 1024px) and (max-width: 1439px) {
+    .itemContainer {
+        border: none;
+    }
+
+    .order-0 {
+        order: 4;
+    }
+
+    .order-1 {
+        order: 3;
+    }
+
+    .order-2 {
+        order: 2;
+    }
+
+    .order-3 {
+        order: 1;
+    }
+}
+
