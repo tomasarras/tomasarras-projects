@@ -57,13 +57,17 @@ export default function DesktopAnimation({ className }) {
 
   useEffect(() => {
     if (desktopRef.current) {
-      setHeight(desktopRef.current.offsetHeight + "px")
-      setWidth(desktopRef.current.offsetWidth + "px")
+      const elem = desktopRef.current.firstChild
+      if (elem.offsetHeight != 0 && elem.offsetWidth != 0) {
+        console.log("setting up");
+        setHeight(elem.offsetHeight + "px")
+        setWidth(elem.offsetWidth + "px")
+      }
     }
   }, [desktopRef, size])
   
   useEffect(() => {
-    console.log(width, height);
+    console.log(width, height, "SETUP");
   }, [width, height])
   
 
@@ -90,116 +94,121 @@ export default function DesktopAnimation({ className }) {
   //     window.removeEventListener('scroll', handleScroll);
   //   };
   // }, []);
+  const notZero = (number) => number == 0 ? null : number
 
   return (<>
-  <div className={`${s.container} ${isActive ? s.active : ""} ${passed ? s.invisible : ""} ${className}`}>
-    <div style={{width: width,height: height}} className={`absolute`}>
-      <div style={{width: "35%", height: "35%"}} className={`${s.item} ${s.console1}`}>
-        <div className='absolute w-100 h-100'>
-          <Image
-            src={codeConsole2}
-            alt="Console"
-            className={`${s.opacity}`}
-          />
-          <motion.div {...codeAnimation}>
+  <div className={`mx-auto ${s.container} ${isActive ? s.active : ""} ${passed ? s.invisible : ""} ${className}`}>
+    <div className='mx-auto' style={{width: notZero(width),height: notZero(height)}}>
+      <div style={{width: width,height: height}} className={`absolute`}>
+        <div style={{width: "35%", height: "35%"}} className={`${s.item} ${s.console1}`}>
+          <div className='absolute w-100 h-100'>
             <Image
-              src={lines1}
-              alt="Lines"
-              className={`${s.lines}`}
+              src={codeConsole2}
+              alt="Console"
+              className={`${s.opacity}`}
             />
-          </motion.div>
+            <motion.div {...codeAnimation}>
+              <Image
+                src={lines1}
+                alt="Lines"
+                className={`${s.lines}`}
+              />
+            </motion.div>
+          </div>
         </div>
-      </div>
 
-      <div style={{width: "35%", height: "35%"}} className={`${s.item} ${s.console2}`}>
-        <div className='absolute w-100 h-100'>
-          <Image
-            src={codeConsole2}
-            alt="Console"
-            className={`${s.opacity}`}
-          />
-          <motion.div {...codeAnimation}>
+        <div style={{width: "35%", height: "35%"}} className={`${s.item} ${s.console2}`}>
+          <div className='absolute w-100 h-100'>
             <Image
-              src={lines2}
-              alt="Lines"
-              className={`${s.lines}`}
+              src={codeConsole2}
+              alt="Console"
+              className={`${s.opacity}`}
             />
-          </motion.div>
+            <motion.div {...codeAnimation}>
+              <Image
+                src={lines2}
+                alt="Lines"
+                className={`${s.lines}`}
+              />
+            </motion.div>
+          </div>
         </div>
-      </div>
 
-      <div style={{width: "35%", height: "35%"}} className={`${s.item} ${s.console3}`}>
-        <div className='absolute w-100 h-100'>
-          <Image
-            src={codeConsole3}
-            alt="Console"
-            className={`${s.opacity}`}
-          />
-          <motion.div {...codeAnimation}>
+        <div style={{width: "35%", height: "35%"}} className={`${s.item} ${s.console3}`}>
+          <div className='absolute w-100 h-100'>
             <Image
-              src={b3Lines}
-              alt="Lines"
-              className={`${s.lines}`}
+              src={codeConsole3}
+              alt="Console"
+              className={`${s.opacity}`}
             />
-          </motion.div>
+            <motion.div {...codeAnimation}>
+              <Image
+                src={b3Lines}
+                alt="Lines"
+                className={`${s.lines}`}
+              />
+            </motion.div>
+          </div>
         </div>
-      </div>
 
-      <div style={{width: "35%", height: "35%"}} className={`${s.item} ${s.front1}`}>
-        <div className='absolute w-100 h-100'>
-          <Image
-            src={b2}
-            alt="Console"
-            className={`${s.opacity}`}
-          />
-          <motion.div {...codeAnimation}>
+        <div style={{width: "35%", height: "35%"}} className={`${s.item} ${s.front1}`}>
+          <div className='absolute w-100 h-100'>
             <Image
-              src={b1}
-              alt="Lines"
-              className={`${s.lines}`}
+              src={b2}
+              alt="Console"
+              className={`${s.opacity}`}
             />
-          </motion.div>
+            <motion.div {...codeAnimation}>
+              <Image
+                src={b1}
+                alt="Lines"
+                className={`${s.lines}`}
+              />
+            </motion.div>
+          </div>
         </div>
-      </div>
 
-      <div style={{width: "20%", height: "20%"}} className={`${s.item} ${s.front2}`}>
-        <div className='absolute w-100 h-100'>
-          <Image
-            src={b5}
-            alt="Console"
-            className={`${s.opacity}`}
-          />
-          <motion.div {...codeAnimation}>
+        <div style={{width: "20%", height: "20%"}} className={`${s.item} ${s.front2}`}>
+          <div className='absolute w-100 h-100'>
             <Image
-              src={b52}
-              alt="Lines"
-              className={`${s.lines}`}
+              src={b5}
+              alt="Console"
+              className={`${s.opacity}`}
             />
-          </motion.div>
+            <motion.div {...codeAnimation}>
+              <Image
+                src={b52}
+                alt="Lines"
+                className={`${s.lines}`}
+              />
+            </motion.div>
+          </div>
         </div>
-      </div>
 
-      <div style={{width: "30%", height: "30%"}} className={`${s.dev}`}>
-        <div className={`${s.devShadow} w-100 h-100`}></div>
-        <div className='relative w-100 h-100'>
-          <Image
-            src={circle}
-            alt="Lines"
-            className={`${s.devImg}`}
-          />
-          <motion.div animate={{ y: [0,2,0,-2,0] }} transition={{ repeat: Infinity, duration: 3, transition: 'ease' }} className={`${s.devMov} w-100 h-100`}>
-            <Dev
-              className={`${s.devImg} ${s.devIcon} w-4/5 h-4/5`}
+        <div style={{width: "30%", height: "30%"}} className={`${s.dev}`}>
+          <div className={`${s.devShadow} w-100 h-100`}></div>
+          <div className='relative w-100 h-100'>
+            <Image
+              src={circle}
+              alt="Lines"
+              className={`${s.devImg}`}
             />
-          </motion.div>
+            {/**TODO css not js */}
+            <motion.div animate={{ y: [0,2,0,-2,0] }} transition={{ repeat: Infinity, duration: 3, transition: 'ease' }} className={`${s.devMov} w-100 h-100`}>
+              <Dev
+                className={`${s.devImg} ${s.devIcon} w-4/5 h-4/5`}
+              />
+            </motion.div>
+          </div>
         </div>
       </div>
-    </div>
-    <div ref={desktopRef}>
-      <Image
-        src={desktopSvg}
-        alt="Desktop"
-      />
+      <div ref={desktopRef} style={{width: notZero(width)}}>
+        <Image
+        style={{maxHeight: "80dvh", width:"fit-content"}}
+          src={desktopSvg}
+          alt="Desktop"
+        />
+      </div>
     </div>
   </div>
   </>);

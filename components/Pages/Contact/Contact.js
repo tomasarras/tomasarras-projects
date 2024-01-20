@@ -103,7 +103,7 @@ export default function Contact({ innerRef }) {
         <p className='mb-6'>Siente total libertad de contactarme para discutir proyectos emocionantes, oportunidades de colaboración o simplemente para saludar. Estoy aquí para ti.</p>
         <h3>Social</h3>
         <div className='flex my-2'>
-          {icons.map(icon => <Link href={icon.href} passHref><Image className='h-10 w-10 me-2' src={icon.src} alt={icon.alt} width={40} height={40}/></Link>)}
+          {icons.map(icon => <Link key={icon.href} href={icon.href} passHref><Image className='h-10 w-10 me-2' src={icon.src} alt={icon.alt} width={40} height={40}/></Link>)}
         </div>
       </div>
       <AnimationHandler className={`h-max mt-10 ${styles.imageContainer} md:col-span-8 d-flex justify-center`} isAnimationEnabled={isDesktop(size)} {...animation}>
