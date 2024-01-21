@@ -97,16 +97,21 @@ export default function Contact({ innerRef }) {
     // "/portrait/perfillight/APC_0072.png",    //ESTA
     
   ]
+{/**md:col-start-7 md:col-span-6 
+            lg:col-start-6 lg:col-span-7 
+            xl:col-start-6 xl:col-span-7
+            2xl:col-start-6 2xl:col-span-7  */}
+
   return (
     <div ref={innerRef} className={`grid grid-cols-1 md:grid-cols-12 md:items-center`}>
-      <div {...animation} className={`h-full md:col-span-4 ${styles.textContainer} flex flex-col justify-end`}>
+      <div {...animation} className={`md:my-auto h-full md:col-span-4 ${styles.textContainer} flex flex-col justify-end`}>
         <p className='mb-6'>Siente total libertad de contactarme para discutir proyectos emocionantes, oportunidades de colaboración o simplemente para saludar. Estoy aquí para ti.</p>
         <h3>Social</h3>
-        <div className='flex my-2'>
+        <div className={`flex mt-2`}>
           {icons.map(icon => <Link key={icon.href} href={icon.href} passHref><Image className='h-10 w-10 me-2' src={icon.src} alt={icon.alt} width={40} height={40}/></Link>)}
         </div>
       </div>
-      <AnimationHandler className={`h-max mt-10 ${styles.imageContainer} md:col-span-8 d-flex justify-center`} isAnimationEnabled={isDesktop(size)} {...animation}>
+      <AnimationHandler className={`${styles.imageWrapper} mt-10 md:mt-0 md:col-span-8 d-flex justify-center`} isAnimationEnabled={isDesktop(size)} {...animation}>
         <div className={`${styles.imageContainer} flex justify-center items-center w-8/12`}>
           {/* TODO: quitarle gradiente y ver si la imagen esta bien */}
           {/* TODO: next image loader */}

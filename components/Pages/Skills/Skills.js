@@ -100,7 +100,7 @@ export default function Skills({ innerRef }) {
   }];
 
   return (
-    <div ref={innerRef} className={`align-center flex-col d-flex justify-around`}>
+    <div ref={innerRef} className={` flex-col d-flex justify-around`}>
       <div className={`xl:h-max w-full h-full flex flex-column sm:grid sm:gap-4 sm:grid-cols-12 items-center`}>
         <AnimationHandler
           isAnimationEnabled={isAnimationEnabled}

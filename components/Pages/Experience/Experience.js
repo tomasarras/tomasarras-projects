@@ -14,7 +14,7 @@ export default function Experience({ innerRef }) {
   const animation = useAnimationScroll(3);
 
   return (
-  <div ref={innerRef} className='flex align-center justify-between items-center'>
+  <div ref={innerRef} className='flex justify-between items-center'>
     <div className='grid grid-cols-1 lg:grid-cols-12 lg:gap-4 2xl:grid-cols-12'>
       <AnimationHandler
         isAnimationEnabled={isDesktop(size)}

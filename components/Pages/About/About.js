@@ -19,7 +19,7 @@ export default function About({ innerRef }) {
 
 
   return (
-    <div ref={innerRef} className={`md:grid md:gap-4 md:grid-cols-12 md:align-center`}>
+    <div ref={innerRef} className={`md:grid md:gap-4 md:grid-cols-12`}>
       <motion.div
         {...animation}
         className={`${styles.colSpan1366Left}  flex flex-column items-center justify-center
