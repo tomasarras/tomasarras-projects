@@ -52,23 +52,15 @@ export default function DesktopAnimation({ className }) {
   // }, [currentPage])
 
   useEffect(() => {
-    console.log(isActive, "isssss");
-  }, [isActive])
-
-  useEffect(() => {
     if (desktopRef.current) {
       const elem = desktopRef.current.firstChild
       if (elem.offsetHeight != 0 && elem.offsetWidth != 0) {
-        console.log("setting up");
         setHeight(elem.offsetHeight + "px")
         setWidth(elem.offsetWidth + "px")
       }
     }
   }, [desktopRef, size])
-  
-  useEffect(() => {
-    console.log(width, height, "SETUP");
-  }, [width, height])
+
   
 
   // useEffect(() => {

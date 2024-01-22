@@ -21,7 +21,7 @@ export default function FullPage({ children, duration = 700 }) {
     const animatedScrollTo = (scrollTo, callback) => {
         const scrollFrom = window.scrollY || window.pageYOffset || 0;
         const scrollDiff = scrollTo - scrollFrom;
-        
+        const requestAnimationFrame = getRequestAnimationFrame()
         const animateScroll = () => {
             let isScrolling = false;
 
@@ -32,21 +32,22 @@ export default function FullPage({ children, duration = 700 }) {
 
                 const startTime = performance.now();
                 const startValue = window.scrollY || window.pageYOffset;
+                const stopValue = newScrollPos - startValue                
 
                 function step(currentTime) {
                     const elapsedTime = currentTime - startTime;
-
+                    
                     if (elapsedTime < duration) {
-                        const easedValue = easeInOutCirc(elapsedTime, startValue, newScrollPos - startValue, duration);
+                        const easedValue = easeInOutCirc(elapsedTime, startValue, stopValue, duration);
                         window.scrollTo({ top: easedValue, behavior: 'instant' });
-                        getRequestAnimationFrame()(step);
+                        requestAnimationFrame(step);
                     } else {
                         window.scrollTo({ top: newScrollPos, behavior: 'smooth' });
                         isScrolling = false;
                         callback()
                     }
                 }
-                getRequestAnimationFrame()(step);
+                requestAnimationFrame(step);
             }
             smoothScrollTo(scrollFrom + scrollDiff, duration);
         }

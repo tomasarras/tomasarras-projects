@@ -35,9 +35,6 @@ export default function Parallax() {
     }
   }
 
-  useEffect(() => {
-    console.log(scrollY, "scroll");
-  }, [scrollY])
   
 
   return (<div className={styles.layer1}>
