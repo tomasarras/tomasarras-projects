@@ -11,6 +11,7 @@ import FullPage from '../components/Scroll/FullPage';
 import { animationScrollDuration } from '../constants/Constants';
 import Contact from '../components/Pages/Contact/Contact';
 import { useRef } from 'react';
+import Portfolio from '../components/Pages/Portfolio/Portfolio';
 
 export default function Home({ }) {
   const sections = useRef([])
@@ -39,7 +40,10 @@ export default function Home({ }) {
           <Experience innerRef={(el) => sections.current[3] = el}/>
         </Container>
         <Container page={4} noCenter>
-          <Contact innerRef={(el) => sections.current[4] = el}/>
+          <Portfolio innerRef={(el) => sections.current[4] = el}/>
+        </Container>
+        <Container page={5} noCenter>
+          <Contact innerRef={(el) => sections.current[5] = el}/>
         </Container>
       </FullPage>
     </div>
