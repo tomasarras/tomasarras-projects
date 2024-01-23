@@ -12,7 +12,7 @@ export default function FullPage({ children, duration = 700 }) {
     const childrenArray = React.Children.toArray(children)
     const size = useWindowDimensions();
     const slidesCount = React.Children.count(children);
-    const { setCurrentPage, currentPage } = useContext(Context)
+    const { setCurrentPage, currentPage, beforeUpdateCurrentPage } = useContext(Context)
     const [slides, setSlides] = useState([])
     const slidesRef = useRef([])
     const isScrollPending = useRef(false)
@@ -80,6 +80,8 @@ export default function FullPage({ children, duration = 700 }) {
             newActiveSlide = 0
         else if (newActiveSlide == slidesCount)
             newActiveSlide = slidesCount -1
+        const shouldContinue = beforeUpdateCurrentPage(evt, newActiveSlide)
+        if (!shouldContinue) return
         setCurrentPage(newActiveSlide)
     }
 

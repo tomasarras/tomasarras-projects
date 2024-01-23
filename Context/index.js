@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useRef, useState } from "react";
+import React, { createContext, useCallback, useEffect, useRef, useState } from "react";
 import { getRequestAnimationFrame, easeInOutCirc } from "../utils/utils";
 import { animationScrollDuration } from "../constants/Constants"
 
@@ -10,6 +10,32 @@ export const Provider = ({ children }) => {
     const hasPageBeenRendered = useRef({ effect: 2 })
     const [easeScroll, setEaseScroll] = useState(0)
     const prevCurrentPageRef = useRef(0);
+    const [beforeUpdateCurrentPageSubscriptors, setBeforeUpdateCurrentPageSubscriptors] = useState({})
+
+    const subscribeBeforeCurrentPageUpdated = (key, func) => {
+        console.log(key,"AKK");
+        setBeforeUpdateCurrentPageSubscriptors((prev) => prev[key] = func)
+    }
+
+    const beforeUpdateCurrentPage = useCallback(
+      (evt, newCurrentPage) => {
+        for (const key in beforeUpdateCurrentPageSubscriptors) {
+            if (beforeUpdateCurrentPageSubscriptors.hasOwnProperty(key)) {
+              const func = beforeUpdateCurrentPageSubscriptors[key];
+              if (func(evt, newCurrentPage) === false)
+                return false
+            }
+        }
+        return true
+      },
+      [beforeUpdateCurrentPageSubscriptors],
+    )
+
+    useEffect(() => {
+        console.log("🚀 ~ useEffect ~ beforeUpdateCurrentPageSubscriptors:", beforeUpdateCurrentPageSubscriptors)
+    }, [beforeUpdateCurrentPageSubscriptors])
+    
+    
 
     useEffect(() => {
         if (hasPageBeenRendered.current["effect"] == 0) {
@@ -63,6 +89,8 @@ export const Provider = ({ children }) => {
         easeScroll,
         scrollY,
         setScrollY,
+        beforeUpdateCurrentPage,
+        subscribeBeforeCurrentPageUpdated,
     }}>
         {children}
     </Context.Provider>);

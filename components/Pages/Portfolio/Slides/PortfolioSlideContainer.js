@@ -1,16 +1,35 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useCallback, useContext, useEffect, useRef, useState } from 'react';
 import DotsSlider from '../../../DotsSlider/DotsSlider';
 import { motion } from 'framer-motion';
 import { animationScrollDuration } from '../../../../constants/Constants';
 import { easeInOutCirc, getRequestAnimationFrame } from '../../../../utils/utils';
+import { Context } from '../../../../Context';
 
 export default function PortfolioSlideContainer({ children, className, innerRef }) {
+  const { subscribeBeforeCurrentPageUpdated, currentPage } = useContext(Context)
   const [currentIndex, setCurrentIndex] = useState(0)
   const childrenArray = React.Children.toArray(children)
   const childrenRefs = useRef([])
   const sliderRef = useRef()
   const sliderContainerRef = useRef()
 
+  const beforeUpdateCurrentPage = useCallback(
+    (evt, newCurrentPage) => {
+      const el = sliderRef.current.parentElement
+      console.log(currentPage, newCurrentPage);
+      if (el.contains(evt.target)) {
+        console.log('El elemento está dentro de myRef o es myRef');
+      } else {
+        console.log('El elemento NO está dentro de myRef');
+      }
+      return true
+    },
+    [currentIndex, sliderRef, currentPage],
+  )
+
+  useEffect(() => {
+    subscribeBeforeCurrentPageUpdated("PortfolioSlideContainer", beforeUpdateCurrentPage)
+  }, [sliderRef, currentIndex, currentPage])
 
   useEffect(() => {
     if (sliderRef.current == undefined) return
@@ -20,7 +39,6 @@ export default function PortfolioSlideContainer({ children, className, innerRef 
     stopValue = stopValue - startValue
     let isScrolling = false;
     const requestAnimationFrame = getRequestAnimationFrame()
-
     function smoothScrollTo() {
       if (isScrolling) return;
 
