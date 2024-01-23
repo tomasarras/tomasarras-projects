@@ -13,7 +13,6 @@ export const Provider = ({ children }) => {
     const [beforeUpdateCurrentPageSubscriptors, setBeforeUpdateCurrentPageSubscriptors] = useState({})
 
     const subscribeBeforeCurrentPageUpdated = (key, func) => {
-        console.log(key,"AKK");
         setBeforeUpdateCurrentPageSubscriptors((prev) => prev[key] = func)
     }
 
@@ -32,7 +31,6 @@ export const Provider = ({ children }) => {
     )
 
     useEffect(() => {
-        console.log("🚀 ~ useEffect ~ beforeUpdateCurrentPageSubscriptors:", beforeUpdateCurrentPageSubscriptors)
     }, [beforeUpdateCurrentPageSubscriptors])
     
     

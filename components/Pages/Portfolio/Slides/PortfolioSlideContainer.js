@@ -15,14 +15,34 @@ export default function PortfolioSlideContainer({ children, className, innerRef 
 
   const beforeUpdateCurrentPage = useCallback(
     (evt, newCurrentPage) => {
+      console.log(evt);
+      console.log(evt, " 4 5");
       const el = sliderRef.current.parentElement
-      console.log(currentPage, newCurrentPage);
+      //console.log("from "+currentPage, "to " + newCurrentPage);
       if (el.contains(evt.target)) {
-        console.log('El elemento está dentro de myRef o es myRef');
+        if (newCurrentPage > currentPage) {
+          if (currentIndex == (childrenArray.length-1)) {
+            //console.log("last slide returning true");
+            return true
+          } else {
+            //console.log("not last page currentIndex+1 returning false");
+            setCurrentIndex(currentIndex+1)
+            return false
+          }
+        } else {
+          if (currentIndex == 0) {
+            //console.log("currentIndex is 0 returning true");
+            return true
+          } else {
+            //console.log("currentIndex is 0 higger tahn 0 returning false and currentIndex-1");
+
+            setCurrentIndex(currentIndex-1)
+            return false
+          }
+        }
       } else {
-        console.log('El elemento NO está dentro de myRef');
+        return true
       }
-      return true
     },
     [currentIndex, sliderRef, currentPage],
   )
@@ -32,6 +52,7 @@ export default function PortfolioSlideContainer({ children, className, innerRef 
   }, [sliderRef, currentIndex, currentPage])
 
   useEffect(() => {
+    //console.log("currentIndex updated", currentIndex);
     if (sliderRef.current == undefined) return
     const screenXSize = sliderContainerRef.current.offsetWidth/childrenArray.length
     const startValue = sliderRef.current.scrollLeft

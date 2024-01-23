@@ -3,11 +3,13 @@ import s from './FullPage.module.css'
 import Slider from '../Slider/Slider';
 import { easeInOutCirc, getRequestAnimationFrame, isDesktop, isClient } from '../../utils/utils'
 import { Context } from '../../Context';
-import { Lethargy } from 'lethargy'
+//import { Lethargy } from 'lethargy'
 import useWindowDimensions from '../../hooks/useWindowDimensions';
 import Parallax from '../Parallax/Parallax';
+import { animationScrollDuration } from '../../constants/Constants';
+import ReactScrollWheelHandler from "react-scroll-wheel-handler";
 
-const lethargy = new Lethargy()
+//const lethargy = new Lethargy()
 export default function FullPage({ children, duration = 700 }) {
     const childrenArray = React.Children.toArray(children)
     const size = useWindowDimensions();
@@ -15,7 +17,7 @@ export default function FullPage({ children, duration = 700 }) {
     const { setCurrentPage, currentPage, beforeUpdateCurrentPage } = useContext(Context)
     const [slides, setSlides] = useState([])
     const slidesRef = useRef([])
-    const isScrollPending = useRef(false)
+    const [isScrollPending, setIsScrollPending] = useState(false)
     const hasPageBeenRendered = useRef({ effect: false })
      
     const animatedScrollTo = (scrollTo, callback) => {
@@ -65,21 +67,23 @@ export default function FullPage({ children, duration = 700 }) {
     }
 
     const scrollToSlide = (slide) => {
-        if (!isScrollPending.current && slide >= 0 && slide < slidesCount) {      
-            isScrollPending.current = true
-            animatedScrollTo(slides[slide], () => isScrollPending.current = false);
+        if (slide >= 0 && slide < slidesCount) {      
+            animatedScrollTo(slides[slide], () => {});
         }
     }
 
-    const onScroll = (evt) => {   
-        evt.preventDefault();
-        if (isScrollPending.current || lethargy.check(evt) === false) return;
-        const scrollDown = (evt.wheelDelta || -evt.deltaY || -evt.detail) < 0;
+    const onScroll = (evt, direction) => {
+        console.log(direction);
+        const scrollDown = direction == 'down'
         let newActiveSlide = scrollDown ? currentPage+1 : currentPage-1
         if (newActiveSlide == -1)
             newActiveSlide = 0
         else if (newActiveSlide == slidesCount)
-            newActiveSlide = slidesCount -1
+          newActiveSlide = slidesCount -1
+        setIsScrollPending(true)
+        setTimeout(() => {
+            setIsScrollPending(false)
+        }, animationScrollDuration +100);
         const shouldContinue = beforeUpdateCurrentPage(evt, newActiveSlide)
         if (!shouldContinue) return
         setCurrentPage(newActiveSlide)
@@ -88,14 +92,10 @@ export default function FullPage({ children, duration = 700 }) {
     const onResize = () => updateSlides();
 
     useEffect(() => {
-        if (isClient() && isDesktop(size)) {
-            document.addEventListener('wheel', onScroll, { passive: false });
-        }
         window.addEventListener('resize', onResize);
     
         onResize();    
       return () => {
-        document.removeEventListener('wheel', onScroll, { passive: false });
         document.removeEventListener('resize', onResize);
       }
     }, [currentPage, size])
@@ -115,7 +115,13 @@ export default function FullPage({ children, duration = 700 }) {
     
 
     return (
-    <>
+    <ReactScrollWheelHandler
+        upHandler={(e) => onScroll(e, 'up')}
+        downHandler={(e) => onScroll(e, 'down')}
+        pauseListeners={!isDesktop(size) || isScrollPending}
+        preventScroll={isDesktop(size)}
+
+    >
         {isDesktop(size) && <Slider slidesCount={slidesCount}/>}
         <Parallax/>
         {childrenArray.map((child, index) => (
@@ -123,7 +129,7 @@ export default function FullPage({ children, duration = 700 }) {
                 <div>{child}</div>
             </div>
         ))}
-    </>
+    </ReactScrollWheelHandler>
     )
 }
 
