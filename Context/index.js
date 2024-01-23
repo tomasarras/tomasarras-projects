@@ -13,7 +13,9 @@ export const Provider = ({ children }) => {
     const [beforeUpdateCurrentPageSubscriptors, setBeforeUpdateCurrentPageSubscriptors] = useState({})
 
     const subscribeBeforeCurrentPageUpdated = (key, func) => {
-        setBeforeUpdateCurrentPageSubscriptors((prev) => prev[key] = func)
+        const newState = Object.assign({}, beforeUpdateCurrentPageSubscriptors)
+        newState[key] = func
+        setBeforeUpdateCurrentPageSubscriptors(newState)
     }
 
     const beforeUpdateCurrentPage = useCallback(

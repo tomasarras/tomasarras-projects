@@ -8,6 +8,7 @@ import { motion } from 'framer-motion';
 import useWindowDimensions from '../../hooks/useWindowDimensions';
 import { isDesktop, isTablet } from '../../utils/utils';
 
+//TODO: scroll on header bug 
 const AnimatedMenuItem = ({ isOpen, i, children }) => {
   const fadeInAnimationVariants = {
     initial: {

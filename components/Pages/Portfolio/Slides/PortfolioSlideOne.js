@@ -3,7 +3,7 @@ import React from 'react';
 export default function PortfolioSlideOne({ }) {
 
   return (
-	<div className='flex justify-center items-center'>
+	<div className='container flex justify-center items-center'>
 		<div className='sm:w-6/12 md:w-5/12 2xl:w-4/12'>
 			<div className='flex flex-col justify-center items-center'>
 				<h1 className='mb-4 text-5xl font-bold'>Portfolio</h1>

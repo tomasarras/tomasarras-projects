@@ -73,7 +73,7 @@ export default function FullPage({ children, duration = 700 }) {
     }
 
     const onScroll = (evt, direction) => {
-        console.log(direction);
+        if (evt === undefined) return
         const scrollDown = direction == 'down'
         let newActiveSlide = scrollDown ? currentPage+1 : currentPage-1
         if (newActiveSlide == -1)
