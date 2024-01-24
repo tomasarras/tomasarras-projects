@@ -6,30 +6,30 @@ export default function Dev({ width, height, className }) {
   
   return (<div className={className}>
 <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0.00 0.00 196.00 169.00">
-<g stroke-width="2.00" fill="none" stroke-linecap="butt">
-<path stroke="#2e2c09" vector-effect="non-scaling-stroke" d="
+<g strokeWidth="2.00" fill="none" strokeLinecap="butt">
+<path stroke="#2e2c09" vectorEffect="non-scaling-stroke" d="
   M 69.30 51.90
   L 68.94 51.36
   A 1.10 1.08 76.8 0 0 68.15 50.86
   L 48.02 48.46"
 />
-<path stroke="#2e2c09" vector-effect="non-scaling-stroke" d="
+<path stroke="#2e2c09" vectorEffect="non-scaling-stroke" d="
   M 68.98 62.83
   Q 69.16 64.04 69.03 64.84
   Q 68.90 65.63 67.88 66.26
   Q 66.28 67.25 64.66 68.26"
 />
-<path stroke="#2e2c09" vector-effect="non-scaling-stroke" d="
+<path stroke="#2e2c09" vectorEffect="non-scaling-stroke" d="
   M 70.28 67.45
   Q 70.74 66.64 71.74 65.47
   Q 72.06 65.09 71.61 65.16"
 />
-<path stroke="#2e2c09" vector-effect="non-scaling-stroke" d="
+<path stroke="#2e2c09" vectorEffect="non-scaling-stroke" d="
   M 136.42 100.51
   Q 136.36 101.23 136.93 101.77
   Q 143.52 108.04 147.41 113.72"
 />
-<path stroke="#484949" vector-effect="non-scaling-stroke" d="
+<path stroke="#484949" vectorEffect="non-scaling-stroke" d="
   M 99.94 114.28
   L 93.59 118.16
   A 0.54 0.54 0.0 0 0 93.61 119.09
@@ -38,7 +38,7 @@ export default function Dev({ width, height, className }) {
   Q 110.34 122.46 109.00 121.26
   L 101.03 114.13"
 />
-<path stroke="#2e2c09" vector-effect="non-scaling-stroke" d="
+<path stroke="#2e2c09" vectorEffect="non-scaling-stroke" d="
   M 96.24 109.81
   Q 93.42 106.88 90.40 104.32
   Q 89.41 103.47 89.86 101.11
@@ -47,14 +47,14 @@ export default function Dev({ width, height, className }) {
   Q 89.23 100.67 89.19 100.84
   L 88.11 105.86"
 />
-<path stroke="#2e2c09" vector-effect="non-scaling-stroke" d="
+<path stroke="#2e2c09" vectorEffect="non-scaling-stroke" d="
   M 106.09 79.00
   L 95.16 85.11
   Q 94.52 85.46 94.72 84.76
   Q 97.98 73.11 102.01 61.78
   Q 102.36 60.80 101.98 59.48"
 />
-<path stroke="#797d80" vector-effect="non-scaling-stroke" d="
+<path stroke="#797d80" vectorEffect="non-scaling-stroke" d="
   M 33.41 48.18
   A 0.47 0.47 0.0 0 0 33.11 48.24
   L 14.66 59.10
@@ -65,7 +65,7 @@ export default function Dev({ width, height, className }) {
   A 0.47 0.47 0.0 0 0 65.42 51.88
   L 33.41 48.18"
 />
-<path stroke="#696a6b" vector-effect="non-scaling-stroke" d="
+<path stroke="#696a6b" vectorEffect="non-scaling-stroke" d="
   M 48.08 63.56
   A 0.65 0.65 0.0 0 0 47.75 64.13
   L 47.72 75.85
@@ -76,7 +76,7 @@ export default function Dev({ width, height, className }) {
   A 0.65 0.65 0.0 0 0 67.32 52.54
   L 48.08 63.56"
 />
-<path stroke="#797d80" vector-effect="non-scaling-stroke" d="
+<path stroke="#797d80" vectorEffect="non-scaling-stroke" d="
   M 100.23 60.83
   A 0.33 0.33 0.0 0 0 100.23 60.26
   L 91.68 55.05
@@ -87,7 +87,7 @@ export default function Dev({ width, height, className }) {
   A 0.33 0.33 0.0 0 0 80.72 72.01
   L 100.23 60.83"
 />
-<path stroke="#7b7a7a" vector-effect="non-scaling-stroke" d="
+<path stroke="#7b7a7a" vectorEffect="non-scaling-stroke" d="
   M 24.84 73.04
   C 26.87 72.71 29.42 73.67 31.09 73.92
   Q 36.31 74.69 41.48 75.75
@@ -108,7 +108,7 @@ export default function Dev({ width, height, className }) {
   L 24.32 74.91
   A 1.07 1.07 0.0 0 1 24.84 73.04"
 />
-<path stroke="#696a6b" vector-effect="non-scaling-stroke" d="
+<path stroke="#696a6b" vectorEffect="non-scaling-stroke" d="
   M 89.84 89.79
   C 90.23 86.98 92.60 87.90 93.32 85.61
   Q 96.86 74.54 100.10 64.71
@@ -121,7 +121,7 @@ export default function Dev({ width, height, className }) {
   Q 82.07 121.32 82.28 120.64
   L 89.62 96.23"
 />
-<path stroke="#7b7a7a" vector-effect="non-scaling-stroke" d="
+<path stroke="#7b7a7a" vectorEffect="non-scaling-stroke" d="
   M 79.80 73.46
   A 1.11 1.11 0.0 0 0 79.36 72.18
   L 72.98 67.97
@@ -132,7 +132,7 @@ export default function Dev({ width, height, className }) {
   A 1.11 1.11 0.0 0 0 60.68 131.59
   L 79.80 73.46"
 />
-<path stroke="#484949" vector-effect="non-scaling-stroke" d="
+<path stroke="#484949" vectorEffect="non-scaling-stroke" d="
   M 26.49 75.79
   L 46.80 93.36
   A 1.14 1.12 -37.6 0 0 48.06 93.51
@@ -146,7 +146,7 @@ export default function Dev({ width, height, className }) {
   L 27.02 74.68
   A 0.64 0.64 0.0 0 0 26.49 75.79"
 />
-<path stroke="#797d80" vector-effect="non-scaling-stroke" d="
+<path stroke="#797d80" vectorEffect="non-scaling-stroke" d="
   M 125.15 123.63
   A 0.82 0.82 0.0 0 0 126.12 123.78
   L 145.51 113.60
@@ -157,7 +157,7 @@ export default function Dev({ width, height, className }) {
   A 0.82 0.82 0.0 0 0 91.80 89.29
   L 125.15 123.63"
 />
-<path stroke="#696a6b" vector-effect="non-scaling-stroke" d="
+<path stroke="#696a6b" vectorEffect="non-scaling-stroke" d="
   M 57.84 102.45
   A 0.66 0.66 0.0 0 0 58.16 102.09
   L 62.88 88.68
@@ -168,7 +168,7 @@ export default function Dev({ width, height, className }) {
   A 0.66 0.66 0.0 0 0 48.75 107.26
   L 57.84 102.45"
 />
-<path stroke="#7b7a7a" vector-effect="non-scaling-stroke" d="
+<path stroke="#7b7a7a" vectorEffect="non-scaling-stroke" d="
   M 112.51 124.16
   L 91.76 120.41
   A 0.86 0.85 5.1 0 0 90.75 121.25
@@ -188,7 +188,7 @@ export default function Dev({ width, height, className }) {
   L 113.03 123.10
   A 0.61 0.61 0.0 0 1 112.51 124.16"
 />
-<path stroke="#7b7a7a" vector-effect="non-scaling-stroke" d="
+<path stroke="#7b7a7a" vectorEffect="non-scaling-stroke" d="
   M 126.03 124.58
   A 0.65 0.65 0.0 0 0 125.68 125.16
   L 125.73 135.81
@@ -239,7 +239,7 @@ export default function Dev({ width, height, className }) {
   Q 105.65 77.56 106.09 79.00
   Z"
 />
-<path fill="#010101" fill-opacity="0.996" d="
+<path fill="#010101" fillOpacity="0.996" d="
   M 48.02 48.46
   L 68.15 50.86
   A 1.10 1.08 76.8 0 1 68.94 51.36

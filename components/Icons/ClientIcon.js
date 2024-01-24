@@ -3,18 +3,18 @@ import React from 'react'
 export const ClientIcon = ({color = "#000000"}) => {
   return (
 <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0.00 0.00 231.00 140.00">
-<g stroke-width="2.00" fill="none" stroke-linecap="butt">
-<path stroke="#292825" vector-effect="non-scaling-stroke" d="
+<g strokeWidth="2.00" fill="none" strokeLinecap="butt">
+<path stroke="#292825" vectorEffect="non-scaling-stroke" d="
   M 196.02 3.84
   L 195.46 5.59
   Q 195.30 6.08 194.79 6.11
   L 192.76 6.26"
 />
-<path stroke={color} vector-effect="non-scaling-stroke" d="
+<path stroke={color} vectorEffect="non-scaling-stroke" d="
   M 192.76 6.26
   L 46.04 6.05"
 />
-<path stroke={color} vector-effect="non-scaling-stroke" d="
+<path stroke={color} vectorEffect="non-scaling-stroke" d="
   M 46.04 6.05
   L 37.59 5.51
   Q 36.87 5.46 37.18 4.81
@@ -22,15 +22,15 @@ export const ClientIcon = ({color = "#000000"}) => {
   Q 38.00 4.82 37.66 4.43
   Q 37.52 4.25 37.40 3.99"
 />
-<path stroke={color} vector-effect="non-scaling-stroke" d="
+<path stroke={color} vectorEffect="non-scaling-stroke" d="
   M 46.04 6.05
   L 36.44 6.96"
 />
-<path stroke={color} vector-effect="non-scaling-stroke" d="
+<path stroke={color} vectorEffect="non-scaling-stroke" d="
   M 195.30 6.94
   Q 194.99 6.27 192.76 6.26"
 />
-<path stroke={color} vector-effect="non-scaling-stroke" d="
+<path stroke={color} vectorEffect="non-scaling-stroke" d="
   M 19.65 133.07
   Q 26.68 134.14 33.80 133.94
   Q 42.64 133.69 42.70 133.69
@@ -43,7 +43,7 @@ export const ClientIcon = ({color = "#000000"}) => {
   Q 211.14 133.34 211.09 133.35
   Q 209.68 133.60 208.66 133.06"
 />
-<path stroke={color} vector-effect="non-scaling-stroke" d="
+<path stroke={color} vectorEffect="non-scaling-stroke" d="
   M 224.86 119.94
   Q 217.62 119.25 204.50 119.21
   Q 107.53 118.96 10.56 119.26
@@ -51,18 +51,18 @@ export const ClientIcon = ({color = "#000000"}) => {
   Q 6.67 119.40 6.85 119.79
   Q 6.96 120.01 7.31 120.16"
 />
-<path stroke={color} vector-effect="non-scaling-stroke" d="
+<path stroke={color} vectorEffect="non-scaling-stroke" d="
   M 189.99 15.82
   L 42.02 15.84"
 />
-<path stroke={color} vector-effect="non-scaling-stroke" d="
+<path stroke={color} vectorEffect="non-scaling-stroke" d="
   M 187.10 105.01
   Q 188.13 102.79 187.95 99.70
   Q 187.70 95.36 187.70 95.29
   Q 187.88 56.21 187.68 28.38
   Q 187.65 24.41 187.13 18.70"
 />
-<path stroke={color} vector-effect="non-scaling-stroke" d="
+<path stroke={color} vectorEffect="non-scaling-stroke" d="
   M 44.99 18.01
   Q 43.73 18.03 43.91 19.47
   Q 44.08 20.86 44.08 21.05

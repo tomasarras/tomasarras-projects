@@ -26,6 +26,7 @@
     height: 100%;
   }
   .slider__dots {
+    z-index: 1;
     display: flex;
     position: absolute;
     bottom: 1.5em;

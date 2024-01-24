@@ -18,6 +18,30 @@
     filter: invert(100%);
 }
 
+a.link {
+    font-weight: 600;
+    cursor: pointer;
+}
+
+a.link:hover {
+    color: inherit;
+}
+
+a.link.hover:hover {
+    color: #AAAAAA;
+}
+
+a.link:link {
+    text-decoration: inherit;
+    color: inherit;
+}
+
+a.link:visited {
+    text-decoration: inherit;
+    color: inherit;
+    cursor: auto;
+}
+
 body {
     background-color: var(--background-color);
 }

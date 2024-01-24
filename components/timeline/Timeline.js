@@ -46,22 +46,22 @@ export default function WorkTimeline({ }) {
       {/* TODO: check todo */}
       {/* TODO: badges icons */}
         <ol className={`md:grid md:grid-cols-2 ${styles.ol}`}>                  
-          <Item i={0} total={4} time="February 2022 - 2024 (present)" title="Backend developer at CertiSur" first>
+          <Item i={0} total={4} time="February 2022 - 2024 (present)" title={<>Backend developer at <a href='https://www.certisur.com/' className='link hover'>CertiSur</a></>} first>
             <p className='text-gray-500 dark:text-gray-400 mb-3'>Development of a service with multiserveces and digital signature</p>
             <Badge>Java</Badge>
             <Badge>Spring</Badge>
           </Item>
           {/**TODO: link en ingles https://www.taggify.net/en */}
-          <Item i={1} total={4} time="September 2021 - February 2022" title={<>FullStack developer at <a href='https://www.taggify.net/en'>Taggify</a></>}>
+          <Item i={1} total={4} time="September 2021 - February 2022" title={<>FullStack developer at <a href='https://www.taggify.net/en' className='link hover'>Taggify</a></>}>
             <p className='text-gray-500 dark:text-gray-400 mb-3'>
               Development of a service with multiserveces and digital signature
             </p>
             <Badge>Java</Badge>
             <Badge>Spring</Badge>
           </Item>
-          <Item i={2} total={4} time="January 2021 - September 2021" title={<>FullStack developer at <a href="https://www.ideaas.com.ar/">IDEAAS</a></>}><p className='text-gray-500 dark:text-gray-400 mb-3'>All of the pages and components are first designed in Figma and we keep a parity between the two versions even as we update the project.</p></Item>
+          <Item i={2} total={4} time="January 2021 - September 2021" title={<>FullStack developer at <a href="https://www.ideaas.com.ar/" className='link hover'>IDEAAS</a></>}><p className='text-gray-500 dark:text-gray-400 mb-3'>All of the pages and components are first designed in Figma and we keep a parity between the two versions even as we update the project.</p></Item>
           {/**TODO: link en ingles https://www.unicen.edu.ar/english */}
-          <Item i={3} total={4} time="January 2018 - December 2021" title={<>Graduated from the University of <a href='https://www.unicen.edu.ar/content/tandil'>UNICEN</a> in Tandil, Argentina</>} last><p className='text-gray-500 dark:text-gray-400 mb-3'>Graduated as a Software Developer.</p></Item>
+          <Item i={3} total={4} time="January 2018 - December 2021" title={<>Graduated from the University of <a href='https://www.unicen.edu.ar/content/tandil' className='link hover'>UNICEN</a> in Tandil, Argentina</>} last><p className='text-gray-500 dark:text-gray-400 mb-3'>Graduated as a Software Developer.</p></Item>
         </ol>
 
 

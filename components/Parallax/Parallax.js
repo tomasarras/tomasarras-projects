@@ -18,6 +18,7 @@ export default function Parallax() {
   const lines3Top = (size.height * 2) + (size.height / 1.5)
   const lines4Top = (size.height * 3) + (size.height / 1.5)
   const lines5Top = (size.height * 4) + (size.height / 1.5)
+  const lines6Top = (size.height * 5) + (size.height / 1.5)
   const animation = (translation) => (
     {
       animate: { y: currentPage*translation*-1 },
@@ -68,6 +69,9 @@ export default function Parallax() {
       <CodeLines width={size.width * 0.25} height={size.width * 0.25}/>
     </motion.div>
     <motion.div {...animationT(size.height *.2, 4)}  className={`${styles.lines3}`} style={{top: lines5Top}}>
+      <CodeLines width={size.width * 0.25} height={size.width * 0.25}/>
+    </motion.div>
+    <motion.div {...animationT(size.height *.2, 5)}  className={`${styles.lines4}`} style={{top: lines6Top}}>
       <CodeLines width={size.width * 0.25} height={size.width * 0.25}/>
     </motion.div>
   </div>)

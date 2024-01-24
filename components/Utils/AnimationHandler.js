@@ -1,8 +1,8 @@
 import { motion } from "framer-motion"
 
-export default function AnimationHandler(props) {
+export default function AnimationHandler({ isAnimationEnabled, ...props }) {
 
-    return props.isAnimationEnabled ? 
+    return isAnimationEnabled ? 
     <motion.div {...props}>{props.children}</motion.div>
     :
     <div {...props}>{props.children}</div>

@@ -104,7 +104,7 @@ export default function Header({ sections }) {
               <li onClick={() => handleChangeIndexMobile(2)}><AnimatedMenuItem isOpen={isSidebarOpen} i={1}>Skills</AnimatedMenuItem></li>
               <li onClick={() => handleChangeIndexMobile(3)}><AnimatedMenuItem isOpen={isSidebarOpen} i={2}>Experience</AnimatedMenuItem></li>
               <li onClick={() => handleChangeIndexMobile(4)}><AnimatedMenuItem isOpen={isSidebarOpen} i={3}>Portfolio</AnimatedMenuItem></li>
-              <li onClick={() => handleChangeIndexMobile(4)}><AnimatedMenuItem isOpen={isSidebarOpen} i={4}>Contact</AnimatedMenuItem></li>
+              <li onClick={() => handleChangeIndexMobile(5)}><AnimatedMenuItem isOpen={isSidebarOpen} i={4}>Contact</AnimatedMenuItem></li>
             </ul>
           </nav>
         </DropdownHeaderMenu>
@@ -121,7 +121,7 @@ export default function Header({ sections }) {
                 <li className='ms-4 cursor-pointer' onClick={() => setCurrentPage(2)}>Skills</li>
                 <li className='ms-4 cursor-pointer' onClick={() => setCurrentPage(3)}>Experience</li>
                 <li className='ms-4 cursor-pointer' onClick={() => setCurrentPage(4)}>Portfolio</li>
-                <li className='ms-4 cursor-pointer' onClick={() => setCurrentPage(4)}>Contact</li>
+                <li className='ms-4 cursor-pointer' onClick={() => setCurrentPage(5)}>Contact</li>
               </ul>
             </nav>
           </div>

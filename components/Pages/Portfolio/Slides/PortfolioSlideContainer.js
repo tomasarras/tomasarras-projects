@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { animationScrollDuration } from '../../../../constants/Constants';
 import { easeInOutCirc, getRequestAnimationFrame } from '../../../../utils/utils';
 import { Context } from '../../../../Context';
+import { useSwipeable } from 'react-swipeable';
 
 export default function PortfolioSlideContainer({ children, className, innerRef }) {
   const { subscribeBeforeCurrentPageUpdated, currentPage } = useContext(Context)
@@ -12,6 +13,26 @@ export default function PortfolioSlideContainer({ children, className, innerRef 
   const childrenRefs = useRef([])
   const sliderRef = useRef()
   const sliderContainerRef = useRef()
+  const nextSlide = () => {
+    const max = childrenArray.length
+    if (currentIndex < (max-1)) {
+      setCurrentIndex(currentIndex+1)
+    }
+  }
+
+  const previousSlide = () => {
+    if (currentIndex > 0) {
+      setCurrentIndex(currentIndex-1)
+    }
+  }
+  const handlers = useSwipeable({
+    onSwipedLeft: nextSlide,
+    onSwipedRight: previousSlide,
+    swipeDuration: 500,
+    preventScrollOnSwipe: true,
+    trackMouse: true
+  });
+
 
   const beforeUpdateCurrentPage = useCallback(
     (evt, newCurrentPage) => {
@@ -40,7 +61,8 @@ export default function PortfolioSlideContainer({ children, className, innerRef 
   )
 
   useEffect(() => {
-    subscribeBeforeCurrentPageUpdated("PortfolioSlideContainer", beforeUpdateCurrentPage)
+    if (sliderRef.current != undefined)
+      subscribeBeforeCurrentPageUpdated("PortfolioSlideContainer", beforeUpdateCurrentPage)
   }, [sliderRef, currentIndex, currentPage])
 
   useEffect(() => {
@@ -75,17 +97,24 @@ export default function PortfolioSlideContainer({ children, className, innerRef 
   }, [currentIndex, sliderRef, sliderContainerRef])
   
 
-  return (<div className='relative overflow-hidden'>
-    <div ref={sliderRef} className={`w-full h-full relative ${className} overflow-x-scroll`}>
-      <div ref={el => {innerRef.current = el; sliderContainerRef.current = el}} style={{width: (childrenArray.length * 100) + "%"}} className='h-full flex items-center justify-center'>
-        {childrenArray.map((child, index) => 
-          <motion.div style={{width: "100vw"}}ref={el => childrenRefs.current[index] = el} className='' key={index}>{child}</motion.div>
-        )}
-      </div>
-    </div>
+  return (
+  <div {...handlers} className='relative overflow-hidden'>
     <div className={`absolute top-0 left-0 flex justify-center w-full h-full items-end`}>
       <div><DotsSlider amount={childrenArray.length} active={currentIndex} setActive={setCurrentIndex}/></div>
     </div>
+    <div
+      ref={sliderRef}
+      className={`w-full h-full relative ${className} overflow-x-scroll`}
+      >
+      <div ref={el => {innerRef(el); sliderContainerRef.current = el}} style={{width: (childrenArray.length * 100) + "%"}} className='h-full flex items-center justify-center'>
+        {childrenArray.map((child, index) => 
+          <div style={{width: "100vw"}}ref={el => childrenRefs.current[index] = el} className='' key={index}>
+            {React.cloneElement(child, { isActive: index === currentIndex })}
+          </div>
+        )}
+      </div>
+    </div>
+    
   </div>)
   
 }

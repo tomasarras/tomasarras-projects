@@ -28,7 +28,7 @@ export default function Experience({ innerRef }) {
           <p className='mb-10'>A lo largo de mi carrera, he tenido el privilegio de trabajar en diversos roles y tecnologías que han ampliado mi experiencia en el desarrollo web con tecnologías de frontend y de backend. Aquí hay un vistazo a algunas de mis experiencias más destacadas:</p>
           <div className='hidden lg:flex justify-center'>
             <div className='sm:w-8/12 lg:w-full xl:w-8/12'>
-              <Image src={experienceImageIllustration}/>
+              <Image src={experienceImageIllustration} alt='illustration'/>
             </div>
           </div>
         </div>
