@@ -12,6 +12,15 @@
     --header-active-color: #17171780;
     --header-active-mobile-color: #171717;
     --sidebar-active-color: #202020;
+    --semibold-font-weight: 600;
+    --accent-color-primary: #9C27B0;
+    /* --accent-color-primary: #F4A949; */
+    /* --accent-color-primary: #1C5F9A; */
+    /* --accent-color-primary: #FF4A57; */
+}
+
+.semibold {
+    font-weight: var(--semibold-font-weight);
 }
 
 .invert-color {

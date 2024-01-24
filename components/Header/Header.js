@@ -89,7 +89,7 @@ export default function Header({ sections }) {
         {/** MOBILE */}
         <div className={`${styles.blur} ${styles.mobileContainer} flex justify-between items-center sm:hidden`}>
           <div className='container flex justify-between items-center'>
-            <div onClick={() => handleChangeIndexMobile(0)}>Tomas Arras</div>
+            <div className='semibold' onClick={() => handleChangeIndexMobile(0)}>Tomas Arras</div>
             <div>
               <div className="h-6 w-8" onClick={toggleSidebar}>
                 <HamburgerIcon width={32} height={24} isOpen={isSidebarOpen} transition={{ ease: "easeOut", duration: 0.2 }} strokeWidth="2"/>
@@ -114,14 +114,14 @@ export default function Header({ sections }) {
             <div className={`${firstPagePassed && styles.black} w-full h-full ${styles.blur}`}></div>
           </div>
           <div className={`${styles.headerContainer} p-2 ${isActive && styles.visible}`}>
-            <div onClick={() => setCurrentPage(0)} className={`ms-4 cursor-pointer ${styles.logo} ${isActive && styles.visible}`}>Tomas Arras</div>
-            <nav className={`hidden sm:block me-4 ${styles.nav} ${isActive && styles.visible}`}>
+            <div onClick={() => setCurrentPage(0)} className={`ms-4 cursor-pointer semibold ${styles.logo} ${isActive && styles.visible}`}>Tomas Arras</div>
+            <nav className={`hidden sm:block me-4 ${styles.desktopNav} ${isActive && styles.visible}`}>
               <ul>
-                <li className='ms-4 cursor-pointer' onClick={() => setCurrentPage(1)}>About</li>
-                <li className='ms-4 cursor-pointer' onClick={() => setCurrentPage(2)}>Skills</li>
-                <li className='ms-4 cursor-pointer' onClick={() => setCurrentPage(3)}>Experience</li>
-                <li className='ms-4 cursor-pointer' onClick={() => setCurrentPage(4)}>Portfolio</li>
-                <li className='ms-4 cursor-pointer' onClick={() => setCurrentPage(5)}>Contact</li>
+                <li className={`ms-4 ${currentPage == 1 ? styles.isActive : ""}`} onClick={() => setCurrentPage(1)}>About</li>
+                <li className={`ms-4 ${currentPage == 2 ? styles.isActive : ""}`} onClick={() => setCurrentPage(2)}>Skills</li>
+                <li className={`ms-4 ${currentPage == 3 ? styles.isActive : ""}`} onClick={() => setCurrentPage(3)}>Experience</li>
+                <li className={`ms-4 ${currentPage == 4 ? styles.isActive : ""}`} onClick={() => setCurrentPage(4)}>Portfolio</li>
+                <li className={`ms-4 ${currentPage == 5 ? styles.isActive : ""}`} onClick={() => setCurrentPage(5)}>Contact</li>
               </ul>
             </nav>
           </div>
