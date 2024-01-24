@@ -1,15 +1,17 @@
+import Image from 'next/image';
 import React from 'react';
+import phones from "../../../../public/portfolio/phones-1.png"
 
 export default function PortfolioSlideTwo({  }) {
 
-  return <div className='flex justify-center items-center'>
-  <div className='sm:w-6/12 md:w-5/12 2xl:w-4/12'>
-    <div className='flex flex-col justify-center items-center'>
-      <h1 className='mb-4 text-5xl font-bold'>2</h1>
-      <div className='title-underline'></div>
+  return (
+  <div className='container flex justify-center items-center'>
+    <div>
+      <Image src={phones} alt="phones"/>
     </div>
-    <p className='mt-6'>He desarrollado distintos tipos de aplicaciones, con distintas tecnologias, con aplicaciones web interactivas construidas con tecnologías front-end como React y Angular. Estos proyectos reflejan mi destreza técnica y también mi enfoque en crear soluciones orientadas al usuario, siempre manteniendo un estándar de código limpio y modular.</p>
-  </div>
-</div>
+    <div>
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quibusdam asperiores architecto alias doloremque tenetur est esse debitis, sequi iure provident doloribus iste inventore blanditiis! Ipsum, explicabo? Pariatur mollitia ut culpa.</p>
+    </div>
+  </div>)
   
 }
