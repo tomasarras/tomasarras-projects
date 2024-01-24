@@ -98,7 +98,7 @@ export default function PortfolioSlideContainer({ children, className, innerRef 
   
 
   return (
-  <div {...handlers} className='relative overflow-hidden'>
+  <div {...handlers} className='overflow-hidden'>
     <div className={`absolute top-0 left-0 flex justify-center w-full h-full items-end`}>
       <div><DotsSlider amount={childrenArray.length} active={currentIndex} setActive={setCurrentIndex}/></div>
     </div>

@@ -19,19 +19,5 @@ export default function Portfolio({ innerRef }) {
     <PortfolioSlideThree/>
   </PortfolioSlideContainer>
   )
-  // <div ref={innerRef} className={`relative flex items-center justify-center w-full`}>
-  {/* <AnimationHandler
-    {...animation}
-    className={`${styles.textContainer} flex flex-column justify-center items-center`}
-  > */}
-    // <PortfolioSlideContainer>
-    //   <PortfolioSlideOne/>
-    //   <PortfolioSlideTwo/>
-    //   <PortfolioSlideThree/>
-    // </PortfolioSlideContainer>
-    
-  {/* </AnimationHandler> */}
-{/* </div> */}
-
   
 }
