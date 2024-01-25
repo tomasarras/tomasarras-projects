@@ -33,6 +33,22 @@
     right: -13%;
 }
 
+.triangle {
+    position: absolute;
+    left: 14%;
+}
+
+.circle {
+    position: absolute;
+    left: 10%;
+}
+
+.box {
+    transform: rotate(45deg);
+    position: absolute;
+    left: 10%;
+}
+
 .lines4 {
     filter: blur(4px);
     position: absolute;

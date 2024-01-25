@@ -7,22 +7,21 @@ import { Context } from '../../../../Context';
 import { useSwipeable } from 'react-swipeable';
 
 export default function PortfolioSlideContainer({ children, className, innerRef }) {
-  const { subscribeBeforeCurrentPageUpdated, currentPage } = useContext(Context)
-  const [currentIndex, setCurrentIndex] = useState(0)
+  const { subscribeBeforeCurrentPageUpdated, currentPage, portfolioIndex, setPortfolioIndex } = useContext(Context)
   const childrenArray = React.Children.toArray(children)
   const childrenRefs = useRef([])
   const sliderRef = useRef()
   const sliderContainerRef = useRef()
   const nextSlide = () => {
     const max = childrenArray.length
-    if (currentIndex < (max-1)) {
-      setCurrentIndex(currentIndex+1)
+    if (portfolioIndex < (max-1)) {
+      setPortfolioIndex(portfolioIndex+1)
     }
   }
 
   const previousSlide = () => {
-    if (currentIndex > 0) {
-      setCurrentIndex(currentIndex-1)
+    if (portfolioIndex > 0) {
+      setPortfolioIndex(portfolioIndex-1)
     }
   }
   const handlers = useSwipeable({
@@ -39,17 +38,17 @@ export default function PortfolioSlideContainer({ children, className, innerRef 
       const el = sliderRef.current.parentElement.parentElement
       if (el.contains(evt.target)) {
         if (newCurrentPage > currentPage) {
-          if (currentIndex == (childrenArray.length-1)) {
+          if (portfolioIndex == (childrenArray.length-1)) {
             return true
           } else {
-            setCurrentIndex(currentIndex+1)
+            setPortfolioIndex(portfolioIndex+1)
             return false
           }
         } else {
-          if (currentIndex == 0) {
+          if (portfolioIndex == 0) {
             return true
           } else {
-            setCurrentIndex(currentIndex-1)
+            setPortfolioIndex(portfolioIndex-1)
             return false
           }
         }
@@ -57,19 +56,19 @@ export default function PortfolioSlideContainer({ children, className, innerRef 
         return true
       }
     },
-    [currentIndex, sliderRef, currentPage],
+    [portfolioIndex, sliderRef, currentPage],
   )
 
   useEffect(() => {
     if (sliderRef.current != undefined)
       subscribeBeforeCurrentPageUpdated("PortfolioSlideContainer", beforeUpdateCurrentPage)
-  }, [sliderRef, currentIndex, currentPage])
+  }, [sliderRef, portfolioIndex, currentPage])
 
   useEffect(() => {
     if (sliderRef.current == undefined) return
     const screenXSize = sliderContainerRef.current.offsetWidth/childrenArray.length
     const startValue = sliderRef.current.scrollLeft
-    let stopValue = screenXSize * currentIndex
+    let stopValue = screenXSize * portfolioIndex
     stopValue = stopValue - startValue
     let isScrolling = false;
     const requestAnimationFrame = getRequestAnimationFrame()
@@ -94,13 +93,13 @@ export default function PortfolioSlideContainer({ children, className, innerRef 
       requestAnimationFrame(step);
     }
     smoothScrollTo();
-  }, [currentIndex, sliderRef, sliderContainerRef])
+  }, [portfolioIndex, sliderRef, sliderContainerRef])
   
 
   return (
   <div {...handlers} className='overflow-hidden'>
     <div className={`absolute top-0 left-0 flex justify-center w-full h-full items-end`}>
-      <div><DotsSlider amount={childrenArray.length} active={currentIndex} setActive={setCurrentIndex}/></div>
+      <div><DotsSlider amount={childrenArray.length} active={portfolioIndex} setActive={setPortfolioIndex}/></div>
     </div>
     <div
       ref={sliderRef}
@@ -109,7 +108,7 @@ export default function PortfolioSlideContainer({ children, className, innerRef 
       <div ref={el => {innerRef(el); sliderContainerRef.current = el}} style={{width: (childrenArray.length * 100) + "%"}} className='h-full flex items-center justify-center'>
         {childrenArray.map((child, index) => 
           <div style={{width: "100vw"}}ref={el => childrenRefs.current[index] = el} className='' key={index}>
-            {React.cloneElement(child, { isActive: index === currentIndex })}
+            {React.cloneElement(child, { isActive: index === portfolioIndex })}
           </div>
         )}
       </div>

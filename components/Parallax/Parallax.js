@@ -11,15 +11,22 @@ import Image from 'next/image';
 import DevIconPlain from '../Icons/Dev/DevIconPlain';
 import MobileAnimation from '../Icons/MouseAnimation/MobileAnimation';
 import RadialDecorator from '../Decorators/RadialDecorator';
+import triangle from "../../public/decorators/triangle.png"
+import circle from "../../public/decorators/circle.png"
+import box from "../../public/decorators/box.png"
 
 export default function Parallax() {
-  const { currentPage, scrollY } = useContext(Context);
+  const { currentPage, scrollY, portfolioIndex } = useContext(Context);
   const size = useWindowDimensions();
   const tomasarrasTop = (size.height * 3) + (size.height / 1.3)
   const lines3Top = (size.height * 2) + (size.height / 1.5)
   const lines4Top = (size.height * 3) + (size.height / 1.5)
   const lines5Top = (size.height * 4) + (size.height / 1.5)
   const lines6Top = (size.height * 5) + (size.height / 1.5)
+  const triangleTop = (size.height * 4) + (size.height / 1.65)
+  const circleTop = (size.height * 4) + (size.height / 2)
+  const boxTop = (size.height * 4) + (size.height / 2.9)
+
   const animation = (translation) => (
     {
       animate: { y: currentPage*translation*-1 },
@@ -37,7 +44,19 @@ export default function Parallax() {
     }
   }
 
-  
+  const horizontalAnimation = (translation, page, displacement = 0) => {
+    const offset = currentPage * size.height *-1;
+    const offsetTranslation = currentPage - 4
+    let y = offset + (offsetTranslation*translation*-1)
+    let x = portfolioIndex == page ? 0 : portfolioIndex > page ? (-size.width*2) : displacement
+    if ((portfolioIndex + 2) <= page) {
+      x = size.width
+    }
+    return {
+      animate: { y, x },
+      transition: { ease:"circInOut", duration: animationScrollDuration/1000 }
+    }
+  }
 
   return (<>
   <div className={styles.layer1}>
@@ -73,13 +92,21 @@ export default function Parallax() {
     <motion.div {...animationT(size.height *.2, 4)}  className={`${styles.lines3}`} style={{top: lines5Top}}>
       <CodeLines width={size.width * 0.25} height={size.width * 0.25}/>
     </motion.div>
+    <motion.div {...horizontalAnimation(size.height *.2, 0)}  className={`${styles.triangle}`} style={{top: triangleTop}}>
+      <Image src={triangle} width={size.width * 0.05} height={size.width * 0.05} className='filter-accent'/>
+    </motion.div>
+    <motion.div {...horizontalAnimation(size.height *.2, 1, size.width/1.5)}  className={`${styles.circle}`} style={{top: circleTop}}>
+      <Image src={circle} width={size.width * 0.05} height={size.width * 0.05} className='filter-accent-secondary'/>
+    </motion.div>
+    <motion.div {...horizontalAnimation(size.height *.2, 2, size.width/1.3)}  className={`${styles.box}`} style={{top: boxTop}}>
+      <Image src={box} width={size.width * 0.05} height={size.width * 0.05} className='filter-accent rotate-45'/>
+    </motion.div>    
     <motion.div {...animationT(size.height *.2, 5)}  className={`${styles.lines4}`} style={{top: lines6Top}}>
       <CodeLines width={size.width * 0.25} height={size.width * 0.25}/>
     </motion.div>
   </div>
   <div className={styles.layer2}>
-    {/* <RadialDecorator top="5%" left={"-"+size.width*2 +"px"}/>
-    <RadialDecorator top="45%" left={"-"+size.width/2 +"px"}/> */}
+    {/* <RadialDecorator top="5%" left={"-"asize.width/2 +"px"}/> */}
   </div>
   </>)
 }

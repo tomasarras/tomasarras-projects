@@ -22,6 +22,14 @@
     /* --accent-color-primary: #FF4A57; */
 }
 
+.filter-accent {
+   filter: invert(50%) sepia(86%) saturate(393%) hue-rotate(18deg) brightness(96%) contrast(90%);
+}
+
+.filter-accent-secondary {
+    filter: invert(23%) sepia(79%) saturate(2407%) hue-rotate(276deg) brightness(85%) contrast(98%);
+}
+
 .bg-accent {
     background-color: var(--accent-color-primary);
 }

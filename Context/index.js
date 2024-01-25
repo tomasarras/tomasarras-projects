@@ -9,6 +9,7 @@ export const Provider = ({ children }) => {
     const [scrollY, setScrollY] = useState(0);
     const hasPageBeenRendered = useRef({ effect: 2 })
     const [easeScroll, setEaseScroll] = useState(0)
+    const [portfolioIndex, setPortfolioIndex] = useState(0)
     const prevCurrentPageRef = useRef(0);
     const [beforeUpdateCurrentPageSubscriptors, setBeforeUpdateCurrentPageSubscriptors] = useState({})
 
@@ -91,6 +92,8 @@ export const Provider = ({ children }) => {
         setScrollY,
         beforeUpdateCurrentPage,
         subscribeBeforeCurrentPageUpdated,
+        portfolioIndex,
+        setPortfolioIndex,
     }}>
         {children}
     </Context.Provider>);
