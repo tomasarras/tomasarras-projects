@@ -13,11 +13,23 @@
     --header-active-mobile-color: #171717;
     --sidebar-active-color: #202020;
     --semibold-font-weight: 600;
-    --accent-color-primary: #9C27B0;
+    /* --accent-color-primary: #9C27B0; */
+    --accent-color-primary-light: #faf5ae;
     /* --accent-color-primary: #F4A949; */
+    --accent-color-primary: #9E961D;
+    --gradial-circle-radiants: #121212;
     /* --accent-color-primary: #1C5F9A; */
     /* --accent-color-primary: #FF4A57; */
 }
+
+.bg-accent {
+    background-color: var(--accent-color-primary);
+}
+
+.text-accent-light {
+    color: var(--accent-color-primary-light);
+}
+
 
 .semibold {
     font-weight: var(--semibold-font-weight);
@@ -143,7 +155,7 @@ ul, li {
     content: '';
     width: 1.5rem;
     height: 5px;
-    background-color: white;
+    background-color: var(--accent-color-primary);
     border-radius: 5px;
 }
 

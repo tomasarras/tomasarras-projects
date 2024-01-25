@@ -100,18 +100,17 @@
 .desktopNav ul li {
     transition: color .3s;
     cursor: pointer;
-    color: var(--accent-color-primary);
+    color: inherit;
     font-weight: var(--semibold-font-weight);
     position: relative;
 }
 
 .desktopNav ul li.isActive, .desktopNav ul li:hover {
     /* TODO: darkmode */
-    color: white;
+    color: var(--accent-color-primary);
 }
 
 .desktopNav ul li::after {
-
     content: '';
     position: absolute;
     bottom: 0;

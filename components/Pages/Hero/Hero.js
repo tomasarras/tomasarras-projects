@@ -36,7 +36,7 @@ export default function Hero() {
       <motion.div initial="hidden" animate="visible" variants={faceAnimation} className={styles.faceLogoContainer}>
         <FaceLogo/>
       </motion.div>
-      <motion.h1 initial="hidden" animate="visible" variants={textAnimation} className={"mt-8"}>Hello friend.</motion.h1>
+      <motion.h1 initial="hidden" animate="visible" variants={textAnimation} className={`mt-8 semibold`}>Hello friend.</motion.h1>
     </div>
   );
 }

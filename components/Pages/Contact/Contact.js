@@ -111,6 +111,10 @@ export default function Contact({ innerRef }) {
     xl:col-span-5 
     2xl:col-span-4`}
   >
+    <div className='d-flex items-center w-100 flex-column mb-6'>
+      <h1 className='mb-4 text-5xl font-bold'>Contact</h1>
+      <div className='title-underline'></div>
+    </div>
     <p className='mb-6'>Siente total libertad de contactarme para discutir proyectos emocionantes, oportunidades de colaboración o simplemente para saludar. Estoy aquí para ti.</p>
     <h3>Social</h3>
     <div className={`flex mt-2`}>

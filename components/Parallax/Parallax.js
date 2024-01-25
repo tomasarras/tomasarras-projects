@@ -10,6 +10,7 @@ import useWindowDimensions from '../../hooks/useWindowDimensions';
 import Image from 'next/image';
 import DevIconPlain from '../Icons/Dev/DevIconPlain';
 import MobileAnimation from '../Icons/MouseAnimation/MobileAnimation';
+import RadialDecorator from '../Decorators/RadialDecorator';
 
 export default function Parallax() {
   const { currentPage, scrollY } = useContext(Context);
@@ -38,7 +39,8 @@ export default function Parallax() {
 
   
 
-  return (<div className={styles.layer1}>
+  return (<>
+  <div className={styles.layer1}>
     <motion.div {...animation(size.height * .43)}  className={`${styles.lines1}`}>
       <CodeLines width={size.width * 0.25} height={size.width * 0.25}/>
     </motion.div>
@@ -74,5 +76,10 @@ export default function Parallax() {
     <motion.div {...animationT(size.height *.2, 5)}  className={`${styles.lines4}`} style={{top: lines6Top}}>
       <CodeLines width={size.width * 0.25} height={size.width * 0.25}/>
     </motion.div>
-  </div>)
+  </div>
+  <div className={styles.layer2}>
+    {/* <RadialDecorator top="5%" left={"-"+size.width*2 +"px"}/>
+    <RadialDecorator top="45%" left={"-"+size.width/2 +"px"}/> */}
+  </div>
+  </>)
 }

@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import styles from './WorkTimeline.module.css'
 import { motion } from 'framer-motion';
 
-const Badge = ({ children }) => (<span className="bg-blue-100 text-blue-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-blue-900 dark:text-blue-300">{children}</span>);
+const Badge = ({ children }) => (<span className="bg-accent text-accent-light text-xs font-medium me-2 px-2.5 py-0.5 rounded-full">{children}</span>);
 
 const Item = ({ time, children, title, i, first, last, order }) => {
   const fadeInAnimationVariants = {
@@ -46,20 +46,27 @@ export default function WorkTimeline({ }) {
       {/* TODO: check todo */}
       {/* TODO: badges icons */}
         <ol className={`md:grid md:grid-cols-2 ${styles.ol}`}>                  
-          <Item i={0} total={4} time="February 2022 - 2024 (present)" title={<>Backend developer at <a href='https://www.certisur.com/' className='link hover'>CertiSur</a></>} first>
-            <p className='text-gray-500 dark:text-gray-400 mb-3'>Development of a service with multiserveces and digital signature</p>
-            <Badge>Java</Badge>
+          <Item i={0} total={4} time="February 2022 - 2024 (present)" title={<>BackEnd developer at <a href='https://www.certisur.com/' className='link hover'>CertiSur</a></>} first>
+            <p className='text-gray-500 dark:text-gray-400 mb-3'>Development of microservices used for digital signature and issuance of digital certificates</p>
             <Badge>Spring</Badge>
+            <Badge>Vue</Badge>
           </Item>
           {/**TODO: link en ingles https://www.taggify.net/en */}
-          <Item i={1} total={4} time="September 2021 - February 2022" title={<>FullStack developer at <a href='https://www.taggify.net/en' className='link hover'>Taggify</a></>}>
+          <Item i={1} total={4} time="September 2021 - February 2022" title={<>FullStack Developer at <a href='https://www.taggify.net/en' className='link hover'>Taggify</a></>}>
             <p className='text-gray-500 dark:text-gray-400 mb-3'>
-              Development of a service with multiserveces and digital signature
+              Development of a Demand Side Platform (DSP) with microservices.
             </p>
-            <Badge>Java</Badge>
-            <Badge>Spring</Badge>
+            <Badge>Laravel</Badge>
+            <Badge>React</Badge>
+            <Badge>ExpressJS</Badge>
           </Item>
-          <Item i={2} total={4} time="January 2021 - September 2021" title={<>FullStack developer at <a href="https://www.ideaas.com.ar/" className='link hover'>IDEAAS</a></>}><p className='text-gray-500 dark:text-gray-400 mb-3'>All of the pages and components are first designed in Figma and we keep a parity between the two versions even as we update the project.</p></Item>
+          <Item i={2} total={4} time="January 2021 - September 2021" title={<>FullStack developer at <a href="https://www.ideaas.com.ar/" className='link hover'>IDEAAS</a></>}>
+            <p className='text-gray-500 dark:text-gray-400 mb-3'>
+              Development of a platform that is used to search for architects, works and products.
+            </p>
+            <Badge>Spring</Badge>
+            <Badge>NextJS</Badge>
+          </Item>
           {/**TODO: link en ingles https://www.unicen.edu.ar/english */}
           <Item i={3} total={4} time="January 2018 - December 2021" title={<>Graduated from the University of <a href='https://www.unicen.edu.ar/content/tandil' className='link hover'>UNICEN</a> in Tandil, Argentina</>} last><p className='text-gray-500 dark:text-gray-400 mb-3'>Graduated as a Software Developer.</p></Item>
         </ol>

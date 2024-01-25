@@ -6,7 +6,6 @@ import { Context } from '../../Context';
 //import { Lethargy } from 'lethargy'
 import useWindowDimensions from '../../hooks/useWindowDimensions';
 import Parallax from '../Parallax/Parallax';
-import { animationScrollDuration } from '../../constants/Constants';
 import ReactScrollWheelHandler from "react-scroll-wheel-handler";
 
 //const lethargy = new Lethargy()
@@ -83,7 +82,7 @@ export default function FullPage({ children, duration = 700 }) {
         setIsScrollPending(true)
         setTimeout(() => {
             setIsScrollPending(false)
-        }, animationScrollDuration +100);
+        }, duration +100);
         const shouldContinue = beforeUpdateCurrentPage(evt, newActiveSlide)
         if (!shouldContinue) return
         setCurrentPage(newActiveSlide)
@@ -125,7 +124,7 @@ export default function FullPage({ children, duration = 700 }) {
         {isDesktop(size) && <Slider slidesCount={slidesCount}/>}
         <Parallax/>
         {childrenArray.map((child, index) => (
-            <div ref={el => slidesRef.current[index] = el} className={`${s.slide} overflow-x-hidden`} key={index}>
+            <div ref={el => slidesRef.current[index] = el} className={`${s.slide} overflow-x-hidden overflow-y-visible`} key={index}>
                 <div>{child}</div>
             </div>
         ))}
