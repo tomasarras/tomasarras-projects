@@ -1,9 +1,6 @@
 .radial {
     content: '';
     position: absolute;
-    top: calc(20% - 500px);
-    left: -2800px;
-    background: radial-gradient(circle, var(--gradial-circle-radiants), rgba(82,173,22,0) 42%, rgba(201,53,53,0) 100%);    width: 1500px;
-    width: 4500px;
-    height: 4500px;
+    /* background: radial-gradient(ellipse farthest-corner at 45px 45px, var(--gradial-circle-radiants), rgba(0, 0, 0, 0) 100%);  */
+    background: radial-gradient(circle 315px, var(--gradial-circle-radiants), #040404 100%)
 }

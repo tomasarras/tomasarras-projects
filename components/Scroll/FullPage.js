@@ -7,6 +7,7 @@ import { Context } from '../../Context';
 import useWindowDimensions from '../../hooks/useWindowDimensions';
 import Parallax from '../Parallax/Parallax';
 import ReactScrollWheelHandler from "react-scroll-wheel-handler";
+import RadialDecorator from '../Decorators/RadialDecorator';
 
 //const lethargy = new Lethargy()
 export default function FullPage({ children, duration = 700 }) {
@@ -128,6 +129,9 @@ export default function FullPage({ children, duration = 700 }) {
                 <div>{child}</div>
             </div>
         ))}
+        <div className={s.layer2}>
+            <RadialDecorator top="5%" left={"0"} size={size.width/2}/>
+        </div>
     </ReactScrollWheelHandler>
     )
 }
