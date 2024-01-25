@@ -17,3 +17,10 @@
   width: 1500px;
   height: 1500px;
 }
+
+.layer2 {
+  z-index: -1;
+  height: 500vh;
+  width: 100vw;
+  position: absolute;
+}

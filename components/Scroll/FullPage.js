@@ -129,9 +129,6 @@ export default function FullPage({ children, duration = 700 }) {
                 <div>{child}</div>
             </div>
         ))}
-        <div className={s.layer2}>
-            <RadialDecorator top="5%" left={"0"} size={size.width/2}/>
-        </div>
     </ReactScrollWheelHandler>
     )
 }

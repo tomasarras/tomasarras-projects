@@ -5,6 +5,7 @@ import { animationScrollDuration } from '../../../../constants/Constants';
 import { easeInOutCirc, getRequestAnimationFrame } from '../../../../utils/utils';
 import { Context } from '../../../../Context';
 import { useSwipeable } from 'react-swipeable';
+import styles from "./PortfolioSlideContainer.module.css"
 
 export default function PortfolioSlideContainer({ children, className, innerRef }) {
   const { subscribeBeforeCurrentPageUpdated, currentPage, portfolioIndex, setPortfolioIndex } = useContext(Context)
@@ -97,7 +98,7 @@ export default function PortfolioSlideContainer({ children, className, innerRef 
   
 
   return (
-  <div {...handlers} className='overflow-hidden'>
+  <div {...handlers} className={`overflow-hidden ${styles.mainContainer}`}>
     <div className={`absolute top-0 left-0 flex justify-center w-full h-full items-end`}>
       <div><DotsSlider amount={childrenArray.length} active={portfolioIndex} setActive={setPortfolioIndex}/></div>
     </div>
@@ -107,7 +108,7 @@ export default function PortfolioSlideContainer({ children, className, innerRef 
       >
       <div ref={el => {innerRef(el); sliderContainerRef.current = el}} style={{width: (childrenArray.length * 100) + "%"}} className='h-full flex items-center justify-center'>
         {childrenArray.map((child, index) => 
-          <div style={{width: "100vw"}}ref={el => childrenRefs.current[index] = el} className='' key={index}>
+          <div ref={el => childrenRefs.current[index] = el} className={styles.slide} key={index}>
             {React.cloneElement(child, { isActive: index === portfolioIndex })}
           </div>
         )}

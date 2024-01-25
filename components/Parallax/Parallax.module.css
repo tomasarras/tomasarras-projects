@@ -3,7 +3,6 @@
     position: fixed;
     height: 100svh;
     width: 100vw;
-    background-color: var(--background-color);
 }
 
 .layer2 {

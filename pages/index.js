@@ -13,9 +13,11 @@ import Contact from '../components/Pages/Contact/Contact';
 import { useRef } from 'react';
 import Portfolio from '../components/Pages/Portfolio/Portfolio';
 import RadialDecorator from '../components/Decorators/RadialDecorator';
+import useWindowDimensions from '../hooks/useWindowDimensions';
 
 export default function Home({ }) {
   const sections = useRef([])
+  const size = useWindowDimensions()
 
   return (
     <div className={styles.container}>
@@ -28,6 +30,13 @@ export default function Home({ }) {
         <link rel="icon" href="/logo.ico" />
       </Head>
       
+      <div className={styles.layer2}>
+        <RadialDecorator top={`${size.height*2}px`} left={`-${size.width/2}px`}  size={size.width}/>
+        <RadialDecorator top={`${size.height/2}px`} left={`-${size.width/2}px`}  size={size.width}/>
+        <RadialDecorator top={`${size.height*4.5}px`} left={`${size.width/2}px`}  size={size.width}/>
+      </div>
+      {/** */}
+
       <Header sections={sections}/>
       <FullPage duration={animationScrollDuration} controls={Slider}>
         <Hero/>
