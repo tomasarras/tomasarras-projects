@@ -3,12 +3,15 @@ import React, { useEffect } from 'react';
 import phones from "../../../../public/portfolio/phones-1.png"
 import GitHubButtonLink from '../../../Buttons/GitHubButtonLink';
 import styles from "./PortfolioSlideTwo.module.css"
+import useWindowDimensions from '../../../../hooks/useWindowDimensions';
+import { sm } from '../../../../constants/Constants';
 
 export default function PortfolioSlideTwo({ isActive }) {
+  const size = useWindowDimensions()
 
   return (
   <div className='container grid grid-cols-12 items-center h-full'>
-    <div className={`h-6/12 w-full flex justify-center items-center h-full relative ${styles.phonesImageContainer}
+    <div className={`w-full flex justify-center items-center h-full sm:relative ${styles.phonesImageContainer}
       col-span-12 
       sm:col-span-5 
       md:col-span-6
@@ -16,7 +19,7 @@ export default function PortfolioSlideTwo({ isActive }) {
       xl:col-span-5 xl:mt-8
       2xl:col-start-2 2xl:mt-0`}>
         {/* TODO: en 2xl: se ve un poco estirada */}
-      <Image src={phones} alt="phones" className={`w-10/12 sm:w-full object-contain`} fill/>
+      <Image src={phones} alt="phones" className={`w-10/12 sm:w-full sm:object-contain`} fill={size.width >= sm}/>
     </div>
     <div className='mt-4 
       col-span-12 

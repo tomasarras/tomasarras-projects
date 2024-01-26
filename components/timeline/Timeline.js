@@ -20,8 +20,9 @@ const Item = ({ time, children, title, i, first, last, order }) => {
   }
   return (
   <li className={`${styles.item} ${styles["order-" + i]} relative ps-4 pe-4 rounded`}>
+    {/**TODO Dark?? */}
     <div className={`${styles.itemContainer} ${last ? styles.lastContainer : ""} ${first ? styles.firstContainer : "pt-4"} ps-4 border-s border-gray-200 dark:border-gray-700`}>
-      <div className="lg:hidden xxl:block absolute w-3 h-3 bg-gray-200 rounded-full start-4 ms-1 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
+      <div className={`${styles.dotItem} absolute w-3 h-3 bg-gray-200 rounded-full start-4 ms-1 border border-white dark:border-gray-900 dark:bg-gray-700`}></div>
       <motion.div
         variants={fadeInAnimationVariants}
         initial="initial"

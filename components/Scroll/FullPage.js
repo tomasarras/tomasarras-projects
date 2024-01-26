@@ -20,7 +20,7 @@ export default function FullPage({ children, duration = 700 }) {
     const [isScrollPending, setIsScrollPending] = useState(false)
     const hasPageBeenRendered = useRef({ effect: false })
      
-    const animatedScrollTo = (scrollTo, callback) => {
+    const animatedScrollTo = (scrollTo) => {
         const scrollFrom = window.scrollY || window.pageYOffset || 0;
         const scrollDiff = scrollTo - scrollFrom;
         const requestAnimationFrame = getRequestAnimationFrame()
@@ -46,7 +46,6 @@ export default function FullPage({ children, duration = 700 }) {
                     } else {
                         window.scrollTo({ top: newScrollPos, behavior: 'smooth' });
                         isScrolling = false;
-                        callback()
                     }
                 }
                 requestAnimationFrame(step);
@@ -67,8 +66,8 @@ export default function FullPage({ children, duration = 700 }) {
     }
 
     const scrollToSlide = (slide) => {
-        if (slide >= 0 && slide < slidesCount) {      
-            animatedScrollTo(slides[slide], () => {});
+        if (slide >= 0 && slide < slidesCount) {   
+            animatedScrollTo(slides[slide]);
         }
     }
 

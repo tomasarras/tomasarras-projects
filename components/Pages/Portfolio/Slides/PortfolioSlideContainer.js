@@ -108,7 +108,7 @@ export default function PortfolioSlideContainer({ children, className, innerRef 
       >
       <div ref={el => {innerRef(el); sliderContainerRef.current = el}} style={{width: (childrenArray.length * 100) + "%"}} className='h-full flex items-center justify-center'>
         {childrenArray.map((child, index) => 
-          <div ref={el => childrenRefs.current[index] = el} className={styles.slide} key={index}>
+          <div ref={el => childrenRefs.current[index] = el} className={`${styles.slide} flex`} key={index}>
             {React.cloneElement(child, { isActive: index === portfolioIndex })}
           </div>
         )}

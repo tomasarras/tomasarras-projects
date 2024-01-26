@@ -49,7 +49,7 @@ export default function Home({ }) {
         <Container page={3} center>
           <Experience innerRef={(el) => sections.current[3] = el}/>
         </Container>
-        <Container className={`relative`} page={4} noCenter noPadding>
+        <Container className={`relative`} page={4} noPadding noHeaderPadding>
           <Portfolio innerRef={(el) => sections.current[4] = el}/>
         </Container>
         <Container page={5} noCenter>
