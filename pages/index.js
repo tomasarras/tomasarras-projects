@@ -17,10 +17,11 @@ import useWindowDimensions from '../hooks/useWindowDimensions';
 
 export default function Home({ }) {
   const sections = useRef([])
+  const bodyContainer = useRef()
   const size = useWindowDimensions()
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} ref={bodyContainer}>
       <Head>
         <title>Tomas Arras</title>
         <meta name="Tomas Arras" content="Tomas Arras" />
@@ -30,14 +31,15 @@ export default function Home({ }) {
         <link rel="icon" href="/logo.ico" />
       </Head>
       
-      <div className={styles.layer2}>
-        <RadialDecorator top={`${size.height*2}px`} left={`-${size.width/2}px`}  size={size.width}/>
-        <RadialDecorator top={`${size.height/2}px`} left={`-${size.width/2}px`}  size={size.width}/>
-        <RadialDecorator top={`${size.height*4.5}px`} left={`${size.width/2}px`}  size={size.width}/>
-      </div>
       {/** */}
 
       <Header sections={sections}/>
+      <div style={{height: bodyContainer?.current?.offsetHeight + "px"}} className={styles.layer2}>
+        <RadialDecorator top={`${size.height/2}px`} left={`-${size.width/2}px`}  size={size.width}/>
+        <RadialDecorator top={`${size.height*2}px`} left={`${size.width/2}px`}  size={size.width}/>
+        <RadialDecorator top={`${size.height*3}px`} left={`-${size.width/2}px`}  size={size.width}/>
+        <RadialDecorator top={`${size.height*4.5}px`} left={`${size.width/1.5}px`}  size={size.width}/>
+      </div>
       <FullPage duration={animationScrollDuration} controls={Slider}>
         <Hero/>
         <Container page={1} center>

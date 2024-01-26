@@ -59,9 +59,6 @@ export default function Parallax() {
   }
 
   return (<>
-  {/* <div className={styles.layer2}>
-    <RadialDecorator top="5%" left={"0"} size={size.width/2}/>
-  </div> */}
   <div className={styles.layer1}>
     <motion.div {...animation(size.height * .43)}  className={`${styles.lines1}`}>
       <CodeLines width={size.width * 0.25} height={size.width * 0.25}/>

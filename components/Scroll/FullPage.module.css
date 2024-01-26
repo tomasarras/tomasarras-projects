@@ -1,23 +1,4 @@
-/* @media only screen and (min-width: 576px) {
-    .slide {
-        height: 100dvh;
-        width: 100vw;
-    }
-} */
-
-/* .fullscreen {
-    height: 100svh;
-    width: 100vw;
-} */
-
 .slide {
     min-height: 100svh;
     width: 100vw;
-}
-
-.layer2 {
-    z-index: -1;
-    height: 500vh;
-    width: 100vw;
-    position: absolute;
 }
