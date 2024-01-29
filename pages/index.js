@@ -19,6 +19,7 @@ export default function Home({ }) {
   const sections = useRef([])
   const bodyContainer = useRef()
   const size = useWindowDimensions()
+  const maxRadialDecorator = Math.min(size.width, 1920)
 
   return (
     <div className={styles.container} ref={bodyContainer}>
@@ -35,10 +36,10 @@ export default function Home({ }) {
 
       <Header sections={sections}/>
       <div style={{height: bodyContainer?.current?.offsetHeight + "px"}} className={styles.layer2}>
-        <RadialDecorator top={`${size.height/2}px`} left={`-${size.width/2}px`}  size={size.width}/>
-        <RadialDecorator top={`${size.height*2}px`} left={`${size.width/2}px`}  size={size.width}/>
-        <RadialDecorator top={`${size.height*3}px`} left={`-${size.width/2}px`}  size={size.width}/>
-        <RadialDecorator top={`${size.height*4.5}px`} left={`${size.width/1.5}px`}  size={size.width}/>
+        <RadialDecorator top={`${size.height/2}px`} left={`-${maxRadialDecorator/2}px`}  size={maxRadialDecorator}/>
+        <RadialDecorator top={`${size.height*2}px`} left={`${maxRadialDecorator/2}px`}  size={maxRadialDecorator}/>
+        <RadialDecorator top={`${size.height*3}px`} left={`-${maxRadialDecorator/2}px`}  size={maxRadialDecorator}/>
+        <RadialDecorator top={`${size.height*4.5}px`} left={`${maxRadialDecorator/1.5}px`}  size={maxRadialDecorator}/>
       </div>
       <FullPage duration={animationScrollDuration} controls={Slider}>
         <Hero/>
