@@ -1,0 +1,23 @@
+.imageContainer {
+    background-color: black;
+    border-radius: 100%;
+    overflow: hidden;
+}
+
+.textContainer {
+    order: 2;
+}
+
+.imageWrapper {
+    order: 1;
+}
+
+@media only screen and (min-width: 768px) {
+    .textContainer {
+        order: 1;
+    }
+    
+    .imageWrapper {
+        order: 2;
+    }
+}

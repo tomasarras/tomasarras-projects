@@ -1,0 +1,26 @@
+/* .section.invisible {
+    opacity: 0;
+}
+
+.section {
+    opacity: 1;
+    transition: opacity 400ms ease;
+} */
+
+.noCenter {
+    padding: var(--header-height) 0 0 0;
+}
+
+
+@media only screen and (min-width: 576px) {
+    .div {
+        padding: var(--header-height) 0 0 0;
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    .div {
+        justify-content: center;
+        align-items: center;
+    }
+}

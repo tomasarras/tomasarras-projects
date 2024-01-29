@@ -1,0 +1,149 @@
+.container {
+    position: relative;
+    left: 50%;
+    opacity: 0;
+    transition: all 800ms ease;
+}
+
+.container.invisible {
+    opacity: 0;
+}
+
+.container.active {
+    left: 0;
+    opacity: 1;
+}
+
+.item {
+    -webkit-perspective: 240px;
+    perspective: 240px;
+    transform-style: preserve-3d;
+    transform: rotateX(28deg) rotateY(45deg) rotateZ(5deg);
+    position: absolute;
+}
+
+.item img, .dev img, .devImg, div.devShadow {
+    opacity: 0;
+    transition: all 800ms ease;
+}
+
+.item.console1 img:first-of-type {
+    transition-delay: 900ms;
+}
+
+.item.console1 img:last-of-type {
+    transition-delay: 2.5s;
+}
+
+.item.console2 img:first-of-type {
+    transition-delay: 1.8s;
+}
+
+.item.console2 img:last-of-type {
+    transition-delay: 3s;
+}
+
+.item.console3 img:first-of-type {
+    transition-delay: 1.5s;
+}
+
+.item.console3 img:last-of-type {
+    transition-delay: 2.6s;
+}
+
+.item.front1 img:first-of-type {
+    transition-delay: 400ms;
+}
+
+.item.front1 img:last-of-type {
+    transition-delay: 400ms;
+}
+
+.item.front2 img {
+    transition-delay: 800ms;
+}
+
+.dev div.devShadow, img.devImg {
+    transition-delay: 800ms;
+}
+.container.active .devImg {
+    opacity: 1;
+}
+
+.container.active .item img {
+    opacity: .6;
+}
+
+.container.active .devShadow {
+    opacity: .5;
+}
+
+.console1 {
+    top: 29%;
+    left: 55%;
+}
+
+.console2 {
+    top: 16%;
+    left: 29%;
+}
+
+.console3 {
+    top: 45%;
+    left: 55%;
+}
+
+.front1 {
+    top: 3%;
+    left: 3%;
+}
+
+.front2 {
+    top: 20%;
+    left: 4%;
+}
+
+.item .lines {
+    left: 0;
+    top: 0;
+}
+
+.opacity {
+    opacity: .6;
+}
+
+.item img {
+    position: absolute;
+}
+
+.dev {
+    position: absolute;
+    top: 28%;
+    left: 25%;
+}
+
+.devImg {
+    position: absolute;
+}
+
+.devIcon {
+    left: 10%;
+    top: 5%;
+}
+
+.devMov {
+    position: relative;
+    top: 11.5%;
+}
+
+.devShadow {
+    left: 14%;
+    -webkit-perspective: 240px;
+    perspective: 240px;
+    transform-style: preserve-3d;
+    transform: rotateX(28deg) rotateY(45deg) rotateZ(5deg);
+    position: absolute;
+    background-color: black;
+    opacity: .5;
+    border-radius: 100%;
+}
