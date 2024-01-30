@@ -1,9 +1,3 @@
-.icons img {
-    filter: grayscale(100%);
-    transition: filter 500ms ease;
-    height: inherit;
-}
-
 .dots {
     background-image: radial-gradient(#404040 2px, transparent 0);
     background-size: 40px 40px;
@@ -16,34 +10,10 @@
     height: 60%;
     margin-top: 15%;
     top: 0;
-
-}
-
-.icons img.active {
-    filter: none;
 }
 
 .iconsContainer {
     max-width: 800px;
-}
-
-.iconLabel {
-    opacity: 1;
-    transition: all 500ms ease;
-}
-
-.iconLabel.invisible {
-    opacity: 0;
-    transition: all 500ms ease;
-}
-
-.imgDecoration {
-    opacity: .2;
-    transition: all 500ms ease;
-}
-
-.imgDecoration.active {
-    opacity: 1;
 }
 
 @media only screen and (min-width: 1280px) and (max-width: 1366px) {

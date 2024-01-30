@@ -1,12 +1,12 @@
+"use client"
 import React, { useState, useEffect, useContext, useRef } from 'react';
 import s from './FullPage.module.css'
 import Slider from '../Slider/Slider';
-import { easeInOutCirc, getRequestAnimationFrame, isDesktop, isClient } from '../../utils/utils'
+import { easeInOutCirc, getRequestAnimationFrame, isDesktop } from '../../utils/utils'
 import { Context } from '../../Context';
 import useWindowDimensions from '../../hooks/useWindowDimensions';
 import Parallax from '../Parallax/Parallax';
 import ReactScrollWheelHandler from "react-scroll-wheel-handler";
-import RadialDecorator from '../Decorators/RadialDecorator';
 
 export default function FullPage({ children, duration = 700 }) {
     const childrenArray = React.Children.toArray(children)

@@ -1,0 +1,28 @@
+.imgDecoration {
+    opacity: .2;
+    transition: all 500ms ease;
+}
+
+.imgDecoration.active {
+    opacity: 1;
+}
+
+.iconLabel {
+    opacity: 1;
+    transition: all 500ms ease;
+}
+
+.iconLabel.invisible {
+    opacity: 0;
+    transition: all 500ms ease;
+}
+
+.noActiveDevIcon.activeImg {
+    filter: none;
+}
+
+.noActiveDevIcon {
+    filter: grayscale(100%);
+    transition: filter 500ms ease;
+    height: inherit;
+}

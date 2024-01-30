@@ -10,7 +10,6 @@ import Experience from "@/app/components/Pages/Experience/Experience";
 import Portfolio from "@/app/components/Pages/Portfolio/Portfolio";
 import Contact from "@/app/components/Pages/Contact/Contact";
 import { animationScrollDuration } from "@/app/Constants";
-import Slider from "@/app/components/Slider/Slider";
 import RadialDecorators from "@/app/components/Decorators/RadialDecorators";
 
 export default function Home({params: {section}}) {
@@ -20,7 +19,7 @@ export default function Home({params: {section}}) {
       <main>
         <Header/>
         <RadialDecorators/>
-        <FullPage duration={animationScrollDuration} controls={Slider}>
+        <FullPage duration={animationScrollDuration}>
           <Hero/>
           <Container page={1} center>
             <About/>

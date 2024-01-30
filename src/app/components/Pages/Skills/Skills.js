@@ -1,100 +1,85 @@
-import React, { useState, useContext } from 'react';
 import styles from './Skills.module.css';
 import Image from 'next/image';
-import { motion, useScroll } from 'framer-motion';
-import { useAnimationScroll } from '../../../hooks/useAnimationScroll';
-import { Context } from '../../../Context';
-import useWindowDimensions from '../../../hooks/useWindowDimensions';
-import { animationScrollDuration } from '../../../constants/Constants';
-import { isDesktop } from '../../../utils/utils';
 import frontendImgDecoration from '../../../../../public/frontend-resize.png'
 import devopsImgDecoration from '../../../../../public/devops-resize.png'
 import backendImgDecoration from '../../../../../public/backend-resize.png'
-import AnimationHandler from '../../Utils/AnimationHandler';
+import ScrollWhileInViewAnimation from '../../Utils/ScrollWhileInViewAnimation';
+import DevIconAnimation from '../../Utils/DevIconAnimation';
+import reactSvg from "../../../../../public/icons/react.svg";
+import vueSvg from "../../../../../public/icons/vue.svg";
+import bootstrapSvg from "../../../../../public/icons/bootstrap.svg";
+import tailwindSvg from "../../../../../public/icons/tailwind.svg";
+import dockerSvg from "../../../../../public/icons/docker.svg";
+import gitSvg from "../../../../../public/icons/git.svg";
+import postgresqlSvg from "../../../../../public/icons/postgresql.svg";
+import postmanSvg from "../../../../../public/icons/postman.svg";
+import springSvg from "../../../../../public/icons/spring.svg";
+import javaSvg from "../../../../../public/icons/java.svg";
+import awsSvg from "../../../../../public/icons/aws.svg";
+import jenkinsSvg from "../../../../../public/icons/jenkins.svg";
+import { HighlightedTypeImages } from '../../ClientSideRendering/HighlightedTypeImages';
+import { HighlightedDevIcon } from '../../ClientSideRendering/HighlightedDevIcon';
+import { SkillsIconLabel } from '../../ClientSideRendering/SkillsIconLabel';
 
 export default function Skills() {
-  const [highlightedType, setHighlightedType] = useState(null);
-  const { currentPage } = useContext(Context)
-  const animation = useAnimationScroll(2);
-  const size = useWindowDimensions()
-  const isAnimationEnabled = isDesktop(size)
-  const devIconSize = isAnimationEnabled ? 60 : 40;
-  const imgDecorationAnimation = {
-    y: currentPage === 2 ? 0 : currentPage === 1 ? size.height /10 : size.height /10 *-1,
-  }
-  const dotsDecorationAnimation = {
-    y: currentPage === 2 ? 0 : currentPage === 1 ? size.height /10 *-1 : size.height /10,
-  }
-  const fadeInAnimationVariants = {
-    initial: {
-      opacity: 0,
-      y: 100,
-    },
-    animate: (index) => ({
-      opacity: 1,
-      y: 0,
-      transition: {
-        delay: 0.05 * index,
-      }
-    })
-  }
+  
   const devIcons = [{
-    src: "react.svg",
+    src: reactSvg,
     name: "React",
     type: "frontend",
   },
   {
-    src: "vue.svg",
+    src: vueSvg,
     name: "Vue",
     type: "frontend",
   },
   {
-    src: "bootstrap.svg",
+    src: bootstrapSvg,
     name: "Bootstrap",
     type: "frontend",
   },
   {
-    src: "tailwind.svg",
+    src: tailwindSvg,
     name: "Tailwind",
     type: "frontend",
   },
   {
-    src: "docker.svg",
+    src: dockerSvg,
     name: "Docker",
     type: "devops",
   },
   {
-    src: "git.svg",
+    src: gitSvg,
     name: "Git",
     type: "devops",
   },
   {
-    src: "postgresql.svg",
+    src: postgresqlSvg,
     name: "PostgreSQL",
     type: "backend",
   },
   {
-    src: "postman.svg",
+    src: postmanSvg,
     name: "Postman",
     type: "backend",
   },
   {
-    src: "spring.svg",
+    src: springSvg,
     name: "Spring",
     type: "backend",
   },
   {
-    src: "java.svg",
+    src: javaSvg,
     name: "Java",
     type: "backend",
   },
   {
-    src: "aws.svg",
+    src: awsSvg,
     name: "AWS",
     type: "devops",
   },
   {
-    src: "jenkins.svg",
+    src: jenkinsSvg,//TODO: imagen estirada
     name: "Jenkins",
     type: "devops",
   }];
@@ -102,9 +87,8 @@ export default function Skills() {
   return (
     <div className={`section flex-col flex justify-around`}>
       <div className={`xl:h-max w-full h-full flex flex-col sm:grid sm:gap-4 sm:grid-cols-12 items-center`}>
-        <AnimationHandler
-          isAnimationEnabled={isAnimationEnabled}
-          {...animation}
+        <ScrollWhileInViewAnimation
+          page={2}
           className='sm:col-span-6 md:col-span-5 2xl:col-span-4'
         >
           <div className='flex items-center w-100 flex-col mb-6'>
@@ -112,7 +96,7 @@ export default function Skills() {
             <div className='title-underline'></div>
           </div>
           <p>Mi caja de herramientas está llena de lenguajes de programación, frameworks y tecnologías modernas. Desde el frontend con React, Vue, Bootstrap, Tailwind hasta el backend con Spring, Laravel, ExpressJS, estoy equipado para abordar una variedad de proyectos desafiantes.</p>
-        </AnimationHandler>
+        </ScrollWhileInViewAnimation>
   
         <div className='my-10 sm:my-0 w-full relative flex justify-center items-center relative
             sm:col-start-7 sm:col-span-6 
@@ -123,40 +107,40 @@ export default function Skills() {
           <div className={`sm:hidden ${styles.dots} absolute w-full h-50`}></div>
           <div className={`w-9/12 sm:w-full lg:w-4/5`}>
             <div className='relative top-0'>
-              <AnimationHandler isAnimationEnabled={isAnimationEnabled} animate={dotsDecorationAnimation} transition={{ duration: animationScrollDuration / 1000 }} 
-                className={`hidden sm:block ${styles.dotsDesktop} ${styles.dots} absolute t-0 l-0 w-full h-50`}>
-              </AnimationHandler>
-              <AnimationHandler isAnimationEnabled={isAnimationEnabled} animate={imgDecorationAnimation} transition={{ duration: animationScrollDuration / 1000 }}>
-                <Image className={`${styles.imgDecoration} ${highlightedType === null || highlightedType == "frontend" ? styles.active : ""}`} src={frontendImgDecoration} alt='front-end'/>
-                <Image className={`${styles.imgDecoration} ${highlightedType === null || highlightedType == "devops" ? styles.active : ""} absolute top-0`} src={devopsImgDecoration} alt='devops'/>
-                <Image className={`${styles.imgDecoration} ${highlightedType === null || highlightedType == "backend" ? styles.active : ""} absolute top-0`} src={backendImgDecoration} alt='backend'/>
-              </AnimationHandler>
+              <div className={`hidden sm:block ${styles.dotsDesktop} ${styles.dots} absolute t-0 l-0 w-full h-50`}/>
+              <ScrollWhileInViewAnimation page={2} intensity={.4}>
+                <HighlightedTypeImages>
+                  <Image src={frontendImgDecoration} alt='front-end'/>
+                  <Image className="absolute top-0" src={devopsImgDecoration} alt='devops'/>
+                  <Image className="absolute top-0" src={backendImgDecoration} alt='backend'/>
+                </HighlightedTypeImages>
+              </ScrollWhileInViewAnimation>
             </div>
           </div>
         </div>
       </div>
-      <div className={`w-full ${styles.icons}`}>
+      <div className={`w-full ${styles.icons} sm:mb-12`}>
         <div className={`grid sm:gap-4 grid-cols-4 sm:grid-cols-6 mx-auto ${styles.iconsContainer}`}>
           {devIcons.map((icon, index) => (
-            <motion.div
+            <DevIconAnimation
               className='flex flex-col justify-center items-center'
-              variants={fadeInAnimationVariants}
-              key={icon.src}
+              key={index}
               initial="initial"
               whileInView="animate"
               custom={index}
             >
-              <div style={{width: devIconSize, height: devIconSize}} className='flex justify-center items-center'>
-                <img
-                  src={"/icons/" + icon.src}
-                  className={`${highlightedType === icon.type ? styles.active : ""}`}
-                  alt="icon"
-                  onMouseEnter={() => setHighlightedType(icon.type)}
-                  onMouseLeave={() => setHighlightedType(null)}
-                />
+              <div className={`${styles.devIconContainer} h-10 w-10 lg:h-14 lg:w-14 flex justify-center items-center`}>
+                <HighlightedDevIcon type={icon.type}>
+                  <Image
+                    src={icon.src}
+                    alt="icon"
+                  />
+                </HighlightedDevIcon>
               </div>
-              <span className={`text-center ${highlightedType === icon.type ? "" : styles.invisible} ${styles.iconLabel}`}>{icon.name}</span>
-            </motion.div>))}
+              <SkillsIconLabel type={icon.type}>
+                <div className='text-center'>{icon.name}</div>
+              </SkillsIconLabel>
+            </DevIconAnimation>))}
         </div>
       </div>
     </div>

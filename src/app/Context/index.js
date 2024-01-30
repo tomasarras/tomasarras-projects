@@ -7,6 +7,7 @@ export const Context = createContext();
 
 export const Provider = ({ children, section }) => {
     const [currentPage, setCurrentPage] = useState(0);
+    const [skillsHighlightedType, setSkillsHighlightedType] = useState(null);
     const [scrollY, setScrollY] = useState(0);
     const hasPageBeenRendered = useRef({ effect: 2 })
     const [easeScroll, setEaseScroll] = useState(0)
@@ -96,6 +97,8 @@ export const Provider = ({ children, section }) => {
         subscribeBeforeCurrentPageUpdated,
         portfolioIndex,
         setPortfolioIndex,
+        skillsHighlightedType,
+        setSkillsHighlightedType,
     }}>
         {children}
     </Context.Provider>);

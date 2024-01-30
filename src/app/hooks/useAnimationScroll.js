@@ -1,19 +1,19 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { Context } from "../Context";
 import { animationScrollDuration } from "../constants/Constants";
-import useWindowDimensions from "./useWindowDimensions";
 
-export const useAnimationScroll = (targetIndex) => {
+export const useAnimationScroll = (targetIndex, intensity) => {
     const { currentPage } = useContext(Context)
     //const size = useWindowDimensions()
     //TODO: check this animation
+    //TODO: chek 170
     let y;
     if (currentPage == targetIndex)
         y = 0;
     else if (currentPage > targetIndex) {
-        y = "-100vh";
+        y = `${-170*intensity}vh`;
     } else if (currentPage < targetIndex) {
-        y = "100vh";
+        y = `${170*intensity}vh`;
     }
 
     return {
