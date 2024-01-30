@@ -1,24 +1,14 @@
-import React from 'react';
-import styles from "./Experience.module.css";
 import WorkTimeline from '../../timeline/Timeline';
-import { useAnimationScroll } from '../../../hooks/useAnimationScroll';
-import { motion } from 'framer-motion';
-import AnimationHandler from '../../Utils/AnimationHandler';
-import { isDesktop } from '../../../utils/utils';
-import useWindowDimensions from '../../../hooks/useWindowDimensions';
 import Image from 'next/image';
 import experienceImageIllustration from "../../../../../public/experience-illustration.png"
+import ScrollWhileInViewAnimation from '../../Utils/ScrollWhileInViewAnimation';
 
 export default function Experience() {
-  const size = useWindowDimensions()
-  const animation = useAnimationScroll(3);
 
   return (
   <div className='section flex justify-between items-center'>
     <div className='grid grid-cols-1 lg:grid-cols-12 lg:gap-4 2xl:grid-cols-12'>
-      <AnimationHandler
-        isAnimationEnabled={isDesktop(size)}
-        {...animation}
+      <ScrollWhileInViewAnimation page={3}
         className='xxl:flex xxl:items-center lg:col-span-4 xxl:col-span-6 2xl:col-span-4'>
         <div>
           <div className='flex items-center w-100 flex-col mb-6'>
@@ -32,7 +22,7 @@ export default function Experience() {
             </div>
           </div>
         </div>
-      </AnimationHandler>
+      </ScrollWhileInViewAnimation>
       <div className='lg:col-span-8 xxl:col-span-6 2xl:col-start-6 2xl:col-span-7'>
         <WorkTimeline/>
       </div>
