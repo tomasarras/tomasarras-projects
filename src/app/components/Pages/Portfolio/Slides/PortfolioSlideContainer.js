@@ -7,7 +7,7 @@ import { Context } from '../../../../Context';
 import { useSwipeable } from 'react-swipeable';
 import styles from "./PortfolioSlideContainer.module.css"
 
-export default function PortfolioSlideContainer({ children, className, innerRef }) {
+export default function PortfolioSlideContainer({ children, className }) {
   const { subscribeBeforeCurrentPageUpdated, currentPage, portfolioIndex, setPortfolioIndex } = useContext(Context)
   const childrenArray = React.Children.toArray(children)
   const childrenRefs = useRef([])
@@ -106,7 +106,7 @@ export default function PortfolioSlideContainer({ children, className, innerRef 
       ref={sliderRef}
       className={`w-full h-full relative ${className} overflow-x-scroll`}
       >
-      <div ref={el => {innerRef(el); sliderContainerRef.current = el}} style={{width: (childrenArray.length * 100) + "%"}} className='h-full flex items-center justify-center'>
+      <div ref={sliderContainerRef} style={{width: (childrenArray.length * 100) + "%"}} className='h-full flex items-center justify-center'>
         {childrenArray.map((child, index) => 
           <div ref={el => childrenRefs.current[index] = el} className={`${styles.slide} flex`} key={index}>
             {React.cloneElement(child, { isActive: index === portfolioIndex })}

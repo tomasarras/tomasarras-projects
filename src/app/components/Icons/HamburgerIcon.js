@@ -1,4 +1,4 @@
-import React from 'react'
+"use client"
 import { motion } from 'framer-motion'
 
 export const HamburgerIcon = ({ color = "#FFFFFF", isOpen, width = 24, height = 24, strokeWidth = 1, transition = null, lineProps = null, }) => {

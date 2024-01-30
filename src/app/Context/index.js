@@ -5,7 +5,7 @@ import { animationScrollDuration } from "../constants/Constants"
 
 export const Context = createContext();
 
-export const Provider = ({ children }) => {
+export const Provider = ({ children, section }) => {
     const [currentPage, setCurrentPage] = useState(0);
     const [scrollY, setScrollY] = useState(0);
     const hasPageBeenRendered = useRef({ effect: 2 })
@@ -35,7 +35,8 @@ export const Provider = ({ children }) => {
     )
 
     useEffect(() => {
-    }, [beforeUpdateCurrentPageSubscriptors])
+        console.log("🚀 ~ useEffect ~ currentPage:", currentPage)
+    }, [currentPage])
     
     
 

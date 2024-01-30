@@ -79,6 +79,7 @@ export default function FullPage({ children, duration = 700 }) {
             newActiveSlide = 0
         else if (newActiveSlide == slidesCount)
           newActiveSlide = slidesCount -1
+        
         setIsScrollPending(true)
         setTimeout(() => {
             setIsScrollPending(false)

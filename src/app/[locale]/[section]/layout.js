@@ -1,6 +1,6 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { Provider } from "../Context";
+import { Provider } from "../../Context";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -8,7 +8,7 @@ export const metadata = {
   description: "Tomas Arras Portfolio",
 };
 
-export default function RootLayout({ children, params: { locale } }) {
+export default function RootLayout({ children, params: { locale, section } }) {
   //TODO: spacing
   return (
     <html lang={locale}>

@@ -11,9 +11,8 @@ import Link from 'next/link';
 import instagramIcon from "../../../../../public/icons/instagram-white.svg"
 import githubIcon from "../../../../../public/icons/github-white.svg"
 import linkedInIcon from "../../../../../public/icons/linkedin-white.svg"
-import RadialDecorator from '../../Decorators/RadialDecorator';
 
-export default function Contact({ innerRef }) {
+export default function Contact() {
   const animation = useAnimationScroll(5)
   const size = useWindowDimensions()
   const imageContainerRef = useRef()
@@ -103,7 +102,7 @@ export default function Contact({ innerRef }) {
     
   ]
 
-  return <div ref={innerRef} className={`grid grid-cols-1 md:gap-4 md:grid-cols-12`}>
+  return <div className={`section grid grid-cols-1 md:gap-4 md:grid-cols-12`}>
   <AnimationHandler
     {...animation}
     className={`${styles.textContainer} flex flex-col justify-center

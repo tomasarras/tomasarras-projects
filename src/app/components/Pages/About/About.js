@@ -7,8 +7,10 @@ import styles from "./About.module.css"
 import { Context } from '../../../Context';
 import { animationScrollDuration } from '../../../constants/Constants';
 import { isDesktop } from '../../../utils/utils';
+import {useTranslations} from 'next-intl';
 
-export default function About({ innerRef }) {
+export default function About() {
+  //const t = useTranslations("about")
   const { currentPage } = useContext(Context)
   const size = useWindowDimensions()
   const scrollAnimation = useAnimationScroll(1)
@@ -19,7 +21,7 @@ export default function About({ innerRef }) {
 
 
   return (
-    <div ref={innerRef} className={`md:grid md:gap-4 md:grid-cols-12`}>
+    <div className={`section md:grid md:gap-4 md:grid-cols-12`}>
       <motion.div
         {...animation}
         className={`${styles.colSpan1366Left}  flex flex-col items-center justify-center

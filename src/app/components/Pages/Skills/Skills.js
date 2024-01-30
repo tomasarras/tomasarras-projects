@@ -12,7 +12,7 @@ import devopsImgDecoration from '../../../../../public/devops-resize.png'
 import backendImgDecoration from '../../../../../public/backend-resize.png'
 import AnimationHandler from '../../Utils/AnimationHandler';
 
-export default function Skills({ innerRef }) {
+export default function Skills() {
   const [highlightedType, setHighlightedType] = useState(null);
   const { currentPage } = useContext(Context)
   const animation = useAnimationScroll(2);
@@ -100,7 +100,7 @@ export default function Skills({ innerRef }) {
   }];
 
   return (
-    <div ref={innerRef} className={` flex-col flex justify-around`}>
+    <div className={`section flex-col flex justify-around`}>
       <div className={`xl:h-max w-full h-full flex flex-col sm:grid sm:gap-4 sm:grid-cols-12 items-center`}>
         <AnimationHandler
           isAnimationEnabled={isAnimationEnabled}

@@ -9,12 +9,12 @@ import useWindowDimensions from '../../../hooks/useWindowDimensions';
 import Image from 'next/image';
 import experienceImageIllustration from "../../../../../public/experience-illustration.png"
 
-export default function Experience({ innerRef }) {
+export default function Experience() {
   const size = useWindowDimensions()
   const animation = useAnimationScroll(3);
 
   return (
-  <div ref={innerRef} className='flex justify-between items-center'>
+  <div className='section flex justify-between items-center'>
     <div className='grid grid-cols-1 lg:grid-cols-12 lg:gap-4 2xl:grid-cols-12'>
       <AnimationHandler
         isAnimationEnabled={isDesktop(size)}

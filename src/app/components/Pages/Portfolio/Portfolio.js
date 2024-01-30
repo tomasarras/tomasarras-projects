@@ -13,7 +13,7 @@ export default function Portfolio({ innerRef }) {
   const size = useWindowDimensions()
 
   return (
-  <PortfolioSlideContainer innerRef={innerRef}>
+  <PortfolioSlideContainer className="section">
     <PortfolioSlideOne/>
     <PortfolioSlideTwo/>
     <PortfolioSlideThree/>
