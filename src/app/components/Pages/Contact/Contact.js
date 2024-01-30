@@ -1,23 +1,13 @@
-import React, { useRef } from 'react';
-import { motion } from 'framer-motion';
-import { useAnimationScroll } from '../../../hooks/useAnimationScroll';
 import styles from "./Contact.module.css"
 import Image from 'next/image';
 import contactImg from "../../../../../public/portrait/contact.png"
-import AnimationHandler from '../../Utils/AnimationHandler';
-import { isDesktop } from '../../../utils/utils';
-import useWindowDimensions from '../../../hooks/useWindowDimensions';
 import Link from 'next/link';
 import instagramIcon from "../../../../../public/icons/instagram-white.svg"
 import githubIcon from "../../../../../public/icons/github-white.svg"
 import linkedInIcon from "../../../../../public/icons/linkedin-white.svg"
+import ScrollWhileInViewAnimation from '../../Utils/ScrollWhileInViewAnimation';
 
 export default function Contact() {
-  const animation = useAnimationScroll(5)
-  const size = useWindowDimensions()
-  const imageContainerRef = useRef()
-  const imageSizeContainer = imageContainerRef?.current?.offsetWidth * 1.9
-  const imageSize = imageContainerRef?.current?.offsetWidth 
   const icons = [
     {
       name: "Instagram",
@@ -103,8 +93,8 @@ export default function Contact() {
   ]
 
   return <div className={`section grid grid-cols-1 md:gap-4 md:grid-cols-12`}>
-  <AnimationHandler
-    {...animation}
+  <ScrollWhileInViewAnimation 
+    page={5}
     className={`${styles.textContainer} flex flex-col justify-center
     col-span-12  
     md:col-span-7 
@@ -122,16 +112,16 @@ export default function Contact() {
       {/**TODO hover */}
       {icons.map(icon => <Link key={icon.href} href={icon.href} passHref><Image className='h-10 w-10 me-2' src={icon.src} alt={icon.alt} width={40} height={40}/></Link>)}
     </div>
-  </AnimationHandler>
-  <AnimationHandler className={`${styles.imageWrapper} relative flex md:mt-0 col-span-1 md:flex col-start-7 col-span-6 md:col-span-5 lg:col-span-6 lg:col-start-7 flex-col items-center justify-center w-full`} isAnimationEnabled={isDesktop(size)} {...animation}>
-    {/**TODO: este shadow tiene fondo negro y choca con radialDecorator */}
-    <div className={`${styles.shadow} absolute`} style={{width: imageSizeContainer, height: imageSizeContainer, background: `radial-gradient(${imageSize}px ${imageSize*1.3}px, var(--accent-color-primary), var(--background-color) 60%)`}}></div>
-    <div ref={imageContainerRef} className={`${styles.imageContainer} flex justify-center items-center w-8/12`}>
+  </ScrollWhileInViewAnimation>
+  <div className={`${styles.imageWrapper} relative flex md:mt-0 col-span-1 md:flex col-start-7 col-span-6 md:col-span-5 lg:col-span-6 lg:col-start-7 flex-col items-center justify-center w-full`}>
+    {/**TODO: arreglarlo. Fix 2: este shadow tiene fondo negro y choca con radialDecorator */}
+    {/* <div className={`${styles.shadow} absolute`} style={{width: imageSizeContainer, height: imageSizeContainer, background: `radial-gradient(100px 100px, var(--accent-color-primary), var(--background-color) 60%)`}}></div> */}
+    <div className={`${styles.imageContainer} flex justify-center items-center w-8/12`}>
       {/* TODO: quitarle gradiente y ver si la imagen esta bien */}
       {/* TODO: next image loader */}    
       <Image priority alt="Tomas Arras" src={contactImg}/>
     </div>
-  </AnimationHandler>
+  </div>
 </div>
   
 }
