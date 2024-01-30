@@ -1,7 +1,6 @@
-import React from 'react';
 import styles from './Hero.module.css';
-import { motion } from 'framer-motion'
 import FaceLogo from '../../FaceLogo/FaceLogo';
+import AnimationHandler from '../../Utils/AnimationHandler';
 export default function Hero() {
   const faceAnimation = {
     hidden: {
@@ -33,10 +32,10 @@ export default function Hero() {
 
   return (
     <div className='flex flex-col items-center justify-center h-full'>
-      <motion.div initial="hidden" animate="visible" variants={faceAnimation} className={styles.faceLogoContainer}>
+      <AnimationHandler isAnimationEnabled initial="hidden" animate="visible" variants={faceAnimation} className={styles.faceLogoContainer}>
         <FaceLogo/>
-      </motion.div>
-      <motion.h1 initial="hidden" animate="visible" variants={textAnimation} className={`mt-8 semibold`}>Hello friend.</motion.h1>
+      </AnimationHandler>
+      <AnimationHandler initial="hidden" animate="visible" variants={textAnimation}><h1  className={`mt-8 semibold`}>Hello friend.</h1></AnimationHandler>
     </div>
   );
 }

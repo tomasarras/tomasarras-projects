@@ -3,13 +3,11 @@ import s from './FullPage.module.css'
 import Slider from '../Slider/Slider';
 import { easeInOutCirc, getRequestAnimationFrame, isDesktop, isClient } from '../../utils/utils'
 import { Context } from '../../Context';
-//import { Lethargy } from 'lethargy'
 import useWindowDimensions from '../../hooks/useWindowDimensions';
 import Parallax from '../Parallax/Parallax';
 import ReactScrollWheelHandler from "react-scroll-wheel-handler";
 import RadialDecorator from '../Decorators/RadialDecorator';
 
-//const lethargy = new Lethargy()
 export default function FullPage({ children, duration = 700 }) {
     const childrenArray = React.Children.toArray(children)
     const size = useWindowDimensions();

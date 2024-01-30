@@ -124,6 +124,7 @@ export default function Contact() {
     </div>
   </AnimationHandler>
   <AnimationHandler className={`${styles.imageWrapper} relative flex md:mt-0 col-span-1 md:flex col-start-7 col-span-6 md:col-span-5 lg:col-span-6 lg:col-start-7 flex-col items-center justify-center w-full`} isAnimationEnabled={isDesktop(size)} {...animation}>
+    {/**TODO: este shadow tiene fondo negro y choca con radialDecorator */}
     <div className={`${styles.shadow} absolute`} style={{width: imageSizeContainer, height: imageSizeContainer, background: `radial-gradient(${imageSize}px ${imageSize*1.3}px, var(--accent-color-primary), var(--background-color) 60%)`}}></div>
     <div ref={imageContainerRef} className={`${styles.imageContainer} flex justify-center items-center w-8/12`}>
       {/* TODO: quitarle gradiente y ver si la imagen esta bien */}

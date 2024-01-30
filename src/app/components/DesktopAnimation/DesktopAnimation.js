@@ -1,3 +1,5 @@
+"use client"
+//TODO: client
 import React, { useContext, useEffect, useRef, useState } from 'react';
 import s from "./DesktopAnimation.module.css";
 import Image from 'next/image';

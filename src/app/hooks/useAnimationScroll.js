@@ -5,14 +5,15 @@ import useWindowDimensions from "./useWindowDimensions";
 
 export const useAnimationScroll = (targetIndex) => {
     const { currentPage } = useContext(Context)
-    const size = useWindowDimensions()
+    //const size = useWindowDimensions()
+    //TODO: check this animation
     let y;
     if (currentPage == targetIndex)
         y = 0;
     else if (currentPage > targetIndex) {
-        y = -size.height;
+        y = "-100vh";
     } else if (currentPage < targetIndex) {
-        y = size.height;
+        y = "100vh";
     }
 
     return {

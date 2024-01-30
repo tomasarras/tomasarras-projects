@@ -6,6 +6,14 @@
     display: none;
 }
 
+.layer2 {
+    z-index: -1;
+    width: 100vw;
+    position: absolute;
+    overflow: hidden;
+    height: 600vh;
+}
+
 :root {
     --header-height: 60px;
     --background-color: #040404;

@@ -10,6 +10,7 @@ export const metadata = {
 
 export default function RootLayout({ children, params: { locale, section } }) {
   //TODO: spacing
+  //TODO: lethargy dependency
   return (
     <html lang={locale}>
       <body className={inter.className}>{children}</body>

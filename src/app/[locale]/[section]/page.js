@@ -1,8 +1,6 @@
 "use client"
-import { useRef } from "react";
 import Header from "../../components/Header/Header";
 import { Provider } from "../../Context";
-import useWindowDimensions from "@/app/hooks/useWindowDimensions";
 import FullPage from "@/app/components/Scroll/FullPage";
 import Hero from "@/app/components/Pages/Hero/Hero";
 import Container from "@/app/components/Container/Container";
@@ -13,16 +11,15 @@ import Portfolio from "@/app/components/Pages/Portfolio/Portfolio";
 import Contact from "@/app/components/Pages/Contact/Contact";
 import { animationScrollDuration } from "@/app/Constants";
 import Slider from "@/app/components/Slider/Slider";
+import RadialDecorators from "@/app/components/Decorators/RadialDecorators";
 
 export default function Home({params: {section}}) {
-  const sections = useRef([])
-  const bodyContainer = useRef()
-  const size = useWindowDimensions()
-  const maxRadialDecorator = Math.min(size.width, 1920)
+  
   return (
     <Provider section={section}>
-      <main /*ref={bodyContainer}*/>
-        <Header /* sections={sections}*/ />
+      <main>
+        <Header/>
+        <RadialDecorators/>
         <FullPage duration={animationScrollDuration} controls={Slider}>
           <Hero/>
           <Container page={1} center>
