@@ -1,13 +1,9 @@
 import Image from 'next/image';
-import React, { useEffect } from 'react';
 import phones from "../../../../../../public/portfolio/phones-1.png"
 import GitHubButtonLink from '../../../Buttons/GitHubButtonLink';
 import styles from "./PortfolioSlideTwo.module.css"
-import useWindowDimensions from '../../../../hooks/useWindowDimensions';
-import { sm } from '../../../../constants/Constants';
 
 export default function PortfolioSlideTwo({ isActive }) {
-  const size = useWindowDimensions()
 
   return (
   <div className='container grid grid-cols-12 items-center h-full'>
@@ -19,7 +15,8 @@ export default function PortfolioSlideTwo({ isActive }) {
       xl:col-span-5 xl:mt-8
       2xl:col-start-2 2xl:mt-0`}>
         {/* TODO: en 2xl: se ve un poco estirada */}
-      <Image src={phones} alt="phones" className={`w-10/12 sm:w-full sm:object-contain`} fill={size.width >= sm}/>
+      <Image src={phones} alt="phones" className={`sm:hidden w-10/12`}/>
+      <Image src={phones} alt="phones" className={`hidden sm:block w-full object-contain`} fill/>
     </div>
     <div className='mt-4 
       col-span-12 

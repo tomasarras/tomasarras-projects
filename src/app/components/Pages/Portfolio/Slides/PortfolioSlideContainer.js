@@ -1,6 +1,6 @@
-import React, { useCallback, useContext, useEffect, useRef, useState } from 'react';
+"use client"
+import React, { useCallback, useContext, useEffect, useRef } from 'react';
 import DotsSlider from '../../../DotsSlider/DotsSlider';
-import { motion } from 'framer-motion';
 import { animationScrollDuration } from '../../../../constants/Constants';
 import { easeInOutCirc, getRequestAnimationFrame } from '../../../../utils/utils';
 import { Context } from '../../../../Context';

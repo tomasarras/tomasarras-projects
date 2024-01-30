@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import styles from "./DotsSlider.module.css"
 
 export default function DotsSlider({ amount, active, setActive }) {

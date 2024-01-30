@@ -1,5 +1,3 @@
-import React from 'react';
-
 export default function PortfolioSlideOne({ }) {
 
   return (
@@ -12,5 +10,4 @@ export default function PortfolioSlideOne({ }) {
 			<p className='mt-6'>He desarrollado distintos tipos de aplicaciones, con distintas tecnologias, con aplicaciones web interactivas construidas con tecnologías front-end como React y Angular. Estos proyectos reflejan mi destreza técnica y también mi enfoque en crear soluciones orientadas al usuario, siempre manteniendo un estándar de código limpio y modular.</p>
 		</div>
 	</div>)
-  
 }

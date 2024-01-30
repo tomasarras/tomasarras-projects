@@ -1,15 +1,11 @@
 import Image from 'next/image';
-import React, { useEffect } from 'react';
 import desktop from '../../../../../../public/portfolio/macbook-pro2.png'
 import GitHubButtonLink from '../../../Buttons/GitHubButtonLink';
 import styles from "./PortfolioSlideThree.module.css"
-import { motion } from 'framer-motion';
-import { animationScrollDuration, sm } from '../../../../constants/Constants';
-import AnimationHandler from '../../../Utils/AnimationHandler';
-import useWindowDimensions from '../../../../hooks/useWindowDimensions';
+import { animationScrollDuration } from '../../../../constants/Constants';
+import OnlyDesktopAnimation from '@/app/components/Utils/OnlyDesktopAnimation';
 
 export default function PortfolioSlideThree({ isActive }) {
-  const size = useWindowDimensions()
   const backgroundVariant = {
     initial: {
       x: 600
@@ -28,8 +24,7 @@ export default function PortfolioSlideThree({ isActive }) {
         lg:col-span-6 
         xl:col-span-5 xl:mt-8
         2xl:col-start-2 2xl:mt-0`}>
-        <AnimationHandler
-          isAnimationEnabled={size.width >= sm}
+        <OnlyDesktopAnimation
           variants={backgroundVariant}
           animate={isActive ? "animate" : "initial"}
           transition={{duration: (animationScrollDuration/1000) + 0.1}}
