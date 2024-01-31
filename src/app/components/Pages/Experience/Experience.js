@@ -2,8 +2,10 @@ import WorkTimeline from '../../timeline/Timeline';
 import Image from 'next/image';
 import experienceImageIllustration from "../../../../../public/experience-illustration.png"
 import ScrollWhileInViewAnimation from '../../Utils/ScrollWhileInViewAnimation';
+import { useTranslations } from 'next-intl';
 
 export default function Experience() {
+  const t = useTranslations("Experience")
 
   return (
   <div className='section flex justify-between items-center'>
@@ -12,10 +14,10 @@ export default function Experience() {
         className='xxl:flex xxl:items-center lg:col-span-4 xxl:col-span-6 2xl:col-span-4'>
         <div>
           <div className='flex items-center w-100 flex-col mb-6'>
-            <h1 className='mb-4 text-5xl font-bold'>Experience</h1>
+            <h1 className='mb-4 text-5xl font-bold'>{t("title")}</h1>
             <div className='title-underline'></div>
           </div>
-          <p className='mb-10'>A lo largo de mi carrera, he tenido el privilegio de trabajar en diversos roles y tecnologías que han ampliado mi experiencia en el desarrollo web con tecnologías de frontend y de backend. Aquí hay un vistazo a algunas de mis experiencias más destacadas:</p>
+          <p className='mb-10'>{t("description")}</p>
           <div className='hidden lg:flex justify-center'>
             <div className='sm:w-8/12 lg:w-full xl:w-8/12'>
               <Image src={experienceImageIllustration} alt='illustration'/>

@@ -1,4 +1,3 @@
-"use client"
 import Image from 'next/image';
 import desktop from '../../../../../../public/portfolio/macbook-pro2.png'
 import GitHubButtonLink from '../../../Buttons/GitHubButtonLink';
@@ -6,8 +5,10 @@ import styles from "./PortfolioSlideThree.module.css"
 import { animationScrollDuration } from '../../../../constants/Constants';
 import OnlyDesktopAnimation from '@/app/components/Utils/OnlyDesktopAnimation';
 import PortfolioSlideThreeDots from '@/app/components/ClientSideRendering/PortfolioSlideThreeDots';
+import { useTranslations } from 'next-intl';
 
 export default function PortfolioSlideThree() {
+  const t = useTranslations("Portfolio.slides.three")
 
   return (
     <div className='container grid grid-cols-12 items-center'>
@@ -29,7 +30,7 @@ export default function PortfolioSlideThree() {
         2xl:col-span-4 2xl:col-start-8 
         '>
         <h2 className='text-center mb-4'>CalidBurn</h2>
-        <p>Es una aplicación descentralizada (DApp) de compra y venta de bienes a través de SmartContracts en la blockchain de Ethereum. Funciona por medio de contratos digitales donde ambas partes acuerdan entre si. Esta desarrollada con React y Spring</p>
+        <p>{t("description")}</p>
         <GitHubButtonLink link="https://github.com/tomasarras/calidBurn" className="mt-8"/>
       </div>
     </div>)

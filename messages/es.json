@@ -1,5 +1,59 @@
 {
+    "buttons": {
+        "see-code": "Ver codigo"
+    },
     "About": {
-        "title": "Hola, Soy Tomas Arras"
+        "title": "Hola, Soy Tomas Arras",
+        "description": "Un apasionado desarrollador web especializado en la creacion de soluciones tanto en el frontend como en el backend. Soy un aficionado a la tecnologia y tengo las habilidades para traducir ideas en codigo para crear experencias digitales y funcionales."
+    },
+    "Skills": {
+        "title": "Habilidades",
+        "description": "Mi caja de herramientas está llena de lenguajes de programación, frameworks y tecnologías modernas. Desde el frontend con React, Vue, Bootstrap, Tailwind hasta el backend con Spring, Laravel, ExpressJS, estoy equipado para abordar una variedad de proyectos desafiantes."
+    },
+    "Experience": {
+        "title": "Experiencia",
+        "description": "A lo largo de mi carrera, he tenido el privilegio de trabajar en diversos roles y tecnologías que han ampliado mi experiencia en el desarrollo web con tecnologías de frontend y de backend. Aquí hay un vistazo a algunas de mis experiencias más destacadas:",
+        "timeline": {
+            "certisur": {
+                "title": "Desarrollador BackEnd en ",
+                "description": "Desarrollo de microservicios utilizados para firma digital y emisión de certificados digitales.",
+                "time": "Febrero 2022 - 2024 (presente)"
+            },
+            "taggify": {
+                "title": "Desarrollador FullStack en ",
+                "description": "Desarrollo de una plataforma Demand Side Platform (DSP) con microservicios.",
+                "time": "Septiembre 2021 - Febrero 2022"
+            },
+            "ideaas": {
+                "title": "Desarrollador FullStack en ",
+                "description": "Desarrollo de una plataforma que sirve para la búsqueda de arquitectos, obras y productos.",
+                "time": "Enero 2021 - Septiembre 2021"
+            },
+            "unicen": {
+                "title": "Graduado de la Universidad ",
+                "title2": " en Tandil, Argentina",
+                "description": "Graduado de Desarrollador de Software.",
+                "time": "Enero 2018 - Diciembre 2021"
+            }
+        }
+    },
+    "Portfolio": {
+        "slides": {
+            "one": {
+                "title": "Portfolio",
+                "description": "I have developed different types of applications, with different technologies, with interactive web applications built with front-end technologies such as React and Angular. These projects reflect my technical prowess and also my focus on creating user-oriented solutions, always maintaining a clean and modular code standard."
+            },
+            "two": {
+                "description": "An application similar to Spotify, where you can see and search for artists, playlists, albums from different artists. This application is a non-functional Demo developed with Angular in order to replicate an application."
+            },
+            "three": {
+                "description": "It is a decentralized application (DApp) for buying and selling goods through SmartContracts on the Ethereum blockchain. It works through digital contracts where both parties agree between themselves. It is developed with React and Spring."
+            }
+        }
+    },
+    "Contact": {
+        "title": "Contacto",
+        "description": "Siente total libertad de contactarme para discutir proyectos emocionantes, oportunidades de colaboración o simplemente para saludar. Estoy aquí para ti.",
+        "social": "Social"
     }
 }

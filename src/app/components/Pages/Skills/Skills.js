@@ -20,9 +20,11 @@ import jenkinsSvg from "../../../../../public/icons/jenkins.svg";
 import { HighlightedTypeImages } from '../../ClientSideRendering/HighlightedTypeImages';
 import { HighlightedDevIcon } from '../../ClientSideRendering/HighlightedDevIcon';
 import { SkillsIconLabel } from '../../ClientSideRendering/SkillsIconLabel';
+import { useTranslations } from 'next-intl';
 
 export default function Skills() {
-  
+  const t = useTranslations("Skills")
+
   const devIcons = [{
     src: reactSvg,
     name: "React",
@@ -92,10 +94,10 @@ export default function Skills() {
           className='sm:col-span-6 md:col-span-5 2xl:col-span-4'
         >
           <div className='flex items-center w-100 flex-col mb-6'>
-            <h1 className='mb-4 text-5xl font-bold'>Skills</h1>
+            <h1 className='mb-4 text-5xl font-bold'>{t("title")}</h1>
             <div className='title-underline'></div>
           </div>
-          <p>Mi caja de herramientas está llena de lenguajes de programación, frameworks y tecnologías modernas. Desde el frontend con React, Vue, Bootstrap, Tailwind hasta el backend con Spring, Laravel, ExpressJS, estoy equipado para abordar una variedad de proyectos desafiantes.</p>
+          <p>{t("description")}</p>
         </ScrollWhileInViewAnimation>
   
         <div className='my-10 sm:my-0 w-full relative flex justify-center items-center relative

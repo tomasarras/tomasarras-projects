@@ -1,5 +1,6 @@
 import { AnimatedExperienceTimelineItem } from '../ClientSideRendering/AnimatedExperienceTimelineItem';
 import styles from './WorkTimeline.module.css'
+import { useTranslations } from 'next-intl';
 
 const Badge = ({ children }) => (<span className="bg-accent text-accent-light text-xs font-medium me-2 px-2.5 py-0.5 rounded-full">{children}</span>);
 
@@ -20,8 +21,8 @@ const Item = ({ time, children, title, i, first, last, order }) => {
   </li>)
 }
 
-export default function WorkTimeline({ }) {
-
+export default function WorkTimeline() {
+  const t = useTranslations("Experience.timeline")
   return (
     <div>
       {/* TODO: present current month */}
@@ -30,29 +31,31 @@ export default function WorkTimeline({ }) {
       {/* TODO: badges icons */}
       <ol className={`md:grid md:grid-cols-2 ${styles.ol}`}>  
         {/**TODO: formatear fechas https://next-intl-docs.vercel.app/docs/usage/dates-times */}                
-        <Item i={0} total={4} time="February 2022 - 2024 (present)" title={<>BackEnd developer at <a href='https://www.certisur.com/' className='link hover'>CertiSur</a></>} first>
-          <p className='text-gray-500 dark:text-gray-400 mb-3'>Development of microservices used for digital signature and issuance of digital certificates</p>
+        <Item i={0} total={4} time={t("certisur.time")} title={<>{t("certisur.title")}<a href='https://www.certisur.com/' className='link hover'>CertiSur</a></>} first>
+          <p className='text-gray-500 dark:text-gray-400 mb-3'>{t("certisur.description")}</p>
           <Badge>Spring</Badge>
           <Badge>Vue</Badge>
         </Item>
         {/**TODO: link en ingles https://www.taggify.net/en */}
-        <Item i={1} total={4} time="September 2021 - February 2022" title={<>FullStack Developer at <a href='https://www.taggify.net/en' className='link hover'>Taggify</a></>}>
+        <Item i={1} total={4} time={t("taggify.time")} title={<>{t("taggify.title")}<a href='https://www.taggify.net/en' className='link hover'>Taggify</a></>}>
           <p className='text-gray-500 dark:text-gray-400 mb-3'>
-            Development of a Demand Side Platform (DSP) with microservices.
+            {t("taggify.description")}
           </p>
           <Badge>Laravel</Badge>
           <Badge>React</Badge>
           <Badge>ExpressJS</Badge>
         </Item>
-        <Item i={2} total={4} time="January 2021 - September 2021" title={<>FullStack developer at <a href="https://www.ideaas.com.ar/" className='link hover'>IDEAAS</a></>}>
+        <Item i={2} total={4} time={t("ideaas.time")} title={<>{t("ideaas.title")}<a href="https://www.ideaas.com.ar/" className='link hover'>IDEAAS</a></>}>
           <p className='text-gray-500 dark:text-gray-400 mb-3'>
-            Development of a platform that is used to search for architects, works and products.
+            {t("ideaas.description")}
           </p>
           <Badge>Spring</Badge>
           <Badge>NextJS</Badge>
         </Item>
         {/**TODO: link en ingles https://www.unicen.edu.ar/english */}
-        <Item i={3} total={4} time="January 2018 - December 2021" title={<>Graduated from the University of <a href='https://www.unicen.edu.ar/content/tandil' className='link hover'>UNICEN</a> in Tandil, Argentina</>} last><p className='text-gray-500 dark:text-gray-400 mb-3'>Graduated as a Software Developer.</p></Item>
+        <Item i={3} total={4} time={t("unicen.time")} title={<>{t("unicen.title")}<a href='https://www.unicen.edu.ar/content/tandil' className='link hover'>UNICEN</a> {t("unicen.title2")}</>} last>
+          <p className='text-gray-500 dark:text-gray-400 mb-3'>{t("unicen.description")}</p>
+        </Item>
       </ol>
     </div>
   )

@@ -6,8 +6,10 @@ import instagramIcon from "../../../../../public/icons/instagram-white.svg"
 import githubIcon from "../../../../../public/icons/github-white.svg"
 import linkedInIcon from "../../../../../public/icons/linkedin-white.svg"
 import ScrollWhileInViewAnimation from '../../Utils/ScrollWhileInViewAnimation';
+import { useTranslations } from 'next-intl';
 
 export default function Contact() {
+  const t = useTranslations("Contact")
   const icons = [
     {
       name: "Instagram",
@@ -103,11 +105,11 @@ export default function Contact() {
     2xl:col-span-4`}
   >
     <div className='flex items-center w-100 flex-col mb-6'>
-      <h1 className='mb-4 text-5xl font-bold'>Contact</h1>
+      <h1 className='mb-4 text-5xl font-bold'>{t("title")}</h1>
       <div className='title-underline'></div>
     </div>
-    <p className='mb-6'>Siente total libertad de contactarme para discutir proyectos emocionantes, oportunidades de colaboración o simplemente para saludar. Estoy aquí para ti.</p>
-    <h3>Social</h3>
+    <p className='mb-6'>{t("description")}</p>
+    <h3>{t("social")}</h3>
     <div className={`flex mt-2`}>
       {/**TODO hover */}
       {icons.map(icon => <Link key={icon.href} href={icon.href} passHref><Image className='h-10 w-10 me-2' src={icon.src} alt={icon.alt} width={40} height={40}/></Link>)}

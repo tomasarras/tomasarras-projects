@@ -2,8 +2,10 @@ import Image from 'next/image';
 import phones from "../../../../../../public/portfolio/phones-1.png"
 import GitHubButtonLink from '../../../Buttons/GitHubButtonLink';
 import styles from "./PortfolioSlideTwo.module.css"
+import { useTranslations } from 'next-intl';
 
 export default function PortfolioSlideTwo() {
+  const t = useTranslations("Portfolio.slides.two")
 
   return (
   <div className='container grid grid-cols-12 items-center h-full'>
@@ -26,7 +28,7 @@ export default function PortfolioSlideTwo() {
       2xl:col-span-4 2xl:col-start-8 
       '>
       <h2 className='text-center mb-4'>Spoiler Five</h2>
-      <p>Una aplicacion similar a Spotify, donde se puede ver y buscar artistas, playlist, albums de distintos artistas. Esta aplicacion es un Demo no funcional desarrollado con Angular con el fin de replicar una aplicacion.</p>
+      <p>{t("description")}</p>
       <GitHubButtonLink link="https://github.com/tomasarras/angular-spoiler-five" className="mt-8"/>
     </div>
   </div>)

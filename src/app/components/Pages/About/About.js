@@ -7,14 +7,6 @@ import ScrollWhileInViewAnimation from '../../Utils/ScrollWhileInViewAnimation';
 
 export default function About() {
   const t = useTranslations("About")
-  //TODO: check this animation
-  //const size = useWindowDimensions()
-  //const scrollAnimation = useAnimationScroll(1)
-  //const animation = isDesktop(size) ? scrollAnimation : {}
-  //const { currentPage } = useContext(Context)
-  // const dotsDecorationAnimation = {
-  //   y: currentPage === 2 ? size.height /10 : 0
-  // }
 
   const dotsDecorationVariants = {
     initial: {
@@ -24,7 +16,6 @@ export default function About() {
       y: 0
     }
   }
-
 
   return (
     <div className={`section md:grid md:gap-4 md:grid-cols-12`}>
@@ -41,16 +32,9 @@ export default function About() {
           <h2 className='mb-6'>Full Stack Web Developer</h2>
           <div className='title-underline'></div>
         </div>
-        <p className='mb-7'>Un apasionado desarrollador web especializado en la creacion de soluciones tanto en el frontend como en el backend. Soy un aficionado a la tecnologia y tengo las habilidades para traducir ideas en codigo para crear experencias digitales y funcionales.</p>
+        <p className='mb-7'>{t("description")}</p>
       </ScrollWhileInViewAnimation>
       <div className={`md:flex col-start-7 col-span-6 md:col-span-5 lg:col-span-6 lg:col-start-7 flex-col items-center justify-center relative mt-4`}>
-        {/* <AnimationHandler
-          isAnimationEnabled
-          animate={dotsDecorationAnimation}
-          transition={{ duration: animationScrollDuration / 1000 }}
-          className={styles.dots}
-          TODO: remove this
-        /> */}
         <AnimationHandler
           isAnimationEnabled
           variants={dotsDecorationVariants}

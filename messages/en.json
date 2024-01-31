@@ -1,5 +1,59 @@
 {
+    "buttons": {
+        "see-code": "See code"
+    },
     "About": {
-        "title": "Hi, I'm Tomas Arras"
+        "title": "Hi, I'm Tomas Arras",
+        "description": "A passionate web developer specialized in creating solutions on both the frontend and backend. I am a techie and have the skills to translate ideas into code to create digital and functional experiences."
+    },
+    "Skills": {
+        "title": "Skills",
+        "description": "My toolbox is full of programming languages, frameworks and modern technologies. From frontend with React, Vue, Bootstrap, Tailwind to backend with Spring, Laravel, ExpressJS, I am equipped to tackle a variety of challenging projects."
+    },
+    "Experience": {
+        "title": "Experience",
+        "description": "Throughout my career, I have had the privilege of working in various roles and technologies that have expanded my experience in web development with frontend and backend technologies. Here's a look at some of my standout experiences:",
+        "timeline": {
+            "certisur": {
+                "title": "BackEnd developer at ",
+                "description": "Development of microservices used for digital signature and issuance of digital certificates.",
+                "time": "February 2022 - 2024 (present)"
+            },
+            "taggify": {
+                "title": "FullStack Developer at ",
+                "description": "Development of a Demand Side Platform (DSP) with microservices.",
+                "time": "September 2021 - February 2022"
+            },
+            "ideaas": {
+                "title": "FullStack developer at ",
+                "description": "Development of a platform that is used to search for architects, works and products.",
+                "time": "January 2021 - September 2021"
+            },
+            "unicen": {
+                "title": "Graduated from the University of ",
+                "title2": " in Tandil, Argentina",
+                "description": "Graduated as a Software Developer.",
+                "time": "January 2018 - December 2021"
+            }
+        }
+    },
+    "Portfolio": {
+        "slides": {
+            "one": {
+                "title": "Portafolio",
+                "description": "He desarrollado distintos tipos de aplicaciones, con distintas tecnologias, con aplicaciones web interactivas construidas con tecnologías front-end como React y Angular. Estos proyectos reflejan mi destreza técnica y también mi enfoque en crear soluciones orientadas al usuario, siempre manteniendo un estándar de código limpio y modular."
+            },
+            "two": {
+                "description": "Una aplicacion similar a Spotify, donde se puede ver y buscar artistas, playlist, albums de distintos artistas. Esta aplicacion es un Demo no funcional desarrollado con Angular con el fin de replicar una aplicacion."
+            },
+            "three": {
+                "description": "Es una aplicación descentralizada (DApp) de compra y venta de bienes a través de SmartContracts en la blockchain de Ethereum. Funciona por medio de contratos digitales donde ambas partes acuerdan entre si. Esta desarrollada con React y Spring."
+            }
+        }
+    },
+    "Contact": {
+        "title": "Contact",
+        "description": "Feel free to contact me to discuss exciting projects, collaboration opportunities, or just to say hello. I'm here for you.",
+        "social": "Social"
     }
 }

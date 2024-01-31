@@ -9,12 +9,11 @@ import styles from "./PortfolioSlideContainer.module.css"
 
 export default function PortfolioSlideContainer({ children, className }) {
   const { subscribeBeforeCurrentPageUpdated, currentPage, portfolioIndex, setPortfolioIndex } = useContext(Context)
-  const childrenArray = React.Children.toArray(children)
   const childrenRefs = useRef([])
   const sliderRef = useRef()
   const sliderContainerRef = useRef()
   const nextSlide = () => {
-    const max = childrenArray.length
+    const max = children.length
     if (portfolioIndex < (max-1)) {
       setPortfolioIndex(portfolioIndex+1)
     }
@@ -39,7 +38,7 @@ export default function PortfolioSlideContainer({ children, className }) {
       const el = sliderRef.current.parentElement.parentElement
       if (el.contains(evt.target)) {
         if (newCurrentPage > currentPage) {
-          if (portfolioIndex == (childrenArray.length-1)) {
+          if (portfolioIndex == (children.length-1)) {
             return true
           } else {
             setPortfolioIndex(portfolioIndex+1)
@@ -67,7 +66,7 @@ export default function PortfolioSlideContainer({ children, className }) {
 
   useEffect(() => {
     if (sliderRef.current == undefined) return
-    const screenXSize = sliderContainerRef.current.offsetWidth/childrenArray.length
+    const screenXSize = sliderContainerRef.current.offsetWidth/children.length
     const startValue = sliderRef.current.scrollLeft
     let stopValue = screenXSize * portfolioIndex
     stopValue = stopValue - startValue
@@ -100,14 +99,14 @@ export default function PortfolioSlideContainer({ children, className }) {
   return (
   <div {...handlers} className={`overflow-hidden ${styles.mainContainer}`}>
     <div className={`absolute top-0 left-0 flex justify-center w-full h-full items-end`}>
-      <div><DotsSlider amount={childrenArray.length} active={portfolioIndex} setActive={setPortfolioIndex}/></div>
+      <div><DotsSlider amount={children.length} active={portfolioIndex} setActive={setPortfolioIndex}/></div>
     </div>
     <div
       ref={sliderRef}
       className={`w-full h-full relative ${className} overflow-x-scroll`}
       >
-      <div ref={sliderContainerRef} style={{width: (childrenArray.length * 100) + "%"}} className='h-full flex items-center justify-center'>
-        {childrenArray.map((child, index) => 
+      <div ref={sliderContainerRef} style={{width: (children.length * 100) + "%"}} className='h-full flex items-center justify-center'>
+        {children.map((child, index) => 
           <div ref={el => childrenRefs.current[index] = el} className={`${styles.slide} flex`} key={index}>
             {child}
           </div>
