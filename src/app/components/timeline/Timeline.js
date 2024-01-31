@@ -28,7 +28,8 @@ export default function WorkTimeline({ }) {
       {/* TODO: Fullstack dev */}
       {/* TODO: check todo */}
       {/* TODO: badges icons */}
-      <ol className={`md:grid md:grid-cols-2 ${styles.ol}`}>                  
+      <ol className={`md:grid md:grid-cols-2 ${styles.ol}`}>  
+        {/**TODO: formatear fechas https://next-intl-docs.vercel.app/docs/usage/dates-times */}                
         <Item i={0} total={4} time="February 2022 - 2024 (present)" title={<>BackEnd developer at <a href='https://www.certisur.com/' className='link hover'>CertiSur</a></>} first>
           <p className='text-gray-500 dark:text-gray-400 mb-3'>Development of microservices used for digital signature and issuance of digital certificates</p>
           <Badge>Spring</Badge>

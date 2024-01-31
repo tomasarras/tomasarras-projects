@@ -6,7 +6,7 @@ import AnimationHandler from '../../Utils/AnimationHandler';
 import ScrollWhileInViewAnimation from '../../Utils/ScrollWhileInViewAnimation';
 
 export default function About() {
-  //const t = useTranslations("about")
+  const t = useTranslations("About")
   //TODO: check this animation
   //const size = useWindowDimensions()
   //const scrollAnimation = useAnimationScroll(1)
@@ -37,7 +37,7 @@ export default function About() {
         2xl:col-span-4`}
       >
         <div className='flex items-center w-100 flex-col mb-6'>
-          <h1 className='mb-3 font-bold'>Hi, I'm Tomas Arras 👋</h1>
+          <h1 className='mb-3 font-bold'>{t("title")} 👋</h1>
           <h2 className='mb-6'>Full Stack Web Developer</h2>
           <div className='title-underline'></div>
         </div>

@@ -11,8 +11,9 @@ import LogoDisplacementAnimation from '../ClientSideRendering/LogoDisplacementAn
 import HeaderDisplacementAnimation from '../ClientSideRendering/HeaderDisplacementAnimation';
 import HeaderLiDesktopColor from '../ClientSideRendering/HeaderLiDesktopColor';
 import HeaderLineDisplacement from '../ClientSideRendering/HeaderLineDisplacement';
+import Link from 'next/link';
 
-export default function HeaderServerRender({ firstPagePassed, isActive }) {
+export default function HeaderServerRender() {
 
   return (
   <header className='w-full h-full'>
@@ -37,13 +38,16 @@ export default function HeaderServerRender({ firstPagePassed, isActive }) {
             <li><AnimatedMenuItem i={2}>Experience</AnimatedMenuItem></li>
             <li><AnimatedMenuItem i={3}>Portfolio</AnimatedMenuItem></li>
             <li><AnimatedMenuItem i={4}>Contact</AnimatedMenuItem></li>
+            {/**TODO: pretty this */}
+            <li><Link href={"/es/home"}>ES</Link></li>
+            <li><Link href={"/es/home"}>EN</Link></li>
           </ul>
         </nav>
       </DropdownHeaderMenu>
       {/** DESKTOP */}
       <div className={`${styles.headerWrapper} hidden sm:block relative`}>
         <HeaderLineDisplacement/>
-        <div className={`${styles.headerContainer} p-2 ${isActive && styles.visible}`}>
+        <div className={`${styles.headerContainer} p-2`}>
           <HeaderItemScrollerDesktop index={0}>
             <LogoDisplacementAnimation>
               <div className={`ms-4 cursor-pointer semibold`}>Tomas Arras</div>
@@ -57,6 +61,8 @@ export default function HeaderServerRender({ firstPagePassed, isActive }) {
                 <li className={`ms-4`}><HeaderLiDesktopColor index={3}><span>Experience</span></HeaderLiDesktopColor></li>
                 <li className={`ms-4`}><HeaderLiDesktopColor index={4}><span>Portfolio</span></HeaderLiDesktopColor></li>
                 <li className={`ms-4`}><HeaderLiDesktopColor index={5}><span>Contact</span></HeaderLiDesktopColor></li>
+                <li><Link href={"/es/home"}>ES</Link></li>
+                <li><Link href={"/en/home"}>EN</Link></li>
               </ul>
             </nav>
           </HeaderDisplacementAnimation>

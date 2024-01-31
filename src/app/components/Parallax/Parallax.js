@@ -10,7 +10,7 @@ import useWindowDimensions from '../../hooks/useWindowDimensions';
 import Image from 'next/image';
 import DevIconPlain from '../Icons/Dev/DevIconPlain';
 import MobileAnimation from '../Icons/MouseAnimation/MobileAnimation';
-import RadialDecorator from '../Decorators/RadialDecorator';
+import portraitDeco from "../../../../public/portrait/portrait_deco.png"
 import triangle from "../../../../public/decorators/triangle.png"
 import circle from "../../../../public/decorators/circle.png"
 import box from "../../../../public/decorators/box.png"
@@ -81,7 +81,9 @@ export default function Parallax() {
       <DevIconPlain width={size.width * 0.05} height={size.width * 0.05} />
     </motion.div>
     <motion.div {...animationT(size.height *.1, 3)} className={`${styles.tomasarras}`} style={{top: tomasarrasTop}}>
-      <Image src="/portrait/portrait_deco.png" width={size.width * 0.2} height={size.width * 0.2} alt='Tomas Arras'/>
+      <div style={{width: size.width * 0.2, height: size.width * 0.2}}>
+        <Image src={portraitDeco} alt='Tomas Arras'/>
+      </div>
     </motion.div>
     <motion.div {...animationT(size.height *.5, 2)}  className={`${styles.lines3}`} style={{top: lines3Top}}>
       <CodeLines width={size.width * 0.25} height={size.width * 0.25}/>
@@ -93,13 +95,19 @@ export default function Parallax() {
       <CodeLines width={size.width * 0.25} height={size.width * 0.25}/>
     </motion.div>
     <motion.div {...horizontalAnimation(size.height *.2, 0)}  className={`${styles.triangle}`} style={{top: triangleTop}}>
-      <Image src={triangle} width={size.width * 0.05} height={size.width * 0.05} className='filter-accent'/>
+      <div style={{width: size.width * 0.05, height:size.width * 0.05}}>
+        <Image src={triangle} className='filter-accent' alt='triangle'/>
+      </div>
     </motion.div>
     <motion.div {...horizontalAnimation(size.height *.2, 1, size.width/1.5)}  className={`${styles.circle}`} style={{top: circleTop}}>
-      <Image src={circle} width={size.width * 0.05} height={size.width * 0.05} className='filter-accent-secondary'/>
+      <div style={{width: size.width * 0.05, height:size.width * 0.05}}>
+        <Image src={circle} className='filter-accent-secondary' alt='circle'/>
+      </div>
     </motion.div>
     <motion.div {...horizontalAnimation(size.height *.2, 2, size.width/1.3)}  className={`${styles.box}`} style={{top: boxTop}}>
-      <Image src={box} width={size.width * 0.05} height={size.width * 0.05} className='filter-accent rotate-45'/>
+      <div style={{width: size.width * 0.05, height:size.width * 0.05}}>
+        <Image src={box} className='filter-accent rotate-45' alt='box'/>
+      </div>
     </motion.div>    
     <motion.div {...animationT(size.height *.2, 5)}  className={`${styles.lines4}`} style={{top: lines6Top}}>
       <CodeLines width={size.width * 0.25} height={size.width * 0.25}/>
