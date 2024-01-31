@@ -1,3 +1,4 @@
+"use client"
 import React, { useContext } from 'react';
 import s from './DropdownHeaderMenu.module.css'
 import AnimationHandler from '../Utils/AnimationHandler';

@@ -1,4 +1,3 @@
-"use client"
 import Header from "../../components/Header/Header";
 import { Provider } from "../../Context";
 import FullPage from "@/app/components/Scroll/FullPage";
@@ -11,9 +10,11 @@ import Portfolio from "@/app/components/Pages/Portfolio/Portfolio";
 import Contact from "@/app/components/Pages/Contact/Contact";
 import { animationScrollDuration } from "@/app/Constants";
 import RadialDecorators from "@/app/components/Decorators/RadialDecorators";
+import { unstable_setRequestLocale } from 'next-intl/server';
 
-export default function Home({params: {section}}) {
-  
+export default function Home({params: {section, locale}}) {
+  unstable_setRequestLocale(locale);
+
   return (
     <Provider section={section}>
       <main>

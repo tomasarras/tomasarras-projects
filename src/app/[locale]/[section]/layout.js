@@ -1,6 +1,8 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { Provider } from "../../Context";
+import { locales } from "@/i18n";
+import { unstable_setRequestLocale } from 'next-intl/server';
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -9,6 +11,7 @@ export const metadata = {
 };
 
 export default function RootLayout({ children, params: { locale, section } }) {
+  unstable_setRequestLocale(locale);
   //TODO: spacing
   //TODO: lethargy dependency
   return (
@@ -16,4 +19,9 @@ export default function RootLayout({ children, params: { locale, section } }) {
       <body className={inter.className}>{children}</body>
     </html>
   );
+}
+
+ 
+export function generateStaticParams() {
+  return locales.map((locale) => ({locale}));
 }
