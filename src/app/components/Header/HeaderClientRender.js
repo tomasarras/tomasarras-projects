@@ -9,10 +9,9 @@ import styles from "./Header.module.css"
 
 export default function HeaderClientRender({ children }) {
   const { currentPage, scrollY } = useContext(Context);
-  const { setIsActive, firstPagePassed, setFirstPagePassed } = useContext(HeaderContext.Context)
+  const { setIsActive, firstPagePassed, setFirstPagePassed, isSidebarOpen, toggleSidebar } = useContext(HeaderContext.Context)
   const size = useWindowDimensions()
   const headerRef = useRef()
-  const [isSidebarOpen, toggleSidebar] = useToggle()
 
   useEffect(() => {
     if (isDesktop(size)) {

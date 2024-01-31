@@ -9,23 +9,26 @@ export const HeaderProvider = ({ children }) => {
   const [isActive, setIsActive] = useState(false)
   const [firstPagePassed, setFirstPagePassed] = useState(false);
 
-
 	const handleChangeIndexMobile = (index) => {
     if (index == 0) {
       if (isSidebarOpen) {
         toggleSidebar()
       }
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
+      setTimeout(() => {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      }, 100);
     } else {
       const sections = document.querySelectorAll(".section")
-      const targetTop = sections[index].getBoundingClientRect().top + scrollY - 20 - 60;
-      window.scrollTo({
-        top: targetTop,
-        behavior: 'smooth'
-      });
+      const targetTop = sections[index-1].getBoundingClientRect().top + scrollY - 20 - 60;
+      setTimeout(() => {
+        window.scrollTo({
+          top: targetTop,
+          behavior: 'smooth'
+        });
+      }, 100);
       toggleSidebar()
     }
   }
