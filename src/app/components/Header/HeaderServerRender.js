@@ -3,8 +3,16 @@ import styles from "./Header.module.css";
 import { HamburgerIcon } from '../Icons/HamburgerIcon';
 import DropdownHeaderMenu from '../Dropdown/DropdownHeaderMenu';
 import AnimatedMenuItem from './AnimatedMenuItem';
+import HeaderItemScroller from '../ClientSideRendering/HeaderItemScroller';
+import HeaderSidebarToggler from '../ClientSideRendering/HeaderSidebarToggler';
+import HeaderHamburgerIcon from '../ClientSideRendering/HeaderHamburgerIcon';
+import HeaderItemScrollerDesktop from '../ClientSideRendering/HeaderItemScrollerDesktop';
+import LogoDisplacementAnimation from '../ClientSideRendering/LogoDisplacementAnimation';
+import HeaderDisplacementAnimation from '../ClientSideRendering/HeaderDisplacementAnimation';
+import HeaderLiDesktopColor from '../ClientSideRendering/HeaderLiDesktopColor';
+import HeaderLineDisplacement from '../ClientSideRendering/HeaderLineDisplacement';
 
-export default function HeaderServerRender({ firstPagePassed, handleSetCurrentPage, handleChangeIndexMobile, currentPage, toggleSidebar, isSidebarOpen, isActive }) {
+export default function HeaderServerRender({ firstPagePassed, isActive }) {
 
   return (
   <header className='w-full h-full'>
@@ -12,41 +20,46 @@ export default function HeaderServerRender({ firstPagePassed, handleSetCurrentPa
       {/** MOBILE */}
       <div className={`${styles.blur} ${styles.mobileContainer} flex justify-between items-center sm:hidden`}>
         <div className='container flex justify-between items-center'>
-          <div className='semibold' data-index="0" onClick={handleChangeIndexMobile}>Tomas Arras</div>
-          <div>
-            <div className="h-6 w-8" onClick={toggleSidebar}>
-              <HamburgerIcon width={32} height={24} isOpen={isSidebarOpen} transition={{ ease: "easeOut", duration: 0.2 }} strokeWidth="2"/>
+          <HeaderItemScroller index={0}><div className='semibold'>Tomas Arras</div></HeaderItemScroller>
+          
+          <HeaderSidebarToggler>
+            <div className="h-6 w-8">
+              <HeaderHamburgerIcon/>
             </div>
-          </div>
+          </HeaderSidebarToggler>
         </div>
       </div>
-      <DropdownHeaderMenu isOpen={isSidebarOpen} onClose={toggleSidebar}>
+      <DropdownHeaderMenu>
         <nav>
           <ul className={`${styles.dropdownMobile} flex flex-col divide-y w-full items-end`}>
-            <li data-index="1" onClick={handleChangeIndexMobile}><AnimatedMenuItem isOpen={isSidebarOpen} i={0}>About</AnimatedMenuItem></li>
-            <li data-index="2" onClick={handleChangeIndexMobile}><AnimatedMenuItem isOpen={isSidebarOpen} i={1}>Skills</AnimatedMenuItem></li>
-            <li data-index="3" onClick={handleChangeIndexMobile}><AnimatedMenuItem isOpen={isSidebarOpen} i={2}>Experience</AnimatedMenuItem></li>
-            <li data-index="4" onClick={handleChangeIndexMobile}><AnimatedMenuItem isOpen={isSidebarOpen} i={3}>Portfolio</AnimatedMenuItem></li>
-            <li data-index="5" onClick={handleChangeIndexMobile}><AnimatedMenuItem isOpen={isSidebarOpen} i={4}>Contact</AnimatedMenuItem></li>
+            <li><AnimatedMenuItem i={0}>About</AnimatedMenuItem></li>
+            <li><AnimatedMenuItem i={1}>Skills</AnimatedMenuItem></li>
+            <li><AnimatedMenuItem i={2}>Experience</AnimatedMenuItem></li>
+            <li><AnimatedMenuItem i={3}>Portfolio</AnimatedMenuItem></li>
+            <li><AnimatedMenuItem i={4}>Contact</AnimatedMenuItem></li>
           </ul>
         </nav>
       </DropdownHeaderMenu>
       {/** DESKTOP */}
       <div className={`${styles.headerWrapper} hidden sm:block relative`}>
-        <div className={`${styles.borderContainer} ${isActive && styles.active} absolute w-full h-full`}>
-          <div className={`${firstPagePassed && styles.black} w-full h-full ${styles.blur}`}></div>
-        </div>
+        <HeaderLineDisplacement/>
         <div className={`${styles.headerContainer} p-2 ${isActive && styles.visible}`}>
-          <div data-index="0" onClick={handleSetCurrentPage} className={`ms-4 cursor-pointer semibold ${styles.logo} ${isActive && styles.visible}`}>Tomas Arras</div>
-          <nav className={`hidden sm:block me-4 ${styles.desktopNav} ${isActive && styles.visible}`}>
-            <ul>
-              <li className={`ms-4 ${currentPage == 1 ? styles.isActive : ""}`} data-index="1" onClick={handleSetCurrentPage}>About</li>
-              <li className={`ms-4 ${currentPage == 2 ? styles.isActive : ""}`} data-index="2" onClick={handleSetCurrentPage}>Skills</li>
-              <li className={`ms-4 ${currentPage == 3 ? styles.isActive : ""}`} data-index="3" onClick={handleSetCurrentPage}>Experience</li>
-              <li className={`ms-4 ${currentPage == 4 ? styles.isActive : ""}`} data-index="4" onClick={handleSetCurrentPage}>Portfolio</li>
-              <li className={`ms-4 ${currentPage == 5 ? styles.isActive : ""}`} data-index="5" onClick={handleSetCurrentPage}>Contact</li>
-            </ul>
-          </nav>
+          <HeaderItemScrollerDesktop index={0}>
+            <LogoDisplacementAnimation>
+              <div className={`ms-4 cursor-pointer semibold`}>Tomas Arras</div>
+            </LogoDisplacementAnimation>
+          </HeaderItemScrollerDesktop>
+          <HeaderDisplacementAnimation>
+            <nav className={`hidden sm:block me-4 `}>
+              <ul>
+                <li className={`ms-4`}><HeaderLiDesktopColor index={1}><span>About</span></HeaderLiDesktopColor></li>
+                <li className={`ms-4`}><HeaderLiDesktopColor index={2}><span>Skills</span></HeaderLiDesktopColor></li>
+                <li className={`ms-4`}><HeaderLiDesktopColor index={3}><span>Experience</span></HeaderLiDesktopColor></li>
+                <li className={`ms-4`}><HeaderLiDesktopColor index={4}><span>Portfolio</span></HeaderLiDesktopColor></li>
+                <li className={`ms-4`}><HeaderLiDesktopColor index={5}><span>Contact</span></HeaderLiDesktopColor></li>
+              </ul>
+            </nav>
+          </HeaderDisplacementAnimation>
         </div>
       </div>
     </div>

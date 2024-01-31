@@ -1,8 +1,11 @@
 "use client"
 
+import { useContext } from "react"
 import AnimationHandler from "../Utils/AnimationHandler"
+import { Context } from "@/app/Context/HeaderContext"
 
-export default function AnimatedMenuItem({ isOpen, i, children }) {
+export default function AnimatedMenuItem({ i, children }) {
+  const { isSidebarOpen, handleChangeIndexMobile } = useContext(Context)
   const fadeInAnimationVariants = {
     initial: {
       opacity: 0,
@@ -17,5 +20,5 @@ export default function AnimatedMenuItem({ isOpen, i, children }) {
     })
   }
 
-  return <AnimationHandler isAnimationEnabled variants={fadeInAnimationVariants} initial="initial" animate={isOpen ? "animate" : "initial"} custom={i}>{children}</AnimationHandler>
+  return <AnimationHandler onClick={() => handleChangeIndexMobile(i+1)} isAnimationEnabled variants={fadeInAnimationVariants} initial="initial" animate={isSidebarOpen ? "animate" : "initial"} custom={i}>{children}</AnimationHandler>
 }

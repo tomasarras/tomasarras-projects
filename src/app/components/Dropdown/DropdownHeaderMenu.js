@@ -1,17 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import s from './DropdownHeaderMenu.module.css'
-import { motion } from 'framer-motion';
 import AnimationHandler from '../Utils/AnimationHandler';
+import { Context } from '@/app/Context/HeaderContext';
 
-export default function DropdownHeaderMenu({ isOpen, children }) {
+export default function DropdownHeaderMenu({ children }) {
+	const { isSidebarOpen } = useContext(Context)
 
-    const animation = {
-        height: isOpen ? 'fit-content' : 0
-    }
-  
-    return (<>
-        <AnimationHandler isAnimationEnabled initial={false} animate={animation} className={`${s.sidebar} ${isOpen ? s.open : ''}`}>
-            {children}
-        </AnimationHandler>
-    </>);
+	const animation = {
+		height: isSidebarOpen ? 'fit-content' : 0
+	}
+
+	return (<>
+		<AnimationHandler isAnimationEnabled initial={false} animate={animation} className={`${s.sidebar} ${isSidebarOpen ? s.open : ''}`}>
+				{children}
+		</AnimationHandler>
+	</>);
 }

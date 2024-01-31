@@ -97,7 +97,7 @@
     opacity: 1;
 }
 
-.desktopNav ul li {
+.desktopNav ul li span {
     transition: color .3s;
     cursor: pointer;
     color: inherit;
@@ -105,15 +105,15 @@
     position: relative;
 }
 
-.desktopNav ul li.isActive, .desktopNav ul li:hover {
+.desktopNav ul .li.isActive, .desktopNav ul .li:hover {
     /* TODO: darkmode */
     color: var(--accent-color-primary);
 }
 
-.desktopNav ul li::after {
+.desktopNav ul li span::after {
     content: '';
     position: absolute;
-    bottom: 0;
+    bottom: -6px;
     left: 0;
     width: 0;
     height: 2px;
@@ -127,7 +127,7 @@
     background-color: white; */
 }
 
-.desktopNav ul li:hover::after {
+.desktopNav ul li span:hover::after {
     width: 100%; /* Expande la barrita blanca al 100% del ancho del li en el hover */
 }
 
