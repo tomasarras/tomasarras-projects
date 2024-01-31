@@ -91,7 +91,7 @@ export default function Contact() {
     //radial-gradient(circle ${size/2}px, var(--gradial-circle-radiants), var(--background-color) 100%)
     
   ]
-
+  //TODO: responsive margin bottom
   return <div className={`section grid grid-cols-1 md:gap-4 md:grid-cols-12`}>
   <ScrollWhileInViewAnimation 
     page={5}

@@ -1,19 +1,13 @@
+"use client"
 import Image from 'next/image';
 import desktop from '../../../../../../public/portfolio/macbook-pro2.png'
 import GitHubButtonLink from '../../../Buttons/GitHubButtonLink';
 import styles from "./PortfolioSlideThree.module.css"
 import { animationScrollDuration } from '../../../../constants/Constants';
 import OnlyDesktopAnimation from '@/app/components/Utils/OnlyDesktopAnimation';
+import PortfolioSlideThreeDots from '@/app/components/ClientSideRendering/PortfolioSlideThreeDots';
 
-export default function PortfolioSlideThree({ isActive }) {
-  const backgroundVariant = {
-    initial: {
-      x: 600
-    },
-    animate: {
-      x:0
-    }
-  }
+export default function PortfolioSlideThree() {
 
   return (
     <div className='container grid grid-cols-12 items-center'>
@@ -24,12 +18,7 @@ export default function PortfolioSlideThree({ isActive }) {
         lg:col-span-6 
         xl:col-span-5 xl:mt-8
         2xl:col-start-2 2xl:mt-0`}>
-        <OnlyDesktopAnimation
-          variants={backgroundVariant}
-          animate={isActive ? "animate" : "initial"}
-          transition={{duration: (animationScrollDuration/1000) + 0.1}}
-          className={`${styles.laptopDots}`}
-        />
+        <PortfolioSlideThreeDots/>
         <Image src={desktop} alt="laptop-calid-burn" className='w-10/12 sm:w-full'/>
       </div>
       <div className='mt-4 

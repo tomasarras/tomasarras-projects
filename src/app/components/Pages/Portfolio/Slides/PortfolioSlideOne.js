@@ -1,4 +1,4 @@
-export default function PortfolioSlideOne({ }) {
+export default function PortfolioSlideOne() {
 
   return (
 	<div className='container flex justify-center items-center'>

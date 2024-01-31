@@ -3,7 +3,7 @@ import phones from "../../../../../../public/portfolio/phones-1.png"
 import GitHubButtonLink from '../../../Buttons/GitHubButtonLink';
 import styles from "./PortfolioSlideTwo.module.css"
 
-export default function PortfolioSlideTwo({ isActive }) {
+export default function PortfolioSlideTwo() {
 
   return (
   <div className='container grid grid-cols-12 items-center h-full'>
