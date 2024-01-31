@@ -36,12 +36,6 @@ export const Provider = ({ children, section }) => {
     )
 
     useEffect(() => {
-        console.log("🚀 ~ useEffect ~ currentPage:", currentPage)
-    }, [currentPage])
-    
-    
-
-    useEffect(() => {
         if (hasPageBeenRendered.current["effect"] == 0) {
             const prevValue = prevCurrentPageRef.current
             const startTime = performance.now();

@@ -1,7 +1,7 @@
 import HeaderClientRender from './HeaderClientRender';
 import HeaderServerRender from './HeaderServerRender';
 
-export default function Header({ sections }) {
+export default function Header() {
 
   return (
     <HeaderClientRender>

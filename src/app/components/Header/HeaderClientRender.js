@@ -2,28 +2,9 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
 import { Context } from '../../Context';
 import { useToggle } from '../../hooks/useToggle';
-import { motion } from 'framer-motion';
 import useWindowDimensions from '../../hooks/useWindowDimensions';
 import { isDesktop, isTablet } from '../../utils/utils';
-
-//TODO: scroll on header bug 
-const AnimatedMenuItem = ({ isOpen, i, children }) => {
-  const fadeInAnimationVariants = {
-    initial: {
-      opacity: 0,
-      x: 200,
-    },
-    animate: (index) => ({
-      opacity: 1,
-      x: 0,
-      transition: {
-        delay: 0.1 * index,
-      }
-    })
-  }
-
-  return <motion.span variants={fadeInAnimationVariants} initial="initial" animate={isOpen ? "animate" : "initial"} custom={i}>{children}</motion.span>
-}
+import styles from "./Header.module.css"
 
 export default function HeaderClientRender({ children }) {
   const { currentPage, setCurrentPage, scrollY } = useContext(Context);
@@ -34,6 +15,7 @@ export default function HeaderClientRender({ children }) {
   const [isSidebarOpen, toggleSidebar] = useToggle()
 
   useEffect(() => {
+    console.log("useE",currentPage, scrollY, size);
     if (isDesktop(size)) {
       if (currentPage >= 1 && !firstPagePassed)
         setFirstPagePassed(true)
@@ -91,6 +73,9 @@ export default function HeaderClientRender({ children }) {
     setCurrentPage(e.target.dataset.index)
   }
 
-  return React.cloneElement(children, { firstPagePassed, handleChangeIndexMobile, currentPage, handleSetCurrentPage, headerRef, toggleSidebar, isSidebarOpen, isActive })
+  return (
+    <div ref={headerRef} className={`${styles.header} sm:mt-4`}>
+      {React.cloneElement(children, { firstPagePassed, handleChangeIndexMobile, currentPage, handleSetCurrentPage, toggleSidebar, isSidebarOpen, isActive })}
+    </div>)
 
 }
