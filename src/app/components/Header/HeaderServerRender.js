@@ -10,13 +10,16 @@ import HeaderItemScrollerDesktop from '../ClientSideRendering/HeaderItemScroller
 import LogoDisplacementAnimation from '../ClientSideRendering/LogoDisplacementAnimation';
 import HeaderDisplacementAnimation from '../ClientSideRendering/HeaderDisplacementAnimation';
 import HeaderLiDesktopColor from '../ClientSideRendering/HeaderLiDesktopColor';
+import LanguageDropdown from '../ClientSideRendering/LanguageDropdown';
+import { useTranslations } from 'next-intl';
 import HeaderLineDisplacement from '../ClientSideRendering/HeaderLineDisplacement';
 import Link from 'next/link';
 
 export default function HeaderServerRender() {
+  const t = useTranslations("Header")
 
   return (
-  <header className='w-full h-full'>
+  <header className={`w-full h-full ${styles.mainHeaderContainer}`}>
     <div className='w-full sm:container sm:mx-auto'>
       {/** MOBILE */}
       <div className={`${styles.blur} ${styles.mobileContainer} flex justify-between items-center sm:hidden`}>
@@ -33,11 +36,11 @@ export default function HeaderServerRender() {
       <DropdownHeaderMenu>
         <nav>
           <ul className={`${styles.dropdownMobile} flex flex-col divide-y w-full items-end`}>
-            <li><AnimatedMenuItem i={0}>About</AnimatedMenuItem></li>
-            <li><AnimatedMenuItem i={1}>Skills</AnimatedMenuItem></li>
-            <li><AnimatedMenuItem i={2}>Experience</AnimatedMenuItem></li>
-            <li><AnimatedMenuItem i={3}>Portfolio</AnimatedMenuItem></li>
-            <li><AnimatedMenuItem i={4}>Contact</AnimatedMenuItem></li>
+            <li><AnimatedMenuItem i={0}>{t("about")}</AnimatedMenuItem></li>
+            <li><AnimatedMenuItem i={1}>{t("skills")}</AnimatedMenuItem></li>
+            <li><AnimatedMenuItem i={2}>{t("experience")}</AnimatedMenuItem></li>
+            <li><AnimatedMenuItem i={3}>{t("portfolio")}</AnimatedMenuItem></li>
+            <li><AnimatedMenuItem i={4}>{t("contact")}</AnimatedMenuItem></li>
             {/**TODO: pretty this */}
             <li><Link href={"/es"}>ES</Link></li>
             <li><Link href={"/en"}>EN</Link></li>
@@ -54,15 +57,13 @@ export default function HeaderServerRender() {
             </LogoDisplacementAnimation>
           </HeaderItemScrollerDesktop>
           <HeaderDisplacementAnimation>
-            <nav className={`hidden sm:block me-4 `}>
+            <nav className={`hidden sm:block me-4`}>
               <ul>
-                <li className={`ms-4`}><HeaderLiDesktopColor index={1}><span>About</span></HeaderLiDesktopColor></li>
-                <li className={`ms-4`}><HeaderLiDesktopColor index={2}><span>Skills</span></HeaderLiDesktopColor></li>
-                <li className={`ms-4`}><HeaderLiDesktopColor index={3}><span>Experience</span></HeaderLiDesktopColor></li>
-                <li className={`ms-4`}><HeaderLiDesktopColor index={4}><span>Portfolio</span></HeaderLiDesktopColor></li>
-                <li className={`ms-4`}><HeaderLiDesktopColor index={5}><span>Contact</span></HeaderLiDesktopColor></li>
-                <li><Link href={"/es"}>ES</Link></li>
-                <li><Link href={"/en"}>EN</Link></li>
+                <li className={`ms-4`}><HeaderLiDesktopColor index={1}><span>{t("about")}</span></HeaderLiDesktopColor></li>
+                <li className={`ms-4`}><HeaderLiDesktopColor index={2}><span>{t("skills")}</span></HeaderLiDesktopColor></li>
+                <li className={`ms-4`}><HeaderLiDesktopColor index={3}><span>{t("experience")}</span></HeaderLiDesktopColor></li>
+                <li className={`ms-4`}><HeaderLiDesktopColor index={4}><span>{t("portfolio")}</span></HeaderLiDesktopColor></li>
+                <li className={`ms-4`}><HeaderLiDesktopColor index={5}><span>{t("contact")}</span></HeaderLiDesktopColor></li>
               </ul>
             </nav>
           </HeaderDisplacementAnimation>

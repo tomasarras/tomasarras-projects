@@ -2,6 +2,15 @@
     width: 100%;
 }
 
+.mainHeaderContainer ul li {
+    text-wrap: nowrap;
+}
+
+.headerWrapper ul li {
+    display: flex;
+    align-items: center;
+}
+
 .header {
     width: 100%;
     position: fixed;

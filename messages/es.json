@@ -2,6 +2,14 @@
     "buttons": {
         "see-code": "Ver codigo"
     },
+    "Header": {
+        "about": "Sobre mi",
+        "skills": "Habilidades",
+        "experience": "Experiencia",
+        "portfolio": "Portafolio",
+        "contact": "Contacto",
+        "currentLanguage": "Español"
+    },
     "About": {
         "title": "Hola, Soy Tomas Arras",
         "description": "Un apasionado desarrollador web especializado en la creacion de soluciones tanto en el frontend como en el backend. Soy un aficionado a la tecnologia y tengo las habilidades para traducir ideas en codigo para crear experencias digitales y funcionales."
@@ -22,6 +30,7 @@
                 "time": "Febrero 2022 - 2024 (presente)"
             },
             "taggify": {
+                "link": "https://www.taggify.net/es",
                 "title": "Desarrollador FullStack en ",
                 "description": "Desarrollo de una plataforma Demand Side Platform (DSP) con microservicios.",
                 "time": "Septiembre 2021 - Febrero 2022"

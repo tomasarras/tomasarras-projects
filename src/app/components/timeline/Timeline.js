@@ -4,7 +4,7 @@ import { useTranslations } from 'next-intl';
 
 const Badge = ({ children }) => (<span className="bg-accent text-accent-light text-xs font-medium me-2 px-2.5 py-0.5 rounded-full">{children}</span>);
 
-const Item = ({ time, children, title, i, first, last, order }) => {
+const Item = ({ time, children, title, i, first, last }) => {
   
   return (
   <li className={`${styles.item} ${styles["order-" + i]} relative ps-4 pe-4 rounded`}>
@@ -33,7 +33,7 @@ export default function WorkTimeline() {
           <Badge>Spring</Badge>
           <Badge>Vue</Badge>
         </Item>
-        <Item i={1} total={4} time={t("taggify.time")} title={<>{t("taggify.title")}<a href={'https://www.taggify.net/' + t("language")} className='link hover'>Taggify</a></>}>
+        <Item i={1} total={4} time={t("taggify.time")} title={<>{t("taggify.title")}<a href={t("taggify.link")} className='link hover'>Taggify</a></>}>
           <p className='text-gray-500 dark:text-gray-400 mb-3'>
             {t("taggify.description")}
           </p>

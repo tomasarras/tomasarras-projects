@@ -2,6 +2,14 @@
     "buttons": {
         "see-code": "See code"
     },
+    "Header": {
+        "about": "About",
+        "skills": "Skills",
+        "experience": "Experience",
+        "portfolio": "Portfolio",
+        "contact": "Contact",
+        "currentLanguage": "English"
+    },
     "About": {
         "title": "Hi, I'm Tomas Arras",
         "description": "A passionate web developer specialized in creating solutions on both the frontend and backend. I am a techie and have the skills to translate ideas into code to create digital and functional experiences."
@@ -14,7 +22,6 @@
         "title": "Experience",
         "description": "Throughout my career, I have had the privilege of working in various roles and technologies that have expanded my experience in web development with frontend and backend technologies. Here's a look at some of my standout experiences:",
         "timeline": {
-            "language": "en",
             "certisur": {
                 "link": "https://www.certisur.com/en/",
                 "title": "BackEnd developer at ",
@@ -22,6 +29,7 @@
                 "time": "February 2022 - 2024 (present)"
             },
             "taggify": {
+                "link": "https://www.taggify.net/en",
                 "title": "FullStack Developer at ",
                 "description": "Development of a Demand Side Platform (DSP) with microservices.",
                 "time": "September 2021 - February 2022"
