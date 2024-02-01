@@ -14,7 +14,9 @@
         "title": "Experiencia",
         "description": "A lo largo de mi carrera, he tenido el privilegio de trabajar en diversos roles y tecnologías que han ampliado mi experiencia en el desarrollo web con tecnologías de frontend y de backend. Aquí hay un vistazo a algunas de mis experiencias más destacadas:",
         "timeline": {
+            "language": "es",
             "certisur": {
+                "link": "https://www.certisur.com/",
                 "title": "Desarrollador BackEnd en ",
                 "description": "Desarrollo de microservicios utilizados para firma digital y emisión de certificados digitales.",
                 "time": "Febrero 2022 - 2024 (presente)"
@@ -30,6 +32,7 @@
                 "time": "Enero 2021 - Septiembre 2021"
             },
             "unicen": {
+                "link": "https://www.unicen.edu.ar/content/tandil",
                 "title": "Graduado de la Universidad ",
                 "title2": " en Tandil, Argentina",
                 "description": "Graduado de Desarrollador de Software.",

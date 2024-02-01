@@ -25,19 +25,15 @@ export default function WorkTimeline() {
   const t = useTranslations("Experience.timeline")
   return (
     <div>
-      {/* TODO: present current month */}
-      {/* TODO: Fullstack dev */}
       {/* TODO: check todo */}
       {/* TODO: badges icons */}
       <ol className={`md:grid md:grid-cols-2 ${styles.ol}`}>  
-        {/**TODO: formatear fechas https://next-intl-docs.vercel.app/docs/usage/dates-times */}                
-        <Item i={0} total={4} time={t("certisur.time")} title={<>{t("certisur.title")}<a href='https://www.certisur.com/' className='link hover'>CertiSur</a></>} first>
+        <Item i={0} total={4} time={t("certisur.time")} title={<>{t("certisur.title")}<a href={t("certisur.link")} className='link hover'>CertiSur</a></>} first>
           <p className='text-gray-500 dark:text-gray-400 mb-3'>{t("certisur.description")}</p>
           <Badge>Spring</Badge>
           <Badge>Vue</Badge>
         </Item>
-        {/**TODO: link en ingles https://www.taggify.net/en */}
-        <Item i={1} total={4} time={t("taggify.time")} title={<>{t("taggify.title")}<a href='https://www.taggify.net/en' className='link hover'>Taggify</a></>}>
+        <Item i={1} total={4} time={t("taggify.time")} title={<>{t("taggify.title")}<a href={'https://www.taggify.net/' + t("language")} className='link hover'>Taggify</a></>}>
           <p className='text-gray-500 dark:text-gray-400 mb-3'>
             {t("taggify.description")}
           </p>
@@ -52,8 +48,7 @@ export default function WorkTimeline() {
           <Badge>Spring</Badge>
           <Badge>NextJS</Badge>
         </Item>
-        {/**TODO: link en ingles https://www.unicen.edu.ar/english */}
-        <Item i={3} total={4} time={t("unicen.time")} title={<>{t("unicen.title")}<a href='https://www.unicen.edu.ar/content/tandil' className='link hover'>UNICEN</a> {t("unicen.title2")}</>} last>
+        <Item i={3} total={4} time={t("unicen.time")} title={<>{t("unicen.title")}<a href={t("unicen.link")} className='link hover'>UNICEN</a> {t("unicen.title2")}</>} last>
           <p className='text-gray-500 dark:text-gray-400 mb-3'>{t("unicen.description")}</p>
         </Item>
       </ol>

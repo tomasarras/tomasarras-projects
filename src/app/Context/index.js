@@ -5,7 +5,7 @@ import { animationScrollDuration } from "../constants/Constants"
 
 export const Context = createContext();
 
-export const Provider = ({ children, section }) => {
+export const Provider = ({ children, locale }) => {
     const [currentPage, setCurrentPage] = useState(0);
     const [skillsHighlightedType, setSkillsHighlightedType] = useState(null);
     const [scrollY, setScrollY] = useState(0);
@@ -93,6 +93,7 @@ export const Provider = ({ children, section }) => {
         setPortfolioIndex,
         skillsHighlightedType,
         setSkillsHighlightedType,
+        locale,
     }}>
         {children}
     </Context.Provider>);

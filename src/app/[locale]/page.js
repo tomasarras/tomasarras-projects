@@ -1,5 +1,5 @@
-import Header from "../../components/Header/Header";
-import { Provider } from "../../Context";
+import Header from "../components/Header/Header";
+import { Provider } from "../Context";
 import FullPage from "@/app/components/Scroll/FullPage";
 import Hero from "@/app/components/Pages/Hero/Hero";
 import Container from "@/app/components/Container/Container";
@@ -12,11 +12,11 @@ import { animationScrollDuration } from "@/app/Constants";
 import RadialDecorators from "@/app/components/Decorators/RadialDecorators";
 import { unstable_setRequestLocale } from 'next-intl/server';
 
-export default function Home({params: {section, locale}}) {
+export default function Home({ params: { locale } }) {
   unstable_setRequestLocale(locale);
 
   return (
-    <Provider section={section}>
+    <Provider>
       <main>
         <Header/>
         <RadialDecorators/>

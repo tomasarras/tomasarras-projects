@@ -10,7 +10,7 @@ export const metadata = {
   description: "Tomas Arras Portfolio",
 };
 
-export default function RootLayout({ children, params: { locale, section } }) {
+export default function RootLayout({ children, params: { locale } }) {
   unstable_setRequestLocale(locale);
   //TODO: spacing
   //TODO: lethargy dependency

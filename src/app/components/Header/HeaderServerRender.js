@@ -39,8 +39,8 @@ export default function HeaderServerRender() {
             <li><AnimatedMenuItem i={3}>Portfolio</AnimatedMenuItem></li>
             <li><AnimatedMenuItem i={4}>Contact</AnimatedMenuItem></li>
             {/**TODO: pretty this */}
-            <li><Link href={"/es/home"}>ES</Link></li>
-            <li><Link href={"/es/home"}>EN</Link></li>
+            <li><Link href={"/es"}>ES</Link></li>
+            <li><Link href={"/en"}>EN</Link></li>
           </ul>
         </nav>
       </DropdownHeaderMenu>
@@ -61,8 +61,8 @@ export default function HeaderServerRender() {
                 <li className={`ms-4`}><HeaderLiDesktopColor index={3}><span>Experience</span></HeaderLiDesktopColor></li>
                 <li className={`ms-4`}><HeaderLiDesktopColor index={4}><span>Portfolio</span></HeaderLiDesktopColor></li>
                 <li className={`ms-4`}><HeaderLiDesktopColor index={5}><span>Contact</span></HeaderLiDesktopColor></li>
-                <li><Link href={"/es/home"}>ES</Link></li>
-                <li><Link href={"/en/home"}>EN</Link></li>
+                <li><Link href={"/es"}>ES</Link></li>
+                <li><Link href={"/en"}>EN</Link></li>
               </ul>
             </nav>
           </HeaderDisplacementAnimation>
