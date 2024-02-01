@@ -1,6 +1,5 @@
 import React from 'react';
 import styles from "./Header.module.css";
-import { HamburgerIcon } from '../Icons/HamburgerIcon';
 import DropdownHeaderMenu from '../Dropdown/DropdownHeaderMenu';
 import AnimatedMenuItem from './AnimatedMenuItem';
 import HeaderItemScroller from '../ClientSideRendering/HeaderItemScroller';
@@ -13,7 +12,9 @@ import HeaderLiDesktopColor from '../ClientSideRendering/HeaderLiDesktopColor';
 import LanguageDropdown from '../ClientSideRendering/LanguageDropdown';
 import { useTranslations } from 'next-intl';
 import HeaderLineDisplacement from '../ClientSideRendering/HeaderLineDisplacement';
-import Link from 'next/link';
+
+import SpanishButton from '../Buttons/SpanishButton';
+import EnglishButton from '../Buttons/EnglishButton';
 
 export default function HeaderServerRender() {
   const t = useTranslations("Header")
@@ -42,8 +43,7 @@ export default function HeaderServerRender() {
             <li><AnimatedMenuItem i={3}>{t("portfolio")}</AnimatedMenuItem></li>
             <li><AnimatedMenuItem i={4}>{t("contact")}</AnimatedMenuItem></li>
             {/**TODO: pretty this */}
-            <li><Link href={"/es"}>ES</Link></li>
-            <li><Link href={"/en"}>EN</Link></li>
+            <li className='flex justify-between'><SpanishButton/><EnglishButton/></li>
           </ul>
         </nav>
       </DropdownHeaderMenu>
@@ -64,6 +64,12 @@ export default function HeaderServerRender() {
                 <li className={`ms-4`}><HeaderLiDesktopColor index={3}><span>{t("experience")}</span></HeaderLiDesktopColor></li>
                 <li className={`ms-4`}><HeaderLiDesktopColor index={4}><span>{t("portfolio")}</span></HeaderLiDesktopColor></li>
                 <li className={`ms-4`}><HeaderLiDesktopColor index={5}><span>{t("contact")}</span></HeaderLiDesktopColor></li>
+                <li className={`ms-4`}>
+                  <LanguageDropdown currentLanguage={t("currentLanguage")}>
+                    <SpanishButton/>
+                    <EnglishButton/>
+                  </LanguageDropdown>
+                </li>
               </ul>
             </nav>
           </HeaderDisplacementAnimation>
