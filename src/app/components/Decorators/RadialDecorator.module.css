@@ -1,6 +1,15 @@
-.radial {
+.radial::before {
     content: '';
     position: absolute;
-    /* background: radial-gradient(ellipse farthest-corner at 45px 45px, var(--gradial-circle-radiants), rgba(0, 0, 0, 0) 100%);  */
-    background: radial-gradient(circle 315px, var(--gradial-circle-radiants), #040404 100%)
+    opacity: 0.1; 
+    background-image: linear-gradient(to bottom right, transparent, var(--accent-color-primary-light));
+    width: min(33vw, 640px);
+    height: 100vh;
+    filter: var(40px) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+    border-radius: 9999px;
+    /* transform: translate(-50%, 0) rotate(0) skewX(0) skewY(0) scaleX(1) scaleY(1); */
+}
+
+.radial {
+    position: absolute;
 }
