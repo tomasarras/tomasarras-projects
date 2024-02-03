@@ -1,8 +1,8 @@
 .imageContainer {
-    background-color: black;
     border-radius: 100%;
     overflow: hidden;
     z-index: 2;
+    box-shadow: 0 0 120px 10px var(--accent-color-primary), 0 0 120px 10px var(--accent-color-primary-light);
 }
 
 .shadow {

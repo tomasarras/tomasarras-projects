@@ -13,6 +13,6 @@
 
 @media only screen and (min-width: 576px) {
     .laptopDots {
-        height: 100vh;
+        height: 100dvh;
     }
 }
