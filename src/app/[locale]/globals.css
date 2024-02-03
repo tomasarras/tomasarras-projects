@@ -84,17 +84,31 @@ body {
 }
 
 h1 {
-    @apply text-3xl;
+    @apply text-2xl;
+}
+
+@media only screen and (min-width: 400px) {
+    h1 {
+        @apply text-3xl;
+    }
+
+    h2 {
+        @apply text-2xl;
+    }
 }
 
 @media only screen and (min-width: 576px) {
     h1 {
         @apply text-4xl;
     }
+
+    h2 {
+        @apply text-2xl;
+    }
 }
 
 h2 {
-    @apply text-2xl;
+    @apply text-xl;
 }
 
 h3 {
