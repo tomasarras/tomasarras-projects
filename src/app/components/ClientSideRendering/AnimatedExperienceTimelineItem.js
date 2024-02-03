@@ -1,7 +1,10 @@
 "use client"
+import { isDesktop } from '@/app/utils/utils'
 import AnimationHandler from '../Utils/AnimationHandler'
+import useWindowDimensions from '@/app/hooks/useWindowDimensions'
 
 export const AnimatedExperienceTimelineItem = ({ index, children }) => {
+  const size = useWindowDimensions()
 	const fadeInAnimationVariants = {
     initial: {
       opacity: 0,
@@ -18,7 +21,7 @@ export const AnimatedExperienceTimelineItem = ({ index, children }) => {
 
   return (
     <AnimationHandler
-			isAnimationEnabled
+			isAnimationEnabled={isDesktop(size)}
 			variants={fadeInAnimationVariants}
 			initial="initial"
 			whileInView="animate"

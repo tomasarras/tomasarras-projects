@@ -1,7 +1,10 @@
 "use client"
+import { isDesktop } from "@/app/utils/utils"
 import AnimationHandler from "./AnimationHandler"
+import useWindowDimensions from "@/app/hooks/useWindowDimensions"
 
 export default function DevIconAnimation({ children, className, index }) {
+	const size = useWindowDimensions()
     const fadeInAnimationVariants = {
 			initial: {
 				opacity: 0,
@@ -18,7 +21,7 @@ export default function DevIconAnimation({ children, className, index }) {
 
     return (
 		<AnimationHandler
-			isAnimationEnabled
+			isAnimationEnabled={isDesktop(size)}
 			className={className}
 			variants={fadeInAnimationVariants}
 			initial="initial"
