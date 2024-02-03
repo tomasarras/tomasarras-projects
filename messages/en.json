@@ -51,14 +51,14 @@
     "Portfolio": {
         "slides": {
             "one": {
-                "title": "Portafolio",
-                "description": "He desarrollado distintos tipos de aplicaciones, con distintas tecnologias, con aplicaciones web interactivas construidas con tecnologías front-end como React y Angular. Estos proyectos reflejan mi destreza técnica y también mi enfoque en crear soluciones orientadas al usuario, siempre manteniendo un estándar de código limpio y modular."
+                "title": "Portfolio",
+                "description": "I have developed different types of applications, with different technologies, with interactive web applications built with front-end technologies such as React and Angular. These projects reflect my technical prowess and also my focus on creating user-oriented solutions, always maintaining a clean and modular code standard."
             },
             "two": {
-                "description": "Una aplicacion similar a Spotify, donde se puede ver y buscar artistas, playlist, albums de distintos artistas. Esta aplicacion es un Demo no funcional desarrollado con Angular con el fin de replicar una aplicacion."
+                "description": "An application similar to Spotify, where you can see and search for artists, playlists, albums from different artists. This application is a non-functional Demo developed with Angular in order to replicate an application."
             },
             "three": {
-                "description": "Es una aplicación descentralizada (DApp) de compra y venta de bienes a través de SmartContracts en la blockchain de Ethereum. Funciona por medio de contratos digitales donde ambas partes acuerdan entre si. Esta desarrollada con React y Spring."
+                "description": "It is a decentralized application (DApp) for buying and selling goods through SmartContracts on the Ethereum blockchain. It works through digital contracts where both parties agree between themselves. It is developed with React and Spring."
             }
         }
     },
