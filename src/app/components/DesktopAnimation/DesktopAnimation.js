@@ -19,6 +19,7 @@ import b5 from "../../../../public/desktop/background/b5/b1.svg"
 import b52 from "../../../../public/desktop/background/b5/b2.svg"
 import b3Lines from "../../../../public/desktop/background/b3/lines.svg"
 import circle from "../../../../public/desktop/background/b6/circle.svg"
+import { isDesktop } from '@/app/utils/utils';
 
 export default function DesktopAnimation({ className }) {
   const { currentPage } = useContext(Context);
@@ -27,7 +28,6 @@ export default function DesktopAnimation({ className }) {
   const [width, setWidth] = useState(0)
   const [height, setHeight] = useState(0)
   const passed = currentPage > showInPage;
-  // const containerRef = useRef(null)
   const [isActive, setIsActive] = useState(true)
   const desktopRef = useRef(null)
   const codeVariants = {
@@ -49,9 +49,13 @@ export default function DesktopAnimation({ className }) {
     variants: codeVariants
   }
 
-  // useEffect(() => {
-  //   setIsActive(currentPage >= showInPage)
-  // }, [currentPage])
+  useEffect(() => {
+    if (isDesktop(size)) {
+      setIsActive(currentPage >= showInPage)
+    } else {
+      setIsActive(true)
+    }
+  }, [currentPage, size])
 
   useEffect(() => {
     if (desktopRef.current) {
