@@ -6,6 +6,10 @@
     transition: background-color .5s;
 }
 
+.badgeText {
+    color: #040404;
+}
+
 .dotItem {
     left: 0.65rem;
 }

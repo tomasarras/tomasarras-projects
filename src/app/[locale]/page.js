@@ -19,7 +19,7 @@ export default function Home({ params: { locale } }) {
     <Provider>
       <main>
         <Header/>
-        <RadialDecorators/>
+        {/* <RadialDecorators/> */}
         <FullPage duration={animationScrollDuration}>
           <Hero/>
           <Container page={1} center>

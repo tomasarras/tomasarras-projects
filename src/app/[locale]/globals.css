@@ -23,8 +23,8 @@
     /* --accent-color-primary: #9C27B0; */
     --accent-color-primary-light: #faf5ae;
     /* --accent-color-primary: #F4A949; */
-    --accent-color-primary: #9E961D;
-    --gradial-circle-radiants: #121212;
+    --accent-color-primary: #C6BB24;
+    --gradial-circle-radiants: #4d4b34;
     /* --accent-color-primary: #1C5F9A; */
     /* --accent-color-primary: #FF4A57; */
 }
@@ -40,11 +40,6 @@
 .bg-accent {
     background-color: var(--accent-color-primary);
 }
-
-.text-accent-light {
-    color: var(--accent-color-primary-light);
-}
-
 
 .semibold {
     font-weight: var(--semibold-font-weight);

@@ -1,10 +1,10 @@
 "use client"
 import { motion } from "framer-motion"
 
-export default function AnimationHandler({ isAnimationEnabled, ...props }) {
+export default function AnimationHandler({ isAnimationEnabled, whileInView, ...props }) {
 
     return isAnimationEnabled ? 
-    <motion.div {...props}>{props.children}</motion.div>
+    <motion.div whileInView={whileInView} {...props}>{props.children}</motion.div>
     :
     <div {...props}>{props.children}</div>
 }

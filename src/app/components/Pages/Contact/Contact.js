@@ -3,6 +3,7 @@ import Image from 'next/image';
 import contactImg from "../../../../../public/portrait/contact.png"
 import Link from 'next/link';
 import instagramIcon from "../../../../../public/icons/instagram-white.svg"
+import emailIcon from "../../../../../public/icons/email.svg"
 import githubIcon from "../../../../../public/icons/github-white.svg"
 import linkedInIcon from "../../../../../public/icons/linkedin-white.svg"
 import ScrollWhileInViewAnimation from '../../Utils/ScrollWhileInViewAnimation';
@@ -29,71 +30,14 @@ export default function Contact() {
       href: "https://www.linkedin.com/in/tomas-arras-49b1aa1b6/",
       alt: "linkedin"
     },
-    // {
-    //   name: "Email",
-    //   src: githubIcon,
-    //   href: "https://github.com/tomasarras"
-    // }
+    {
+      name: "Email",
+      src: emailIcon,
+      href: "mailto:tomasarras@gmail.com",
+      alt: "email"
+    },
   ]
-  const images = [
-    // "/portrait/dark/APC_0009_fade.png",
-    // "/portrait/dark/APC_0009_no_fade.png",
-    // "/portrait/dark/APC_0010_fade.png",
-    // "/portrait/dark/APC_0010_no_fade.png",
-    // "/portrait/dark/APC_0031_fade.png",
-    // "/portrait/dark/APC_0031_no_fade.png",
-    // "/portrait/dark/APC_0032_fade.png",
-    // "/portrait/dark/APC_0032_no_fade.png",
-    // "/portrait/dark/APC_0037_fade.png",
-    // "/portrait/dark/APC_0037_no_fade.png",
-    // "/portrait/dark/APC_0041_fade.png",
-    // "/portrait/dark/APC_0041_no_fade.png",
-    // "/portrait/dark/APC_0042_fade.png",
-    // "/portrait/dark/APC_0042_no_fade.png",
-    // "/portrait/dark/APC_0043_fade.png",
-    "/portrait/dark/APC_0043_no_fade.png",//
-    // "/portrait/dark/APC_0044_fade.png",
-    // "/portrait/dark/APC_0044_no_fade.png",
-    // "/portrait/dark/APC_0050_fade.png",
-    // "/portrait/dark/APC_0050_no_fade.png",
-    // "/portrait/dark/APC_0051_fade.png",
-    // "/portrait/dark/APC_0051_no_fade.png",
-    // "/portrait/dark/APC_0053_fade.png",
-    // "/portrait/dark/APC_0053_no_fade.png",
-    // "/portrait/dark/APC_0057_fade.png",
-    // "/portrait/dark/APC_0057_no_fade.png",
-
-    // "/portrait/lighted/APC_0059_fade_1.png",    
-    // "/portrait/lighted/APC_0059_fade_2.png",    
-    // "/portrait/lighted/APC_0059_no_fade.png",    
-    // "/portrait/lighted/APC_0064_fade_1.png",    
-    // "/portrait/lighted/APC_0064_fade_2.png",    
-    // "/portrait/lighted/APC_0064_no_fade.png",  
-    // "/portrait/lighted/APC_0068_fade_1.png",    
-    // "/portrait/lighted/APC_0068_fade_2.png",    
-    // "/portrait/lighted/APC_0068_fade_3.png",    
-    // "/portrait/lighted/APC_0068_no_fade.png", 
-    // "/portrait/lighted/APC_0059_fade_1.png",    
-    // "/portrait/lighted/APC_0059_fade_2.png",    
-    // "/portrait/lighted/APC_0059_no_fade.png",   
-    // "/portrait/lighted/APC_0059_no_fade_2.png",   
-    // "/portrait/lighted/APC_0070_fade_1.png",    
-    // "/portrait/lighted/APC_0070_fade_2.png",    
-    // "/portrait/lighted/APC_0070_no_fade.png", // ESTA
-    // "/portrait/lighted/APC_0073_fade_1.png",    
-    // "/portrait/lighted/APC_0073_fade_2.png",    
-    // "/portrait/lighted/APC_0073_no_fade.png", 
-    
-    // "/portrait/perfil/APC_0054_fade.png",    
-    // "/portrait/perfil/APC_0054_no_fade.png",    
-    
-    // "/portrait/perfillight/APC_0071_fade.png",    
-    // "/portrait/perfillight/APC_0071_no_fade.png",    
-    // "/portrait/perfillight/APC_0072.png",    //ESTA
-    //radial-gradient(circle ${size/2}px, var(--gradial-circle-radiants), var(--background-color) 100%)
-    
-  ]
-  //TODO: responsive margin bottom
+  
   return <div className={`section grid grid-cols-1 md:gap-4 md:grid-cols-12`}>
   <ScrollWhileInViewAnimation 
     page={5}

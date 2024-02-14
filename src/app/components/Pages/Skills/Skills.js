@@ -127,9 +127,7 @@ export default function Skills() {
             <DevIconAnimation
               className='flex flex-col justify-center items-center'
               key={index}
-              initial="initial"
-              whileInView="animate"
-              custom={index}
+              index={index}
             >
               <div className={`${styles.devIconContainer} h-10 w-10 lg:h-14 lg:w-14 flex justify-center items-center`}>
                 <HighlightedDevIcon type={icon.type}>

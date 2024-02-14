@@ -2,7 +2,7 @@
     content: '';
     position: absolute;
     opacity: 0.1; 
-    background-image: linear-gradient(to bottom right, transparent, var(--accent-color-primary-light));
+    background-image: linear-gradient(to bottom right, transparent, var(--gradial-circle-radiants));
     width: min(33vw, 640px);
     height: 100dvh;
     filter: var(40px) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);

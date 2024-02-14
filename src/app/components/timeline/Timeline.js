@@ -2,7 +2,7 @@ import { AnimatedExperienceTimelineItem } from '../ClientSideRendering/AnimatedE
 import styles from './WorkTimeline.module.css'
 import { useTranslations } from 'next-intl';
 
-const Badge = ({ children }) => (<span className="bg-accent text-accent-light text-xs font-medium me-2 px-2.5 py-0.5 rounded-full">{children}</span>);
+const Badge = ({ children }) => (<span className={`${styles.badgeText} bg-accent text-xs font-medium me-2 px-2.5 py-0.5 rounded-full`}>{children}</span>);
 
 const Item = ({ time, children, title, i, first, last }) => {
   
