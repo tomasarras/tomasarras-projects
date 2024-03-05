@@ -2,12 +2,7 @@
 import { Fragment } from 'react'
 import { Menu, Transition } from '@headlessui/react'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
-import SpanishButton from '../Buttons/SpanishButton'
-import EnglishButton from '../Buttons/EnglishButton'
-
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
-}
+import { GlobeIcon } from '../Icons/GlobeIcon'
 
 //https://tailwindui.com/components/application-ui/elements/dropdowns
 const LanguageDropdown = ({ children, currentLanguage }) => {
@@ -15,6 +10,9 @@ const LanguageDropdown = ({ children, currentLanguage }) => {
     <Menu as="div" className="relative inline-block text-left">
       <div>
         <Menu.Button className="inline-flex items-center w-full justify-center gap-x-1.5">
+          <div className='h-5 w-5 ml-4'>
+            <GlobeIcon/>
+          </div>
           <span className='flex items-center h-full'>{currentLanguage}</span>
 					{/**TODO: white mode 9CA3AF */}
           <ChevronDownIcon fill="#FFFFFF" className="-mr-1 h-5 w-5 text-gray-400" aria-hidden="true" />
