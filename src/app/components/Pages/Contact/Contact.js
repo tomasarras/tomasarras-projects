@@ -1,6 +1,6 @@
 import styles from "./Contact.module.css"
 import Image from 'next/image';
-import contactImg from "../../../../../public/portrait/contact.png"
+import contactImg from "../../../../../public/portrait/contact3.png"
 import Link from 'next/link';
 import instagramIcon from "../../../../../public/icons/instagram-white.svg"
 import emailIcon from "../../../../../public/icons/email.svg"
@@ -64,8 +64,8 @@ export default function Contact() {
     {/* <div className={`${styles.shadow} absolute`} style={{width: imageSizeContainer, height: imageSizeContainer, background: `radial-gradient(100px 100px, var(--accent-color-primary), var(--background-color) 60%)`}}></div> */}
     <div className={`${styles.imageContainer} flex justify-center items-center w-8/12`}>
       {/* TODO: quitarle gradiente y ver si la imagen esta bien */}
-      {/* TODO: next image loader */}    
-      <Image priority alt="Tomas Arras" src={contactImg}/>
+      {/* TODO: next image loader */}
+      <Image className={`${styles.imagePortrait}`} priority alt="Tomas Arras" src={contactImg}/>
     </div>
   </div>
 </div>

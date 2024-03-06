@@ -1,8 +1,13 @@
 .imageContainer {
-    border-radius: 100%;
-    overflow: hidden;
     z-index: 2;
-    box-shadow: 0 0 120px 10px var(--gradial-circle-radiants);
+    border: 0.115rem solid var(--accent-color-primary);
+}
+
+.imageContainer img {
+    background-color: #fef5ea;
+    position: relative;
+    top: -.7em;
+    left: -.7em;
 }
 
 .shadow {
@@ -17,12 +22,36 @@
     order: 1;
 }
 
+
+
 @media only screen and (min-width: 768px) {
+    .imageContainer img {
+        background-color: #fef5ea;
+        position: relative;
+        top: -1.435em;
+        left: -1.2em;
+    }
+
     .textContainer {
         order: 1;
     }
     
     .imageWrapper {
         order: 2;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    .imageContainer img {
+        /* background-color: white; */
+        background-color: #fef5ea;
+        /* background-color: #e7f6ff; */
+        /* background-color: #e3edf8; */
+        /* background-color: #faf5ff; */
+        /* background-color: #ffedfa; */
+        /* background-color: #F8FFED; */
+        position: relative;
+        top: -2.435em;
+        left: -2.2em;
     }
 }
