@@ -68,7 +68,7 @@ export default function Contact() {
     <div className={`${styles.imageContainer} flex justify-center items-center w-8/12`}>
       {/* TODO: next image loader */}
       {/* TODO: https://olaolu.dev/ decorar fondo de lineas */}
-      <Image className={`${styles.imagePortrait}`} priority alt="Tomas Arras" src={contactImg}/>
+      <Image priority alt="Tomas Arras" src={contactImg}/>
     </div>
   </div>
 </div>

@@ -24,6 +24,7 @@
     --accent-color-primary-light: #faf5ae;
     /* --accent-color-primary: #F4A949; */
     --accent-color-primary: #C6BB24;
+    --accent-color-secondary: #1C5F9A;
     --gradial-circle-radiants: #1c1c1c;
     /* --accent-color-primary: #1C5F9A; */
     /* --accent-color-primary: #FF4A57; */
@@ -39,6 +40,10 @@
 
 .bg-accent {
     background-color: var(--accent-color-primary);
+}
+
+.bg-accent-secondary {
+    background-color: var(--accent-color-secondary);
 }
 
 .semibold {
