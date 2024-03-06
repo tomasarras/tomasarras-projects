@@ -1,7 +1,6 @@
 import { lg, sm } from "../constants/Constants";
 
 export const isMobileDevice = () => (typeof window.orientation !== 'undefined') || (navigator.userAgent.indexOf('IEMobile') !== -1);
-//TODO: Screen.roeintation deprecation
 export const easeInOutCirc = (currentTime, startValue, changeInValue, duration) => {
   currentTime /= duration / 2;
   if (currentTime < 1) {

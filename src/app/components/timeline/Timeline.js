@@ -25,8 +25,6 @@ export default function WorkTimeline() {
   const t = useTranslations("Experience.timeline")
   return (
     <div>
-      {/* TODO: check todo */}
-      {/* TODO: badges icons */}
       <ol className={`md:grid md:grid-cols-2 ${styles.ol}`}>  
         <Item i={0} total={4} time={t("certisur.time")} title={<>{t("certisur.title")}<a href={t("certisur.link")} className='link hover'>CertiSur</a></>} first>
           <p className='text-gray-500 dark:text-gray-400 mb-3'>{t("certisur.description")}</p>

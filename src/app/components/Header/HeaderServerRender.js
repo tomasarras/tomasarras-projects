@@ -42,7 +42,6 @@ export default function HeaderServerRender() {
             <li><AnimatedMenuItem i={2}>{t("experience")}</AnimatedMenuItem></li>
             <li><AnimatedMenuItem i={3}>{t("portfolio")}</AnimatedMenuItem></li>
             <li><AnimatedMenuItem i={4}>{t("contact")}</AnimatedMenuItem></li>
-            {/**TODO: pretty this */}
             <li className='flex justify-between'><SpanishButton/><EnglishButton/></li>
           </ul>
         </nav>

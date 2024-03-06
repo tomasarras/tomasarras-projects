@@ -1,5 +1,4 @@
 "use client"
-//TODO: client
 import React, { useContext, useEffect, useRef, useState } from 'react';
 import s from "./DesktopAnimation.module.css";
 import Image from 'next/image';
@@ -67,31 +66,6 @@ export default function DesktopAnimation({ className }) {
     }
   }, [desktopRef, size])
 
-  
-
-  // useEffect(() => {
-  //   const handleScroll = () => {
-  //     console.log("ESCROLS");
-  //     // Obtén el valor actual del scroll
-  //     const scrollY = window.scrollY || window.pageYOffset;
-  //     console.log("scrollY", scrollY);
-  //     // Puedes ajustar estos valores según tus necesidades
-  //     const element = containerRef.current; 
-  //     const elementTop = element.getBoundingClientRect().top + scrollY;
-  //     const elementBottom = elementTop + element.clientHeight;
-
-  //     // Verifica si el elemento está en la pantalla
-  //     //setIsActive(scrollY >= elementTop && scrollY <= elementBottom);
-  //   };
-
-  //   // Agrega el evento de scroll al montar el componente
-  //   window.addEventListener('scroll', handleScroll);
-
-  //   // Limpia el evento al desmontar el componente para evitar pérdida de rendimiento
-  //   return () => {
-  //     window.removeEventListener('scroll', handleScroll);
-  //   };
-  // }, []);
   const notZero = (number) => number == 0 ? null : number
 
   return (<>
@@ -191,12 +165,11 @@ export default function DesktopAnimation({ className }) {
               alt="Lines"
               className={`${s.devImg}`}
             />
-            {/**TODO css not js */}
-            <motion.div animate={{ y: [0,2,0,-2,0] }} transition={{ repeat: Infinity, duration: 3, transition: 'ease' }} className={`${s.devMov} w-100 h-full`}>
+            <div className={`${s.devMov} w-100 h-full`}>
               <Dev
                 className={`${s.devImg} ${s.devIcon} w-4/5 h-4/5`}
               />
-            </motion.div>
+            </div>
           </div>
         </div>
       </div>

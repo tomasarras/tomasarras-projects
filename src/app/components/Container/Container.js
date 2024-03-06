@@ -5,7 +5,6 @@ export default function Container({ children, page, fullContainerClassName, noHe
   return (
   <section className={`${fullContainerClassName} w-full h-full`}>
     <div className={`${noPadding ? "" : "container"} ${noHeaderPadding ? "" : "sm:py-4"} h-full ${s.section} ${className}`}>
-      {/**TODO: este padding es del header, en mobile no mostrar */}
       <div className={`${noHeaderPadding ? "" : noCenter ? s.noCenter : s.div} h-full flex ${center ? "justify-center items-center" : ""}`}>
         {children}
       </div>

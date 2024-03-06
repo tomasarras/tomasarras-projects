@@ -4,9 +4,6 @@ import { animationScrollDuration } from "../constants/Constants";
 
 export const useAnimationScroll = (targetIndex, intensity) => {
     const { currentPage } = useContext(Context)
-    //const size = useWindowDimensions()
-    //TODO: check this animation
-    //TODO: chek 170
     let y;
     if (currentPage == targetIndex)
         y = 0;

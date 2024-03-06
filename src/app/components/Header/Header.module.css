@@ -39,7 +39,6 @@
 
 .dropdownMobile li {
     padding: 2rem 3rem;
-    /* TODO: check */
     font-size: 1.2rem;
     font-weight: var(--semibold-font-weight);
 }
@@ -127,16 +126,10 @@
     height: 2px;
     background-color: white;
     transition: width 0.3s ease;
-
-    /* content: '';
-    height: 3px;
-    width: 100%;
-    /* TODO: darkmode
-    background-color: white; */
 }
 
 .desktopNav ul li span:hover::after {
-    width: 100%; /* Expande la barrita blanca al 100% del ancho del li en el hover */
+    width: 100%;
 }
 
 @media only screen and (min-width: 576px) {

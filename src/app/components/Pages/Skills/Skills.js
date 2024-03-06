@@ -81,7 +81,7 @@ export default function Skills() {
     type: "devops",
   },
   {
-    src: jenkinsSvg,//TODO: imagen estirada
+    src: jenkinsSvg,
     name: "Jenkins",
     type: "devops",
   }];
@@ -132,6 +132,7 @@ export default function Skills() {
               <div className={`${styles.devIconContainer} h-10 w-10 lg:h-14 lg:w-14 flex justify-center items-center`}>
                 <HighlightedDevIcon type={icon.type}>
                   <Image
+                    className='h-full w-full'
                     src={icon.src}
                     alt="icon"
                   />

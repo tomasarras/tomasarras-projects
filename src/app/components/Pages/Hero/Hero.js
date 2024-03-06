@@ -32,9 +32,12 @@ export default function Hero() {
 
   return (
     <div className='flex flex-col items-center justify-center h-full'>
-      <AnimationHandler isAnimationEnabled initial="hidden" animate="visible" variants={faceAnimation} className={styles.faceLogoContainer}>
+      {/* TODO: esta animacion la desactivo porque no se nota, ver si mejorarla */}
+      {/* <AnimationHandler isAnimationEnabled initial="hidden" animate="visible" variants={faceAnimation} className={styles.faceLogoContainer}> */}
+      <div className={styles.faceLogoContainer}>
         <FaceLogo/>
-      </AnimationHandler>
+      </div>
+      {/* </AnimationHandler> */}
       <AnimationHandler initial="hidden" animate="visible" variants={textAnimation}><h1  className={`mt-8 semibold`}>Hello friend.</h1></AnimationHandler>
     </div>
   );

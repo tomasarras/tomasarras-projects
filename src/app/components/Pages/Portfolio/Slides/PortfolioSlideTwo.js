@@ -16,7 +16,6 @@ export default function PortfolioSlideTwo() {
       lg:col-span-6 
       xl:col-span-5 xl:mt-8
       2xl:col-start-2 2xl:mt-0`}>
-        {/* TODO: en 2xl: se ve un poco estirada */}
       <Image src={phones} alt="phones" className={`sm:hidden w-10/12`}/>
       <Image src={phones} alt="phones" className={`hidden sm:block w-full object-contain`} fill/>
     </div>

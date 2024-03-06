@@ -55,8 +55,6 @@ export default function FullPage({ children, duration = 700 }) {
 
     const updateSlides = () => {
         const slides = [];
-        //TODO: aca parece que le asigna dinamicamente a cada slide el tamaño de la pantalla
-        // esto puede que no sea bueno...
         for (let i = 0; i < slidesCount; i++) {
             slides.push(window.innerHeight * i);
         }

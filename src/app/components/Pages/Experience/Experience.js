@@ -8,8 +8,8 @@ export default function Experience() {
   const t = useTranslations("Experience")
 
   return (
-  <div className='section flex justify-between items-center'>
-    <div className='grid grid-cols-1 lg:grid-cols-12 lg:gap-4 2xl:grid-cols-12'>
+  <div className='section mt-12 sm:mt-0 flex justify-between items-center'>
+    <div className='grid mt-12 sm:mt-0 grid-cols-1 lg:grid-cols-12 lg:gap-4 2xl:grid-cols-12'>
       <ScrollWhileInViewAnimation page={3}
         className='xxl:flex xxl:items-center lg:col-span-4 xxl:col-span-6 2xl:col-span-4'>
         <div>
