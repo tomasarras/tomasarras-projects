@@ -70,7 +70,7 @@ export default function Parallax() {
       <div className='h-8 w-8 hidden sm:block'>
         <MouseAnimation/>
       </div>
-      <div className='h-10 w-10 invert-color sm:hidden'>
+      <div className='h-10 w-10 sm:hidden'>
         <MobileAnimation/>
       </div>
     </div>

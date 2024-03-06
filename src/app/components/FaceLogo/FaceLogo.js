@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import logo from "../../../../public/logo.svg"
+import logo from "../../../../public/logo-white.svg"
 
 
 export default function FaceLogo() {
@@ -8,7 +8,6 @@ export default function FaceLogo() {
     <Image
       src={logo}
       priority
-      className="invert-color"
       alt="Logo"
     />
   </>)

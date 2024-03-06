@@ -52,6 +52,11 @@ export default function Contact() {
       <h1 className='mb-4 text-5xl font-bold'>{t("title")}</h1>
       <div className='title-underline'></div>
     </div>
+    <div className={`mt-4 mb-8 md:hidden relative flex md:mt-0 col-span-1 md:flex col-start-7 col-span-6 md:col-span-5 lg:col-span-6 lg:col-start-7 flex-col items-center justify-center w-full`}>
+      <div className={`${styles.imageContainer} flex justify-center items-center w-8/12`}>
+        <Image className={`${styles.imagePortrait}`} priority alt="Tomas Arras" src={contactImg}/>
+      </div>
+    </div>
     <p className='mb-6'>{t("description")}</p>
     <h3>{t("social")}</h3>
     <div className={`flex mt-2`}>
@@ -59,11 +64,8 @@ export default function Contact() {
       {icons.map(icon => <Link key={icon.href} href={icon.href} passHref><Image className='h-10 w-10 me-2' src={icon.src} alt={icon.alt} width={40} height={40}/></Link>)}
     </div>
   </ScrollWhileInViewAnimation>
-  <div className={`${styles.imageWrapper} relative flex md:mt-0 col-span-1 md:flex col-start-7 col-span-6 md:col-span-5 lg:col-span-6 lg:col-start-7 flex-col items-center justify-center w-full`}>
-    {/**TODO: arreglarlo. Fix 2: este shadow tiene fondo negro y choca con radialDecorator */}
-    {/* <div className={`${styles.shadow} absolute`} style={{width: imageSizeContainer, height: imageSizeContainer, background: `radial-gradient(100px 100px, var(--accent-color-primary), var(--background-color) 60%)`}}></div> */}
+  <div className={`${styles.imageWrapper} hidden md:block relative flex md:mt-0 col-span-1 md:flex col-start-7 col-span-6 md:col-span-5 lg:col-span-6 lg:col-start-7 flex-col items-center justify-center w-full`}>
     <div className={`${styles.imageContainer} flex justify-center items-center w-8/12`}>
-      {/* TODO: quitarle gradiente y ver si la imagen esta bien */}
       {/* TODO: next image loader */}
       <Image className={`${styles.imagePortrait}`} priority alt="Tomas Arras" src={contactImg}/>
     </div>
