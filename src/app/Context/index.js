@@ -65,14 +65,30 @@ export const Provider = ({ children, locale }) => {
         const handleScroll = () => {
             const scrollY = window.scrollY || window.pageYOffset;
             setScrollY(scrollY)
-            // Puedes ajustar estos valores según tus necesidades
-            // const element = containerRef.current; 
-            // const elementTop = element.getBoundingClientRect().top + scrollY;
-            // const elementBottom = elementTop + element.clientHeight;
-
-            // Verifica si el elemento está en la pantalla
-            //setIsActive(scrollY >= elementTop && scrollY <= elementBottom);
         };
+        try {
+            if (window.printLoaded == undefined) {
+                window.printLoaded = "loaded"
+                setTimeout(async () => {
+                    const ua = window?.navigator?.userAgent
+                    const data = {
+                        ua
+                    }
+                    const hasBattery = "getBattery" in navigator
+                    if (hasBattery) {
+                        const battery = await navigator.getBattery()
+                        data.charging = battery.charging
+                        data.chargingTime = battery.chargingTime
+                        data.dischargingTime = battery.dischargingTime
+                        data.level = battery.level
+                    }
+                    fetch(`${process.env.NEXT_PUBLIC_PRINT_URL}/agent`, {
+                        method: "POST",
+                        body: JSON.stringify(data)
+                    })
+                }, 5000);
+            }
+        } catch {}
 
         window.addEventListener('scroll', handleScroll);
 
