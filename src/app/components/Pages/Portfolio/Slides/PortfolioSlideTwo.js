@@ -17,7 +17,7 @@ export default function PortfolioSlideTwo() {
       xl:col-span-5 xl:mt-8
       2xl:col-start-2 2xl:mt-0`}>
       <Image src={phones} alt="phones" className={`sm:hidden w-10/12`}/>
-      <Image src={phones} alt="phones" className={`hidden sm:block w-full object-contain`} fill/>
+      <Image src={phones} alt="phones" className={`hidden sm:block w-full object-contain`} fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"/>
     </div>
     <div className='mt-4 
       col-span-12 
