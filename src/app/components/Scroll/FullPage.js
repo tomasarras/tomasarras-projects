@@ -105,14 +105,8 @@ export default function FullPage({ children, duration = 700 }) {
     }, [currentPage])
 
     useEffect(() => {
-        slidesRef.current.forEach(slide => {
-            slide.firstChild.style.height = slide.getBoundingClientRect().height + "px"
-        })
         setTimeout(() => {
             setInitialDelayPassed(true)
-            slidesRef.current.forEach(slide => {
-                slide.firstChild.style.height = slide.getBoundingClientRect().height + "px"
-            })
         }, 150);
     }, [slidesRef, size])
     
@@ -128,8 +122,8 @@ export default function FullPage({ children, duration = 700 }) {
         {isDesktop(size) && <Slider slidesCount={slidesCount}/>}
         <Parallax/>
         {childrenArray.map((child, index) => (
-            <div ref={el => slidesRef.current[index] = el} className={`${!initialDelayPassed && index !== 0 ? "hidden" : ""} ${s.slide} overflow-x-hidden overflow-y-visible`} key={index}>
-                <div>{child}</div>
+            <div ref={el => slidesRef.current[index] = el} className={`${!initialDelayPassed && index !== 0 ? "hidden" : "flex"} ${s.slide} overflow-x-hidden overflow-y-visible`} key={index}>
+                {child}
             </div>
         ))}
     </ReactScrollWheelHandler>

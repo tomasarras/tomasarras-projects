@@ -78,6 +78,14 @@ a.link:visited {
     cursor: auto;
 }
 
+.fl-1 {
+    flex: 1;
+}
+
+.max-h-20-vh {
+    max-height: 20vh;
+}
+
 body {
     background-color: var(--background-color);
 }
@@ -103,6 +111,12 @@ h1 {
 
     h2 {
         @apply text-2xl;
+    }
+}
+
+@media only screen and (min-width: 640px) {
+    .desktop-h-100-svh {
+        height: 100svh;
     }
 }
 

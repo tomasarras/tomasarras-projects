@@ -59,11 +59,11 @@ export default function Parallax() {
   }
 
   return (<>
-  <div className={styles.layer1}>
-    <motion.div {...animation(size.height * .43)}  className={`${styles.lines1}`}>
+  <div className={`${styles.layer1}`}>
+    <motion.div {...animation(size.height * .43)}  className={`hidden sm:block ${styles.lines1}`}>
       <CodeLines width={size.width * 0.25} height={size.width * 0.25}/>
     </motion.div>
-    <motion.div {...animation(size.height * .95)} className={`${styles.lines2}`}>
+    <motion.div {...animation(size.height * .95)} className={`hidden sm:block ${styles.lines2}`}>
       <CodeLines width={size.width * 0.25} height={size.width * 0.25}/>
     </motion.div>
     <div className={`${styles.mouse} ${scrollY > 0 ? styles.mousePassed : ''}`}>
@@ -74,42 +74,42 @@ export default function Parallax() {
         <MobileAnimation/>
       </div>
     </div>
-    <motion.div {...animation(size.height * .266)} className={`${styles.semicolon}`}>
+    <motion.div {...animation(size.height * .266)} className={`hidden sm:block ${styles.semicolon}`}>
       <Semicolon width={size.width * 0.02} height={size.width * 0.02}/>
     </motion.div>
-    <motion.div {...animation(size.height * .32)} className={`${styles.dev}`}>
+    <motion.div {...animation(size.height * .32)} className={`hidden sm:block ${styles.dev}`}>
       <DevIconPlain width={size.width * 0.05} height={size.width * 0.05} />
     </motion.div>
-    <motion.div {...animationT(size.height *.1, 3)} className={`${styles.tomasarras}`} style={{top: tomasarrasTop}}>
+    <motion.div {...animationT(size.height *.1, 3)} className={`hidden sm:block ${styles.tomasarras}`} style={{top: tomasarrasTop}}>
       <div style={{width: size.width * 0.2, height: size.width * 0.2}}>
         <Image src={portraitDeco} alt='Tomas Arras'/>
       </div>
     </motion.div>
-    <motion.div {...animationT(size.height *.5, 2)}  className={`${styles.lines3}`} style={{top: lines3Top}}>
+    <motion.div {...animationT(size.height *.5, 2)}  className={`hidden sm:block ${styles.lines3}`} style={{top: lines3Top}}>
       <CodeLines width={size.width * 0.25} height={size.width * 0.25}/>
     </motion.div>
-    <motion.div {...animationT(size.height *.2, 3)}  className={`${styles.lines4}`} style={{top: lines4Top}}>
+    <motion.div {...animationT(size.height *.2, 3)}  className={`hidden sm:block ${styles.lines4}`} style={{top: lines4Top}}>
       <CodeLines width={size.width * 0.25} height={size.width * 0.25}/>
     </motion.div>
-    <motion.div {...animationT(size.height *.2, 4)}  className={`${styles.lines3}`} style={{top: lines5Top}}>
+    <motion.div {...animationT(size.height *.2, 4)}  className={`hidden sm:block ${styles.lines3}`} style={{top: lines5Top}}>
       <CodeLines width={size.width * 0.25} height={size.width * 0.25}/>
     </motion.div>
-    <motion.div {...horizontalAnimation(size.height *.2, 0)}  className={`${styles.triangle}`} style={{top: triangleTop}}>
+    <motion.div {...horizontalAnimation(size.height *.2, 0)} className={`hidden sm:block ${styles.triangle}`} style={{top: triangleTop}}>
       <div style={{width: size.width * 0.05, height:size.width * 0.05}}>
         <Image src={triangle} className='filter-accent' alt='triangle'/>
       </div>
     </motion.div>
-    <motion.div {...horizontalAnimation(size.height *.2, 1, size.width/1.5)}  className={`${styles.circle}`} style={{top: circleTop}}>
+    <motion.div {...horizontalAnimation(size.height *.2, 1, size.width/1.5)} className={`hidden sm:block ${styles.circle}`} style={{top: circleTop}}>
       <div style={{width: size.width * 0.05, height:size.width * 0.05}}>
         <Image src={circle} className='filter-accent-secondary' alt='circle'/>
       </div>
     </motion.div>
-    <motion.div {...horizontalAnimation(size.height *.2, 2, size.width/1.3)}  className={`${styles.box}`} style={{top: boxTop}}>
+    <motion.div {...horizontalAnimation(size.height *.2, 2, size.width/1.3)} className={`hidden sm:block ${styles.box}`} style={{top: boxTop}}>
       <div style={{width: size.width * 0.05, height:size.width * 0.05}}>
         <Image src={box} className='filter-accent rotate-45' alt='box'/>
       </div>
     </motion.div>    
-    <motion.div {...animationT(size.height *.2, 5)}  className={`${styles.lines4}`} style={{top: lines6Top}}>
+    <motion.div {...animationT(size.height *.2, 5)}  className={`hidden sm:block ${styles.lines4}`} style={{top: lines6Top}}>
       <CodeLines width={size.width * 0.25} height={size.width * 0.25}/>
     </motion.div>
   </div>

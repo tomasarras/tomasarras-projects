@@ -31,7 +31,7 @@ export default function Hero() {
   }
 
   return (
-    <div className='flex flex-col items-center justify-center h-full'>
+    <div className='flex flex-col items-center justify-center h-full fl-1'>
       {/* TODO: esta animacion la desactivo porque no se nota, ver si mejorarla */}
       {/* <AnimationHandler isAnimationEnabled initial="hidden" animate="visible" variants={faceAnimation} className={styles.faceLogoContainer}> */}
       <div className={styles.faceLogoContainer}>

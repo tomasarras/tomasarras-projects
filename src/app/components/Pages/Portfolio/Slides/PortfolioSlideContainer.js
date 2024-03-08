@@ -97,15 +97,15 @@ export default function PortfolioSlideContainer({ children, className }) {
   
 
   return (
-  <div {...handlers} className={`overflow-hidden ${styles.mainContainer}`}>
+  <div {...handlers} className={`overflow-hidden flex flex-col fl-1 ${styles.mainContainer}`}>
     <div className={`absolute top-0 left-0 flex justify-center w-full h-full items-end`}>
       <div><DotsSlider amount={children.length} active={portfolioIndex} setActive={setPortfolioIndex}/></div>
     </div>
     <div
       ref={sliderRef}
-      className={`w-full h-full relative ${className} overflow-x-scroll`}
+      className={`w-full h-full flex flex-col fl-1 relative ${className} overflow-x-scroll`}
       >
-      <div ref={sliderContainerRef} style={{width: (children.length * 100) + "%"}} className='h-full flex items-center justify-center'>
+      <div ref={sliderContainerRef} style={{width: (children.length * 100) + "%"}} className='h-full fl-1 flex items-center justify-center'>
         {children.map((child, index) => 
           <div ref={el => childrenRefs.current[index] = el} className={`${styles.slide} flex`} key={index}>
             {child}

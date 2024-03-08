@@ -87,7 +87,7 @@ export default function Skills() {
   }];
 
   return (
-    <div className={`section flex-col flex justify-around`}>
+    <div className={`section fl-1 flex-col flex justify-around`}>
       <div className={`xl:h-max w-full h-full flex flex-col sm:grid sm:gap-4 sm:grid-cols-12 items-center`}>
         <ScrollWhileInViewAnimation
           page={2}

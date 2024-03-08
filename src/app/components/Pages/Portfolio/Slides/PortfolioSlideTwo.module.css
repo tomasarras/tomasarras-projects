@@ -2,4 +2,7 @@
     .phonesImageContainer {
         max-height: 70%;
     }
+    .desktop-h-100-svh {
+        height: 100svh;
+    }
 }

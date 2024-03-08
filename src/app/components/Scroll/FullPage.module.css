@@ -1,4 +1,5 @@
 .slide {
     min-height: 100svh;
+    flex-direction: column;
     width: 100vw;
 }

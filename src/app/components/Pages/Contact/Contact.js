@@ -38,7 +38,7 @@ export default function Contact() {
     },
   ]
   
-  return <div className={`section grid grid-cols-1 md:gap-4 md:grid-cols-12`}>
+  return <div className={`section fl-1 grid grid-cols-1 md:gap-4 md:grid-cols-12`}>
   <ScrollWhileInViewAnimation 
     page={5}
     className={`${styles.textContainer} flex flex-col justify-center

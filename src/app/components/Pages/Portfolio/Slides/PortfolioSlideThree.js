@@ -1,9 +1,6 @@
 import Image from 'next/image';
 import desktop from '../../../../../../public/portfolio/macbook-pro2.png'
 import GitHubButtonLink from '../../../Buttons/GitHubButtonLink';
-import styles from "./PortfolioSlideThree.module.css"
-import { animationScrollDuration } from '../../../../constants/Constants';
-import OnlyDesktopAnimation from '@/app/components/Utils/OnlyDesktopAnimation';
 import PortfolioSlideThreeDots from '@/app/components/ClientSideRendering/PortfolioSlideThreeDots';
 import { useTranslations } from 'next-intl';
 
@@ -11,7 +8,7 @@ export default function PortfolioSlideThree() {
   const t = useTranslations("Portfolio.slides.three")
 
   return (
-    <div className='container grid grid-cols-12 items-center'>
+    <div className='desktop-h-100-svh container grid grid-cols-12 items-center'>
       <div className={`w-full flex justify-center relative 
         col-span-12 
         sm:col-span-5 
@@ -22,14 +19,14 @@ export default function PortfolioSlideThree() {
         <PortfolioSlideThreeDots/>
         <Image src={desktop} alt="laptop-calid-burn" className='w-10/12 sm:w-full'/>
       </div>
-      <div className='mt-4 
+      <div className='mt-8 sm:mt-0 
         col-span-12 
         sm:col-span-6 sm:col-start-7 
         md:col-span-5 md:col-start-8
         lg:col-start-8 
         2xl:col-span-4 2xl:col-start-8 
         '>
-        <h2 className='text-center mb-4'>CalidBurn</h2>
+        <h2 className='text-center mb-4 semibold'>CalidBurn</h2>
         <p>{t("description")}</p>
         <GitHubButtonLink link="https://github.com/tomasarras/calidBurn" className="mt-8"/>
       </div>
