@@ -17,6 +17,7 @@ export default function FullPage({ children, duration = 700 }) {
     const slidesRef = useRef([])
     const [isScrollPending, setIsScrollPending] = useState(false)
     const hasPageBeenRendered = useRef({ effect: false })
+    const [initialDelayPassed, setInitialDelayPassed] = useState(false)
      
     const animatedScrollTo = (scrollTo) => {
         const scrollFrom = window.scrollY || window.pageYOffset || 0;
@@ -107,6 +108,12 @@ export default function FullPage({ children, duration = 700 }) {
         slidesRef.current.forEach(slide => {
             slide.firstChild.style.height = slide.getBoundingClientRect().height + "px"
         })
+        setTimeout(() => {
+            setInitialDelayPassed(true)
+            slidesRef.current.forEach(slide => {
+                slide.firstChild.style.height = slide.getBoundingClientRect().height + "px"
+            })
+        }, 150);
     }, [slidesRef, size])
     
 
@@ -121,7 +128,7 @@ export default function FullPage({ children, duration = 700 }) {
         {isDesktop(size) && <Slider slidesCount={slidesCount}/>}
         <Parallax/>
         {childrenArray.map((child, index) => (
-            <div ref={el => slidesRef.current[index] = el} className={`${s.slide} overflow-x-hidden overflow-y-visible`} key={index}>
+            <div ref={el => slidesRef.current[index] = el} className={`${!initialDelayPassed && index !== 0 ? "hidden" : ""} ${s.slide} overflow-x-hidden overflow-y-visible`} key={index}>
                 <div>{child}</div>
             </div>
         ))}

@@ -54,7 +54,7 @@ export default function Contact() {
     </div>
     <div className={`mt-4 mb-8 md:hidden relative flex md:mt-0 col-span-1 md:flex col-start-7 col-span-6 md:col-span-5 lg:col-span-6 lg:col-start-7 flex-col items-center justify-center w-full`}>
       <div className={`${styles.imageContainer} flex justify-center items-center w-8/12`}>
-        <Image className={`${styles.imagePortrait}`} priority alt="Tomas Arras" src={contactImg}/>
+        <Image className={`${styles.imagePortrait}`} alt="Tomas Arras" src={contactImg}/>
       </div>
     </div>
     <p className='mb-6'>{t("description")}</p>
@@ -68,7 +68,7 @@ export default function Contact() {
     <div className={`${styles.imageContainer} flex justify-center items-center w-8/12`}>
       {/* TODO: next image loader */}
       {/* TODO: https://olaolu.dev/ decorar fondo de lineas */}
-      <Image priority alt="Tomas Arras" src={contactImg}/>
+      <Image alt="Tomas Arras" src={contactImg}/>
     </div>
   </div>
 </div>

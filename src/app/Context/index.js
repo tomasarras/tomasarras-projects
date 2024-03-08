@@ -90,6 +90,10 @@ export const Provider = ({ children, locale }) => {
             }
         } catch {}
 
+        window.onbeforeunload = function () {
+            window.scrollTo(0, 0);
+        }
+
         window.addEventListener('scroll', handleScroll);
 
         return () => {

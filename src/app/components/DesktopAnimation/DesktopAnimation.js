@@ -56,15 +56,19 @@ export default function DesktopAnimation({ className }) {
     }
   }, [currentPage, size])
 
-  useEffect(() => {
+  const updateDesktopRef = () => {
     if (desktopRef.current) {
       const elem = desktopRef.current.firstChild
       if (elem.offsetHeight != 0 && elem.offsetWidth != 0) {
         setHeight(elem.offsetHeight + "px")
         setWidth(elem.offsetWidth + "px")
+      } else {
+        setTimeout(updateDesktopRef, 200);
       }
     }
-  }, [desktopRef, size])
+  }
+
+  useEffect(updateDesktopRef, [desktopRef, size])
 
   const notZero = (number) => number == 0 ? null : number
 
