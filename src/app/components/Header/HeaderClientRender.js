@@ -41,7 +41,7 @@ export default function HeaderClientRender({ children }) {
   }, [isSidebarOpen])
 
   return (
-    <div ref={headerRef} className={`${styles.header} sm:mt-4`}>
+    <div ref={headerRef} className={`${styles.header} md:mt-4`}>
       {children}
     </div>)
 

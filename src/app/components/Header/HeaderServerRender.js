@@ -22,7 +22,7 @@ export default function HeaderServerRender() {
 
   return (
   <header className={`w-full h-full ${styles.mainHeaderContainer}`}>
-    <div className='w-full sm:container sm:mx-auto'>
+    <div className='w-full md:container md:mx-auto'>
       {/** MOBILE */}
       <div className={`${styles.blur} ${styles.mobileContainer} relative flex justify-between items-center md:hidden`}>
         <div className='container flex justify-between items-center'>
@@ -48,12 +48,12 @@ export default function HeaderServerRender() {
         </nav>
       </DropdownHeaderMenu>
       {/** DESKTOP */}
-      <div className={`${styles.headerWrapper} hidden sm:block relative`}>
+      <div className={`${styles.headerWrapper} hidden md:block relative`}>
         <HeaderLineDisplacement/>
         <div className={`${styles.headerContainer} p-2`}>
           <LogoDisplacementAnimation>
             <HeaderItemScrollerDesktop index={0}>
-              <div className={`ms-4 cursor-pointer semibold as-text`}>Tomas Arras</div>
+              <div className={`ms-4 cursor-pointer semibold as-text hidden lg:block`}>Tomas Arras</div>
             </HeaderItemScrollerDesktop>
             <DarkModeSwitcher>{t("mode")}</DarkModeSwitcher>
           </LogoDisplacementAnimation>
