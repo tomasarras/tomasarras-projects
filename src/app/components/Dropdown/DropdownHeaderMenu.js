@@ -13,7 +13,7 @@ export default function DropdownHeaderMenu({ children }) {
 
 	return (<>
 		<AnimationHandler isAnimationEnabled initial={false} animate={animation} className={`${s.sidebar} ${isSidebarOpen ? s.open : ''}`}>
-				{children}
+			{children}
 		</AnimationHandler>
 	</>);
 }

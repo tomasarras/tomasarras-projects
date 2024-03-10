@@ -8,6 +8,7 @@ export default function FaceLogo() {
     <Image
       src={logo}
       priority
+      className='invert-color'
       alt="Logo"
     />
   </>)

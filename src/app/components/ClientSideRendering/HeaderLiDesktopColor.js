@@ -10,7 +10,7 @@ const HeaderLiDesktopColor = ({ children, index }) => {
 
 
   return (
-    <HeaderItemScroller className={`${currentPage == index ? styles.isActive : ""} ${styles.li}`} index={index} onClick={() => setCurrentPage(index)}>{children}</HeaderItemScroller>
+    <HeaderItemScroller className={`${currentPage == index ? styles.isActive : "as-text"} ${styles.li}`} index={index} onClick={() => setCurrentPage(index)}>{children}</HeaderItemScroller>
   )
 }
 

@@ -3,6 +3,7 @@
         "see-code": "See code"
     },
     "Header": {
+        "mode": "Mode",
         "about": "About",
         "skills": "Skills",
         "experience": "Experience",

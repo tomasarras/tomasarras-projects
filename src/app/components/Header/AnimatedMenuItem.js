@@ -4,8 +4,8 @@ import { useContext } from "react"
 import AnimationHandler from "../Utils/AnimationHandler"
 import { Context } from "@/app/Context/HeaderContext"
 
-export default function AnimatedMenuItem({ i, children }) {
-  const { isSidebarOpen, handleChangeIndexMobile } = useContext(Context)
+export default function AnimatedMenuItem({ i, children, ignoreScroll = false }) {
+  const { isSidebarOpen, handleChangeIndexMobile, toggleSidebar } = useContext(Context)
   const fadeInAnimationVariants = {
     initial: {
       opacity: 0,
@@ -20,5 +20,5 @@ export default function AnimatedMenuItem({ i, children }) {
     })
   }
 
-  return <AnimationHandler onClick={() => handleChangeIndexMobile(i+1)} isAnimationEnabled variants={fadeInAnimationVariants} initial="initial" animate={isSidebarOpen ? "animate" : "initial"} custom={i}>{children}</AnimationHandler>
+  return <AnimationHandler className="as-text" onClick={() => ignoreScroll ? toggleSidebar() : handleChangeIndexMobile(i+1)} isAnimationEnabled variants={fadeInAnimationVariants} initial="initial" animate={isSidebarOpen ? "animate" : "initial"} custom={i}>{children}</AnimationHandler>
 }

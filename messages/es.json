@@ -3,6 +3,7 @@
         "see-code": "Ver codigo"
     },
     "Header": {
+        "mode": "Modo",
         "about": "Sobre mi",
         "skills": "Habilidades",
         "experience": "Experiencia",

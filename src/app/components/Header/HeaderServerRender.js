@@ -15,6 +15,7 @@ import HeaderLineDisplacement from '../ClientSideRendering/HeaderLineDisplacemen
 
 import SpanishButton from '../Buttons/SpanishButton';
 import EnglishButton from '../Buttons/EnglishButton';
+import DarkModeSwitcher from '../Buttons/DarkModeSwitcher';
 
 export default function HeaderServerRender() {
   const t = useTranslations("Header")
@@ -23,12 +24,11 @@ export default function HeaderServerRender() {
   <header className={`w-full h-full ${styles.mainHeaderContainer}`}>
     <div className='w-full sm:container sm:mx-auto'>
       {/** MOBILE */}
-      <div className={`${styles.blur} ${styles.mobileContainer} flex justify-between items-center sm:hidden`}>
+      <div className={`${styles.blur} ${styles.mobileContainer} relative flex justify-between items-center md:hidden`}>
         <div className='container flex justify-between items-center'>
-          <HeaderItemScroller index={0}><div className='semibold'>Tomas Arras</div></HeaderItemScroller>
-          
+          <HeaderItemScroller index={0}><div className='semibold as-text'>Tomas Arras</div></HeaderItemScroller>
           <HeaderSidebarToggler>
-            <div className="h-6 w-8">
+            <div className="h-6 w-8 invert-color">
               <HeaderHamburgerIcon/>
             </div>
           </HeaderSidebarToggler>
@@ -42,6 +42,7 @@ export default function HeaderServerRender() {
             <li><AnimatedMenuItem i={2}>{t("experience")}</AnimatedMenuItem></li>
             <li><AnimatedMenuItem i={3}>{t("portfolio")}</AnimatedMenuItem></li>
             <li><AnimatedMenuItem i={4}>{t("contact")}</AnimatedMenuItem></li>
+            <li><AnimatedMenuItem ignoreScroll i={5}><DarkModeSwitcher>{t("mode")}</DarkModeSwitcher></AnimatedMenuItem></li>
             <li className='flex justify-between'><SpanishButton/><EnglishButton/></li>
           </ul>
         </nav>
@@ -50,11 +51,12 @@ export default function HeaderServerRender() {
       <div className={`${styles.headerWrapper} hidden sm:block relative`}>
         <HeaderLineDisplacement/>
         <div className={`${styles.headerContainer} p-2`}>
-          <HeaderItemScrollerDesktop index={0}>
-            <LogoDisplacementAnimation>
-              <div className={`ms-4 cursor-pointer semibold`}>Tomas Arras</div>
-            </LogoDisplacementAnimation>
-          </HeaderItemScrollerDesktop>
+          <LogoDisplacementAnimation>
+            <HeaderItemScrollerDesktop index={0}>
+              <div className={`ms-4 cursor-pointer semibold as-text`}>Tomas Arras</div>
+            </HeaderItemScrollerDesktop>
+            <DarkModeSwitcher>{t("mode")}</DarkModeSwitcher>
+          </LogoDisplacementAnimation>
           <HeaderDisplacementAnimation>
             <nav className={`hidden sm:block me-4`}>
               <ul>

@@ -16,8 +16,19 @@
 :root {
     --header-height: 60px;
     --background-color: #040404;
+    --text-color: #ffffff;
+    --theme-text-gray: rgb(107 114 128);
+    --header-line-color: white;
+    --invert-color: 0;
+    --invert-color-invert: 100%;
+    --card-hover-background: #16161670;
+    --slider-dot-color: rgba(255, 255, 255, 0.5);
+    --slider-dot-color-active: white;
+    --dropdown-bg: rgb(55 65 81);
+    --dropdown-bg-hover: rgb(75 85 99);
     --header-active-color: #17171780;
     --header-active-mobile-color: #171717;
+    --header-text-color: black;
     --sidebar-active-color: #202020;
     --semibold-font-weight: 600;
     /* --accent-color-primary: #9C27B0; */
@@ -28,6 +39,41 @@
     --gradial-circle-radiants: #1c1c1c;
     /* --accent-color-primary: #1C5F9A; */
     /* --accent-color-primary: #FF4A57; */
+}
+
+[class='light'] {
+    --invert-color: 100%;
+    --invert-color-invert: 0;
+    --background-color: #F5FFFA;
+    --text-color: #000000;
+    --header-line-color: black;
+    --theme-text-gray: rgb(107 114 128);
+    --card-hover-background: #b3b3b370;
+    --slider-dot-color: rgba(0, 0, 0, 0.5);
+    --slider-dot-color-active: black;
+    --dropdown-bg: white;
+    --dropdown-bg-hover: rgb(243 244 246);
+    --header-active-mobile-color: black;
+    --header-text-color: white;
+    --header-active-mobile-color: white;
+}
+
+.header-text-color {
+    transition: color 1s;
+    color: var(--header-text-color);
+}
+
+.dropdown-bg {
+    background-color: var(--dropdown-bg);
+}
+
+.dropdown-bg-hover:hover {
+    background-color: var(--dropdown-bg-hover);
+}
+
+.theme-text-gray {
+    transition: color 1s;
+    color: var(--theme-text-gray);
 }
 
 .filter-accent {
@@ -51,7 +97,13 @@
 }
 
 .invert-color {
-    filter: invert(100%);
+    transition: filter 1s;
+    filter: invert(var(--invert-color));
+}
+
+.invert-color-invert {
+    transition: filter 1s;
+    filter: invert(var(--invert-color-invert));
 }
 
 a.link {
@@ -87,15 +139,25 @@ a.link:visited {
 }
 
 body {
+    transition: background-color 1s;
     background-color: var(--background-color);
 }
 
-h1 {
+.as-text a.as-link {
+    color: rgb(37 99 235) !important;
+}
+
+h1, h2, h3, p, .as-title, .as-text, .as-text a {
+    transition: color 1s;
+    color: var(--text-color) !important;
+}
+
+h1, .as-title {
     @apply text-2xl;
 }
 
 @media only screen and (min-width: 400px) {
-    h1 {
+    h1, .as-title {
         @apply text-3xl;
     }
 
@@ -105,7 +167,7 @@ h1 {
 }
 
 @media only screen and (min-width: 576px) {
-    h1 {
+    h1, .as-title {
         @apply text-4xl;
     }
 
@@ -128,7 +190,7 @@ h3 {
     @apply text-xl;
 }
 
-h1 {
+h1, .as-title {
     color: white;
 }
 

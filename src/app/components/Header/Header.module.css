@@ -64,11 +64,6 @@
     position: absolute;
 }
 
-.blur {
-    border: 1px solid white;
-    backdrop-filter: blur(10px);
-}
-
 .headerContainer {
     align-items: center;
     display: flex;
@@ -77,10 +72,13 @@
 }
 
 .headerContainer.visible {
+    transition: background-color 1s;
     background-color: var(--header-active-color);
 }
 
 .mobileContainer {
+    z-index: 1000;
+    transition: background-color 1s;
     background-color: var(--header-active-mobile-color);
 }
 
@@ -113,7 +111,6 @@
 }
 
 .desktopNav ul .li.isActive, .desktopNav ul .li:hover {
-    /* TODO: darkmode */
     color: var(--accent-color-primary);
 }
 
@@ -124,7 +121,8 @@
     left: 0;
     width: 0;
     height: 2px;
-    background-color: white;
+    transition: background-color 1s;
+    background-color: var(--header-line-color);
     transition: width 0.3s ease;
 }
 
@@ -145,6 +143,13 @@
     }
 }
 
+@media only screen and (min-width: 640px) {
+    .blur {
+        transition: border 1s;
+        border: 1px solid var(--header-line-color);
+        backdrop-filter: blur(10px);
+    }
+}
 
 @keyframes logo {
     0% {

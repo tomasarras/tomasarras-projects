@@ -8,7 +8,7 @@ const LogoDisplacementAnimation = ({ children }) => {
 	const { isActive } = useContext(Context)
 
   return (
-    <div className={`${styles.logo} ${isActive && styles.visible}`}>{children}</div>
+    <div className={`${styles.logo} flex ${isActive && styles.visible}`}>{children}</div>
   )
 }
 

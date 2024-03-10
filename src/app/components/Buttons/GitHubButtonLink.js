@@ -9,7 +9,6 @@ export default function GitHubButtonLink({ link, className }) {
   const t = useTranslations("buttons")
 
   return (<>
-    {/*TODO: LIGHT-MODE*/}
-    <Link href={link} className={`flex items-center link ${styles.anchor} ${className}`}><Image className='h-8 w-8 me-2' src={githubIcon} alt="github-icon"/> {t("see-code")} <Image className={`h-4 w-4 ml-2 ${styles.arrow}`} src={rightArrow} alt="right-arrow" /></Link>
+    <Link href={link} className={`flex items-center link ${styles.anchor} ${className} as-text`}><Image className='h-8 w-8 me-2 invert-color' src={githubIcon} alt="github-icon"/> {t("see-code")} <Image className={`h-4 w-4 ml-2 invert-color ${styles.arrow}`} src={rightArrow} alt="right-arrow" /></Link>
   </>)
 }

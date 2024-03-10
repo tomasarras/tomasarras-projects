@@ -60,25 +60,25 @@ export default function Parallax() {
 
   return (<>
   <div className={`${styles.layer1}`}>
-    <motion.div {...animation(size.height * .43)}  className={`hidden sm:block ${styles.lines1}`}>
+    <motion.div {...animation(size.height * .46)}  className={`hidden sm:block ${styles.lines1}`}>
       <CodeLines width={size.width * 0.25} height={size.width * 0.25}/>
     </motion.div>
     <motion.div {...animation(size.height * .95)} className={`hidden sm:block ${styles.lines2}`}>
       <CodeLines width={size.width * 0.25} height={size.width * 0.25}/>
     </motion.div>
     <div className={`${styles.mouse} ${scrollY > 0 ? styles.mousePassed : ''}`}>
-      <div className='h-8 w-8 hidden sm:block'>
+      <div className='h-8 w-8 hidden sm:block invert-color'>
         <MouseAnimation/>
       </div>
-      <div className='h-10 w-10 sm:hidden'>
+      <div className='h-10 w-10 sm:hidden invert-color'>
         <MobileAnimation/>
       </div>
     </div>
     <motion.div {...animation(size.height * .266)} className={`hidden sm:block ${styles.semicolon}`}>
-      <Semicolon width={size.width * 0.02} height={size.width * 0.02}/>
+      <Semicolon className="invert-color" width={size.width * 0.02} height={size.width * 0.02}/>
     </motion.div>
     <motion.div {...animation(size.height * .32)} className={`hidden sm:block ${styles.dev}`}>
-      <DevIconPlain width={size.width * 0.05} height={size.width * 0.05} />
+      <DevIconPlain className="invert-color" width={size.width * 0.05} height={size.width * 0.05} />
     </motion.div>
     <motion.div {...animationT(size.height *.1, 3)} className={`hidden sm:block ${styles.tomasarras}`} style={{top: tomasarrasTop}}>
       <div style={{width: size.width * 0.2, height: size.width * 0.2}}>

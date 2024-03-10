@@ -25,7 +25,7 @@ export default function Slider({ slidesCount }) {
     <div className={styles.container}>
       <nav className={styles.nav}>
         <ul>
-          {slides.map((slide, i) => <li onClick={() => changePage(i)} key={i}>{slide.name}</li>)}
+          {slides.map((slide, i) => <li className='as-text' onClick={() => changePage(i)} key={i}>{slide.name}</li>)}
         </ul>
         <div style={{ transform: `translateY(${50 * currentPage}px)` }} className={styles.line}></div>
       </nav>

@@ -1,5 +1,5 @@
 .item:hover {
-    background-color: #16161670;
+    background-color: var(--card-hover-background);
 }
 
 .item {

@@ -2,6 +2,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { locales } from "@/i18n";
 import { unstable_setRequestLocale } from 'next-intl/server';
+import Provider from "../providers/ThemeProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -12,17 +13,18 @@ export const metadata = {
 
 export default function RootLayout({ children, params: { locale } }) {
   unstable_setRequestLocale(locale);
-  //TODO: spacing
   //TODO: lethargy dependency
   return (
-    <html lang={locale}>
+    <html lang={locale} suppressHydrationWarning>
       <head>
         <link
           rel="stylesheet"
           href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.0.0/css/flag-icons.min.css"
         />
       </head>
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <Provider>{children}</Provider>
+      </body>
     </html>
   );
 }

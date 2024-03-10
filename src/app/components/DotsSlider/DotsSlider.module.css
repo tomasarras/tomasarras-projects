@@ -38,12 +38,14 @@
     margin: 0 0.5em;
     width: 1em;
     height: 1em;
-    background: rgba(255, 255, 255, 0.5);
+    transition: background 1s;
+    background: var(--slider-dot-color);
     border-radius: 100px;
   }
   .slider__indicator {
     position: absolute;
-    background: white;
+    transition: background 1s;
+    background: var(--slider-dot-color-active);
     width: 1em;
   }
   .slider__indicator--left {

@@ -12,7 +12,8 @@
     height: 100%;
     display: block;
     opacity: .4;
-    background-color: white;/*f0f8ff*/
+    transition: background-color 1s;
+    background-color: var(--slider-dot-color);
 }
 
 .container {
@@ -34,7 +35,8 @@
 .line {
     height: 50px;
     width: 3px;
-    background-color: white; /*f0f8ff*/
+    transition: background-color 1s;
+    background-color: var(--slider-dot-color-active);
     position: absolute;
     top: 0;
     right: 0;
@@ -51,7 +53,6 @@
 }
 
 .nav li {
-    /* color: black; /*f0f8ff*/
     font-family: JetBrains Mono,monospace;
     display: flex;
     justify-content: center;

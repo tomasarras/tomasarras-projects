@@ -61,7 +61,7 @@ export default function Contact() {
     <h3>{t("social")}</h3>
     <div className={`flex mt-2`}>
       {/**TODO hover */}
-      {icons.map(icon => <Link key={icon.href} href={icon.href} passHref><Image className='h-10 w-10 me-2' src={icon.src} alt={icon.alt} width={40} height={40}/></Link>)}
+      {icons.map(icon => <Link key={icon.href} href={icon.href} passHref><Image className='h-10 w-10 me-2 invert-color' src={icon.src} alt={icon.alt} width={40} height={40}/></Link>)}
     </div>
   </ScrollWhileInViewAnimation>
   <div className={`${styles.imageWrapper} hidden md:block relative flex md:mt-0 col-span-1 md:flex col-start-7 col-span-6 md:col-span-5 lg:col-span-6 lg:col-start-7 flex-col items-center justify-center w-full`}>
