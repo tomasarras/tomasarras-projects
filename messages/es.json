@@ -67,6 +67,12 @@
     "Contact": {
         "title": "Contacto",
         "description": "Siente total libertad de contactarme para discutir proyectos emocionantes, oportunidades de colaboración o simplemente para saludar. Estoy aquí para ti.",
-        "social": "Social"
+        "social": "Social",
+        "email": "Email",
+        "button": {
+            "copy": "Copiar",
+            "copied": "Copiado",
+            "send": "Enviar"
+        }
     }
 }

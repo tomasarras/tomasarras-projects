@@ -66,6 +66,12 @@
     "Contact": {
         "title": "Contact",
         "description": "Feel free to contact me to discuss exciting projects, collaboration opportunities, or just to say hello. I'm here for you.",
-        "social": "Social"
+        "social": "Social",
+        "email": "Email",
+        "button": {
+            "copy": "Copy",
+            "copied": "Copied",
+            "send": "Send"
+        }
     }
 }

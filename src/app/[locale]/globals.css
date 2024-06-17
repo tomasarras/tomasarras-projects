@@ -88,6 +88,10 @@
     background-color: var(--accent-color-primary);
 }
 
+.bg-accent-light {
+    background-color: var(--accent-color-primary-light);
+}
+
 .bg-accent-secondary {
     background-color: var(--accent-color-secondary);
 }

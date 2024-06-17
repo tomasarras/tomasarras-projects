@@ -1,0 +1,7 @@
+.button:hover {
+    background-color: var(--accent-color-primary-light);
+}
+
+.button:hover {
+    transition: .3s background-color;
+}
