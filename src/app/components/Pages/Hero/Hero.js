@@ -38,7 +38,7 @@ export default function Hero() {
         <FaceLogo/>
       </div>
       {/* </AnimationHandler> */}
-      <AnimationHandler initial="hidden" animate="visible" variants={textAnimation}><span className={`mt-8 semibold as-title`}>Hello friend.</span></AnimationHandler>
+      <AnimationHandler className={"mt-8"} initial="hidden" animate="visible" variants={textAnimation}><span className={`semibold as-title`}>Hello friend.</span></AnimationHandler>
     </div>
   );
 }
