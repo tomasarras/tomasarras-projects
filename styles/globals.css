@@ -9,6 +9,10 @@
     overflow: hidden;
 }
 
+.cursor-pointer {
+    cursor: pointer;
+}
+
 .content {
     margin-left: 0;
     transition: margin-left 0.3s ease-in-out; 

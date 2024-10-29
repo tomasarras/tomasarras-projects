@@ -1,8 +1,7 @@
 "use client"
 
-import { Dialog, DialogPanel, Transition, TransitionChild } from '@headlessui/react'
-import { XMarkIcon } from '@heroicons/react/24/solid'
 import Modal from './Modal'
+import axios from '../../axios/axiosInstance'
 import { Input } from '../Form/Input/Input'
 import { Textarea } from '../Form/Input/Textarea'
 import { useEffect, useState } from 'react'
@@ -19,27 +18,22 @@ export default function ModalCreateApp({ onSubmit, token, setToken, ...props }) 
   const handleSelectFile = async (file) => {
     const reader = new FileReader();
     reader.onloadend = () => {
-      setFileAsBase64(reader.result);
+      setFileAsBase64(reader.result.split(",")[1]);
     };
     reader.readAsDataURL(file);
   }
 
   const uploadFile = async () => {
     if (!fileAsBase64) return
-    const body = {
-      imgBase64: fileAsBase64
-    }
-    const url = process.env.NEXT_PUBLIC_AUTH_SERVER
-    const response = await fetch(`${url}/api/auth/upload-img`, {
-      method:'POST',
+    const body = { imgBase64: fileAsBase64 }
+    const response = await axios.post(`/api/auth/upload-img`, body, {
       headers: {
         Authorization: "Bearer " + token
       },
-      body: JSON.stringify(body)
     })
-    const result = await response.json()
+    const result = await response.data
     setToken(result.newToken)
-    return result.url
+    return result
   }
 
   useEffect(() => {
@@ -50,8 +44,13 @@ export default function ModalCreateApp({ onSubmit, token, setToken, ...props }) 
   const handleOnSubmit = async (e) => {
     e.preventDefault()
     let img = null
+    let tkn = token
     if (fileUploadPromise != null) {
-      img = await fileUploadPromise
+      const response = await fileUploadPromise
+      if (response) {
+        img = response.url
+        tkn = response.newToken
+      }
     }
     onSubmit({
       name,
@@ -59,7 +58,13 @@ export default function ModalCreateApp({ onSubmit, token, setToken, ...props }) 
       password,
       secretOtp: secretOtp === '' ? null : secretOtp,
       img,
-    })
+    }, tkn)
+    setName('')
+    setDescription('')
+    setPassword('')
+    setSecretOtp('')
+    setFileAsBase64(null)
+    setFileUploadPromise(null)
   }
 
   return <Modal size='3xl' {...props}>

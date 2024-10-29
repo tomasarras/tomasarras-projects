@@ -1,8 +1,9 @@
 import React from 'react'
+import { Input } from '../Form/Input/Input'
 
 export const Search = ({ value, onChange }) => {
   return (
-    <input
+    <Input
       type="text"
       placeholder="Search..."
       value={value}
