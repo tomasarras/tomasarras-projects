@@ -3,11 +3,22 @@ import lockImage from '../../public/lock.png'
 import Image from 'next/image'
 import s from './auth.module.css'
 import { AppsList } from '../../components/Apps/AppsList'
+import { Search } from '../../components/Search/Search'
+import { PlusButton } from '../../components/Buttons/SidebarButton/PlusButton'
+import ModalCreateApp from '../../components/Modal/ModalCreateApp'
+import { Input } from '../../components/Form/Input/Input'
 
 export default function Auth() { 
   const [password, setPassword] = useState('')
   const [token, setToken] = useState(null)
   const [apps, setApps] = useState([])
+  const [searchValue, setSearchValue] = useState('')
+  const [isModalOpen, setIsModalOpen] = useState(false)
+
+  const createApp = async (e) => {
+
+    console.log(e, 'app');
+  }
 
   const handleOnKeyDown = async e => {
     if (e.key === 'Enter') {
@@ -49,9 +60,21 @@ export default function Auth() {
           <div className={s.centerX}>
             <Image className={s.logo}  src={lockImage} alt='lock'/>
           </div>
-          <input type='password' className={s.input} value={password} onKeyDown={handleOnKeyDown} onChange={e => setPassword(e.target.value)} />
+          <Input type='password' value={password} onKeyDown={handleOnKeyDown} onChange={e => setPassword(e.target.value)} />
         </div>
       </div>
-    : <AppsList apps={apps} onDelete={handleDelete}/>
+    : <>
+    <Search value={searchValue} onChange={setSearchValue}/>
+    <AppsList apps={apps} onDelete={handleDelete}/>
+    <PlusButton onClick={() => setIsModalOpen(true)}/>
+    <ModalCreateApp 
+      token={token}
+      setToken={setToken}
+      isOpen={isModalOpen} 
+      close={() => setIsModalOpen(false)} 
+      title={'New App'}
+      onSubmit={createApp}
+    />
+  </>
   
 }

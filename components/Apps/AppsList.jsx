@@ -7,7 +7,7 @@ export const AppsList = ({ apps, onDelete }) => {
       {apps.map(app => (
         <div key={app.id} className="flex items-center justify-between p-4 bg-white rounded shadow-md">
           <div className="flex items-center space-x-4">
-            <img src={app.image} alt={app.name} className="w-16 h-16 object-cover rounded" />
+            <img src={app.imgBase64} alt={app.name} className={`${!app.imgBase64 && 'hidden'} w-16 h-16 object-cover rounded`} />
             <div>
               <h2 className="text-lg font-semibold">{app.name}</h2>
               <p className="text-sm text-gray-500">{app.description}</p>
