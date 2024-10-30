@@ -1,0 +1,22 @@
+.center {
+  justify-content: center;
+  align-items: center;
+}
+
+.screen {
+  height: 100vh;  
+}
+
+.flex, .centerX {
+  display: flex;
+}
+
+.centerX {
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.logo {
+  max-width: 128px;
+  max-height: 128px;
+}
