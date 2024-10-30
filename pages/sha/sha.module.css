@@ -1,0 +1,7 @@
+.shaResultContainer {
+    overflow-wrap: break-word;
+}
+
+.shaResultContainer span {
+    font-weight: bold;
+}

@@ -1,6 +1,0 @@
-.radial {
-    content: '';
-    position: absolute;
-    /* background: radial-gradient(ellipse farthest-corner at 45px 45px, var(--gradial-circle-radiants), rgba(0, 0, 0, 0) 100%);  */
-    background: radial-gradient(circle 315px, var(--gradial-circle-radiants), #040404 100%)
-}
