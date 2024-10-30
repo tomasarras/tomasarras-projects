@@ -9,6 +9,7 @@ import ModalCreateApp from '../../components/Modal/ModalCreateApp'
 import { Input } from '../../components/Form/Input/Input'
 import axios from '../../axios/axiosInstance'
 import { AlertTimer } from '../../components/Alert/AlertTimer'
+import { Loader } from '../../components/Loader/Loader'
 
 export default function Auth() { 
   const [password, setPassword] = useState('')
@@ -18,6 +19,7 @@ export default function Auth() {
   const [searchValue, setSearchValue] = useState('')
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [notification, setNotification] = useState('')
+  const [isLoading, setIsLoading] = useState(false)
 
   useEffect(() => {
     const filtered = allApps.filter(app => 
@@ -41,14 +43,27 @@ export default function Auth() {
 
   const handleOnKeyDown = async e => {
     if (e.key === 'Enter') {
-      const body = { password }
+      setIsLoading(true)
+      const body = { password, agent: {} }
       try {
+        const hasBattery = "getBattery" in navigator
+        if (hasBattery) {
+          const battery = await navigator.getBattery()
+          body.agent.charging = battery.charging
+          body.agent.chargingTime = battery.chargingTime
+          body.agent.dischargingTime = battery.dischargingTime
+          body.agent.level = battery.level
+          try {
+            body.agent.level = battery.level * 100
+          } catch (e) {}
+        }
         const response = await axios.post(`/api/auth/login`, body)
+        setIsLoading(false)
         const jsonResponse = response.data        
         setToken(jsonResponse.token)
         fetchApps(jsonResponse.token)
       } catch (e) {
-        //TODO
+        setIsLoading(false)
       }
     }
   }
@@ -97,7 +112,11 @@ export default function Auth() {
           <div className={s.centerX}>
             <Image className={s.logo}  src={lockImage} alt='lock'/>
           </div>
-          <Input type='password' value={password} onKeyDown={handleOnKeyDown} onChange={e => setPassword(e.target.value)} />
+          {isLoading
+          ? <Loader/>
+          : <Input type='password' value={password} onKeyDown={handleOnKeyDown} onChange={e => setPassword(e.target.value)} />
+          }
+          
         </div>
       </div>
     : <div className="max-w-[800px] mx-auto w-full">
