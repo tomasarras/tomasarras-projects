@@ -2,12 +2,10 @@
 import React, { createContext, useCallback, useEffect, useRef, useState } from "react";
 import { getRequestAnimationFrame, easeInOutCirc } from "../utils/utils";
 import { animationScrollDuration } from "../constants/Constants"
-import { useTheme } from "next-themes";
 
 export const Context = createContext();
 
 export const Provider = ({ children, locale }) => {
-    const { setTheme, resolvedTheme } = useTheme()
     const [currentPage, setCurrentPage] = useState(0);
     const [skillsHighlightedType, setSkillsHighlightedType] = useState(null);
     const [scrollY, setScrollY] = useState(0);
