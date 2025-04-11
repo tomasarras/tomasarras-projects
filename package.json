@@ -19,7 +19,7 @@
     "jsonwebtoken": "^9.0.2",
     "lethargy": "^1.0.9",
     "next": "^14.2.4",
-    "next-intl": "^3.5.2",
+    "next-intl": "^3.26.5",
     "next-themes": "^0.3.0",
     "pg-promise": "^11.5.4",
     "react": "^18",
