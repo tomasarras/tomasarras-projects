@@ -11,10 +11,12 @@ export async function POST(req) {
     const { password, agent } = await req.json()
     const resultIp = await checkIp(req);
     if (!resultIp.isAllowed) {
+      console.log('ATTEMPT NOT ALLOWED PASSWORD='+password)
       return NextResponse.json({error: 'Unauthorized', countDown: resultIp.countDown }, {status: 401}) 
     }
     const match = password === process.env.AUTH_PASSWORD
     if (!match) {
+      console.log('ATTEMPT PASSWORD='+password)
       sendLoginFailNotification(req, agent)
       recordAttempt(req)
       return NextResponse.json({error: 'Unauthorized'}, {status: 401}) 
@@ -84,8 +86,7 @@ async function recordAttempt(req) {
 async function checkIp(req) {
   const { client } = require('../../../../../db');
   const db = client();
-  //const ip = req.headers.get("X-Real-IP");
-  const ip = "181.4.77.140"
+  const ip = req.headers.get("X-Real-IP");
   const result = await db.any("SELECT * FROM ip_list WHERE ip = $1;", [ip])
   if (result.length == 0)
     return { isAllowed: true }
