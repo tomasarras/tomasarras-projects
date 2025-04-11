@@ -14,7 +14,7 @@ export default function Experience() {
         className='xxl:flex xxl:items-center lg:col-span-4 xxl:col-span-6 2xl:col-span-4'>
         <div>
           <div className='flex items-center w-100 flex-col mb-6'>
-            <h1 className='mb-4 text-5xl font-bold'>{t("title")}</h1>
+            <h2 className='mb-4 text-5xl font-bold'>{t("title")}</h2>
             <div className='title-underline'></div>
           </div>
           <p className='mb-10'>{t("description")}</p>

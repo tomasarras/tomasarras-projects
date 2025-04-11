@@ -94,7 +94,7 @@ export default function Skills() {
           className='sm:col-span-6 md:col-span-5 2xl:col-span-4'
         >
           <div className='flex items-center w-100 flex-col mb-6'>
-            <h1 className='mb-4 text-5xl font-bold'>{t("title")}</h1>
+            <h2 className='mb-4 text-5xl font-bold'>{t("title")}</h2>
             <div className='title-underline'></div>
           </div>
           <p>{t("description")}</p>

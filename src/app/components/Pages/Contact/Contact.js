@@ -45,7 +45,7 @@ export default function Contact() {
     2xl:col-span-4`}
   >
     <div className='flex items-center w-100 flex-col mb-6'>
-      <h1 className='mb-4 text-5xl font-bold'>{t("title")}</h1>
+      <h2 className='mb-4 text-5xl font-bold'>{t("title")}</h2>
       <div className='title-underline'></div>
     </div>
     <div className={`mt-4 mb-8 md:hidden relative flex md:mt-0 col-span-1 md:flex col-start-7 col-span-6 md:col-span-5 lg:col-span-6 lg:col-start-7 flex-col items-center justify-center w-full`}>
