@@ -9,11 +9,10 @@ import Experience from "@/app/components/Pages/Experience/Experience";
 import Portfolio from "@/app/components/Pages/Portfolio/Portfolio";
 import Contact from "@/app/components/Pages/Contact/Contact";
 import { animationScrollDuration } from "@/app/Constants";
-import RadialDecorators from "@/app/components/Decorators/RadialDecorators";
-import { unstable_setRequestLocale } from 'next-intl/server';
+import { setRequestLocale } from 'next-intl/server';
 
 export default function Home({ params: { locale } }) {
-  unstable_setRequestLocale(locale);
+  setRequestLocale(locale);
 
   return (
     <Provider>
