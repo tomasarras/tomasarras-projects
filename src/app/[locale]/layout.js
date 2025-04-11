@@ -17,7 +17,7 @@ const canonicalUrl = baseUrl + '/es'
 
 export default function RootLayout({ children, params: { locale } }) {
   unstable_setRequestLocale(locale);
-  //TODO: lethargy dependency
+  
   return (
     <html lang={locale} suppressHydrationWarning>
       <head>
