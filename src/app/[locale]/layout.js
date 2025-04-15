@@ -1,6 +1,6 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { locales } from "@/i18n";
+import { locales } from "@/i18n/request";
 import { setRequestLocale } from 'next-intl/server';
 import Provider from "../providers/ThemeProvider";
 import { useTranslations } from 'next-intl';
