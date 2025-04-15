@@ -54,9 +54,9 @@ export default function RootLayout({ children, params: { locale } }) {
           <link key={loc} rel="alternate" hrefLang={loc} href={`${baseUrl}/${loc}`}/>)}
         <link rel="canonical" href={baseUrl} />
 
+        <title>{t("title")}</title>
         <meta name="twitter:card" content="summary_large_image" />
-        <meta property="title" content={t("title")} />
-        <meta property="description" content={t("description")} />
+        <meta name="description" content={t("description")} />
         <meta property="keywords" content={t("keywords")} />
         <meta property="og:title" content={t("openGraph.title")} />
         <meta property="og:description" content={t("openGraph.description")} />
