@@ -13,7 +13,6 @@ export const metadata = {
 
 const supportedLocales = ['en', 'es']
 const baseUrl = 'https://tomasarras.com.ar'
-const canonicalUrl = baseUrl + '/es'
 
 export default function RootLayout({ children, params: { locale } }) {
   setRequestLocale(locale);
@@ -21,9 +20,10 @@ export default function RootLayout({ children, params: { locale } }) {
   return (
     <html lang={locale} suppressHydrationWarning>
       <head>
+        <link rel="alternate" hrefLang='es' href={`${baseUrl}`}/>
         {supportedLocales.map(loc =>
           <link key={loc} rel="alternate" hrefLang={loc} href={`${baseUrl}/${loc}`}/>)}
-        <link rel="canonical" href={canonicalUrl} />
+        <link rel="canonical" href={baseUrl} />
         <meta property="og:title" content="Tomas Arras - Portfolio" />
         <meta property="og:description" content="Diseñador/Desarrollador" />
         <meta property="og:image" content="https://tomasarras.com.ar/portrait/contact3.png" />
