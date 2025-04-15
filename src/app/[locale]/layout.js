@@ -46,10 +46,9 @@ export default function RootLayout({ children, params: { locale } }) {
 
         {/* interlinking (para SEO) TODO: agregar links que lleven a distintas secciones de la pagina */}
 
-        {/* alternate y canonical (para SEO) */}
-        <link rel="alternate" hrefLang='es' href={`${baseUrl}`}/>
         {/* TODO: un alternate para m.tomasarras.com.ar */}
         {/* <link rel="alternate" media="only screen and (max-width: 640px)"/> */}
+        {/* alternate y canonical (para SEO) */}
         {supportedLocales.map(loc =>
           <link key={loc} rel="alternate" hrefLang={loc} href={`${baseUrl}/${loc}`}/>)}
         <link rel="canonical" href={baseUrl} />
