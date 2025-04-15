@@ -28,8 +28,8 @@ export default function About() {
         2xl:col-span-4`}
       >
         <div className='flex items-center w-100 flex-col mb-6'>
-          <h1 className='mb-3 font-bold'>{t("title")} 👋</h1>
-          <h2 className='mb-6'>Full Stack Web Developer</h2>
+          <h2 className='mb-3 font-bold'>{t("title")} 👋</h2>
+          <h1 className='mb-6'>Full Stack Web Developer</h1>
           <div className='title-underline'></div>
         </div>
         <p className='mb-7'>{t("description")}</p>

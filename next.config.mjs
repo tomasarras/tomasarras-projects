@@ -5,6 +5,7 @@ const withNextIntl = createNextIntlPlugin();
 /** @type {import('next').NextConfig} */
 //TODO origins
 const nextConfig = {
+  poweredByHeader: false,
   async headers() {
     return [
       {

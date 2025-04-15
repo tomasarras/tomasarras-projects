@@ -1,4 +1,14 @@
 {
+    "metatags": {
+        "title": "Desarrollador Web Full Stack | React, Spring Boot, Node.js",
+        "description": "Tomas Arras Full Stack Developer, desarrollador de aplicaciones WEB",
+        "keywords": "desarrollador full stack,desarrollo web,Spring Boot,React,Express.js,Sequelize,MySql,PostgreSQL,frontend,backend,Node.js,aplicaciones web,API REST,desarrollo a medida,programador freelance,JavaScript,desarrollo de software,soluciones web escalables,diseño web responsivo,programación full stack,bases de datos SQL,backend robusto,desarrollo moderno",
+        "openGraph": {
+            "title": "Tomas Arras - Portfolio",
+            "description": "Diseñador/Desarrollador",
+            "siteName": "Desarrollador Web Full Stack - Tomas Arras"
+        }
+    },
     "buttons": {
         "see-code": "Ver codigo"
     },
@@ -28,7 +38,7 @@
                 "link": "https://www.certisur.com/",
                 "title": "Desarrollador BackEnd en ",
                 "description": "Desarrollo de microservicios utilizados para firma digital y emisión de certificados digitales.",
-                "time": "Febrero 2022 - 2024 (presente)"
+                "time": "Febrero 2022 - 2025 (presente)"
             },
             "taggify": {
                 "link": "https://www.taggify.net/es",
