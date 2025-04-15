@@ -7,7 +7,7 @@ import Provider from "../providers/ThemeProvider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Tomas Arras - Desarrollador Portfolio",
+  title: "Desarrollador Web Full Stack | React, Spring Boot, Node.js",
   description: "Tomas Arras Full Stack Developer, desarrollador de aplicaciones WEB",
 };
 
@@ -21,7 +21,6 @@ export default function RootLayout({ children, params: { locale } }) {
   return (
     <html lang={locale} suppressHydrationWarning>
       <head>
-        <title>Desarrollador Web Full Stack | React, Spring Boot, Node.js</title>
         {supportedLocales.map(loc =>
           <link key={loc} rel="alternate" hrefLang={loc} href={`${baseUrl}/${loc}`}/>)}
         <link rel="canonical" href={canonicalUrl} />
@@ -30,7 +29,6 @@ export default function RootLayout({ children, params: { locale } }) {
         <meta property="og:image" content="https://tomasarras.com.ar/portrait/contact3.png" />
         <meta property="og:url" content="https://tomasarras.com.ar" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="description" content="Tomas Arras Full Stack Developer, desarrollador de aplicaciones modernas, escalables y a medida" />
         <meta name="keywords" content="desarrollador full stack, desarrollo web, React, Spring Boot, Express.js, Sequelize, MySQL, PostgreSQL, frontend, backend, aplicaciones web, API REST, desarrollo a medida, programador freelance, JavaScript, Node.js, desarrollo de software, soluciones web escalables, diseño web responsivo, programación full stack, bases de datos SQL, backend robusto, desarrollo moderno"/>
         <meta name="next-size-adjust" content=""/>
         <link
