@@ -52,6 +52,7 @@ export default function RootLayout({ children, params: { locale } }) {
         {supportedLocales.map(loc =>
           <link key={loc} rel="alternate" hrefLang={loc} href={`${baseUrl}/${loc}`}/>)}
         <link rel="canonical" href={baseUrl} />
+        <link rel="alternate" href={baseUrl} hreflang="x-default" />
 
         <title>{t("title")}</title>
         <meta name="twitter:card" content="summary_large_image" />
