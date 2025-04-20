@@ -1,6 +1,7 @@
 {
     "short_name": "Tomas Arras",
     "name": "Tomas Arras",
+    "description": "Portfolio de Tomas Arras, desarrollador full stack",
     "icons": [
       {
         "src": "favicon.ico",
