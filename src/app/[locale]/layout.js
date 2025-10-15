@@ -23,8 +23,6 @@ export default function RootLayout({ children, params: { locale } }) {
   return (
     <html lang={locale} suppressHydrationWarning>
       <head>
-        <link rel={t("see-code")} type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
-
         {/* FAVICONS */}
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
