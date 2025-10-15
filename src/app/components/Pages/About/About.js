@@ -29,7 +29,7 @@ export default function About() {
       >
         <div className='flex items-center w-100 flex-col mb-6'>
           <h2 className='mb-3 font-bold text-3xl'>{t("title")} 👋</h2>
-          <h1 className='mb-6 text-2xl'>Full Stack Web Developer</h1>
+          <h1 className='mb-6 text-2xl'>Software Engineer</h1>
           <div className='title-underline'></div>
         </div>
         <p className='mb-7'>{t("description")}</p>

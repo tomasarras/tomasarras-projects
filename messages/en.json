@@ -1,12 +1,12 @@
 {
     "metatags": {
-        "title": "Full Stack WEB Developer | React, Spring Boot, Node.js",
+        "title": "Software Engineer | React, Spring Boot, Node.js",
         "description": "Tomas Arras Full Stack Developer, application  WEB developer",
         "keywords": "full stack developer,web development,Spring Boot,React,Express.js,Sequelize,MySql,PostgreSQL,frontend,backend,Node.js,web applications,API REST,custom development,freelance programmer,JavaScript,software developer,scalable web solutions,responsive web design,full stack programming,SQL database,robust backend,modern development",
         "openGraph": {
             "title": "Tomas Arras - Portfolio",
             "description": "Designer/Developer",
-            "siteName": "Full Stack WEB Developer - Tomas Arras"
+            "siteName": "Software Engineer - Tomas Arras"
         }
     },
     "buttons": {
