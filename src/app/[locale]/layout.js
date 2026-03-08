@@ -64,10 +64,29 @@ export default function RootLayout({ children, params: { locale } }) {
         <meta property="og:image" content="https://tomasarras.com.ar/portrait/contact3.png" />
         {/* TODO: cambiar og:image  */}
         <meta property="og:type" content="blog" />
+        
+        {/* Preconnect para recursos externos */}
+        <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+        <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
+        
+        {/* Cargar CSS de forma no bloqueante */}
+        <link
+          rel="preload"
+          as="style"
+          href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.0.0/css/flag-icons.min.css"
+        />
         <link
           rel="stylesheet"
           href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.0.0/css/flag-icons.min.css"
+          media="print"
+          onLoad="this.media='all'"
         />
+        <noscript>
+          <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.0.0/css/flag-icons.min.css"
+          />
+        </noscript>
         
         {/* Structured Data JSON-LD */}
         <script type="application/ld+json" dangerouslySetInnerHTML={{

@@ -13,9 +13,11 @@ const nextConfig = {
   swcMinify: true,
   compress: true,
   optimizeFonts: true,
+  output: 'standalone',
   
   // Optimizaciones de producción
   productionBrowserSourceMaps: false,
+  reactStrictMode: true,
   
   // Optimizaciones de imágenes
   images: {
@@ -26,6 +28,56 @@ const nextConfig = {
   // Configuración de compilación optimizada
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
+  },
+  
+  // Optimizaciones experimentales para reducir JavaScript
+  experimental: {
+    optimizePackageImports: ['framer-motion', '@heroicons/react', '@headlessui/react'],
+  },
+  
+  // Configuración de webpack para optimizar chunks
+  webpack: (config, { isServer }) => {
+    if (!isServer) {
+      // Optimizar splitting de código
+      config.optimization = {
+        ...config.optimization,
+        splitChunks: {
+          chunks: 'all',
+          cacheGroups: {
+            default: false,
+            vendors: false,
+            // Vendor chunk para librerías grandes
+            framework: {
+              name: 'framework',
+              chunks: 'all',
+              test: /[\\/]node_modules[\\/](react|react-dom|scheduler|next)[\\/]/,
+              priority: 40,
+              enforce: true,
+            },
+            // Chunk para librerías de UI
+            lib: {
+              test: /[\\/]node_modules[\\/]/,
+              name(module) {
+                const packageName = module.context.match(
+                  /[\\/]node_modules[\\/](.*?)([\\/]|$)/
+                )?.[1];
+                return `npm.${packageName?.replace('@', '')}`;
+              },
+              priority: 30,
+              minChunks: 1,
+              reuseExistingChunk: true,
+            },
+            // Chunk común para código compartido
+            commons: {
+              name: 'commons',
+              minChunks: 2,
+              priority: 20,
+            },
+          },
+        },
+      };
+    }
+    return config;
   },
   
   async headers() {
