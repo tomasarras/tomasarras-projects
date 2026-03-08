@@ -23,11 +23,11 @@
     },
     "About": {
         "title": "Hola, Soy Tomas Arras",
-        "description": "Un apasionado desarrollador web especializado en la creacion de soluciones tanto en el frontend como en el backend. Soy un aficionado a la tecnologia y tengo las habilidades para traducir ideas en codigo para crear experencias digitales y funcionales."
+        "description": "Un apasionado desarrollador web full stack especializado en la creación de soluciones innovadoras tanto en el frontend como en el backend. Con experiencia en React, Spring Boot, Node.js y tecnologías web modernas, transformo ideas en experiencias digitales robustas, escalables y funcionales. Desarrollo aplicaciones web responsivas, APIs RESTful y soluciones de software completas que resuelven problemas del mundo real."
     },
     "Skills": {
         "title": "Habilidades",
-        "description": "Mi caja de herramientas está llena de lenguajes de programación, frameworks y tecnologías modernas. Desde el frontend con React, Vue, Bootstrap, Tailwind hasta el backend con Spring, Laravel, ExpressJS, estoy equipado para abordar una variedad de proyectos desafiantes."
+        "description": "Mi completa caja de herramientas está llena de lenguajes de programación, frameworks y tecnologías modernas que me permiten construir soluciones web completas. Desde el desarrollo frontend con React, Vue, Bootstrap y Tailwind CSS hasta el desarrollo backend con Spring Boot, Laravel y Express.js, estoy completamente equipado para abordar una amplia variedad de proyectos desafiantes."
     },
     "Experience": {
         "title": "Experiencia",
@@ -64,7 +64,7 @@
         "slides": {
             "one": {
                 "title": "Portafolio",
-                "description": "He desarrollado distintos tipos de aplicaciones, con distintas tecnologias, con aplicaciones web interactivas construidas con tecnologías front-end como React y Angular. Estos proyectos reflejan mi destreza técnica y también mi enfoque en crear soluciones orientadas al usuario, siempre manteniendo un estándar de código limpio y modular."
+                "description": "He desarrollado distintos tipos de aplicaciones web utilizando diversas tecnologías y frameworks modernos. Mi portafolio incluye aplicaciones web interactivas construidas con tecnologías front-end de vanguardia como React, Angular y Vue.js, combinadas con potentes soluciones backend utilizando Spring Boot, Node.js y Express.js. Estos proyectos demuestran mi experiencia técnica en desarrollo full stack y muestran mi compromiso con la creación de soluciones orientadas al usuario con estándares de código limpio, mantenible y modular. Cada proyecto refleja las mejores prácticas en ingeniería de software, diseño web responsivo y metodologías de desarrollo modernas."
             },
             "two": {
                 "description": "Una aplicacion similar a Spotify, donde se puede ver y buscar artistas, playlist, albums de distintos artistas. Esta aplicacion es un Demo no funcional desarrollado con Angular con el fin de replicar una aplicacion."
