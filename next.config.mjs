@@ -13,7 +13,6 @@ const nextConfig = {
   swcMinify: true,
   compress: true,
   optimizeFonts: true,
-  output: 'standalone',
   
   // Optimizaciones de producción
   productionBrowserSourceMaps: false,
@@ -35,18 +34,21 @@ const nextConfig = {
     optimizePackageImports: ['framer-motion', '@heroicons/react', '@headlessui/react'],
   },
   
-  // Configuración de webpack para optimizar chunks
+  // Configuración de webpack para reducir archivos JS
   webpack: (config, { isServer }) => {
     if (!isServer) {
-      // Optimizar splitting de código
+      // Configuración agresiva para unificar chunks
       config.optimization = {
         ...config.optimization,
         splitChunks: {
           chunks: 'all',
+          maxInitialRequests: 5,
+          maxAsyncRequests: 5,
+          minSize: 40000,
           cacheGroups: {
             default: false,
             vendors: false,
-            // Vendor chunk para librerías grandes
+            // Framework chunk (React + Next.js)
             framework: {
               name: 'framework',
               chunks: 'all',
@@ -54,26 +56,26 @@ const nextConfig = {
               priority: 40,
               enforce: true,
             },
-            // Chunk para librerías de UI
+            // Todas las demás librerías en un solo chunk
             lib: {
               test: /[\\/]node_modules[\\/]/,
-              name(module) {
-                const packageName = module.context.match(
-                  /[\\/]node_modules[\\/](.*?)([\\/]|$)/
-                )?.[1];
-                return `npm.${packageName?.replace('@', '')}`;
-              },
+              name: 'vendors',
+              chunks: 'all',
               priority: 30,
-              minChunks: 1,
-              reuseExistingChunk: true,
+              enforce: true,
             },
-            // Chunk común para código compartido
+            // Código compartido de la aplicación
             commons: {
               name: 'commons',
               minChunks: 2,
               priority: 20,
+              reuseExistingChunk: true,
+              enforce: true,
             },
           },
+        },
+        runtimeChunk: {
+          name: 'runtime',
         },
       };
     }
