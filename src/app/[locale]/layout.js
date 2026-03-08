@@ -20,6 +20,8 @@ const baseUrl = 'https://tomasarras.com.ar'
 export default function RootLayout({ children, params: { locale } }) {
   setRequestLocale(locale);
   const t = useTranslations("metatags")
+  const canonicalUrl = locale === 'es' ? baseUrl : `${baseUrl}/${locale}`;
+  
   return (
     <html lang={locale} suppressHydrationWarning>
       <head>
@@ -48,8 +50,8 @@ export default function RootLayout({ children, params: { locale } }) {
         {/* <link rel="alternate" media="only screen and (max-width: 640px)"/> */}
         {/* alternate y canonical (para SEO) */}
         {supportedLocales.map(loc =>
-          <link key={loc} rel="alternate" hrefLang={loc} href={`${baseUrl}/${loc}`}/>)}
-        <link rel="canonical" href={baseUrl} />
+          <link key={loc} rel="alternate" hrefLang={loc} href={loc === 'es' ? baseUrl : `${baseUrl}/${loc}`}/>)}
+        <link rel="canonical" href={canonicalUrl} />
         <link rel="alternate" href={baseUrl} hreflang="x-default" />
 
         <title>{t("title")}</title>
@@ -66,6 +68,35 @@ export default function RootLayout({ children, params: { locale } }) {
           rel="stylesheet"
           href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.0.0/css/flag-icons.min.css"
         />
+        
+        {/* Structured Data JSON-LD */}
+        <script type="application/ld+json" dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "mainEntityOfPage": "https://tomasarras.com.ar",
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Tomas Arras",
+            "url": canonicalUrl,
+            "image": "https://tomasarras.com.ar/portrait/contact3.png",//TODO: cambiar foto
+            "jobTitle": locale === 'es' ? "Desarrollador Web Full Stack" : "Full Stack Web Developer",
+            "description": t("description"),
+            "sameAs": [
+              "https://www.linkedin.com/in/tomasarras",
+              "https://github.com/tomasarras"
+            ],
+            "knowsAbout": ["React", "Spring Boot", "Node.js", "Express.js", "PostgreSQL", "MySQL", "JavaScript", "Web Development", "Full Stack Development"],
+            "alumniOf": {
+              "@type": "EducationalOrganization",
+              "name": "Universidad Nacional del Centro de la Provincia de Buenos Aires",
+              "url": "https://www.unicen.edu.ar"
+            },
+            "worksFor": {
+              "@type": "Organization",
+              "name": "Certisur",
+              "url": "https://www.certisur.com"
+            }
+          })
+        }} />
       </head>
       <body className={inter.className}>
         <Provider>{children}</Provider>
