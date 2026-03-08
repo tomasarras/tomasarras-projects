@@ -29,7 +29,7 @@ export default function WorkTimeline() {
           <Badge>Spring</Badge>
           <Badge>Vue</Badge>
         </Item>
-        {/* <Item i={1} total={4} time={t("taggify.time")} title={<>{t("taggify.title")}<a href={t("taggify.link")} className='as-link dark:text-blue-500 hover:underline hover'>Taggify</a></>}>
+        <Item i={1} total={4} time={t("taggify.time")} title={<>{t("taggify.title")}<a href={t("taggify.link")} className='as-link dark:text-blue-500 hover:underline hover'>Taggify</a></>}>
           <p className='text-gray-500 dark:text-gray-400 mb-3'>
             {t("taggify.description")}
           </p>
@@ -43,7 +43,7 @@ export default function WorkTimeline() {
           </p>
           <Badge>Spring</Badge>
           <Badge>NextJS</Badge>
-        </Item> */}
+        </Item>
         <Item i={1} total={4} time={t("unicen.time")} title={<>{t("unicen.title")}<a href={t("unicen.link")} className='as-link dark:text-blue-500 hover:underline hover'>UNICEN</a> {t("unicen.title2")}</>} last>
           <p className='text-gray-500 dark:text-gray-400 mb-3'>{t("unicen.description")}</p>
         </Item>
