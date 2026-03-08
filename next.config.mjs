@@ -1,13 +1,45 @@
 import createNextIntlPlugin from 'next-intl/plugin';
- 
+import withBundleAnalyzer from '@next/bundle-analyzer';
+
 const withNextIntl = createNextIntlPlugin();
+
+const bundleAnalyzer = withBundleAnalyzer({
+  enabled: process.env.ANALYZE === 'true',
+});
  
 /** @type {import('next').NextConfig} */
-//TODO origins
 const nextConfig = {
   poweredByHeader: false,
+  swcMinify: true,
+  compress: true,
+  optimizeFonts: true,
+  
+  // Optimizaciones de producción
+  productionBrowserSourceMaps: false,
+  
+  // Optimizaciones de imágenes
+  images: {
+    formats: ['image/avif', 'image/webp'],
+    minimumCacheTTL: 60,
+  },
+  
+  // Configuración de compilación optimizada
+  compiler: {
+    removeConsole: process.env.NODE_ENV === 'production',
+  },
+  
   async headers() {
     return [
+      {
+        // Aplicar headers de cache a assets estáticos
+        source: '/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
       {
         // Routes this applies to
         source: "/api/(.*)",
@@ -25,8 +57,6 @@ const nextConfig = {
           {
             key: "Access-Control-Allow-Origin",
             value: process.env.ALLOWED_ORIGIN,
-            // DOES NOT WORK
-            // value: process.env.ALLOWED_ORIGIN,
           },
           // Allows for specific methods accepted
           {
@@ -43,4 +73,4 @@ const nextConfig = {
   },
 };
  
-export default withNextIntl(nextConfig);
+export default withNextIntl(bundleAnalyzer(nextConfig));
