@@ -4,6 +4,7 @@ import { locales } from "@/i18n/request";
 import { setRequestLocale } from 'next-intl/server';
 import Provider from "../providers/ThemeProvider";
 import { useTranslations } from 'next-intl';
+import Script from 'next/script';
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -106,6 +107,24 @@ export default function RootLayout({ children, params: { locale } }) {
         }} />
       </head>
       <body className={inter.className}>
+        {/* Google Analytics 4 */}
+        <Script
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"
+        />
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-C9TZZJ5VPL');
+            `,
+          }}
+        />
+        
         <Provider>{children}</Provider>
       </body>
     </html>
