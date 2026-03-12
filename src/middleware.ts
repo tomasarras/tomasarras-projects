@@ -1,17 +1,33 @@
 import createMiddleware from 'next-intl/middleware';
+import { NextResponse } from 'next/server';
 
- 
-export default createMiddleware({
-  // A list of all locales that are supported
+const intlMiddleware = createMiddleware({
   locales: ['en', 'es'],
- 
-  // Used when no locale matches
   defaultLocale: 'es',
-  localePrefix: 'as-needed'
+  localePrefix: 'always'
 });
- 
+
+export default function middleware(request) {
+  const { pathname } = request.nextUrl;
+  
+  // Verificar si ya tiene locale
+  const hasLocale = /^\/(en|es)(\/|$)/.test(pathname);
+  
+  // Si tiene locale o es raíz, usar middleware normal
+  if (hasLocale || pathname === '/') {
+    return intlMiddleware(request);
+  }
+  
+  // Para rutas sin locale, hacer rewrite interno al locale por defecto
+  // Esto permite que Next.js use el 404 del locale sin cambiar la URL visible
+  const url = request.nextUrl.clone();
+  url.pathname = `/es${pathname}`;
+  
+  // Rewrite interno (no cambia la URL del navegador)
+  return NextResponse.rewrite(url);
+}
+
 export const config = {
-  // Match only internationalized pathnames, exclude static files
   matcher: [
     '/',
     '/(es|en)/:path*',
