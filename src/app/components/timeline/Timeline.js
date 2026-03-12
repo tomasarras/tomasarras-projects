@@ -24,12 +24,12 @@ export default function WorkTimeline() {
   return (
     <div>
       <ol className={`md:grid md:grid-cols-2 ${styles.ol}`}>  
-        <Item i={0} total={4} time={t("certisur.time")} title={<>{t("certisur.title")}<a href={t("certisur.link")} className='as-link dark:text-blue-500 hover:underline hover'>CertiSur</a></>} first>
+        <Item i={0} total={4} time={t("certisur.time")} title={<>{t("certisur.title")}<a href={t("certisur.link")} target="_blank" rel="noopener noreferrer" className='as-link dark:text-blue-500 hover:underline hover'>CertiSur</a></>} first>
           <p className='text-gray-500 dark:text-gray-400 mb-3'>{t("certisur.description")}</p>
           <Badge>Spring</Badge>
           <Badge>Vue</Badge>
         </Item>
-        <Item i={1} total={4} time={t("taggify.time")} title={<>{t("taggify.title")}<a href={t("taggify.link")} className='as-link dark:text-blue-500 hover:underline hover'>Taggify</a></>}>
+        <Item i={1} total={4} time={t("taggify.time")} title={<>{t("taggify.title")}<a href={t("taggify.link")} target="_blank" rel="noopener noreferrer" className='as-link dark:text-blue-500 hover:underline hover'>Taggify</a></>}>
           <p className='text-gray-500 dark:text-gray-400 mb-3'>
             {t("taggify.description")}
           </p>
@@ -37,14 +37,14 @@ export default function WorkTimeline() {
           <Badge>React</Badge>
           <Badge>ExpressJS</Badge>
         </Item>
-        <Item i={2} total={4} time={t("ideaas.time")} title={<>{t("ideaas.title")}<a href="https://www.ideaas.com.ar/" className='as-link dark:text-blue-500 hover:underline hover'>IDEAAS</a></>}>
+        <Item i={2} total={4} time={t("ideaas.time")} title={<>{t("ideaas.title")}<a href="https://www.ideaas.com.ar/" target="_blank" rel="noopener noreferrer" className='as-link dark:text-blue-500 hover:underline hover'>IDEAAS</a></>}>
           <p className='text-gray-500 dark:text-gray-400 mb-3'>
             {t("ideaas.description")}
           </p>
           <Badge>Spring</Badge>
           <Badge>NextJS</Badge>
         </Item>
-        <Item i={1} total={4} time={t("unicen.time")} title={<>{t("unicen.title")}<a href={t("unicen.link")} className='as-link dark:text-blue-500 hover:underline hover'>UNICEN</a> {t("unicen.title2")}</>} last>
+        <Item i={1} total={4} time={t("unicen.time")} title={<>{t("unicen.title")}<a href={t("unicen.link")} target="_blank" rel="noopener noreferrer" className='as-link dark:text-blue-500 hover:underline hover'>UNICEN</a> {t("unicen.title2")}</>} last>
           <p className='text-gray-500 dark:text-gray-400 mb-3'>{t("unicen.description")}</p>
         </Item>
       </ol>
