@@ -110,7 +110,7 @@ export default function RootLayout({ children, params: { locale } }) {
         {/* Google Analytics 4 */}
         <Script
           strategy="afterInteractive"
-          src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"
+          src="https://www.googletagmanager.com/gtag/js?id=G-C9TZZJ5VPL"
         />
         <Script
           id="google-analytics"
