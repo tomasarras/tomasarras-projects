@@ -66,27 +66,15 @@ export default function RootLayout({ children, params: { locale } }) {
         <meta property="og:type" content="blog" />
         
         {/* Preconnect para recursos externos */}
-        <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+        <link rel="preconnect" href="https://cdn.jsdelivr.net" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
         
-        {/* Cargar CSS de forma no bloqueante */}
-        <link
-          rel="preload"
-          as="style"
-          href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.0.0/css/flag-icons.min.css"
-        />
+        {/* Cargar CSS de forma estándar */}
         <link
           rel="stylesheet"
           href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.0.0/css/flag-icons.min.css"
-          media="print"
-          onLoad="this.media='all'"
+          crossOrigin="anonymous"
         />
-        <noscript>
-          <link
-            rel="stylesheet"
-            href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.0.0/css/flag-icons.min.css"
-          />
-        </noscript>
         
         {/* Structured Data JSON-LD */}
         <script type="application/ld+json" dangerouslySetInnerHTML={{
