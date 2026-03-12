@@ -1,22 +1,31 @@
 export default function sitemap() {
+  const baseUrl = 'https://tomasarras.com.ar';
+  const lastModified = new Date();
+
   return [
     {
-      url: 'https://tomasarras.com.ar/es',
-      lastModified: new Date(),
+      url: `${baseUrl}/es`,
+      lastModified,
+      changeFrequency: 'monthly',
+      priority: 1,
       alternates: {
         languages: {
-          'en': 'https://tomasarras.com.ar/en',
+          en: `${baseUrl}/en`,
+          'x-default': `${baseUrl}/en`,
         },
       },
     },
     {
-      url: 'https://tomasarras.com.ar/en',
-      lastModified: new Date(),
+      url: `${baseUrl}/en`,
+      lastModified,
+      changeFrequency: 'monthly',
+      priority: 1,
       alternates: {
         languages: {
-          'es': 'https://tomasarras.com.ar/es',
+          es: `${baseUrl}/es`,
+          'x-default': `${baseUrl}/en`,
         },
       },
     },
-  ]
+  ];
 }
