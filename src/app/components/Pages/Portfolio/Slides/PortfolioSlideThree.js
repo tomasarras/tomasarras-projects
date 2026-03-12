@@ -17,7 +17,7 @@ export default function PortfolioSlideThree() {
         xl:col-span-5 xl:mt-8
         2xl:col-start-2 2xl:mt-0`}>
         <PortfolioSlideThreeDots/>
-        <Image src={desktop} alt="laptop-calid-burn" className='w-10/12 sm:w-full'/>
+        <Image src={desktop} alt="laptop-calid-burn" className='w-10/12 sm:w-full' loading="lazy" sizes="(max-width: 640px) 83vw, (max-width: 768px) 42vw, (max-width: 1024px) 50vw, (max-width: 1280px) 50vw, 42vw"/>
       </div>
       <div className='mt-8 sm:mt-0 
         col-span-12 

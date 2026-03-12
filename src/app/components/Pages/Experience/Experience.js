@@ -20,7 +20,7 @@ export default function Experience() {
           <p className='mb-10'>{t("description")}</p>
           <div className='hidden lg:flex justify-center'>
             <div className='sm:w-8/12 lg:w-full xl:w-8/12'>
-              <Image src={experienceImageIllustration} alt='illustration'/>
+              <Image src={experienceImageIllustration} alt='illustration' loading="lazy" sizes="(max-width: 1024px) 0vw, (max-width: 1280px) 100vw, 66vw"/>
             </div>
           </div>
         </div>

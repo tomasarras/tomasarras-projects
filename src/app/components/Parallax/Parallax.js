@@ -82,7 +82,7 @@ export default function Parallax() {
     </motion.div>
     <motion.div {...animationT(size.height *.1, 3)} className={`hidden sm:block ${styles.tomasarras}`} style={{top: tomasarrasTop}}>
       <div style={{width: size.width * 0.2, height: size.width * 0.2}}>
-        <Image src={portraitDeco} alt='Tomas Arras'/>
+        <Image src={portraitDeco} alt='Tomas Arras' loading="lazy" sizes="20vw"/>
       </div>
     </motion.div>
     <motion.div {...animationT(size.height *.5, 2)}  className={`hidden sm:block ${styles.lines3}`} style={{top: lines3Top}}>
@@ -96,17 +96,17 @@ export default function Parallax() {
     </motion.div>
     <motion.div {...horizontalAnimation(size.height *.2, 0)} className={`hidden sm:block ${styles.triangle}`} style={{top: triangleTop}}>
       <div style={{width: size.width * 0.05, height:size.width * 0.05}}>
-        <Image src={triangle} className='filter-accent' alt='triangle'/>
+        <Image src={triangle} className='filter-accent' alt='triangle' loading="lazy" sizes="5vw"/>
       </div>
     </motion.div>
     <motion.div {...horizontalAnimation(size.height *.2, 1, size.width/1.5)} className={`hidden sm:block ${styles.circle}`} style={{top: circleTop}}>
       <div style={{width: size.width * 0.05, height:size.width * 0.05}}>
-        <Image src={circle} className='filter-accent-secondary' alt='circle'/>
+        <Image src={circle} className='filter-accent-secondary' alt='circle' loading="lazy" sizes="5vw"/>
       </div>
     </motion.div>
     <motion.div {...horizontalAnimation(size.height *.2, 2, size.width/1.3)} className={`hidden sm:block ${styles.box}`} style={{top: boxTop}}>
       <div style={{width: size.width * 0.05, height:size.width * 0.05}}>
-        <Image src={box} className='filter-accent rotate-45' alt='box'/>
+        <Image src={box} className='filter-accent rotate-45' alt='box' loading="lazy" sizes="5vw"/>
       </div>
     </motion.div>    
     <motion.div {...animationT(size.height *.2, 5)}  className={`hidden sm:block ${styles.lines4}`} style={{top: lines6Top}}>

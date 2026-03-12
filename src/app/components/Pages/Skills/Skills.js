@@ -112,9 +112,9 @@ export default function Skills() {
               <div className={`hidden sm:block ${styles.dotsDesktop} ${styles.dots} absolute t-0 l-0 w-full h-50`}/>
               <ScrollWhileInViewAnimation page={2} intensity={.4}>
                 <HighlightedTypeImages>
-                  <Image src={frontendImgDecoration} alt='front-end' loading="lazy"/>
-                  <Image className="absolute top-0" src={devopsImgDecoration} alt='devops' loading="lazy"/>
-                  <Image className="absolute top-0" src={backendImgDecoration} alt='backend' loading="lazy"/>
+                  <Image src={frontendImgDecoration} alt='front-end' loading="lazy" sizes="(max-width: 640px) 75vw, (max-width: 1024px) 100vw, 80vw"/>
+                  <Image className="absolute top-0" src={devopsImgDecoration} alt='devops' loading="lazy" sizes="(max-width: 640px) 75vw, (max-width: 1024px) 100vw, 80vw"/>
+                  <Image className="absolute top-0" src={backendImgDecoration} alt='backend' loading="lazy" sizes="(max-width: 640px) 75vw, (max-width: 1024px) 100vw, 80vw"/>
                 </HighlightedTypeImages>
               </ScrollWhileInViewAnimation>
             </div>
