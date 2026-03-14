@@ -22,9 +22,9 @@ export default function RootLayout({ children, params: { locale } }) {
   setRequestLocale(locale);
   const t = useTranslations("metatags")
   
-  // Para el layout principal, usamos la URL base como canónica
+  // Para el layout principal, inglés es el idioma principal
   // Las páginas específicas manejarán sus propias URLs canónicas
-  const canonicalUrl = locale === 'es' ? baseUrl : `${baseUrl}/${locale}`;
+  const canonicalUrl = locale === 'en' ? baseUrl : `${baseUrl}/${locale}`;
   
   return (
     <html lang={locale} suppressHydrationWarning>
@@ -54,7 +54,7 @@ export default function RootLayout({ children, params: { locale } }) {
         {/* <link rel="alternate" media="only screen and (max-width: 640px)"/> */}
         {/* alternate y canonical (para SEO) */}
         {supportedLocales.map(loc =>
-          <link key={loc} rel="alternate" hrefLang={loc} href={loc === 'es' ? baseUrl : `${baseUrl}/${loc}`}/>)}
+          <link key={loc} rel="alternate" hrefLang={loc} href={loc === 'en' ? baseUrl : `${baseUrl}/${loc}`}/>)}
         <link rel="canonical" href={canonicalUrl} />
         <link rel="alternate" href={baseUrl} hreflang="x-default" />
 
