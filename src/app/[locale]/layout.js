@@ -21,6 +21,9 @@ const baseUrl = 'https://tomasarras.com.ar'
 export default function RootLayout({ children, params: { locale } }) {
   setRequestLocale(locale);
   const t = useTranslations("metatags")
+  
+  // Para el layout principal, usamos la URL base como canónica
+  // Las páginas específicas manejarán sus propias URLs canónicas
   const canonicalUrl = locale === 'es' ? baseUrl : `${baseUrl}/${locale}`;
   
   return (
