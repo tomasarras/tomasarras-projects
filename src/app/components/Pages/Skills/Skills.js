@@ -112,9 +112,32 @@ export default function Skills() {
               <div className={`hidden sm:block ${styles.dotsDesktop} ${styles.dots} absolute t-0 l-0 w-full h-50`}/>
               <ScrollWhileInViewAnimation page={2} intensity={.4}>
                 <HighlightedTypeImages>
-                  <Image src={frontendImgDecoration} alt='front-end' loading="lazy" sizes="(max-width: 640px) 75vw, (max-width: 1024px) 100vw, 80vw"/>
-                  <Image className="absolute top-0" src={devopsImgDecoration} alt='devops' loading="lazy" sizes="(max-width: 640px) 75vw, (max-width: 1024px) 100vw, 80vw"/>
-                  <Image className="absolute top-0" src={backendImgDecoration} alt='backend' loading="lazy" sizes="(max-width: 640px) 75vw, (max-width: 1024px) 100vw, 80vw"/>
+                  <Image 
+                    src={frontendImgDecoration} 
+                    alt='front-end' 
+                    loading="lazy" 
+                    sizes="(max-width: 640px) 75vw, (max-width: 1024px) 80vw, 60vw"
+                    quality={85}
+                    placeholder="blur"
+                  />
+                  <Image 
+                    className="absolute top-0" 
+                    src={devopsImgDecoration} 
+                    alt='devops' 
+                    loading="lazy" 
+                    sizes="(max-width: 640px) 75vw, (max-width: 1024px) 80vw, 60vw"
+                    quality={85}
+                    placeholder="blur"
+                  />
+                  <Image 
+                    className="absolute top-0" 
+                    src={backendImgDecoration} 
+                    alt='backend' 
+                    loading="lazy" 
+                    sizes="(max-width: 640px) 75vw, (max-width: 1024px) 80vw, 60vw"
+                    quality={85}
+                    placeholder="blur"
+                  />
                 </HighlightedTypeImages>
               </ScrollWhileInViewAnimation>
             </div>
@@ -134,7 +157,10 @@ export default function Skills() {
                   <Image
                     className='h-full w-full'
                     src={icon.src}
-                    alt="icon"
+                    alt={icon.name}
+                    loading="lazy"
+                    sizes="(max-width: 640px) 10vw, (max-width: 1024px) 8vw, 6vw"
+                    quality={90}
                   />
                 </HighlightedDevIcon>
               </div>

@@ -107,10 +107,11 @@ export default function RootLayout({ children, params: { locale } }) {
         }} />
       </head>
       <body className={inter.className}>
-        {/* Google Analytics 4 */}
+        {/* Google Analytics 4 - Optimizado para no ser render-blocking */}
         <Script
           strategy="afterInteractive"
           src="https://www.googletagmanager.com/gtag/js?id=G-C9TZZJ5VPL"
+          async
         />
         <Script
           id="google-analytics"
