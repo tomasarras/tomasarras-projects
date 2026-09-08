@@ -1,6 +1,7 @@
 import styles from './Hero.module.css';
 import FaceLogo from '../../FaceLogo/FaceLogo';
 import AnimationHandler from '../../Utils/AnimationHandler';
+import Terminal from './Terminal';
 export default function Hero() {
   const faceAnimation = {
     hidden: {
@@ -38,7 +39,7 @@ export default function Hero() {
         <FaceLogo/>
       </div>
       {/* </AnimationHandler> */}
-      <AnimationHandler className={"mt-8"} initial="hidden" animate="visible" variants={textAnimation}><span className={`semibold as-title`}>Hello friend.</span></AnimationHandler>
+      <AnimationHandler className={"mt-8"} initial="hidden" animate="visible" variants={textAnimation}><Terminal/></AnimationHandler>
     </div>
   );
 }

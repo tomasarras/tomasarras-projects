@@ -2,3 +2,60 @@
     max-width: 270px;
     width: 100%;
 }
+
+.terminal {
+    width: min(90%, 420px);
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: var(--card-hover-background);
+    border: 1px solid rgba(128, 128, 128, 0.25);
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+}
+
+.terminalHeader {
+    display: flex;
+    gap: 6px;
+    padding: 8px 12px;
+    background-color: rgba(128, 128, 128, 0.12);
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.dotRed {
+    background-color: #ff5f56;
+}
+
+.dotYellow {
+    background-color: #ffbd2e;
+}
+
+.dotGreen {
+    background-color: #27c93f;
+}
+
+.terminalBody {
+    padding: 16px;
+    font-size: 1.1rem;
+    text-align: left;
+    min-height: 1.5em;
+}
+
+.prompt {
+    color: var(--accent-color-primary);
+    margin-right: 6px;
+}
+
+.cursor {
+    display: inline-block;
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
