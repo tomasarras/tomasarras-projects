@@ -1,0 +1,46 @@
+.wrapper {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(70px);
+    opacity: 0.35;
+}
+
+.blob1 {
+    width: 45vw;
+    height: 45vw;
+    max-width: 420px;
+    max-height: 420px;
+    background: var(--accent-color-primary);
+    top: 10%;
+    left: 10%;
+    animation: float1 14s ease-in-out infinite;
+}
+
+.blob2 {
+    width: 38vw;
+    height: 38vw;
+    max-width: 380px;
+    max-height: 380px;
+    background: var(--accent-color-secondary);
+    bottom: 8%;
+    right: 12%;
+    animation: float2 16s ease-in-out infinite;
+}
+
+@keyframes float1 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(6%, 8%) scale(1.12); }
+}
+
+@keyframes float2 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(-8%, -6%) scale(1.08); }
+}

@@ -1,22 +1,9 @@
-import styles from './Hero.module.css';
-import FaceLogo from '../../FaceLogo/FaceLogo';
 import AnimationHandler from '../../Utils/AnimationHandler';
-import Terminal from './Terminal';
-export default function Hero() {
-  const faceAnimation = {
-    hidden: {
-      y:100,
-      opacity:0
-    },
-    visible: {
-      y:0,
-      opacity:1,
-      transition: {
-        duration: 0.2
-      }
-    }
-  }
+import GradientBlob from './GradientBlob';
 
+const HERO_ROLE = 'Full Stack Developer';
+
+export default function Hero() {
   const textAnimation = {
     hidden: {
       y:100,
@@ -32,14 +19,12 @@ export default function Hero() {
   }
 
   return (
-    <div className='flex flex-col items-center justify-center h-full fl-1'>
-      {/* TODO: esta animacion la desactivo porque no se nota, ver si mejorarla */}
-      {/* <AnimationHandler isAnimationEnabled initial="hidden" animate="visible" variants={faceAnimation} className={styles.faceLogoContainer}> */}
-      <div className={styles.faceLogoContainer}>
-        <FaceLogo/>
-      </div>
-      {/* </AnimationHandler> */}
-      <AnimationHandler className={"mt-8"} initial="hidden" animate="visible" variants={textAnimation}><Terminal/></AnimationHandler>
+    <div className='flex flex-col items-center justify-center h-full fl-1 relative'>
+      <GradientBlob/>
+      <AnimationHandler className={"relative flex flex-col items-center gap-2"} initial="hidden" animate="visible" variants={textAnimation}>
+        <span className="semibold as-title" style={{ fontSize: 'clamp(2.5rem, 8vw, 5rem)' }}>Tomas Arras</span>
+        <span className="semibold theme-text-gray" style={{ fontSize: '1.3rem' }}>{HERO_ROLE}</span>
+      </AnimationHandler>
     </div>
   );
 }
