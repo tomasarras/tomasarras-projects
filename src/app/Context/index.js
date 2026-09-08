@@ -1,7 +1,7 @@
 "use client"
 import React, { createContext, useCallback, useEffect, useRef, useState } from "react";
 import { getRequestAnimationFrame, easeInOutCirc } from "../utils/utils";
-import { animationScrollDuration } from "../constants/Constants"
+import { animationScrollDuration, sectionSlugs } from "../constants/Constants"
 
 export const Context = createContext();
 
@@ -14,6 +14,7 @@ export const Provider = ({ children, locale }) => {
     const [portfolioIndex, setPortfolioIndex] = useState(0)
     const prevCurrentPageRef = useRef(0);
     const [beforeUpdateCurrentPageSubscriptors, setBeforeUpdateCurrentPageSubscriptors] = useState({})
+    const isFirstHashSync = useRef(true)
 
     const subscribeBeforeCurrentPageUpdated = (key, func) => {
         const newState = Object.assign({}, beforeUpdateCurrentPageSubscriptors)
@@ -100,7 +101,24 @@ export const Provider = ({ children, locale }) => {
             window.removeEventListener('scroll', handleScroll);
         };
     }, []);
-    
+
+    useEffect(() => {
+        const hash = window.location.hash.replace('#', '')
+        const index = sectionSlugs.indexOf(hash)
+        if (index > 0)
+            setCurrentPage(index)
+    }, []);
+
+    useEffect(() => {
+        if (isFirstHashSync.current) {
+            isFirstHashSync.current = false
+            return
+        }
+        const slug = sectionSlugs[currentPage]
+        const url = `${window.location.pathname}${window.location.search}${slug ? `#${slug}` : ''}`
+        window.history.replaceState(null, '', url)
+    }, [currentPage]);
+
     return (<Context.Provider value={{
         setCurrentPage,
         currentPage,
