@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import desktop from '../../../../../../public/portfolio/macbook-pro2.png'
 import GitHubButtonLink from '../../../Buttons/GitHubButtonLink';
+import LiveDemoButtonLink from '../../../Buttons/LiveDemoButtonLink';
 import PortfolioSlideThreeDots from '@/app/components/ClientSideRendering/PortfolioSlideThreeDots';
 import { useTranslations } from 'next-intl';
 
@@ -17,7 +18,7 @@ export default function PortfolioSlideThree() {
         xl:col-span-5 xl:mt-8
         2xl:col-start-2 2xl:mt-0`}>
         <PortfolioSlideThreeDots/>
-        <Image src={desktop} alt="laptop-calid-burn" className='w-10/12 sm:w-full' loading="lazy" sizes="(max-width: 640px) 83vw, (max-width: 768px) 42vw, (max-width: 1024px) 50vw, (max-width: 1280px) 50vw, 42vw"/>
+        <Image src={desktop} alt="laptop-pulsely" className='w-10/12 sm:w-full' loading="lazy" sizes="(max-width: 640px) 83vw, (max-width: 768px) 42vw, (max-width: 1024px) 50vw, (max-width: 1280px) 50vw, 42vw"/>
       </div>
       <div className='mt-8 sm:mt-0 
         col-span-12 
@@ -26,9 +27,12 @@ export default function PortfolioSlideThree() {
         lg:col-start-8 
         2xl:col-span-4 2xl:col-start-8 
         '>
-        <h2 className='text-center mb-4 semibold'>CalidBurn</h2>
+        <h2 className='text-center mb-4 semibold'>Pulsely</h2>
         <p>{t("description")}</p>
-        <GitHubButtonLink link="https://github.com/tomasarras/calidBurn" className="mt-8"/>
+        <div className="flex flex-wrap items-center gap-x-8 gap-y-4 mt-8">
+          <GitHubButtonLink link="https://github.com/tomasarras/saas-dashboard-demo"/>
+          <LiveDemoButtonLink link="https://pulsely.tomasarras.com.ar/"/>
+        </div>
       </div>
     </div>)
   

@@ -10,7 +10,9 @@
         }
     },
     "buttons": {
-        "see-code": "See code"
+        "see-code": "See code",
+        "see-demo": "See demo",
+        "see-more-projects": "See more projects"
     },
     "Header": {
         "mode": "Mode",
@@ -66,12 +68,68 @@
                 "description": "I have developed different types of web applications using various modern technologies and frameworks. My portfolio includes interactive web applications built with cutting-edge front-end technologies such as React, Angular, and Vue.js, combined with powerful backend solutions using Spring Boot, Node.js, and Express.js. These projects demonstrate my technical expertise in full stack development and showcase my commitment to creating user-oriented solutions with clean, maintainable, and modular code standards. Each project reflects best practices in software engineering, responsive web design, and modern development methodologies."
             },
             "two": {
-                "description": "An application similar to Spotify, where you can see and search for artists, playlists, albums from different artists. This application is a non-functional Demo developed with Angular in order to replicate an application."
+                "description": "A fictional restaurant-management demo covering orders, tables, delivery, sales, cash register, and stock, with role-based access (admin, waiter, cashier, host, delivery). Developed with Next.js, Prisma and PostgreSQL."
             },
             "three": {
-                "description": "It is a decentralized application (DApp) for buying and selling goods through SmartContracts on the Ethereum blockchain. It works through digital contracts where both parties agree between themselves. It is developed with React and Spring."
+                "description": "It is a fictional SaaS analytics dashboard with key metrics, user and revenue charts, a 7/30/90-day range selector, a users table, and a cohort retention funnel. Fully responsive, in dark mode. Developed with Next.js, React and Recharts."
+            },
+            "four": {
+                "title": "Want to see more?",
+                "description": "These are just a few highlights. Check out the rest of my projects."
             }
         }
+    },
+    "ProjectsPage": {
+        "backLink": "Back to portfolio",
+        "title": "Projects",
+        "subtitle": "A closer look at everything I've built.",
+        "projects": {
+            "aerofind": {
+                "title": "AeroFind",
+                "description": "A fictional flight search and booking demo, with an interactive map. No backend or real payments."
+            },
+            "butaca": {
+                "title": "Butaca",
+                "description": "A fictional event ticketing demo: event catalog with seat and ticket selection. No backend or real payments."
+            },
+            "pulsely": {
+                "title": "Pulsely",
+                "description": "A fictional SaaS analytics dashboard with key metrics, user and revenue charts, a 7/30/90-day range selector, a users table, and a cohort retention funnel. Fully responsive, in dark mode."
+            },
+            "flowboard": {
+                "title": "Flowboard",
+                "description": "A fictional Kanban board demo with drag-and-drop task management."
+            },
+            "mentora": {
+                "title": "Mentora",
+                "description": "A fictional online courses catalog with instructors, reviews, and seat availability."
+            },
+            "unibox": {
+                "title": "Unibox",
+                "description": "A fictional unified inbox for customer support teams, merging multiple messaging channels into one view."
+            },
+            "nidora": {
+                "title": "Nidora",
+                "description": "A fictional real estate portal with search, filters, and an interactive map."
+            },
+            "comanda": {
+                "title": "Comanda",
+                "description": "A fictional restaurant-management demo covering orders, tables, delivery, sales, cash register, and stock, with role-based access (admin, waiter, cashier, host, delivery)."
+            },
+            "hambry": {
+                "title": "Hambry",
+                "description": "A fictional food-delivery demo: restaurant catalog, cart, and order tracking, with dashboards for restaurants and delivery drivers."
+            },
+            "medora": {
+                "title": "Medora",
+                "description": "A fictional medical-appointments demo with booking by specialty, a front-desk dashboard, a doctor panel, and a patient portal."
+            },
+            "vestra": {
+                "title": "Vestra",
+                "description": "A fictional clothing-store demo with a catalog, cart, and an admin panel for products, categories, and coupons."
+            }
+        },
+        "previewPlaceholder": "Demo preview coming soon"
     },
     "Contact": {
         "title": "Contact",
