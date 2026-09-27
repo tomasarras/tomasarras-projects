@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import styles from './Projects.module.css';
 
@@ -22,6 +22,15 @@ export default function ProjectsShowcase({ projects, previewPlaceholder }) {
   useEffect(() => {
     setPreviewLayers(prev => (prev[prev.length - 1].slug === activeSlug ? prev : [...prev, active]))
   }, [activeSlug])
+
+  // Warm the image cache for the rest of the projects one at a time, in order,
+  // starting only once the first preview has actually loaded (avoids competing
+  // with it for bandwidth on slow connections).
+  const [preloadReady, setPreloadReady] = useState(false)
+  const [preloadIndex, setPreloadIndex] = useState(1)
+  const bootstrapped = useRef(false)
+  const advancePreload = () => setPreloadIndex(i => i + 1)
+  const preloadTarget = preloadReady && preloadIndex < projects.length ? projects[preloadIndex] : null
 
   return (<>
     <div className="grid grid-cols-1 md:grid-cols-2 lg:hidden gap-6">
@@ -79,10 +88,11 @@ export default function ProjectsShowcase({ projects, previewPlaceholder }) {
           </div>
         ))}
       </div>
-      <div className="col-span-7">
+      <div className="col-span-7 relative">
         <div className={`sticky top-28 ${styles.previewFrame}`}>
           {previewLayers.map((layer, i) => {
             const isTop = i === previewLayers.length - 1
+            const isInitial = i === 0 && previewLayers.length === 1
             return (
               <div
                 key={layer.slug}
@@ -90,7 +100,16 @@ export default function ProjectsShowcase({ projects, previewPlaceholder }) {
                 onAnimationEnd={isTop ? () => setPreviewLayers(prev => (prev.length > 1 ? prev.slice(-1) : prev)) : undefined}
               >
                 {layer.image
-                  ? <Image src={layer.image} alt={`${layer.title} preview`} fill className="object-contain" sizes="42vw" />
+                  ? (
+                    <Image
+                      src={layer.image}
+                      alt={`${layer.title} preview`}
+                      fill
+                      className="object-contain"
+                      sizes="42vw"
+                      onLoad={isInitial && !bootstrapped.current ? () => { bootstrapped.current = true; setPreloadReady(true) } : undefined}
+                    />
+                  )
                   : (
                     <div className={styles.previewPlaceholder}>
                       <span className={styles.previewInitial}>{layer.title.charAt(0)}</span>
@@ -101,6 +120,19 @@ export default function ProjectsShowcase({ projects, previewPlaceholder }) {
             )
           })}
         </div>
+        {preloadTarget?.image && (
+          <div className={styles.previewPreload} aria-hidden="true">
+            <Image
+              key={preloadTarget.slug}
+              src={preloadTarget.image}
+              alt=""
+              fill
+              sizes="42vw"
+              onLoad={advancePreload}
+              onError={advancePreload}
+            />
+          </div>
+        )}
       </div>
     </div>
   </>)
