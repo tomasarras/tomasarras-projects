@@ -5,17 +5,19 @@ import LiveDemoButtonLink from '../../Buttons/LiveDemoButtonLink';
 import ProjectsShowcase from './ProjectsShowcase';
 
 const projectsData = [
-  { slug: 'aerofind', repo: 'flight-booking-demo', demo: 'https://flightapp.tomasarras.com.ar/', tags: ['Next.js', 'React', 'Leaflet'], icon: null, image: null },
-  { slug: 'butaca', repo: 'event-tickets-demo', demo: 'https://butaca.tomasarras.com.ar/', tags: ['Next.js', 'React', 'QR'], icon: null, image: null },
-  { slug: 'pulsely', repo: 'saas-dashboard-demo', demo: 'https://pulsely.tomasarras.com.ar/', tags: ['Next.js', 'React', 'Recharts'], icon: null, image: null },
-  { slug: 'flowboard', repo: 'flowboard-demo', demo: 'https://flowboard.tomasarras.com.ar/', tags: ['Next.js', 'React', 'dnd-kit'], icon: null, image: null },
-  { slug: 'mentora', repo: 'mentora-demo', demo: 'https://mentora.tomasarras.com.ar/', tags: ['Next.js', 'React'], icon: null, image: null },
-  { slug: 'unibox', repo: 'unibox-demo', demo: 'https://unibox.tomasarras.com.ar/', tags: ['Next.js', 'React'], icon: null, image: null },
-  { slug: 'nidora', repo: 'nidora-demo', demo: 'https://nidora.tomasarras.com.ar/', tags: ['Next.js', 'React', 'Leaflet'], icon: null, image: null },
-  { slug: 'comanda', repo: 'comanda-demo', demo: 'https://comanda.tomasarras.com.ar/', tags: ['Next.js', 'Prisma', 'PostgreSQL'], icon: null, image: null },
-  { slug: 'hambry', repo: 'hambry-demo', demo: 'https://hambry.tomasarras.com.ar/', tags: ['Next.js', 'Prisma', 'PostgreSQL'], icon: null, image: null },
-  { slug: 'medora', repo: 'medora-demo', demo: 'https://medora.tomasarras.com.ar/', tags: ['Next.js', 'Prisma', 'PostgreSQL'], icon: null, image: null },
-  { slug: 'vestra', repo: 'vestra-demo', demo: 'https://vestra.tomasarras.com.ar/', tags: ['Next.js', 'Prisma', 'PostgreSQL', 'Vercel Blob'], icon: null, image: null },
+  { slug: 'comanda', repo: 'comanda-demo', demo: 'https://comanda.tomasarras.com.ar/', tags: ['Next.js', 'Prisma', 'PostgreSQL'], icon: '/portfolio/icons/comanda.png', image: '/portfolio/comanda.png' },
+  { slug: 'hambry', repo: 'hambry-demo', demo: 'https://hambry.tomasarras.com.ar/', tags: ['Next.js', 'Prisma', 'PostgreSQL'], icon: '/portfolio/icons/hambry.png', image: '/portfolio/hambry.png' },
+  { slug: 'vestra', repo: 'vestra-demo', demo: 'https://vestra.tomasarras.com.ar/', tags: ['Next.js', 'Prisma', 'PostgreSQL', 'Vercel Blob'], icon: '/portfolio/icons/vestra.png', image: '/portfolio/vestra.png' },
+  { slug: 'aerofind', repo: 'flight-booking-demo', demo: 'https://flightapp.tomasarras.com.ar/', tags: ['Next.js', 'React', 'Leaflet'], icon: '/portfolio/icons/aerofind.png', image: '/portfolio/aerofind.png' },
+  { slug: 'butaca', repo: 'event-tickets-demo', demo: 'https://butaca.tomasarras.com.ar/', tags: ['Next.js', 'React', 'QR'], icon: '/portfolio/icons/butaca.png', image: '/portfolio/butaca.png' },
+  { slug: 'pulsely', repo: 'saas-dashboard-demo', demo: 'https://pulsely.tomasarras.com.ar/', tags: ['Next.js', 'React', 'Recharts'], icon: '/portfolio/icons/pulsely.png', image: '/portfolio/macbook-pro2.png' },
+  { slug: 'flowboard', repo: 'flowboard-demo', demo: 'https://flowboard.tomasarras.com.ar/', tags: ['Next.js', 'React', 'dnd-kit'], icon: '/portfolio/icons/flowboard.png', image: '/portfolio/flowboard.png' },
+  { slug: 'mentora', repo: 'mentora-demo', demo: 'https://mentora.tomasarras.com.ar/', tags: ['Next.js', 'React'], icon: '/portfolio/icons/mentora.png', image: '/portfolio/mentora.png' },
+  { slug: 'unibox', repo: 'unibox-demo', demo: 'https://unibox.tomasarras.com.ar/', tags: ['Next.js', 'React'], icon: '/portfolio/icons/unibox.png', image: '/portfolio/unibox.png' },
+  { slug: 'nidora', repo: 'nidora-demo', demo: 'https://nidora.tomasarras.com.ar/', tags: ['Next.js', 'React', 'Leaflet'], icon: '/portfolio/icons/nidora.png', image: '/portfolio/nidora.png' },
+  { slug: 'medora', repo: 'medora-demo', demo: 'https://medora.tomasarras.com.ar/', tags: ['Next.js', 'Prisma', 'PostgreSQL'], icon: '/portfolio/icons/medora.png', image: '/portfolio/medora.png' },
+  { slug: 'spoilerfive', repo: 'angular-spoiler-five', demo: null, tags: ['Angular'], icon: null, image: '/portfolio/spoiler_five.png' },
+  { slug: 'calidburn', repo: 'calidBurn', demo: null, tags: ['React', 'Spring', 'Ethereum'], icon: null, image: '/portfolio/calidburn.png' },
 ]
 
 export default function Projects({ locale }) {
@@ -30,7 +32,7 @@ export default function Projects({ locale }) {
     title: t(`projects.${slug}.title`),
     description: t(`projects.${slug}.description`),
     githubButton: <GitHubButtonLink link={`https://github.com/tomasarras/${repo}`}/>,
-    demoButton: <LiveDemoButtonLink link={demo}/>,
+    demoButton: demo ? <LiveDemoButtonLink link={demo}/> : null,
   }))
 
   return (

@@ -1,10 +1,22 @@
-.card {
+.thumbCard {
     border: 1px solid rgba(128, 128, 128, 0.2);
-    transition: background-color 0.3s ease;
+    border-radius: 1rem;
+    overflow: hidden;
+    background-color: var(--card-hover-background);
+    box-shadow: 0 10px 24px -16px rgba(0, 0, 0, 0.35);
+    transition: border-color 0.3s ease;
 }
 
-.card:hover {
-    background-color: var(--card-hover-background);
+.thumbCard:hover {
+    border-color: var(--accent-color-primary);
+}
+
+.thumb {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.2);
+    overflow: hidden;
 }
 
 .tag {
@@ -46,13 +58,32 @@
 }
 
 .previewFrame {
-    position: relative;
-    top: 7rem;
     width: 100%;
     aspect-ratio: 16 / 10;
     border-radius: 1rem;
     overflow: hidden;
     border: 1px solid rgba(128, 128, 128, 0.2);
+    background-color: var(--card-hover-background);
+}
+
+.previewLayer {
+    position: absolute;
+    inset: 0;
+}
+
+.previewLayerEnter {
+    animation: previewFadeIn 0.4s ease forwards;
+}
+
+@keyframes previewFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .previewLayerEnter {
+        animation: none;
+    }
 }
 
 .previewPlaceholder {

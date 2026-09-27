@@ -127,6 +127,14 @@
             "vestra": {
                 "title": "Vestra",
                 "description": "A fictional clothing-store demo with a catalog, cart, and an admin panel for products, categories, and coupons."
+            },
+            "spoilerfive": {
+                "title": "Spoiler Five",
+                "description": "An application similar to Spotify, where you can see and search for artists, playlists, albums from different artists. This application is a non-functional Demo developed with Angular in order to replicate an application."
+            },
+            "calidburn": {
+                "title": "CalidBurn",
+                "description": "It is a decentralized application (DApp) for buying and selling goods through SmartContracts on the Ethereum blockchain. It works through digital contracts where both parties agree between themselves. It is developed with React and Spring."
             }
         },
         "previewPlaceholder": "Demo preview coming soon"

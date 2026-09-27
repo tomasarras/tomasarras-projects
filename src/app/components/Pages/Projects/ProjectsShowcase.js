@@ -1,8 +1,7 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { Card } from '../../Card/Card';
 import styles from './Projects.module.css';
 
 function ProjectIcon({ icon, title }) {
@@ -18,24 +17,41 @@ function ProjectIcon({ icon, title }) {
 export default function ProjectsShowcase({ projects, previewPlaceholder }) {
   const [activeSlug, setActiveSlug] = useState(projects[0].slug)
   const active = projects.find(p => p.slug === activeSlug)
+  const [previewLayers, setPreviewLayers] = useState([active])
+
+  useEffect(() => {
+    setPreviewLayers(prev => (prev[prev.length - 1].slug === activeSlug ? prev : [...prev, active]))
+  }, [activeSlug])
 
   return (<>
     <div className="grid grid-cols-1 md:grid-cols-2 lg:hidden gap-6">
-      {projects.map(({ slug, title, description, tags, icon, githubButton, demoButton }) => (
-        <Card key={slug} className={`flex flex-col ${styles.card}`}>
-          <div className="flex items-center gap-3 mb-2">
-            <ProjectIcon icon={icon} title={title} />
-            <h2 className="semibold">{title}</h2>
+      {projects.map(({ slug, title, description, tags, icon, image, githubButton, demoButton }) => (
+        <div key={slug} className={`flex flex-col ${styles.thumbCard}`}>
+          <div className={styles.thumb}>
+            {image
+              ? <Image src={image} alt={`${title} preview`} fill className="object-contain" sizes="(max-width: 768px) 100vw, 50vw" />
+              : (
+                <div className={styles.previewPlaceholder}>
+                  <span className={styles.previewInitial}>{title.charAt(0)}</span>
+                  <p className={styles.previewCaption}>{previewPlaceholder}</p>
+                </div>
+              )}
           </div>
-          <div className="flex flex-wrap gap-2 mb-4">
-            {tags.map(tag => <span key={tag} className={`theme-text-gray text-xs px-2 py-1 rounded-full ${styles.tag}`}>{tag}</span>)}
+          <div className="flex flex-col flex-1 p-4">
+            <div className="flex items-center gap-3 mb-2">
+              <ProjectIcon icon={icon} title={title} />
+              <h2 className="semibold">{title}</h2>
+            </div>
+            <div className="flex flex-wrap gap-2 mb-4">
+              {tags.map(tag => <span key={tag} className={`theme-text-gray text-xs px-2 py-1 rounded-full ${styles.tag}`}>{tag}</span>)}
+            </div>
+            <p className="theme-text-gray flex-1">{description}</p>
+            <div className="flex flex-wrap items-center gap-x-6 gap-y-3 mt-6">
+              {githubButton}
+              {demoButton}
+            </div>
           </div>
-          <p className="theme-text-gray flex-1">{description}</p>
-          <div className="flex flex-wrap items-center gap-x-6 gap-y-3 mt-6">
-            {githubButton}
-            {demoButton}
-          </div>
-        </Card>
+        </div>
       ))}
     </div>
 
@@ -64,15 +80,26 @@ export default function ProjectsShowcase({ projects, previewPlaceholder }) {
         ))}
       </div>
       <div className="col-span-7">
-        <div className={`sticky ${styles.previewFrame}`}>
-          {active.image
-            ? <Image src={active.image} alt={`${active.title} preview`} fill className="object-cover" sizes="42vw" />
-            : (
-              <div className={styles.previewPlaceholder}>
-                <span className={styles.previewInitial}>{active.title.charAt(0)}</span>
-                <p className={styles.previewCaption}>{previewPlaceholder}</p>
+        <div className={`sticky top-28 ${styles.previewFrame}`}>
+          {previewLayers.map((layer, i) => {
+            const isTop = i === previewLayers.length - 1
+            return (
+              <div
+                key={layer.slug}
+                className={`${styles.previewLayer} ${isTop && previewLayers.length > 1 ? styles.previewLayerEnter : ''}`}
+                onAnimationEnd={isTop ? () => setPreviewLayers(prev => (prev.length > 1 ? prev.slice(-1) : prev)) : undefined}
+              >
+                {layer.image
+                  ? <Image src={layer.image} alt={`${layer.title} preview`} fill className="object-contain" sizes="42vw" />
+                  : (
+                    <div className={styles.previewPlaceholder}>
+                      <span className={styles.previewInitial}>{layer.title.charAt(0)}</span>
+                      <p className={styles.previewCaption}>{previewPlaceholder}</p>
+                    </div>
+                  )}
               </div>
-            )}
+            )
+          })}
         </div>
       </div>
     </div>

@@ -69,17 +69,6 @@ export default function RootLayout({ children, params: { locale } }) {
         {/* TODO: cambiar og:image  */}
         <meta property="og:type" content="blog" />
         
-        {/* Preconnect para recursos externos */}
-        <link rel="preconnect" href="https://cdn.jsdelivr.net" crossOrigin="anonymous" />
-        <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
-        
-        {/* Cargar CSS de forma estándar */}
-        <link
-          rel="stylesheet"
-          href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.0.0/css/flag-icons.min.css"
-          crossOrigin="anonymous"
-        />
-        
         {/* Structured Data JSON-LD */}
         <script type="application/ld+json" dangerouslySetInnerHTML={{
           __html: JSON.stringify({
