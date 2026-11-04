@@ -6,10 +6,11 @@ import { useState } from 'react'
 
 const todayIso = () => new Date().toISOString().slice(0, 10)
 
-export default function ModalAddPayment({ isOpen, close, onSubmit, title }) {
+export default function ModalAddPayment({ isOpen, close, onSubmit, title, category }) {
   const [paymentDate, setPaymentDate] = useState(todayIso())
   const [amountArs, setAmountArs] = useState('')
   const [amountUsd, setAmountUsd] = useState('')
+  const [spyUnitsBought, setSpyUnitsBought] = useState('')
   const [note, setNote] = useState('')
   const [isSaving, setIsSaving] = useState(false)
 
@@ -20,11 +21,13 @@ export default function ModalAddPayment({ isOpen, close, onSubmit, title }) {
       paymentDate,
       amountArs: parseFloat(amountArs),
       amountUsd: parseFloat(amountUsd),
+      spyUnitsBought: category === 'sp500' ? parseFloat(spyUnitsBought || 0) : undefined,
       note: note || null,
     })
     setIsSaving(false)
     setAmountArs('')
     setAmountUsd('')
+    setSpyUnitsBought('')
     setNote('')
     setPaymentDate(todayIso())
   }
@@ -50,6 +53,21 @@ export default function ModalAddPayment({ isOpen, close, onSubmit, title }) {
           </label>
           <Input id="amountUsd" type="number" step="0.01" value={amountUsd} onChange={(e) => setAmountUsd(e.target.value)} required />
         </div>
+        {category === 'sp500' && (
+          <div className="mb-4">
+            <label className="items-start flex block text-gray-700 text-sm font-bold mb-2" htmlFor="spyUnitsBought">
+              Cantidad de CEDEARs comprados
+            </label>
+            <Input
+              id="spyUnitsBought"
+              type="number"
+              step="0.0001"
+              placeholder="ej: 15"
+              value={spyUnitsBought}
+              onChange={(e) => setSpyUnitsBought(e.target.value)}
+            />
+          </div>
+        )}
         <div className="mb-4">
           <label className="items-start flex block text-gray-700 text-sm font-bold mb-2" htmlFor="note">
             Nota (opcional)

@@ -227,7 +227,7 @@ export default function Finanzas() {
           </div>
           <StatsGrid stats={sp500Stats} />
           <div className="mt-6">
-            <PaymentsTable payments={sp500.payments} onDelete={deletePayment} />
+            <PaymentsTable payments={sp500.payments} onDelete={deletePayment} showUnits />
           </div>
         </div>
       )}
@@ -239,6 +239,7 @@ export default function Finanzas() {
         close={() => setIsAddModalOpen(false)}
         onSubmit={addPayment}
         title={activeTab === 'house' ? 'Nuevo pago de la casa' : 'Nuevo aporte a S&P500'}
+        category={activeTab}
       />
 
       <ModalSettings
@@ -252,6 +253,7 @@ export default function Finanzas() {
           sp500MonthlyTargetUsd: overview.settings.sp500_monthly_target_usd,
           sp500AnnualReturnPct: overview.settings.sp500_annual_return_pct,
           sp500RetirementGoalMonthlyUsd: overview.settings.sp500_retirement_goal_monthly_usd,
+          sp500CedearRatio: overview.settings.sp500_cedear_ratio,
         }}
         fields={
           activeTab === 'house'
@@ -263,6 +265,7 @@ export default function Finanzas() {
                 { key: 'sp500MonthlyTargetUsd', label: 'Aporte mensual (USD)' },
                 { key: 'sp500AnnualReturnPct', label: 'Rendimiento anual estimado (%)' },
                 { key: 'sp500RetirementGoalMonthlyUsd', label: 'Meta mensual de retiro (USD)' },
+                { key: 'sp500CedearRatio', label: 'Ratio CEDEAR:acción SPY (ej: 60)', step: '1' },
               ]
         }
       />
