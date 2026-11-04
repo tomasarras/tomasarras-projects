@@ -157,7 +157,7 @@ export default function Finanzas() {
       sub: overview.usdArsRate ? formatArs(sp500.totalInvestedUsd * overview.usdArsRate) : undefined,
     },
     {
-      label: 'Valor estimado hoy',
+      label: 'Valor actual hoy',
       value: formatUsd(sp500.currentValueUsd),
       sub: overview.usdArsRate ? formatArs(sp500.currentValueUsd * overview.usdArsRate) : undefined,
     },
