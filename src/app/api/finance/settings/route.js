@@ -8,6 +8,7 @@ const EDITABLE_FIELDS = {
   sp500MonthlyTargetUsd: 'sp500_monthly_target_usd',
   sp500AnnualReturnPct: 'sp500_annual_return_pct',
   sp500RetirementGoalMonthlyUsd: 'sp500_retirement_goal_monthly_usd',
+  sp500CedearRatio: 'sp500_cedear_ratio',
 };
 
 export async function PUT(req) {

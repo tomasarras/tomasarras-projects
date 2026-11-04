@@ -21,6 +21,12 @@ export async function init(db) {
     );`;
   const paymentTableSpyColumn = `
     ALTER TABLE finance_payment ADD COLUMN IF NOT EXISTS spy_price_at_payment NUMERIC;`;
+  // Cantidad de CEDEARs de SPY comprados en ese pago (no la fracción de acción real:
+  // eso se calcula dividiendo por sp500_cedear_ratio). Default 0 para pagos viejos
+  // que no la tenían registrada; el cálculo de valor exacto cae al estimado anterior
+  // para esos casos.
+  const paymentTableUnitsColumn = `
+    ALTER TABLE finance_payment ADD COLUMN IF NOT EXISTS spy_units_bought NUMERIC NOT NULL DEFAULT 0;`;
   const settingsTable = `
     CREATE TABLE IF NOT EXISTS finance_settings (
       id INT PRIMARY KEY DEFAULT 1 CHECK (id = 1),
@@ -29,8 +35,13 @@ export async function init(db) {
       sp500_monthly_target_usd NUMERIC NOT NULL DEFAULT 200,
       sp500_annual_return_pct NUMERIC NOT NULL DEFAULT 10,
       sp500_retirement_goal_monthly_usd NUMERIC NOT NULL DEFAULT 7000,
+      sp500_cedear_ratio NUMERIC NOT NULL DEFAULT 60,
       updated_at TIMESTAMPTZ DEFAULT NOW()
     );`;
+  // El emisor ajusta el ratio CEDEAR:subyacente cada tanto, por eso es configurable
+  // y no una constante en el código.
+  const settingsTableRatioColumn = `
+    ALTER TABLE finance_settings ADD COLUMN IF NOT EXISTS sp500_cedear_ratio NUMERIC NOT NULL DEFAULT 60;`;
   const ipListTable = `
     CREATE TABLE IF NOT EXISTS finance_ip_list (
       ip VARCHAR PRIMARY KEY,
@@ -41,7 +52,9 @@ export async function init(db) {
   try {
     await db.none(paymentTable);
     await db.none(paymentTableSpyColumn);
+    await db.none(paymentTableUnitsColumn);
     await db.none(settingsTable);
+    await db.none(settingsTableRatioColumn);
     await db.none(ipListTable);
     await db.none(`INSERT INTO finance_settings (id) VALUES (1) ON CONFLICT (id) DO NOTHING;`);
     initialized = true;

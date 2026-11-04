@@ -11,13 +11,20 @@ function sumUsd(payments) {
   return payments.reduce((total, p) => total + parseFloat(p.amount_usd), 0);
 }
 
-// Cada pago ya trae guardado el precio de SPY del día en que se cargó
-// (spy_price_at_payment), así que acá solo hace falta el precio actual para
-// sacar el factor de crecimiento real. Si algún pago no tiene ese precio
-// guardado (falló el fetch a Yahoo en su momento), cae a la tasa configurada.
-function estimateCurrentValueUsd(payments, annualReturnPct, now, latestSpyPrice) {
+// Si el pago tiene cargada la cantidad real de CEDEARs comprados, el valor exacto
+// sale de convertirla a acciones reales de SPY (dividiendo por el ratio CEDEAR:acción)
+// y multiplicando por el precio actual de SPY — no depende de a qué precio se
+// consiguió el CEDEAR ese día, que puede diferir del precio "teórico" por el spread
+// o el dólar implícito.
+// Si no la tiene (pagos viejos, cargados antes de este campo), cae al estimado
+// anterior: precio de SPY guardado ese día vs. hoy, y si falta, a la tasa configurada.
+function estimateCurrentValueUsd(payments, annualReturnPct, now, latestSpyPrice, cedearRatio) {
   const r = annualReturnPct / 100;
   return payments.reduce((total, p) => {
+    const unitsBought = parseFloat(p.spy_units_bought || 0);
+    if (unitsBought > 0 && latestSpyPrice != null && cedearRatio > 0) {
+      return total + (unitsBought / cedearRatio) * latestSpyPrice;
+    }
     const amount = parseFloat(p.amount_usd);
     const priceThen = p.spy_price_at_payment != null ? parseFloat(p.spy_price_at_payment) : null;
     if (latestSpyPrice != null && priceThen != null) {
@@ -49,6 +56,7 @@ export function computeSp500Stats(payments, settings, returnPctOverride, latestS
   const monthlyTargetUsd = parseFloat(settings.sp500_monthly_target_usd);
   const retirementGoalMonthlyUsd = parseFloat(settings.sp500_retirement_goal_monthly_usd);
   const annualReturnPct = returnPctOverride != null ? returnPctOverride : parseFloat(settings.sp500_annual_return_pct);
+  const cedearRatio = parseFloat(settings.sp500_cedear_ratio || 60);
   const totalInvestedUsd = sumUsd(payments);
 
   const now = new Date();
@@ -69,7 +77,7 @@ export function computeSp500Stats(payments, settings, returnPctOverride, latestS
   ) + monthlyTargetUsd * leftoverMonths;
 
   const projectedMonthlyIncomeUsd = (projectedRetirementFundUsd * (annualReturnPct / 100)) / 12;
-  const currentValueUsd = estimateCurrentValueUsd(payments, annualReturnPct, now, latestSpyPrice);
+  const currentValueUsd = estimateCurrentValueUsd(payments, annualReturnPct, now, latestSpyPrice, cedearRatio);
 
   return {
     monthlyTargetUsd,
