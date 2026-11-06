@@ -56,16 +56,21 @@ function retryUntilConditionOrTimeout(conditionFn, intervalMs, timeoutMs, db, id
 
       const interval = setInterval(async () => {
           const elapsedTime = Date.now() - startTime;
-          if (await conditionFn()) {
-              clearInterval(interval);
-              const login = await db.one(`SELECT status FROM login_2fa WHERE id = $1;`, [id])
-              if (login == null) {
-                resolve({ status: 'error' })
-              }
-              resolve({ status: login.status })
-          } else if (elapsedTime >= timeoutMs) {
-              clearInterval(interval);
-              resolve({ status: 'timeout' });
+          try {
+            if (await conditionFn()) {
+                clearInterval(interval);
+                const login = await db.one(`SELECT status FROM login_2fa WHERE id = $1;`, [id])
+                if (login == null) {
+                  resolve({ status: 'error' })
+                }
+                resolve({ status: login.status })
+            } else if (elapsedTime >= timeoutMs) {
+                clearInterval(interval);
+                resolve({ status: 'timeout' });
+            }
+          } catch (e) {
+            clearInterval(interval);
+            resolve({ status: 'error' });
           }
       }, intervalMs);
   });
